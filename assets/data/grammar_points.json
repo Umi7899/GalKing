@@ -1,0 +1,576 @@
+[
+    {
+        "grammarId": 101,
+        "lessonId": 1,
+        "name": "〜は〜です（名词判断句）",
+        "coreRule": "「A は B です」表示「A 是 B」，用于对主语进行判断或说明。",
+        "structure": "名词 + は + 名词 + です",
+        "mnemonic": "把は想象成一个聚光灯，照亮主语后面的内容。です是「礼貌的句号」。",
+        "examples": [
+            {
+                "jp": "わたしは学生です。",
+                "zhHint": "我是学生。"
+            },
+            {
+                "jp": "李さんは中国人です。",
+                "zhHint": "小李是中国人。"
+            },
+            {
+                "jp": "これは本です。",
+                "zhHint": "这是书。"
+            }
+        ],
+        "counterExamples": [
+            {
+                "jp": "× わたしが学生です。",
+                "zhHint": "（が用于强调，此处应用は）"
+            },
+            {
+                "jp": "× わたしは学生だ。",
+                "zhHint": "（だ是简体，正式场合用です）"
+            }
+        ],
+        "drills": [
+            {
+                "drillId": "g101_q1",
+                "type": "choice",
+                "stem": "わたし＿＿学生です。",
+                "options": [
+                    {
+                        "id": "a",
+                        "text": "は"
+                    },
+                    {
+                        "id": "b",
+                        "text": "が"
+                    },
+                    {
+                        "id": "c",
+                        "text": "を"
+                    },
+                    {
+                        "id": "d",
+                        "text": "に"
+                    }
+                ],
+                "correctId": "a",
+                "explanation": "「〜は〜です」是名词判断句的基本结构，主语用は标记。",
+                "grammarId": 101
+            },
+            {
+                "drillId": "g101_q2",
+                "type": "choice",
+                "stem": "田中さんは＿＿です。",
+                "options": [
+                    {
+                        "id": "a",
+                        "text": "日本人"
+                    },
+                    {
+                        "id": "b",
+                        "text": "日本人の"
+                    },
+                    {
+                        "id": "c",
+                        "text": "日本人を"
+                    },
+                    {
+                        "id": "d",
+                        "text": "日本人に"
+                    }
+                ],
+                "correctId": "a",
+                "explanation": "です前面直接接名词，不需要助词。",
+                "grammarId": 101
+            },
+            {
+                "drillId": "g101_q3",
+                "type": "judge",
+                "stem": "「わたしは先生だ」在正式场合也是正确的表达。",
+                "correctAnswer": "false",
+                "explanation": "「だ」是简体，在正式场合应使用「です」。",
+                "grammarId": 101
+            }
+        ],
+        "level": 1,
+        "tags": [
+            "判断句",
+            "基础"
+        ]
+    },
+    {
+        "grammarId": 102,
+        "lessonId": 1,
+        "name": "〜は〜ではありません（否定）",
+        "coreRule": "「A は B ではありません」表示「A 不是 B」，是名词判断句的否定形式。",
+        "structure": "名词 + は + 名词 + ではありません",
+        "mnemonic": "では＝de wa，ありません＝没有/不是。把它想成「关于这点，不存在」。",
+        "examples": [
+            {
+                "jp": "わたしは先生ではありません。",
+                "zhHint": "我不是老师。"
+            },
+            {
+                "jp": "これはペンではありません。",
+                "zhHint": "这不是钢笔。"
+            },
+            {
+                "jp": "田中さんは学生ではありません。",
+                "zhHint": "田中不是学生。"
+            }
+        ],
+        "counterExamples": [
+            {
+                "jp": "× わたしは先生じゃない。",
+                "zhHint": "（口语简体，正式场合用ではありません）"
+            }
+        ],
+        "drills": [
+            {
+                "drillId": "g102_q1",
+                "type": "choice",
+                "stem": "これは本＿＿。",
+                "options": [
+                    {
+                        "id": "a",
+                        "text": "ではありません"
+                    },
+                    {
+                        "id": "b",
+                        "text": "じゃない"
+                    },
+                    {
+                        "id": "c",
+                        "text": "ないです"
+                    },
+                    {
+                        "id": "d",
+                        "text": "ありません"
+                    }
+                ],
+                "correctId": "a",
+                "explanation": "名词否定句的礼貌形式是「ではありません」。",
+                "grammarId": 102
+            },
+            {
+                "drillId": "g102_q2",
+                "type": "choice",
+                "stem": "わたしは日本人＿＿。中国人です。",
+                "options": [
+                    {
+                        "id": "a",
+                        "text": "ではありません"
+                    },
+                    {
+                        "id": "b",
+                        "text": "です"
+                    },
+                    {
+                        "id": "c",
+                        "text": "でした"
+                    },
+                    {
+                        "id": "d",
+                        "text": "でしょう"
+                    }
+                ],
+                "correctId": "a",
+                "explanation": "先否定「不是日本人」，再肯定「是中国人」。",
+                "grammarId": 102
+            },
+            {
+                "drillId": "g102_q3",
+                "type": "judge",
+                "stem": "「ではありません」可以缩略为「じゃありません」。",
+                "correctAnswer": "true",
+                "explanation": "是的，「じゃありません」是「ではありません」的口语缩略形式。",
+                "grammarId": 102
+            }
+        ],
+        "level": 1,
+        "tags": [
+            "否定",
+            "基础"
+        ]
+    },
+    {
+        "grammarId": 103,
+        "lessonId": 1,
+        "name": "〜ですか（疑问）",
+        "coreRule": "在陈述句末尾加「か」构成疑问句，语调上扬。",
+        "structure": "陈述句 + か",
+        "mnemonic": "か就像英语的问号「?」，加上它就变成问句了！",
+        "examples": [
+            {
+                "jp": "あなたは学生ですか。",
+                "zhHint": "你是学生吗？"
+            },
+            {
+                "jp": "田中さんは先生ですか。",
+                "zhHint": "田中是老师吗？"
+            },
+            {
+                "jp": "これは辞書ですか。",
+                "zhHint": "这是词典吗？"
+            }
+        ],
+        "counterExamples": [
+            {
+                "jp": "× あなたは学生です？",
+                "zhHint": "（日语疑问必须用か，不能只靠语调）"
+            }
+        ],
+        "drills": [
+            {
+                "drillId": "g103_q1",
+                "type": "choice",
+                "stem": "田中さんは会社員です＿＿。",
+                "options": [
+                    {
+                        "id": "a",
+                        "text": "か"
+                    },
+                    {
+                        "id": "b",
+                        "text": "よ"
+                    },
+                    {
+                        "id": "c",
+                        "text": "ね"
+                    },
+                    {
+                        "id": "d",
+                        "text": "の"
+                    }
+                ],
+                "correctId": "a",
+                "explanation": "疑问句在句末加「か」。",
+                "grammarId": 103
+            },
+            {
+                "drillId": "g103_q2",
+                "type": "choice",
+                "stem": "回答「はい、そうです」的问句应该是：",
+                "options": [
+                    {
+                        "id": "a",
+                        "text": "これは本ですか。"
+                    },
+                    {
+                        "id": "b",
+                        "text": "これは本です。"
+                    },
+                    {
+                        "id": "c",
+                        "text": "これは本ではありません。"
+                    },
+                    {
+                        "id": "d",
+                        "text": "これは何ですか。"
+                    }
+                ],
+                "correctId": "a",
+                "explanation": "「はい、そうです」用于肯定回答是非疑问句。",
+                "grammarId": 103
+            },
+            {
+                "drillId": "g103_q3",
+                "type": "judge",
+                "stem": "日语疑问句可以不用「か」，只靠语调上扬来表示。",
+                "correctAnswer": "false",
+                "explanation": "在礼貌体中，疑问句必须使用「か」。",
+                "grammarId": 103
+            }
+        ],
+        "level": 1,
+        "tags": [
+            "疑问",
+            "基础"
+        ]
+    },
+    {
+        "grammarId": 201,
+        "lessonId": 2,
+        "name": "これ・それ・あれ（指示代词-物）",
+        "coreRule": "これ(这个)指近说话人的物，それ(那个)指近听话人的物，あれ(那个)指远离双方的物。",
+        "structure": "これ/それ/あれ + は + 名词 + です",
+        "mnemonic": "こ-近自己(close)，そ-近对方(someone else)，あ-远处(away)。",
+        "examples": [
+            {
+                "jp": "これは本です。",
+                "zhHint": "这是书。"
+            },
+            {
+                "jp": "それは何ですか。",
+                "zhHint": "那是什么？"
+            },
+            {
+                "jp": "あれは富士山です。",
+                "zhHint": "那是富士山。"
+            }
+        ],
+        "counterExamples": [
+            {
+                "jp": "× この本です。（想说「这是书」）",
+                "zhHint": "この是连体词，后面必须接名词"
+            }
+        ],
+        "drills": [
+            {
+                "drillId": "g201_q1",
+                "type": "choice",
+                "stem": "（指着自己手中的笔）＿＿はペンです。",
+                "options": [
+                    {
+                        "id": "a",
+                        "text": "これ"
+                    },
+                    {
+                        "id": "b",
+                        "text": "それ"
+                    },
+                    {
+                        "id": "c",
+                        "text": "あれ"
+                    },
+                    {
+                        "id": "d",
+                        "text": "どれ"
+                    }
+                ],
+                "correctId": "a",
+                "explanation": "说话人手中的东西用「これ」。",
+                "grammarId": 201
+            },
+            {
+                "drillId": "g201_q2",
+                "type": "choice",
+                "stem": "（指着远处的建筑）＿＿は東京タワーです。",
+                "options": [
+                    {
+                        "id": "a",
+                        "text": "あれ"
+                    },
+                    {
+                        "id": "b",
+                        "text": "これ"
+                    },
+                    {
+                        "id": "c",
+                        "text": "それ"
+                    },
+                    {
+                        "id": "d",
+                        "text": "その"
+                    }
+                ],
+                "correctId": "a",
+                "explanation": "远离说话人和听话人的事物用「あれ」。",
+                "grammarId": 201
+            },
+            {
+                "drillId": "g201_q3",
+                "type": "judge",
+                "stem": "「それ」用于指离听话人较近的事物。",
+                "correctAnswer": "true",
+                "explanation": "是的，それ用于指近听话人的事物。",
+                "grammarId": 201
+            }
+        ],
+        "level": 1,
+        "tags": [
+            "指示代词",
+            "基础"
+        ]
+    },
+    {
+        "grammarId": 202,
+        "lessonId": 2,
+        "name": "この・その・あの（连体词）",
+        "coreRule": "この/その/あの是连体词，必须后接名词，不能单独使用。",
+        "structure": "この/その/あの + 名词",
+        "mnemonic": "这些都带「の」，就像英语的「this+名词」结构。",
+        "examples": [
+            {
+                "jp": "この本は面白いです。",
+                "zhHint": "这本书很有趣。"
+            },
+            {
+                "jp": "その鞄は誰のですか。",
+                "zhHint": "那个包是谁的？"
+            },
+            {
+                "jp": "あの人は田中さんです。",
+                "zhHint": "那个人是田中。"
+            }
+        ],
+        "counterExamples": [
+            {
+                "jp": "× このは本です。",
+                "zhHint": "（この后面必须直接接名词）"
+            }
+        ],
+        "drills": [
+            {
+                "drillId": "g202_q1",
+                "type": "choice",
+                "stem": "＿＿本は日本語の本です。（指自己手边的书）",
+                "options": [
+                    {
+                        "id": "a",
+                        "text": "この"
+                    },
+                    {
+                        "id": "b",
+                        "text": "これ"
+                    },
+                    {
+                        "id": "c",
+                        "text": "その"
+                    },
+                    {
+                        "id": "d",
+                        "text": "あの"
+                    }
+                ],
+                "correctId": "a",
+                "explanation": "修饰名词时用「この」，不能用「これ」。",
+                "grammarId": 202
+            },
+            {
+                "drillId": "g202_q2",
+                "type": "choice",
+                "stem": "＿＿先生は優しいです。（远处的老师）",
+                "options": [
+                    {
+                        "id": "a",
+                        "text": "あの"
+                    },
+                    {
+                        "id": "b",
+                        "text": "この"
+                    },
+                    {
+                        "id": "c",
+                        "text": "その"
+                    },
+                    {
+                        "id": "d",
+                        "text": "あれ"
+                    }
+                ],
+                "correctId": "a",
+                "explanation": "修饰远处的人/物用「あの」。",
+                "grammarId": 202
+            },
+            {
+                "drillId": "g202_q3",
+                "type": "judge",
+                "stem": "「これ」和「この」可以互换使用。",
+                "correctAnswer": "false",
+                "explanation": "不能互换。これ单独用，この必须后接名词。",
+                "grammarId": 202
+            }
+        ],
+        "level": 1,
+        "tags": [
+            "连体词",
+            "基础"
+        ]
+    },
+    {
+        "grammarId": 203,
+        "lessonId": 2,
+        "name": "〜の（所属/属性）",
+        "coreRule": "「の」连接两个名词，表示所属、属性、内容等关系。",
+        "structure": "名词1 + の + 名词2",
+        "mnemonic": "の像一个连接棒，把两个名词紧密连在一起。类似英语的「of」或「's」。",
+        "examples": [
+            {
+                "jp": "わたしの本",
+                "zhHint": "我的书"
+            },
+            {
+                "jp": "日本語の先生",
+                "zhHint": "日语老师"
+            },
+            {
+                "jp": "大学の学生",
+                "zhHint": "大学的学生"
+            }
+        ],
+        "counterExamples": [
+            {
+                "jp": "× わたし本",
+                "zhHint": "（必须用の连接）"
+            }
+        ],
+        "drills": [
+            {
+                "drillId": "g203_q1",
+                "type": "choice",
+                "stem": "これは田中さん＿＿鞄です。",
+                "options": [
+                    {
+                        "id": "a",
+                        "text": "の"
+                    },
+                    {
+                        "id": "b",
+                        "text": "は"
+                    },
+                    {
+                        "id": "c",
+                        "text": "が"
+                    },
+                    {
+                        "id": "d",
+                        "text": "を"
+                    }
+                ],
+                "correctId": "a",
+                "explanation": "表示所属关系用「の」。",
+                "grammarId": 203
+            },
+            {
+                "drillId": "g203_q2",
+                "type": "choice",
+                "stem": "日本＿＿車は品質がいいです。",
+                "options": [
+                    {
+                        "id": "a",
+                        "text": "の"
+                    },
+                    {
+                        "id": "b",
+                        "text": "は"
+                    },
+                    {
+                        "id": "c",
+                        "text": "が"
+                    },
+                    {
+                        "id": "d",
+                        "text": "で"
+                    }
+                ],
+                "correctId": "a",
+                "explanation": "「日本の車」表示「日本的车」。",
+                "grammarId": 203
+            },
+            {
+                "drillId": "g203_q3",
+                "type": "judge",
+                "stem": "「の」只能表示所属关系。",
+                "correctAnswer": "false",
+                "explanation": "の还可以表示属性、内容、同位等多种关系。",
+                "grammarId": 203
+            }
+        ],
+        "level": 1,
+        "tags": [
+            "助词",
+            "基础"
+        ]
+    }
+]

@@ -1,0 +1,361 @@
+[
+    {
+        "sentenceId": 3001,
+        "text": "ねえ、先輩は日本人ですか？",
+        "styleTag": "gal",
+        "lessonId": 1,
+        "level": 1,
+        "grammarIds": [
+            101,
+            103
+        ],
+        "keyPoints": [
+            {
+                "id": "kp1",
+                "labelZh": "主语标记",
+                "expectedValueZh": "は标记主语「先輩」",
+                "hint": "注意は的用法"
+            },
+            {
+                "id": "kp2",
+                "labelZh": "疑问语气",
+                "expectedValueZh": "か表示疑问",
+                "hint": "句尾的か"
+            },
+            {
+                "id": "kp3",
+                "labelZh": "语气词",
+                "expectedValueZh": "ねえ表示呼唤/引起注意",
+                "hint": "开头的语气词"
+            }
+        ],
+        "blockingVocabIds": [
+            9007
+        ],
+        "tokens": [
+            "ねえ",
+            "、",
+            "先輩",
+            "は",
+            "日本人",
+            "です",
+            "か",
+            "？"
+        ]
+    },
+    {
+        "sentenceId": 3002,
+        "text": "えっと…わたしは学生じゃないよ。会社員です。",
+        "styleTag": "gal",
+        "lessonId": 1,
+        "level": 2,
+        "grammarIds": [
+            101,
+            102
+        ],
+        "keyPoints": [
+            {
+                "id": "kp1",
+                "labelZh": "否定形式",
+                "expectedValueZh": "じゃない是ではありません的口语形式",
+                "hint": "口语否定"
+            },
+            {
+                "id": "kp2",
+                "labelZh": "语气词よ",
+                "expectedValueZh": "よ表示强调/告知对方",
+                "hint": "句尾语气"
+            },
+            {
+                "id": "kp3",
+                "labelZh": "填充词",
+                "expectedValueZh": "えっと表示思考犹豫",
+                "hint": "口语常用"
+            }
+        ],
+        "blockingVocabIds": [
+            9009,
+            9010
+        ],
+        "tokens": [
+            "えっと",
+            "…",
+            "わたし",
+            "は",
+            "学生",
+            "じゃない",
+            "よ",
+            "。",
+            "会社員",
+            "です",
+            "。"
+        ]
+    },
+    {
+        "sentenceId": 3003,
+        "text": "これ、お兄ちゃんの本？",
+        "styleTag": "gal",
+        "lessonId": 2,
+        "level": 1,
+        "grammarIds": [
+            201,
+            203
+        ],
+        "keyPoints": [
+            {
+                "id": "kp1",
+                "labelZh": "指示代词",
+                "expectedValueZh": "これ指说话人手边的东西",
+                "hint": "这个"
+            },
+            {
+                "id": "kp2",
+                "labelZh": "所属关系",
+                "expectedValueZh": "の表示「哥哥的」",
+                "hint": "名词+の+名词"
+            },
+            {
+                "id": "kp3",
+                "labelZh": "省略疑问",
+                "expectedValueZh": "口语中ですか可省略，只靠语调",
+                "hint": "口语特征"
+            }
+        ],
+        "blockingVocabIds": [
+            9006
+        ],
+        "tokens": [
+            "これ",
+            "、",
+            "お兄ちゃん",
+            "の",
+            "本",
+            "？"
+        ]
+    },
+    {
+        "sentenceId": 3004,
+        "text": "あの人、すごく綺麗ね。誰？",
+        "styleTag": "gal",
+        "lessonId": 2,
+        "level": 2,
+        "grammarIds": [
+            202
+        ],
+        "keyPoints": [
+            {
+                "id": "kp1",
+                "labelZh": "连体词",
+                "expectedValueZh": "あの修饰名词「人」",
+                "hint": "那个人"
+            },
+            {
+                "id": "kp2",
+                "labelZh": "程度副词",
+                "expectedValueZh": "すごく表示程度很高",
+                "hint": "非常"
+            },
+            {
+                "id": "kp3",
+                "labelZh": "感叹语气",
+                "expectedValueZh": "ね表示感叹/寻求共鸣",
+                "hint": "对吧/是啊"
+            }
+        ],
+        "blockingVocabIds": [
+            9004,
+            9008
+        ],
+        "tokens": [
+            "あの",
+            "人",
+            "、",
+            "すごく",
+            "綺麗",
+            "ね",
+            "。",
+            "誰",
+            "？"
+        ]
+    },
+    {
+        "sentenceId": 3005,
+        "text": "先輩の鞄、可愛いですね！",
+        "styleTag": "gal",
+        "lessonId": 2,
+        "level": 1,
+        "grammarIds": [
+            203
+        ],
+        "keyPoints": [
+            {
+                "id": "kp1",
+                "labelZh": "所属关系",
+                "expectedValueZh": "先輩の鞄＝前辈的包",
+                "hint": "の连接"
+            },
+            {
+                "id": "kp2",
+                "labelZh": "形容词用法",
+                "expectedValueZh": "可愛い是い形容词",
+                "hint": "词尾い"
+            },
+            {
+                "id": "kp3",
+                "labelZh": "语气词ね",
+                "expectedValueZh": "ね表示感叹/赞美",
+                "hint": "寻求共鸣"
+            }
+        ],
+        "blockingVocabIds": [
+            9003,
+            9007,
+            9008
+        ],
+        "tokens": [
+            "先輩",
+            "の",
+            "鞄",
+            "、",
+            "可愛い",
+            "です",
+            "ね",
+            "！"
+        ]
+    },
+    {
+        "sentenceId": 3006,
+        "text": "それ、何の雑誌ですか？",
+        "styleTag": "gal",
+        "lessonId": 2,
+        "level": 1,
+        "grammarIds": [
+            201,
+            203,
+            103
+        ],
+        "keyPoints": [
+            {
+                "id": "kp1",
+                "labelZh": "指示代词それ",
+                "expectedValueZh": "指听话人附近的东西",
+                "hint": "那个（近你）"
+            },
+            {
+                "id": "kp2",
+                "labelZh": "疑问词+の",
+                "expectedValueZh": "何の表示「什么样的」",
+                "hint": "什么的"
+            },
+            {
+                "id": "kp3",
+                "labelZh": "疑问句",
+                "expectedValueZh": "ですか构成疑问",
+                "hint": "是...吗"
+            }
+        ],
+        "blockingVocabIds": [],
+        "tokens": [
+            "それ",
+            "、",
+            "何",
+            "の",
+            "雑誌",
+            "です",
+            "か",
+            "？"
+        ]
+    },
+    {
+        "sentenceId": 3007,
+        "text": "わたし、田中さんのこと、大好き！",
+        "styleTag": "gal",
+        "lessonId": 1,
+        "level": 3,
+        "grammarIds": [
+            101,
+            203
+        ],
+        "keyPoints": [
+            {
+                "id": "kp1",
+                "labelZh": "は省略",
+                "expectedValueZh": "口语中主语后的は常省略",
+                "hint": "わたしは→わたし"
+            },
+            {
+                "id": "kp2",
+                "labelZh": "〜のこと",
+                "expectedValueZh": "表示「关于某人/某事」",
+                "hint": "关于..."
+            },
+            {
+                "id": "kp3",
+                "labelZh": "大好き",
+                "expectedValueZh": "表示非常喜欢",
+                "hint": "形容动词"
+            },
+            {
+                "id": "kp4",
+                "labelZh": "です省略",
+                "expectedValueZh": "口语中常省略です",
+                "hint": "口语特征"
+            }
+        ],
+        "blockingVocabIds": [
+            9002
+        ],
+        "tokens": [
+            "わたし",
+            "、",
+            "田中さん",
+            "の",
+            "こと",
+            "、",
+            "大好き",
+            "！"
+        ]
+    },
+    {
+        "sentenceId": 3008,
+        "text": "あの先生、優しいね。",
+        "styleTag": "gal",
+        "lessonId": 2,
+        "level": 1,
+        "grammarIds": [
+            202
+        ],
+        "keyPoints": [
+            {
+                "id": "kp1",
+                "labelZh": "连体词あの",
+                "expectedValueZh": "修饰远处的「先生」",
+                "hint": "那位"
+            },
+            {
+                "id": "kp2",
+                "labelZh": "形容词谓语",
+                "expectedValueZh": "优しい直接做谓语",
+                "hint": "い形容词"
+            },
+            {
+                "id": "kp3",
+                "labelZh": "确认语气",
+                "expectedValueZh": "ね寻求对方认同",
+                "hint": "是吧"
+            }
+        ],
+        "blockingVocabIds": [
+            9005,
+            9008
+        ],
+        "tokens": [
+            "あの",
+            "先生",
+            "、",
+            "優しい",
+            "ね",
+            "。"
+        ]
+    }
+]

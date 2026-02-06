@@ -1,0 +1,662 @@
+[
+    {
+        "vocabId": 1001,
+        "surface": "わたし",
+        "reading": "わたし",
+        "meanings": [
+            "我"
+        ],
+        "level": 1,
+        "tags": [
+            "代词",
+            "L1"
+        ]
+    },
+    {
+        "vocabId": 1002,
+        "surface": "あなた",
+        "reading": "あなた",
+        "meanings": [
+            "你"
+        ],
+        "level": 1,
+        "tags": [
+            "代词",
+            "L1"
+        ]
+    },
+    {
+        "vocabId": 1003,
+        "surface": "学生",
+        "reading": "がくせい",
+        "meanings": [
+            "学生"
+        ],
+        "level": 1,
+        "tags": [
+            "名词",
+            "L1"
+        ]
+    },
+    {
+        "vocabId": 1004,
+        "surface": "先生",
+        "reading": "せんせい",
+        "meanings": [
+            "老师",
+            "医生"
+        ],
+        "level": 1,
+        "tags": [
+            "名词",
+            "L1"
+        ]
+    },
+    {
+        "vocabId": 1005,
+        "surface": "会社員",
+        "reading": "かいしゃいん",
+        "meanings": [
+            "公司职员"
+        ],
+        "level": 1,
+        "tags": [
+            "名词",
+            "L1"
+        ]
+    },
+    {
+        "vocabId": 1006,
+        "surface": "中国人",
+        "reading": "ちゅうごくじん",
+        "meanings": [
+            "中国人"
+        ],
+        "level": 1,
+        "tags": [
+            "名词",
+            "L1"
+        ]
+    },
+    {
+        "vocabId": 1007,
+        "surface": "日本人",
+        "reading": "にほんじん",
+        "meanings": [
+            "日本人"
+        ],
+        "level": 1,
+        "tags": [
+            "名词",
+            "L1"
+        ]
+    },
+    {
+        "vocabId": 1008,
+        "surface": "大学",
+        "reading": "だいがく",
+        "meanings": [
+            "大学"
+        ],
+        "level": 1,
+        "tags": [
+            "名词",
+            "L1"
+        ]
+    },
+    {
+        "vocabId": 1009,
+        "surface": "友達",
+        "reading": "ともだち",
+        "meanings": [
+            "朋友"
+        ],
+        "level": 1,
+        "tags": [
+            "名词",
+            "L1"
+        ]
+    },
+    {
+        "vocabId": 1010,
+        "surface": "名前",
+        "reading": "なまえ",
+        "meanings": [
+            "名字"
+        ],
+        "level": 1,
+        "tags": [
+            "名词",
+            "L1"
+        ]
+    },
+    {
+        "vocabId": 1011,
+        "surface": "国",
+        "reading": "くに",
+        "meanings": [
+            "国家",
+            "故乡"
+        ],
+        "level": 1,
+        "tags": [
+            "名词",
+            "L1"
+        ]
+    },
+    {
+        "vocabId": 1012,
+        "surface": "仕事",
+        "reading": "しごと",
+        "meanings": [
+            "工作"
+        ],
+        "level": 1,
+        "tags": [
+            "名词",
+            "L1"
+        ]
+    },
+    {
+        "vocabId": 1013,
+        "surface": "電話",
+        "reading": "でんわ",
+        "meanings": [
+            "电话"
+        ],
+        "level": 1,
+        "tags": [
+            "名词",
+            "L1"
+        ]
+    },
+    {
+        "vocabId": 1014,
+        "surface": "番号",
+        "reading": "ばんごう",
+        "meanings": [
+            "号码"
+        ],
+        "level": 1,
+        "tags": [
+            "名词",
+            "L1"
+        ]
+    },
+    {
+        "vocabId": 1015,
+        "surface": "はい",
+        "reading": "はい",
+        "meanings": [
+            "是的"
+        ],
+        "level": 1,
+        "tags": [
+            "感叹词",
+            "L1"
+        ]
+    },
+    {
+        "vocabId": 1016,
+        "surface": "いいえ",
+        "reading": "いいえ",
+        "meanings": [
+            "不是"
+        ],
+        "level": 1,
+        "tags": [
+            "感叹词",
+            "L1"
+        ]
+    },
+    {
+        "vocabId": 1017,
+        "surface": "何",
+        "reading": "なに/なん",
+        "meanings": [
+            "什么"
+        ],
+        "level": 1,
+        "tags": [
+            "疑问词",
+            "L1"
+        ]
+    },
+    {
+        "vocabId": 1018,
+        "surface": "誰",
+        "reading": "だれ",
+        "meanings": [
+            "谁"
+        ],
+        "level": 1,
+        "tags": [
+            "疑问词",
+            "L1"
+        ]
+    },
+    {
+        "vocabId": 1019,
+        "surface": "どなた",
+        "reading": "どなた",
+        "meanings": [
+            "哪位（敬语）"
+        ],
+        "level": 1,
+        "tags": [
+            "疑问词",
+            "L1"
+        ]
+    },
+    {
+        "vocabId": 1020,
+        "surface": "人",
+        "reading": "ひと",
+        "meanings": [
+            "人"
+        ],
+        "level": 1,
+        "tags": [
+            "名词",
+            "L1"
+        ]
+    },
+    {
+        "vocabId": 2001,
+        "surface": "これ",
+        "reading": "これ",
+        "meanings": [
+            "这个"
+        ],
+        "level": 1,
+        "tags": [
+            "指示词",
+            "L2"
+        ]
+    },
+    {
+        "vocabId": 2002,
+        "surface": "それ",
+        "reading": "それ",
+        "meanings": [
+            "那个（近听者）"
+        ],
+        "level": 1,
+        "tags": [
+            "指示词",
+            "L2"
+        ]
+    },
+    {
+        "vocabId": 2003,
+        "surface": "あれ",
+        "reading": "あれ",
+        "meanings": [
+            "那个（远）"
+        ],
+        "level": 1,
+        "tags": [
+            "指示词",
+            "L2"
+        ]
+    },
+    {
+        "vocabId": 2004,
+        "surface": "どれ",
+        "reading": "どれ",
+        "meanings": [
+            "哪个"
+        ],
+        "level": 1,
+        "tags": [
+            "疑问词",
+            "L2"
+        ]
+    },
+    {
+        "vocabId": 2005,
+        "surface": "本",
+        "reading": "ほん",
+        "meanings": [
+            "书"
+        ],
+        "level": 1,
+        "tags": [
+            "名词",
+            "L2"
+        ]
+    },
+    {
+        "vocabId": 2006,
+        "surface": "ペン",
+        "reading": "ペン",
+        "meanings": [
+            "钢笔"
+        ],
+        "level": 1,
+        "tags": [
+            "名词",
+            "L2"
+        ]
+    },
+    {
+        "vocabId": 2007,
+        "surface": "鞄",
+        "reading": "かばん",
+        "meanings": [
+            "包",
+            "皮包"
+        ],
+        "level": 1,
+        "tags": [
+            "名词",
+            "L2"
+        ]
+    },
+    {
+        "vocabId": 2008,
+        "surface": "辞書",
+        "reading": "じしょ",
+        "meanings": [
+            "词典"
+        ],
+        "level": 1,
+        "tags": [
+            "名词",
+            "L2"
+        ]
+    },
+    {
+        "vocabId": 2009,
+        "surface": "雑誌",
+        "reading": "ざっし",
+        "meanings": [
+            "杂志"
+        ],
+        "level": 1,
+        "tags": [
+            "名词",
+            "L2"
+        ]
+    },
+    {
+        "vocabId": 2010,
+        "surface": "新聞",
+        "reading": "しんぶん",
+        "meanings": [
+            "报纸"
+        ],
+        "level": 1,
+        "tags": [
+            "名词",
+            "L2"
+        ]
+    },
+    {
+        "vocabId": 2011,
+        "surface": "ノート",
+        "reading": "ノート",
+        "meanings": [
+            "笔记本"
+        ],
+        "level": 1,
+        "tags": [
+            "名词",
+            "L2"
+        ]
+    },
+    {
+        "vocabId": 2012,
+        "surface": "車",
+        "reading": "くるま",
+        "meanings": [
+            "车"
+        ],
+        "level": 1,
+        "tags": [
+            "名词",
+            "L2"
+        ]
+    },
+    {
+        "vocabId": 2013,
+        "surface": "机",
+        "reading": "つくえ",
+        "meanings": [
+            "桌子"
+        ],
+        "level": 1,
+        "tags": [
+            "名词",
+            "L2"
+        ]
+    },
+    {
+        "vocabId": 2014,
+        "surface": "椅子",
+        "reading": "いす",
+        "meanings": [
+            "椅子"
+        ],
+        "level": 1,
+        "tags": [
+            "名词",
+            "L2"
+        ]
+    },
+    {
+        "vocabId": 2015,
+        "surface": "傘",
+        "reading": "かさ",
+        "meanings": [
+            "伞"
+        ],
+        "level": 1,
+        "tags": [
+            "名词",
+            "L2"
+        ]
+    },
+    {
+        "vocabId": 2016,
+        "surface": "時計",
+        "reading": "とけい",
+        "meanings": [
+            "钟表",
+            "手表"
+        ],
+        "level": 1,
+        "tags": [
+            "名词",
+            "L2"
+        ]
+    },
+    {
+        "vocabId": 2017,
+        "surface": "鍵",
+        "reading": "かぎ",
+        "meanings": [
+            "钥匙"
+        ],
+        "level": 1,
+        "tags": [
+            "名词",
+            "L2"
+        ]
+    },
+    {
+        "vocabId": 2018,
+        "surface": "写真",
+        "reading": "しゃしん",
+        "meanings": [
+            "照片"
+        ],
+        "level": 1,
+        "tags": [
+            "名词",
+            "L2"
+        ]
+    },
+    {
+        "vocabId": 2019,
+        "surface": "お土産",
+        "reading": "おみやげ",
+        "meanings": [
+            "特产",
+            "礼物"
+        ],
+        "level": 1,
+        "tags": [
+            "名词",
+            "L2"
+        ]
+    },
+    {
+        "vocabId": 2020,
+        "surface": "日本語",
+        "reading": "にほんご",
+        "meanings": [
+            "日语"
+        ],
+        "level": 1,
+        "tags": [
+            "名词",
+            "L2"
+        ]
+    },
+    {
+        "vocabId": 9001,
+        "surface": "好き",
+        "reading": "すき",
+        "meanings": [
+            "喜欢"
+        ],
+        "level": 2,
+        "tags": [
+            "形容动词",
+            "gal"
+        ]
+    },
+    {
+        "vocabId": 9002,
+        "surface": "大好き",
+        "reading": "だいすき",
+        "meanings": [
+            "最喜欢",
+            "非常喜欢"
+        ],
+        "level": 2,
+        "tags": [
+            "形容动词",
+            "gal"
+        ]
+    },
+    {
+        "vocabId": 9003,
+        "surface": "可愛い",
+        "reading": "かわいい",
+        "meanings": [
+            "可爱"
+        ],
+        "level": 2,
+        "tags": [
+            "形容词",
+            "gal"
+        ]
+    },
+    {
+        "vocabId": 9004,
+        "surface": "綺麗",
+        "reading": "きれい",
+        "meanings": [
+            "漂亮",
+            "干净"
+        ],
+        "level": 2,
+        "tags": [
+            "形容动词",
+            "gal"
+        ]
+    },
+    {
+        "vocabId": 9005,
+        "surface": "優しい",
+        "reading": "やさしい",
+        "meanings": [
+            "温柔",
+            "善良"
+        ],
+        "level": 2,
+        "tags": [
+            "形容词",
+            "gal"
+        ]
+    },
+    {
+        "vocabId": 9006,
+        "surface": "お兄ちゃん",
+        "reading": "おにいちゃん",
+        "meanings": [
+            "哥哥（亲昵）"
+        ],
+        "level": 2,
+        "tags": [
+            "称呼",
+            "gal"
+        ]
+    },
+    {
+        "vocabId": 9007,
+        "surface": "先輩",
+        "reading": "せんぱい",
+        "meanings": [
+            "前辈",
+            "学长"
+        ],
+        "level": 2,
+        "tags": [
+            "称呼",
+            "gal"
+        ]
+    },
+    {
+        "vocabId": 9008,
+        "surface": "ね",
+        "reading": "ね",
+        "meanings": [
+            "（语气词）对吧"
+        ],
+        "level": 1,
+        "tags": [
+            "语气词",
+            "gal"
+        ]
+    },
+    {
+        "vocabId": 9009,
+        "surface": "よ",
+        "reading": "よ",
+        "meanings": [
+            "（语气词）哦/呢"
+        ],
+        "level": 1,
+        "tags": [
+            "语气词",
+            "gal"
+        ]
+    },
+    {
+        "vocabId": 9010,
+        "surface": "えっと",
+        "reading": "えっと",
+        "meanings": [
+            "那个...",
+            "呃..."
+        ],
+        "level": 2,
+        "tags": [
+            "口语",
+            "gal"
+        ]
+    }
+]

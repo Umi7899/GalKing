@@ -1,0 +1,305 @@
+[
+    {
+        "lessonId": 1,
+        "title": "第1課 李さんは中国人です",
+        "goal": "掌握名词判断句「〜は〜です」的基本用法",
+        "orderIndex": 1,
+        "grammarIds": [
+            101,
+            102,
+            103
+        ],
+        "vocabPackIds": [
+            501
+        ],
+        "tags": [
+            "初级",
+            "判断句",
+            "自我介绍"
+        ]
+    },
+    {
+        "lessonId": 2,
+        "title": "第2課 これは本です",
+        "goal": "掌握指示代词「これ・それ・あれ」的用法",
+        "orderIndex": 2,
+        "grammarIds": [
+            201,
+            202,
+            203
+        ],
+        "vocabPackIds": [
+            502
+        ],
+        "tags": [
+            "初级",
+            "指示代词",
+            "物品"
+        ]
+    },
+    {
+        "lessonId": 3,
+        "title": "第3課 ここはデパートです",
+        "goal": "掌握场所指示词「ここ・そこ・あそこ」",
+        "orderIndex": 3,
+        "grammarIds": [],
+        "vocabPackIds": [],
+        "tags": [
+            "初级",
+            "场所"
+        ]
+    },
+    {
+        "lessonId": 4,
+        "title": "第4課 部屋に机があります",
+        "goal": "掌握存在句「〜があります/います」",
+        "orderIndex": 4,
+        "grammarIds": [],
+        "vocabPackIds": [],
+        "tags": [
+            "初级",
+            "存在句"
+        ]
+    },
+    {
+        "lessonId": 5,
+        "title": "第5課 森さんは7時に起きます",
+        "goal": "掌握动词基本形与时间表达",
+        "orderIndex": 5,
+        "grammarIds": [],
+        "vocabPackIds": [],
+        "tags": [
+            "初级",
+            "动词",
+            "时间"
+        ]
+    },
+    {
+        "lessonId": 6,
+        "title": "第6課 吉田さんは来月中国へ行きます",
+        "goal": "掌握移动动词与方向助词「へ」",
+        "orderIndex": 6,
+        "grammarIds": [],
+        "vocabPackIds": [],
+        "tags": [
+            "初级",
+            "移动动词"
+        ]
+    },
+    {
+        "lessonId": 7,
+        "title": "第7課 李さんは毎日コーヒーを飲みます",
+        "goal": "掌握他动词与宾语助词「を」",
+        "orderIndex": 7,
+        "grammarIds": [],
+        "vocabPackIds": [],
+        "tags": [
+            "初级",
+            "他动词"
+        ]
+    },
+    {
+        "lessonId": 8,
+        "title": "第8課 李さんは日本語が少し分かります",
+        "goal": "掌握能力表达与程度副词",
+        "orderIndex": 8,
+        "grammarIds": [],
+        "vocabPackIds": [],
+        "tags": [
+            "初级",
+            "能力表达"
+        ]
+    },
+    {
+        "lessonId": 9,
+        "title": "第9課 四川料理は辛いです",
+        "goal": "掌握形容词基本用法",
+        "orderIndex": 9,
+        "grammarIds": [],
+        "vocabPackIds": [],
+        "tags": [
+            "初级",
+            "形容词"
+        ]
+    },
+    {
+        "lessonId": 10,
+        "title": "第10課 京都の紅葉は有名です",
+        "goal": "掌握形容动词用法",
+        "orderIndex": 10,
+        "grammarIds": [],
+        "vocabPackIds": [],
+        "tags": [
+            "初级",
+            "形容动词"
+        ]
+    },
+    {
+        "lessonId": 11,
+        "title": "第11課 小野さんは歌が好きです",
+        "goal": "掌握好恶表达「〜が好きです」",
+        "orderIndex": 11,
+        "grammarIds": [],
+        "vocabPackIds": [],
+        "tags": [
+            "初级",
+            "好恶"
+        ]
+    },
+    {
+        "lessonId": 12,
+        "title": "第12課 李さんは森さんより若いです",
+        "goal": "掌握比较表达",
+        "orderIndex": 12,
+        "grammarIds": [],
+        "vocabPackIds": [],
+        "tags": [
+            "初级",
+            "比较"
+        ]
+    },
+    {
+        "lessonId": 13,
+        "title": "第13課 机の上に本が3冊あります",
+        "goal": "掌握数量词用法",
+        "orderIndex": 13,
+        "grammarIds": [],
+        "vocabPackIds": [],
+        "tags": [
+            "初级",
+            "数量词"
+        ]
+    },
+    {
+        "lessonId": 14,
+        "title": "第14課 昨日デパートへ行って買い物しました",
+        "goal": "掌握动词て形连接",
+        "orderIndex": 14,
+        "grammarIds": [],
+        "vocabPackIds": [],
+        "tags": [
+            "初级",
+            "て形"
+        ]
+    },
+    {
+        "lessonId": 15,
+        "title": "第15課 小野さんは今新聞を読んでいます",
+        "goal": "掌握进行时「〜ています」",
+        "orderIndex": 15,
+        "grammarIds": [],
+        "vocabPackIds": [],
+        "tags": [
+            "初级",
+            "进行时"
+        ]
+    },
+    {
+        "lessonId": 16,
+        "title": "第16課 ホテルの周りを散歩してもいいですか",
+        "goal": "掌握许可表达「〜てもいいです」",
+        "orderIndex": 16,
+        "grammarIds": [],
+        "vocabPackIds": [],
+        "tags": [
+            "初级",
+            "许可"
+        ]
+    },
+    {
+        "lessonId": 17,
+        "title": "第17課 どこで食事をするか決めましょう",
+        "goal": "掌握意志形「〜ましょう」",
+        "orderIndex": 17,
+        "grammarIds": [],
+        "vocabPackIds": [],
+        "tags": [
+            "初级",
+            "意志形"
+        ]
+    },
+    {
+        "lessonId": 18,
+        "title": "第18課 料理を作ることができますか",
+        "goal": "掌握能力表达「〜ことができる」",
+        "orderIndex": 18,
+        "grammarIds": [],
+        "vocabPackIds": [],
+        "tags": [
+            "初级",
+            "可能形"
+        ]
+    },
+    {
+        "lessonId": 19,
+        "title": "第19課 部屋のかぎを忘れないでください",
+        "goal": "掌握否定请求「〜ないでください」",
+        "orderIndex": 19,
+        "grammarIds": [],
+        "vocabPackIds": [],
+        "tags": [
+            "初级",
+            "否定请求"
+        ]
+    },
+    {
+        "lessonId": 20,
+        "title": "第20課 スミスさんはピアノを弾くことができます",
+        "goal": "掌握能力与经验表达",
+        "orderIndex": 20,
+        "grammarIds": [],
+        "vocabPackIds": [],
+        "tags": [
+            "初级",
+            "能力"
+        ]
+    },
+    {
+        "lessonId": 21,
+        "title": "第21課 わたしはすき焼きを食べたことがあります",
+        "goal": "掌握经验表达「〜たことがある」",
+        "orderIndex": 21,
+        "grammarIds": [],
+        "vocabPackIds": [],
+        "tags": [
+            "初级",
+            "经验"
+        ]
+    },
+    {
+        "lessonId": 22,
+        "title": "第22課 森さんはタバコを吸わないと思います",
+        "goal": "掌握引用表达「〜と思う」",
+        "orderIndex": 22,
+        "grammarIds": [],
+        "vocabPackIds": [],
+        "tags": [
+            "初级",
+            "引用"
+        ]
+    },
+    {
+        "lessonId": 23,
+        "title": "第23課 休みの日映画を見たり買い物に行ったりします",
+        "goal": "掌握列举表达「〜たり〜たりする」",
+        "orderIndex": 23,
+        "grammarIds": [],
+        "vocabPackIds": [],
+        "tags": [
+            "初级",
+            "列举"
+        ]
+    },
+    {
+        "lessonId": 24,
+        "title": "第24課 李さんはもうすぐ来ると思います",
+        "goal": "掌握推测与传闻表达",
+        "orderIndex": 24,
+        "grammarIds": [],
+        "vocabPackIds": [],
+        "tags": [
+            "初级",
+            "推测"
+        ]
+    }
+]
