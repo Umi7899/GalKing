@@ -1,7 +1,7 @@
 // src/llm/prompts.ts
 // Prompt templates for LLM features
 
-import type { LLMFeature } from './client';
+import type { LLMFeature } from '../schemas/llm';
 
 interface PromptTemplate {
     system: string;
@@ -216,4 +216,60 @@ ${memory?.previousSummary ? `【上次点评摘要】：
 请根据数据生成评估报告。记住：summary 字段必须是对我说的日语（符合我的等级）！`;
         },
     },
+
+    // ============ 场景演练 ============
+    scenario_gen: {
+        system: `你是一位日语课程设计师。
+请根据用户的当前等级 (Level/Lesson) 生成一个**符合其水平**的生活场景练习。
+不要使用超纲的词汇或语法。
+
+输出 JSON 格式：
+{
+  "scene": "日语描述背景 (简单易懂)",
+  "goal": "中文描述任务目标",
+  "hints": ["建议使用的语法点", "关键词"]
+}`,
+        buildUserPrompt: (payload: any) => `当前等级: Lesson ${payload.lessonId || 1} (Level ${payload.level || 1})
+请生成一个新的场景。`
+    },
+
+    scenario_eval: {
+        system: `你是一位日语老师 (Sakura)。
+用户会根据给定的场景 (Scene) 和目标 (Goal) 编写一个日语句子。
+你的任务是评价该句子是否自然、贴切。
+
+输出 JSON 格式：
+{
+  "score": 0-100,
+  "is_natural": boolean,
+  "better_response": "更加地道/自然的表达（日语）",
+  "comment": "简短点评（中文），指出问题或夸奖亮点"
+}`,
+        buildUserPrompt: (payload: any) => `【场景 Scene】
+${payload.scene}
+
+【目标 Goal】
+${payload.goal}
+
+【用户回答 User Input】
+${payload.userResponse}
+
+请评价。如果用户回答完全偏离场景，给低分。`
+    },
+
+    vocab_blitz_summary: {
+        system: `你是一位日语老师 (Sakura)。你刚才看完了用户的"词汇大暴走"挑战。
+请根据用户的表现给出一个简短的、充满元气和鼓励的点评。
+指出用户答错的词汇（如果有），并鼓励继续加油。
+不用保存数据，只是一次性的点评。
+
+输出 JSON 格式: { "comment": "你的点评" }`,
+        buildUserPrompt: (payload: any) => `
+得分：${payload.score}
+最高连击：${payload.streak}
+答对：${payload.correctCount}
+答错单词：${payload.wrongWords.join(', ') || '无'}
+
+请给点评！`
+    }
 };

@@ -55,7 +55,16 @@ export async function getGrammarPoint(grammarId: number): Promise<GrammarPoint |
     return parseGrammarRow(row);
 }
 
-export async function getGrammarPointsByLesson(lessonId: number): Promise<GrammarPoint[]> {
+// Get all grammar points
+export async function getAllGrammarPoints(): Promise<GrammarPoint[]> {
+    const db = getDatabase();
+    // Assuming simple select. If structured otherwise, adapt.
+    // Since we import JSON to grammar_points table:
+    const rows = await db.getAllAsync<any>('SELECT * FROM grammar_points ORDER BY lessonId, grammarId');
+    return rows.map(parseGrammarRow);
+}
+
+export async function getGrammarPointsForLesson(lessonId: number): Promise<GrammarPoint[]> {
     const db = getDatabase();
     const rows = await db.getAllAsync<any>(
         'SELECT * FROM grammar_points WHERE lessonId = ? ORDER BY grammarId',
@@ -66,19 +75,30 @@ export async function getGrammarPointsByLesson(lessonId: number): Promise<Gramma
 }
 
 function parseGrammarRow(row: any): GrammarPoint {
+
+
     return {
-        grammarId: row.grammarId,
-        lessonId: row.lessonId,
+        grammarId: row.grammarId || row.grammarid || row.grammar_id,
+        lessonId: row.lessonId || row.lessonid || row.lesson_id,
         name: row.name,
-        coreRule: row.coreRule,
-        structure: row.structure || '',
+        coreRule: row.coreRule || row.corerule || row.core_rule,
+        structure: row.structure || row.completion || row.structure || '',
         mnemonic: row.mnemonic || '',
-        examples: JSON.parse(row.examplesJson || '[]'),
-        counterExamples: JSON.parse(row.counterExamplesJson || '[]'),
-        drills: JSON.parse(row.drillsJson || '[]'),
+        examples: parseJson(row.examplesJson || row.examplesjson || row.examples_json, []),
+        counterExamples: parseJson(row.counterExamplesJson || row.counterexamplesjson || row.counter_examples_json, []),
+        drills: parseJson(row.drillsJson || row.drillsjson || row.drills_json, []),
         level: row.level || 1,
-        tags: JSON.parse(row.tagsJson || '[]'),
+        tags: parseJson(row.tagsJson || row.tagsjson || row.tags_json, []),
     };
+}
+
+function parseJson(str: string, fallback: any) {
+    if (!str) return fallback;
+    try {
+        return JSON.parse(str);
+    } catch {
+        return fallback;
+    }
 }
 
 // ============ Vocab ============

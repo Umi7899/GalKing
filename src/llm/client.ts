@@ -18,6 +18,13 @@ import {
     type SentenceParseResponse,
     type GenerateDrillsResponse,
     type MasteryAssessResponse,
+    type ScenarioGenResponse,
+    type ScenarioEvalResponse,
+    type BlitzSummaryResponse,
+    type LLMFeature,
+    ScenarioGenResponseSchema,
+    ScenarioEvalResponseSchema,
+    BlitzSummaryResponseSchema,
 } from '../schemas/llm';
 import { getMockResponse } from './mock';
 import {
@@ -30,7 +37,7 @@ import { PROMPTS } from './prompts';
 
 // ============ Types ============
 
-export type LLMFeature = 'mistake_explain' | 'sentence_parse' | 'generate_drills' | 'mastery_assess';
+// LLMFeature imported from schemas
 
 export interface LLMRequestOptions {
     feature: LLMFeature;
@@ -84,14 +91,12 @@ export const checkLLMAvailable = isLLMConfigured;
 
 // ============ OpenAI-Compatible API Call ============
 
-// ============ OpenAI-Compatible API Call ============
-
 export interface ChatMessage {
     role: 'system' | 'user' | 'assistant';
     content: string;
 }
 
-async function callOpenAICompatibleAPI(
+export async function callOpenAICompatibleAPI(
     endpoint: string,
     apiKey: string,
     model: string,
@@ -407,6 +412,40 @@ export async function assessMastery(input: MasteryAssessInput): Promise<LLMResul
     return llmRequest(
         { feature: 'mastery_assess', payload: input },
         MasteryAssessResponseSchema
+    );
+}
+
+export async function generateScenario(lessonId: number = 1, level: number = 1): Promise<LLMResult<ScenarioGenResponse>> {
+    return llmRequest(
+        { feature: 'scenario_gen', payload: { lessonId, level } },
+        ScenarioGenResponseSchema
+    );
+}
+
+export interface ScenarioEvalInput {
+    scene: string;
+    goal: string;
+    userResponse: string;
+}
+
+export async function evaluateScenario(input: ScenarioEvalInput): Promise<LLMResult<ScenarioEvalResponse>> {
+    return llmRequest(
+        { feature: 'scenario_eval', payload: input },
+        ScenarioEvalResponseSchema
+    );
+}
+
+export interface BlitzSummaryInput {
+    score: number;
+    streak: number;
+    correctCount: number;
+    wrongWords: string[];
+}
+
+export async function getBlitzSummary(input: BlitzSummaryInput): Promise<LLMResult<BlitzSummaryResponse>> {
+    return llmRequest(
+        { feature: 'vocab_blitz_summary', payload: input },
+        BlitzSummaryResponseSchema
     );
 }
 

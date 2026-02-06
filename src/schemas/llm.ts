@@ -12,6 +12,10 @@ export const ContrastExampleSchema = z.object({
     explanation: z.string(),
 });
 
+// LLM Response Schemas
+
+export type LLMFeature = 'mistake_explain' | 'sentence_parse' | 'generate_drills' | 'mastery_assess' | 'scenario_gen' | 'scenario_eval' | 'vocab_blitz_summary';
+
 export const MistakeExplainResponseSchema = z.object({
     why_wrong: z.string(),
     key_rule: z.string(),
@@ -90,5 +94,27 @@ export type SentenceParseKeyPoint = z.infer<typeof SentenceParseKeyPointSchema>;
 export type SentenceParseResponse = z.infer<typeof SentenceParseResponseSchema>;
 export type GenerateDrillsResponse = z.infer<typeof GenerateDrillsResponseSchema>;
 export type MasteryAdjustment = z.infer<typeof MasteryAdjustmentSchema>;
+// ============ scenario Features ============
+
+export const ScenarioGenResponseSchema = z.object({
+    scene: z.string(),
+    goal: z.string(),
+    hints: z.array(z.string()).optional(),
+});
+
+export const ScenarioEvalResponseSchema = z.object({
+    score: z.number(),
+    is_natural: z.boolean(),
+    better_response: z.string().optional(),
+    comment: z.string(),
+});
+
+export const BlitzSummaryResponseSchema = z.object({
+    comment: z.string(),
+});
+
 export type TomorrowPlan = z.infer<typeof TomorrowPlanSchema>;
 export type MasteryAssessResponse = z.infer<typeof MasteryAssessResponseSchema>;
+export type ScenarioGenResponse = z.infer<typeof ScenarioGenResponseSchema>;
+export type ScenarioEvalResponse = z.infer<typeof ScenarioEvalResponseSchema>;
+export type BlitzSummaryResponse = z.infer<typeof BlitzSummaryResponseSchema>;
