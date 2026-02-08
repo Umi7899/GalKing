@@ -203,15 +203,24 @@ export default function HomeScreen() {
                 <View style={styles.quickActions}>
                     <Text style={styles.quickActionsTitle}>快速入口</Text>
                     <View style={styles.quickActionsRow}>
-                        <TouchableOpacity style={styles.quickActionButton}>
+                        <TouchableOpacity
+                            style={styles.quickActionButton}
+                            onPress={() => navigation.navigate('GrammarCard')}
+                        >
                             <Text style={styles.quickActionEmoji}>📖</Text>
                             <Text style={styles.quickActionText}>语法卡片</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.quickActionButton}>
+                        <TouchableOpacity
+                            style={styles.quickActionButton}
+                            onPress={() => navigation.navigate('VocabChallenge')}
+                        >
                             <Text style={styles.quickActionEmoji}>🎯</Text>
                             <Text style={styles.quickActionText}>词汇闯关</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.quickActionButton}>
+                        <TouchableOpacity
+                            style={styles.quickActionButton}
+                            onPress={() => navigation.navigate('SentenceDojo')}
+                        >
                             <Text style={styles.quickActionEmoji}>💬</Text>
                             <Text style={styles.quickActionText}>句子练习</Text>
                         </TouchableOpacity>

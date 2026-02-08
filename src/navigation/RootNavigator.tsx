@@ -15,6 +15,9 @@ import StatsScreen from '../screens/StatsScreen';
 import TrainingShell from '../screens/TrainingShell';
 import ReviewScreen from '../screens/ReviewScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import GrammarCardScreen from '../screens/quick/GrammarCardScreen';
+import VocabChallengeScreen from '../screens/quick/VocabChallengeScreen';
+import SentenceDojoScreen from '../screens/quick/SentenceDojoScreen';
 
 // ============ Type Definitions ============
 
@@ -29,6 +32,9 @@ export type HomeStackParamList = {
     HomeMain: undefined;
     Training: { reviewMode?: boolean } | undefined;
     Review: undefined;
+    GrammarCard: undefined;
+    VocabChallenge: undefined;
+    SentenceDojo: undefined;
 };
 
 export type StatsStackParamList = {
@@ -70,6 +76,21 @@ function HomeStackNavigator() {
                 name="Review"
                 component={ReviewScreen}
                 options={{ gestureEnabled: true }}
+            />
+            <HomeStack.Screen
+                name="GrammarCard"
+                component={GrammarCardScreen}
+                options={{ animation: 'slide_from_bottom' }}
+            />
+            <HomeStack.Screen
+                name="VocabChallenge"
+                component={VocabChallengeScreen}
+                options={{ animation: 'fade' }}
+            />
+            <HomeStack.Screen
+                name="SentenceDojo"
+                component={SentenceDojoScreen}
+                options={{ animation: 'slide_from_bottom' }}
             />
         </HomeStack.Navigator>
     );
