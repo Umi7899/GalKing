@@ -1,662 +1,1558 @@
 [
-    {
-        "vocabId": 1001,
-        "surface": "わたし",
-        "reading": "わたし",
-        "meanings": [
-            "我"
-        ],
-        "level": 1,
-        "tags": [
-            "代词",
-            "L1"
-        ]
-    },
-    {
-        "vocabId": 1002,
-        "surface": "あなた",
-        "reading": "あなた",
-        "meanings": [
-            "你"
-        ],
-        "level": 1,
-        "tags": [
-            "代词",
-            "L1"
-        ]
-    },
-    {
-        "vocabId": 1003,
-        "surface": "学生",
-        "reading": "がくせい",
-        "meanings": [
-            "学生"
-        ],
-        "level": 1,
-        "tags": [
-            "名词",
-            "L1"
-        ]
-    },
-    {
-        "vocabId": 1004,
-        "surface": "先生",
-        "reading": "せんせい",
-        "meanings": [
-            "老师",
-            "医生"
-        ],
-        "level": 1,
-        "tags": [
-            "名词",
-            "L1"
-        ]
-    },
-    {
-        "vocabId": 1005,
-        "surface": "会社員",
-        "reading": "かいしゃいん",
-        "meanings": [
-            "公司职员"
-        ],
-        "level": 1,
-        "tags": [
-            "名词",
-            "L1"
-        ]
-    },
-    {
-        "vocabId": 1006,
-        "surface": "中国人",
-        "reading": "ちゅうごくじん",
-        "meanings": [
-            "中国人"
-        ],
-        "level": 1,
-        "tags": [
-            "名词",
-            "L1"
-        ]
-    },
-    {
-        "vocabId": 1007,
-        "surface": "日本人",
-        "reading": "にほんじん",
-        "meanings": [
-            "日本人"
-        ],
-        "level": 1,
-        "tags": [
-            "名词",
-            "L1"
-        ]
-    },
-    {
-        "vocabId": 1008,
-        "surface": "大学",
-        "reading": "だいがく",
-        "meanings": [
-            "大学"
-        ],
-        "level": 1,
-        "tags": [
-            "名词",
-            "L1"
-        ]
-    },
-    {
-        "vocabId": 1009,
-        "surface": "友達",
-        "reading": "ともだち",
-        "meanings": [
-            "朋友"
-        ],
-        "level": 1,
-        "tags": [
-            "名词",
-            "L1"
-        ]
-    },
-    {
-        "vocabId": 1010,
-        "surface": "名前",
-        "reading": "なまえ",
-        "meanings": [
-            "名字"
-        ],
-        "level": 1,
-        "tags": [
-            "名词",
-            "L1"
-        ]
-    },
-    {
-        "vocabId": 1011,
-        "surface": "国",
-        "reading": "くに",
-        "meanings": [
-            "国家",
-            "故乡"
-        ],
-        "level": 1,
-        "tags": [
-            "名词",
-            "L1"
-        ]
-    },
-    {
-        "vocabId": 1012,
-        "surface": "仕事",
-        "reading": "しごと",
-        "meanings": [
-            "工作"
-        ],
-        "level": 1,
-        "tags": [
-            "名词",
-            "L1"
-        ]
-    },
-    {
-        "vocabId": 1013,
-        "surface": "電話",
-        "reading": "でんわ",
-        "meanings": [
-            "电话"
-        ],
-        "level": 1,
-        "tags": [
-            "名词",
-            "L1"
-        ]
-    },
-    {
-        "vocabId": 1014,
-        "surface": "番号",
-        "reading": "ばんごう",
-        "meanings": [
-            "号码"
-        ],
-        "level": 1,
-        "tags": [
-            "名词",
-            "L1"
-        ]
-    },
-    {
-        "vocabId": 1015,
-        "surface": "はい",
-        "reading": "はい",
-        "meanings": [
-            "是的"
-        ],
-        "level": 1,
-        "tags": [
-            "感叹词",
-            "L1"
-        ]
-    },
-    {
-        "vocabId": 1016,
-        "surface": "いいえ",
-        "reading": "いいえ",
-        "meanings": [
-            "不是"
-        ],
-        "level": 1,
-        "tags": [
-            "感叹词",
-            "L1"
-        ]
-    },
-    {
-        "vocabId": 1017,
-        "surface": "何",
-        "reading": "なに/なん",
-        "meanings": [
-            "什么"
-        ],
-        "level": 1,
-        "tags": [
-            "疑问词",
-            "L1"
-        ]
-    },
-    {
-        "vocabId": 1018,
-        "surface": "誰",
-        "reading": "だれ",
-        "meanings": [
-            "谁"
-        ],
-        "level": 1,
-        "tags": [
-            "疑问词",
-            "L1"
-        ]
-    },
-    {
-        "vocabId": 1019,
-        "surface": "どなた",
-        "reading": "どなた",
-        "meanings": [
-            "哪位（敬语）"
-        ],
-        "level": 1,
-        "tags": [
-            "疑问词",
-            "L1"
-        ]
-    },
-    {
-        "vocabId": 1020,
-        "surface": "人",
-        "reading": "ひと",
-        "meanings": [
-            "人"
-        ],
-        "level": 1,
-        "tags": [
-            "名词",
-            "L1"
-        ]
-    },
-    {
-        "vocabId": 2001,
-        "surface": "これ",
-        "reading": "これ",
-        "meanings": [
-            "这个"
-        ],
-        "level": 1,
-        "tags": [
-            "指示词",
-            "L2"
-        ]
-    },
-    {
-        "vocabId": 2002,
-        "surface": "それ",
-        "reading": "それ",
-        "meanings": [
-            "那个（近听者）"
-        ],
-        "level": 1,
-        "tags": [
-            "指示词",
-            "L2"
-        ]
-    },
-    {
-        "vocabId": 2003,
-        "surface": "あれ",
-        "reading": "あれ",
-        "meanings": [
-            "那个（远）"
-        ],
-        "level": 1,
-        "tags": [
-            "指示词",
-            "L2"
-        ]
-    },
-    {
-        "vocabId": 2004,
-        "surface": "どれ",
-        "reading": "どれ",
-        "meanings": [
-            "哪个"
-        ],
-        "level": 1,
-        "tags": [
-            "疑问词",
-            "L2"
-        ]
-    },
-    {
-        "vocabId": 2005,
-        "surface": "本",
-        "reading": "ほん",
-        "meanings": [
-            "书"
-        ],
-        "level": 1,
-        "tags": [
-            "名词",
-            "L2"
-        ]
-    },
-    {
-        "vocabId": 2006,
-        "surface": "ペン",
-        "reading": "ペン",
-        "meanings": [
-            "钢笔"
-        ],
-        "level": 1,
-        "tags": [
-            "名词",
-            "L2"
-        ]
-    },
-    {
-        "vocabId": 2007,
-        "surface": "鞄",
-        "reading": "かばん",
-        "meanings": [
-            "包",
-            "皮包"
-        ],
-        "level": 1,
-        "tags": [
-            "名词",
-            "L2"
-        ]
-    },
-    {
-        "vocabId": 2008,
-        "surface": "辞書",
-        "reading": "じしょ",
-        "meanings": [
-            "词典"
-        ],
-        "level": 1,
-        "tags": [
-            "名词",
-            "L2"
-        ]
-    },
-    {
-        "vocabId": 2009,
-        "surface": "雑誌",
-        "reading": "ざっし",
-        "meanings": [
-            "杂志"
-        ],
-        "level": 1,
-        "tags": [
-            "名词",
-            "L2"
-        ]
-    },
-    {
-        "vocabId": 2010,
-        "surface": "新聞",
-        "reading": "しんぶん",
-        "meanings": [
-            "报纸"
-        ],
-        "level": 1,
-        "tags": [
-            "名词",
-            "L2"
-        ]
-    },
-    {
-        "vocabId": 2011,
-        "surface": "ノート",
-        "reading": "ノート",
-        "meanings": [
-            "笔记本"
-        ],
-        "level": 1,
-        "tags": [
-            "名词",
-            "L2"
-        ]
-    },
-    {
-        "vocabId": 2012,
-        "surface": "車",
-        "reading": "くるま",
-        "meanings": [
-            "车"
-        ],
-        "level": 1,
-        "tags": [
-            "名词",
-            "L2"
-        ]
-    },
-    {
-        "vocabId": 2013,
-        "surface": "机",
-        "reading": "つくえ",
-        "meanings": [
-            "桌子"
-        ],
-        "level": 1,
-        "tags": [
-            "名词",
-            "L2"
-        ]
-    },
-    {
-        "vocabId": 2014,
-        "surface": "椅子",
-        "reading": "いす",
-        "meanings": [
-            "椅子"
-        ],
-        "level": 1,
-        "tags": [
-            "名词",
-            "L2"
-        ]
-    },
-    {
-        "vocabId": 2015,
-        "surface": "傘",
-        "reading": "かさ",
-        "meanings": [
-            "伞"
-        ],
-        "level": 1,
-        "tags": [
-            "名词",
-            "L2"
-        ]
-    },
-    {
-        "vocabId": 2016,
-        "surface": "時計",
-        "reading": "とけい",
-        "meanings": [
-            "钟表",
-            "手表"
-        ],
-        "level": 1,
-        "tags": [
-            "名词",
-            "L2"
-        ]
-    },
-    {
-        "vocabId": 2017,
-        "surface": "鍵",
-        "reading": "かぎ",
-        "meanings": [
-            "钥匙"
-        ],
-        "level": 1,
-        "tags": [
-            "名词",
-            "L2"
-        ]
-    },
-    {
-        "vocabId": 2018,
-        "surface": "写真",
-        "reading": "しゃしん",
-        "meanings": [
-            "照片"
-        ],
-        "level": 1,
-        "tags": [
-            "名词",
-            "L2"
-        ]
-    },
-    {
-        "vocabId": 2019,
-        "surface": "お土産",
-        "reading": "おみやげ",
-        "meanings": [
-            "特产",
-            "礼物"
-        ],
-        "level": 1,
-        "tags": [
-            "名词",
-            "L2"
-        ]
-    },
-    {
-        "vocabId": 2020,
-        "surface": "日本語",
-        "reading": "にほんご",
-        "meanings": [
-            "日语"
-        ],
-        "level": 1,
-        "tags": [
-            "名词",
-            "L2"
-        ]
-    },
-    {
-        "vocabId": 9001,
-        "surface": "好き",
-        "reading": "すき",
-        "meanings": [
-            "喜欢"
-        ],
-        "level": 2,
-        "tags": [
-            "形容动词",
-            "gal"
-        ]
-    },
-    {
-        "vocabId": 9002,
-        "surface": "大好き",
-        "reading": "だいすき",
-        "meanings": [
-            "最喜欢",
-            "非常喜欢"
-        ],
-        "level": 2,
-        "tags": [
-            "形容动词",
-            "gal"
-        ]
-    },
-    {
-        "vocabId": 9003,
-        "surface": "可愛い",
-        "reading": "かわいい",
-        "meanings": [
-            "可爱"
-        ],
-        "level": 2,
-        "tags": [
-            "形容词",
-            "gal"
-        ]
-    },
-    {
-        "vocabId": 9004,
-        "surface": "綺麗",
-        "reading": "きれい",
-        "meanings": [
-            "漂亮",
-            "干净"
-        ],
-        "level": 2,
-        "tags": [
-            "形容动词",
-            "gal"
-        ]
-    },
-    {
-        "vocabId": 9005,
-        "surface": "優しい",
-        "reading": "やさしい",
-        "meanings": [
-            "温柔",
-            "善良"
-        ],
-        "level": 2,
-        "tags": [
-            "形容词",
-            "gal"
-        ]
-    },
-    {
-        "vocabId": 9006,
-        "surface": "お兄ちゃん",
-        "reading": "おにいちゃん",
-        "meanings": [
-            "哥哥（亲昵）"
-        ],
-        "level": 2,
-        "tags": [
-            "称呼",
-            "gal"
-        ]
-    },
-    {
-        "vocabId": 9007,
-        "surface": "先輩",
-        "reading": "せんぱい",
-        "meanings": [
-            "前辈",
-            "学长"
-        ],
-        "level": 2,
-        "tags": [
-            "称呼",
-            "gal"
-        ]
-    },
-    {
-        "vocabId": 9008,
-        "surface": "ね",
-        "reading": "ね",
-        "meanings": [
-            "（语气词）对吧"
-        ],
-        "level": 1,
-        "tags": [
-            "语气词",
-            "gal"
-        ]
-    },
-    {
-        "vocabId": 9009,
-        "surface": "よ",
-        "reading": "よ",
-        "meanings": [
-            "（语气词）哦/呢"
-        ],
-        "level": 1,
-        "tags": [
-            "语气词",
-            "gal"
-        ]
-    },
-    {
-        "vocabId": 9010,
-        "surface": "えっと",
-        "reading": "えっと",
-        "meanings": [
-            "那个...",
-            "呃..."
-        ],
-        "level": 2,
-        "tags": [
-            "口语",
-            "gal"
-        ]
-    }
+  {
+    "vocabId": 25001,
+    "surface": "フライト",
+    "reading": "フライト",
+    "meanings": [
+      "航班，空运"
+    ],
+    "level": 2,
+    "tags": [
+      "katakana"
+    ]
+  },
+  {
+    "vocabId": 25002,
+    "surface": "会議",
+    "reading": "かいぎ",
+    "meanings": [
+      "会议"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 25003,
+    "surface": "資料",
+    "reading": "しりょう",
+    "meanings": [
+      "资料"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 25004,
+    "surface": "専門",
+    "reading": "せんもん",
+    "meanings": [
+      "专门，专业"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 25005,
+    "surface": "空港",
+    "reading": "くうこう",
+    "meanings": [
+      "机场"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 25006,
+    "surface": "使う",
+    "reading": "つかう",
+    "meanings": [
+      "使用"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 25007,
+    "surface": "渡す",
+    "reading": "わたす",
+    "meanings": [
+      "交给，递给"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 25008,
+    "surface": "泊まる",
+    "reading": "とまる",
+    "meanings": [
+      "住宿"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 25009,
+    "surface": "急ぐ",
+    "reading": "いそぐ",
+    "meanings": [
+      "急，匆忙"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 25010,
+    "surface": "迷う",
+    "reading": "まよう",
+    "meanings": [
+      "迷失，犹豫"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 26001,
+    "surface": "自転車",
+    "reading": "じてんしゃ",
+    "meanings": [
+      "自行车"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 26002,
+    "surface": "危ない",
+    "reading": "あぶない",
+    "meanings": [
+      "危险"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 26003,
+    "surface": "置く",
+    "reading": "おく",
+    "meanings": [
+      "放置"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 26004,
+    "surface": "心配",
+    "reading": "しんぱい",
+    "meanings": [
+      "担心"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 26005,
+    "surface": "通る",
+    "reading": "とおる",
+    "meanings": [
+      "通过"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 26006,
+    "surface": "荷物",
+    "reading": "にもつ",
+    "meanings": [
+      "行李"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 26007,
+    "surface": "趣味",
+    "reading": "しゅみ",
+    "meanings": [
+      "爱好"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 26008,
+    "surface": "特技",
+    "reading": "とくぎ",
+    "meanings": [
+      "特长"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 27001,
+    "surface": "時",
+    "reading": "とき",
+    "meanings": [
+      "时候"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 27002,
+    "surface": "閉める",
+    "reading": "しめる",
+    "meanings": [
+      "关闭"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 27003,
+    "surface": "忘れる",
+    "reading": "わすれる",
+    "meanings": [
+      "忘记"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 27004,
+    "surface": "鍵",
+    "reading": "かぎ",
+    "meanings": [
+      "钥匙"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 27005,
+    "surface": "部屋",
+    "reading": "へや",
+    "meanings": [
+      "房间"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 27006,
+    "surface": "消す",
+    "reading": "けす",
+    "meanings": [
+      "关掉，熄灭"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 27007,
+    "surface": "電気",
+    "reading": "でんき",
+    "meanings": [
+      "电，电灯"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 28001,
+    "surface": "秋葉原",
+    "reading": "あきはばら",
+    "meanings": [
+      "秋叶原"
+    ],
+    "level": 2,
+    "tags": [
+      "place"
+    ]
+  },
+  {
+    "vocabId": 28002,
+    "surface": "観光",
+    "reading": "かんこう",
+    "meanings": [
+      "观光"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 28003,
+    "surface": "案内",
+    "reading": "あんない",
+    "meanings": [
+      "向导，导游"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 28004,
+    "surface": "馬",
+    "reading": "うま",
+    "meanings": [
+      "马"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 28005,
+    "surface": "店",
+    "reading": "みせ",
+    "meanings": [
+      "商店"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 28006,
+    "surface": "～とか",
+    "reading": "～とか",
+    "meanings": [
+      "...之类的"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 29001,
+    "surface": "つく",
+    "reading": "つく",
+    "meanings": [
+      "灯亮，附着"
+    ],
+    "level": 2,
+    "tags": [
+      "intransitive"
+    ]
+  },
+  {
+    "vocabId": 29002,
+    "surface": "消える",
+    "reading": "きえる",
+    "meanings": [
+      "熄灭，消失"
+    ],
+    "level": 2,
+    "tags": [
+      "intransitive"
+    ]
+  },
+  {
+    "vocabId": 29003,
+    "surface": "壊れる",
+    "reading": "こわれる",
+    "meanings": [
+      "坏，破碎"
+    ],
+    "level": 2,
+    "tags": [
+      "intransitive"
+    ]
+  },
+  {
+    "vocabId": 29004,
+    "surface": "窓",
+    "reading": "まど",
+    "meanings": [
+      "窗户"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 29005,
+    "surface": "開く",
+    "reading": "あく",
+    "meanings": [
+      "开"
+    ],
+    "level": 2,
+    "tags": [
+      "intransitive"
+    ]
+  },
+  {
+    "vocabId": 29006,
+    "surface": "汚れる",
+    "reading": "よごれる",
+    "meanings": [
+      "脏"
+    ],
+    "level": 2,
+    "tags": [
+      "intransitive"
+    ]
+  },
+  {
+    "vocabId": 30001,
+    "surface": "貼る",
+    "reading": "はる",
+    "meanings": [
+      "贴"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 30002,
+    "surface": "掛ける",
+    "reading": "かける",
+    "meanings": [
+      "挂"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 30003,
+    "surface": "飾る",
+    "reading": "かざる",
+    "meanings": [
+      "装饰"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 30004,
+    "surface": "しまう",
+    "reading": "しまう",
+    "meanings": [
+      "收拾，放置"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 30005,
+    "surface": "並べる",
+    "reading": "ならべる",
+    "meanings": [
+      "排列"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 30006,
+    "surface": "植える",
+    "reading": "うえる",
+    "meanings": [
+      "种植"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 31001,
+    "surface": "ボタン",
+    "reading": "ボタン",
+    "meanings": [
+      "按钮"
+    ],
+    "level": 2,
+    "tags": [
+      "katakana"
+    ]
+  },
+  {
+    "vocabId": 31002,
+    "surface": "押す",
+    "reading": "おす",
+    "meanings": [
+      "按，推"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 31003,
+    "surface": "電源",
+    "reading": "でんげん",
+    "meanings": [
+      "电源"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 31004,
+    "surface": "入れる",
+    "reading": "いれる",
+    "meanings": [
+      "放入，开启"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 31005,
+    "surface": "下がる",
+    "reading": "さがる",
+    "meanings": [
+      "下降，后退"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 31006,
+    "surface": "親切",
+    "reading": "しんせつ",
+    "meanings": [
+      "热情，亲切"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 32001,
+    "surface": "名所",
+    "reading": "めいしょ",
+    "meanings": [
+      "名胜"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 32002,
+    "surface": "大概",
+    "reading": "たいがい",
+    "meanings": [
+      "大概"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 32003,
+    "surface": "賑やか",
+    "reading": "にぎやか",
+    "meanings": [
+      "热闹"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 32004,
+    "surface": "お祭り",
+    "reading": "おまつり",
+    "meanings": [
+      "节日，庆典"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 32005,
+    "surface": "美しい",
+    "reading": "うつくしい",
+    "meanings": [
+      "美丽"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 32006,
+    "surface": "選ぶ",
+    "reading": "えらぶ",
+    "meanings": [
+      "选择"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 33001,
+    "surface": "泥棒",
+    "reading": "どろぼう",
+    "meanings": [
+      "小偷"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 33002,
+    "surface": "盗む",
+    "reading": "ぬすむ",
+    "meanings": [
+      "偷"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 33003,
+    "surface": "触る",
+    "reading": "さわる",
+    "meanings": [
+      "触摸"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 33004,
+    "surface": "踏む",
+    "reading": "ふむ",
+    "meanings": [
+      "踩"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 33005,
+    "surface": "行う",
+    "reading": "おこなう",
+    "meanings": [
+      "举行"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 33006,
+    "surface": "褒める",
+    "reading": "ほめる",
+    "meanings": [
+      "表扬"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 34001,
+    "surface": "パンダ",
+    "reading": "パンダ",
+    "meanings": [
+      "熊猫"
+    ],
+    "level": 2,
+    "tags": [
+      "katakana"
+    ]
+  },
+  {
+    "vocabId": 34002,
+    "surface": "逃げる",
+    "reading": "にげる",
+    "meanings": [
+      "逃跑"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 34003,
+    "surface": "探す",
+    "reading": "さがす",
+    "meanings": [
+      "寻找"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 34004,
+    "surface": "試合",
+    "reading": "しあい",
+    "meanings": [
+      "比赛"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 34005,
+    "surface": "応援",
+    "reading": "おうえん",
+    "meanings": [
+      "加油，助威"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 34006,
+    "surface": "勝つ",
+    "reading": "かつ",
+    "meanings": [
+      "胜利"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 35001,
+    "surface": "台風",
+    "reading": "たいふう",
+    "meanings": [
+      "台风"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 35002,
+    "surface": "地震",
+    "reading": "じしん",
+    "meanings": [
+      "地震"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 35003,
+    "surface": "降る",
+    "reading": "ふる",
+    "meanings": [
+      "下(雨/雪)"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 35004,
+    "surface": "曇り",
+    "reading": "くもり",
+    "meanings": [
+      "阴天"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 35005,
+    "surface": "事故",
+    "reading": "じこ",
+    "meanings": [
+      "事故"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 35006,
+    "surface": "起きる",
+    "reading": "おきる",
+    "meanings": [
+      "发生，起床"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 36001,
+    "surface": "遅れる",
+    "reading": "おくれる",
+    "meanings": [
+      "迟到"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 36002,
+    "surface": "間に合う",
+    "reading": "まにあう",
+    "meanings": [
+      "赶上"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 36003,
+    "surface": "連絡",
+    "reading": "れんらく",
+    "meanings": [
+      "联系"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 36004,
+    "surface": "電話",
+    "reading": "でんわ",
+    "meanings": [
+      "电话"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 36005,
+    "surface": "困る",
+    "reading": "こまる",
+    "meanings": [
+      "为难"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 36006,
+    "surface": "先",
+    "reading": "さき",
+    "meanings": [
+      "先，前"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 37001,
+    "surface": "優勝",
+    "reading": "ゆうしょう",
+    "meanings": [
+      "冠军"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 37002,
+    "surface": "眠い",
+    "reading": "ねむい",
+    "meanings": [
+      "困倦"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 37003,
+    "surface": "叱る",
+    "reading": "しかる",
+    "meanings": [
+      "批评"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 37004,
+    "surface": "嘘",
+    "reading": "うそ",
+    "meanings": [
+      "谎言"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 37005,
+    "surface": "理由",
+    "reading": "りゆう",
+    "meanings": [
+      "理由"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 37006,
+    "surface": "参加",
+    "reading": "さんか",
+    "meanings": [
+      "参加"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 38001,
+    "surface": "帽子",
+    "reading": "ぼうし",
+    "meanings": [
+      "帽子"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 38002,
+    "surface": "被る",
+    "reading": "かぶる",
+    "meanings": [
+      "戴(帽子)"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 38003,
+    "surface": "眼鏡",
+    "reading": "めがね",
+    "meanings": [
+      "眼镜"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 38004,
+    "surface": "掛ける",
+    "reading": "かける",
+    "meanings": [
+      "戴(眼镜)"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 38005,
+    "surface": "着る",
+    "reading": "きる",
+    "meanings": [
+      "穿(上衣)"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 38006,
+    "surface": "履く",
+    "reading": "はく",
+    "meanings": [
+      "穿(鞋/裤)"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 39001,
+    "surface": "ニュース",
+    "reading": "ニュース",
+    "meanings": [
+      "新闻"
+    ],
+    "level": 2,
+    "tags": [
+      "katakana"
+    ]
+  },
+  {
+    "vocabId": 39002,
+    "surface": "びっくり",
+    "reading": "びっくり",
+    "meanings": [
+      "吃惊"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 39003,
+    "surface": "複雑",
+    "reading": "ふくざつ",
+    "meanings": [
+      "复杂"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 39004,
+    "surface": "変わる",
+    "reading": "かわる",
+    "meanings": [
+      "变化"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 39005,
+    "surface": "火事",
+    "reading": "かじ",
+    "meanings": [
+      "火灾"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 39006,
+    "surface": "怪我",
+    "reading": "けが",
+    "meanings": [
+      "受伤"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 40001,
+    "surface": "下さる",
+    "reading": "くださる",
+    "meanings": [
+      "给(尊)"
+    ],
+    "level": 2,
+    "tags": [
+      "honorific"
+    ]
+  },
+  {
+    "vocabId": 40002,
+    "surface": "いただく",
+    "reading": "いただく",
+    "meanings": [
+      "收下(自谦)"
+    ],
+    "level": 2,
+    "tags": [
+      "humble"
+    ]
+  },
+  {
+    "vocabId": 40003,
+    "surface": "やる",
+    "reading": "やる",
+    "meanings": [
+      "给(卑)"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 40004,
+    "surface": "お祝い",
+    "reading": "おいわい",
+    "meanings": [
+      "祝贺"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 40005,
+    "surface": "お年玉",
+    "reading": "おとしだま",
+    "meanings": [
+      "压岁钱"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 40006,
+    "surface": "興味",
+    "reading": "きょうみ",
+    "meanings": [
+      "兴趣"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 41001,
+    "surface": "尊敬",
+    "reading": "そんけい",
+    "meanings": [
+      "尊敬"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 41002,
+    "surface": "先生",
+    "reading": "せんせい",
+    "meanings": [
+      "老师"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 41003,
+    "surface": "申す",
+    "reading": "もうす",
+    "meanings": [
+      "说(自谦)"
+    ],
+    "level": 2,
+    "tags": [
+      "humble"
+    ]
+  },
+  {
+    "vocabId": 41004,
+    "surface": "参る",
+    "reading": "まいる",
+    "meanings": [
+      "去/来(自谦)"
+    ],
+    "level": 2,
+    "tags": [
+      "humble"
+    ]
+  },
+  {
+    "vocabId": 41005,
+    "surface": "おっしゃる",
+    "reading": "おっしゃる",
+    "meanings": [
+      "说(尊)"
+    ],
+    "level": 2,
+    "tags": [
+      "honorific"
+    ]
+  },
+  {
+    "vocabId": 41006,
+    "surface": "なさる",
+    "reading": "なさる",
+    "meanings": [
+      "做(尊)"
+    ],
+    "level": 2,
+    "tags": [
+      "honorific"
+    ]
+  },
+  {
+    "vocabId": 42001,
+    "surface": "貯金",
+    "reading": "ちょきん",
+    "meanings": [
+      "存钱"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 42002,
+    "surface": "将来",
+    "reading": "しょうらい",
+    "meanings": [
+      "将来"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 42003,
+    "surface": "夢",
+    "reading": "ゆめ",
+    "meanings": [
+      "梦想"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 42004,
+    "surface": "ため",
+    "reading": "ため",
+    "meanings": [
+      "为了"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 42005,
+    "surface": "健康",
+    "reading": "けんこう",
+    "meanings": [
+      "健康"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 42006,
+    "surface": "引っ越し",
+    "reading": "ひっこし",
+    "meanings": [
+      "搬家"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 43001,
+    "surface": "様子",
+    "reading": "ようす",
+    "meanings": [
+      "样子"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 43002,
+    "surface": "雷",
+    "reading": "かみなり",
+    "meanings": [
+      "雷"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 43003,
+    "surface": "止む",
+    "reading": "やむ",
+    "meanings": [
+      "停止(雨/雪)"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 43004,
+    "surface": "降り出す",
+    "reading": "ふりだす",
+    "meanings": [
+      "下起来"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 43005,
+    "surface": "楽しみ",
+    "reading": "たのしみ",
+    "meanings": [
+      "期待，乐趣"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 43006,
+    "surface": "それほど",
+    "reading": "それほど",
+    "meanings": [
+      "那么(程度)"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 44001,
+    "surface": "噂",
+    "reading": "うわさ",
+    "meanings": [
+      "传闻"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 44002,
+    "surface": "記事",
+    "reading": "きじ",
+    "meanings": [
+      "报道"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 44003,
+    "surface": "発表",
+    "reading": "はっぴょう",
+    "meanings": [
+      "发表"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 44004,
+    "surface": "天気予報",
+    "reading": "てんきよほう",
+    "meanings": [
+      "天气预报"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 44005,
+    "surface": "実験",
+    "reading": "じっけん",
+    "meanings": [
+      "实验"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 44006,
+    "surface": "データ",
+    "reading": "データ",
+    "meanings": [
+      "数据"
+    ],
+    "level": 2,
+    "tags": [
+      "katakana"
+    ]
+  },
+  {
+    "vocabId": 45001,
+    "surface": "もし",
+    "reading": "もし",
+    "meanings": [
+      "如果"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 45002,
+    "surface": "積もる",
+    "reading": "つもる",
+    "meanings": [
+      "积"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 45003,
+    "surface": "相談",
+    "reading": "そうだん",
+    "meanings": [
+      "商量"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 45004,
+    "surface": "無理",
+    "reading": "むり",
+    "meanings": [
+      "勉强"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 45005,
+    "surface": "一生懸命",
+    "reading": "いっしょうけんめい",
+    "meanings": [
+      "拼命"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 45006,
+    "surface": "成功",
+    "reading": "せいこう",
+    "meanings": [
+      "成功"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 46001,
+    "surface": "卒業",
+    "reading": "そつぎょう",
+    "meanings": [
+      "毕业"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 46002,
+    "surface": "留学",
+    "reading": "りゅうがく",
+    "meanings": [
+      "留学"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 46003,
+    "surface": "準備",
+    "reading": "じゅんび",
+    "meanings": [
+      "准备"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 46004,
+    "surface": "決める",
+    "reading": "きめる",
+    "meanings": [
+      "决定"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 46005,
+    "surface": "関係",
+    "reading": "かんけい",
+    "meanings": [
+      "关系"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 46006,
+    "surface": "歴史",
+    "reading": "れきし",
+    "meanings": [
+      "历史"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 47001,
+    "surface": "いらっしゃる",
+    "reading": "いらっしゃる",
+    "meanings": [
+      "来/去/在(尊)"
+    ],
+    "level": 2,
+    "tags": [
+      "honorific"
+    ]
+  },
+  {
+    "vocabId": 47002,
+    "surface": "召し上がる",
+    "reading": "めしあがる",
+    "meanings": [
+      "吃/喝(尊)"
+    ],
+    "level": 2,
+    "tags": [
+      "honorific"
+    ]
+  },
+  {
+    "vocabId": 47003,
+    "surface": "ご覧になる",
+    "reading": "ごらんになる",
+    "meanings": [
+      "看(尊)"
+    ],
+    "level": 2,
+    "tags": [
+      "honorific"
+    ]
+  },
+  {
+    "vocabId": 47004,
+    "surface": "拝見する",
+    "reading": "はいけんする",
+    "meanings": [
+      "看(自谦)"
+    ],
+    "level": 2,
+    "tags": [
+      "humble"
+    ]
+  },
+  {
+    "vocabId": 47005,
+    "surface": "伺う",
+    "reading": "うかがう",
+    "meanings": [
+      "拜访/问(自谦)"
+    ],
+    "level": 2,
+    "tags": [
+      "humble"
+    ]
+  },
+  {
+    "vocabId": 47006,
+    "surface": "存じる",
+    "reading": "ぞんじる",
+    "meanings": [
+      "知道(自谦)"
+    ],
+    "level": 2,
+    "tags": [
+      "humble"
+    ]
+  },
+  {
+    "vocabId": 48001,
+    "surface": "翻訳",
+    "reading": "ほんやく",
+    "meanings": [
+      "翻译"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 48002,
+    "surface": "手伝う",
+    "reading": "てつだう",
+    "meanings": [
+      "帮忙"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 48003,
+    "surface": "自由",
+    "reading": "じゆう",
+    "meanings": [
+      "自由"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 48004,
+    "surface": "育てる",
+    "reading": "そだてる",
+    "meanings": [
+      "抚养，培养"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 48005,
+    "surface": "日記",
+    "reading": "にっき",
+    "meanings": [
+      "日记"
+    ],
+    "level": 2,
+    "tags": []
+  },
+  {
+    "vocabId": 48006,
+    "surface": "通う",
+    "reading": "かよう",
+    "meanings": [
+      "上学，通勤"
+    ],
+    "level": 2,
+    "tags": []
+  }
 ]

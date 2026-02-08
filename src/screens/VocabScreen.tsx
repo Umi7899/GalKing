@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { getAllLessons, getVocabPack, getVocabByIds } from '../db/queries/content';
 import type { Lesson, VocabPack, Vocab } from '../schemas/content';
+import { speak } from '../utils/tts';
 
 export default function VocabScreen() {
     const [lessons, setLessons] = useState<Lesson[]>([]);
@@ -72,11 +73,14 @@ export default function VocabScreen() {
                     key="vocab-grid"
                     data={vocabItems}
                     renderItem={({ item }) => (
-                        <View style={styles.vocabCard}>
-                            <Text style={styles.vocabSurface}>{item.surface}</Text>
+                        <TouchableOpacity
+                            style={styles.vocabCard}
+                            onPress={() => speak(item.surface)}
+                        >
+                            <Text style={styles.vocabSurface}>{item.surface} 🔊</Text>
                             <Text style={styles.vocabReading}>{item.reading}</Text>
                             <Text style={styles.vocabMeaning}>{item.meanings.join(', ')}</Text>
-                        </View>
+                        </TouchableOpacity>
                     )}
                     keyExtractor={(item) => String(item.vocabId)}
                     contentContainerStyle={styles.listContent}

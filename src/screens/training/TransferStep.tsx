@@ -2,8 +2,11 @@
 // Step 2: Transfer Practice (举一反三)
 
 import React, { useState, useRef, useEffect } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Animated, ScrollView, Modal } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Animated, ScrollView } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import type { Drill, GrammarPoint } from '../../schemas/content';
+import { speak } from '../../utils/tts';
 
 interface Props {
     drill: Drill;
@@ -24,17 +27,22 @@ export default function TransferStep({
     onContinue,
     stepProgress,
 }: Props) {
+    const insets = useSafeAreaInsets();
     const [selectedId, setSelectedId] = useState<string | null>(null);
+    const [isReviewing, setIsReviewing] = useState(false);
     const startTimeRef = useRef(Date.now());
     const feedbackAnim = useRef(new Animated.Value(0)).current;
+    const progressTotal = Math.max(stepProgress.total, 1);
+    const progressCurrent = Math.min(stepProgress.current + 1, progressTotal);
 
     useEffect(() => {
         startTimeRef.current = Date.now();
         setSelectedId(null);
+        setIsReviewing(false);
     }, [drill.drillId]);
 
     useEffect(() => {
-        if (showExplanation) {
+        if (showExplanation && !isReviewing) {
             Animated.spring(feedbackAnim, {
                 toValue: 1,
                 useNativeDriver: true,
@@ -42,7 +50,7 @@ export default function TransferStep({
         } else {
             feedbackAnim.setValue(0);
         }
-    }, [showExplanation]);
+    }, [showExplanation, isReviewing]);
 
     const handleSelect = (optionId: string) => {
         if (showExplanation) return;
@@ -72,12 +80,12 @@ export default function TransferStep({
                 {/* Step indicator */}
                 <View style={styles.stepIndicator}>
                     <Text style={styles.stepLabel}>举一反三</Text>
-                    <Text style={styles.stepProgress}>{stepProgress.current + 1} / {stepProgress.total}</Text>
+                    <Text style={styles.stepProgress}>{progressCurrent} / {progressTotal}</Text>
                 </View>
 
                 {/* Progress bar */}
                 <View style={styles.progressBar}>
-                    <View style={[styles.progressFill, { width: `${((stepProgress.current + 1) / stepProgress.total) * 100}%` }]} />
+                    <View style={[styles.progressFill, { width: `${(progressCurrent / progressTotal) * 100}%` }]} />
                 </View>
 
                 {/* Grammar context */}
@@ -108,18 +116,45 @@ export default function TransferStep({
                                 <Text style={styles.optionId}>{option.id.toUpperCase()}</Text>
                             </View>
                             <Text style={styles.optionText}>{option.text}</Text>
+                            {/[\u3040-\u30FF]/.test(option.text) && (
+                                <TouchableOpacity
+                                    style={styles.optionSpeakerButton}
+                                    onPress={(event) => {
+                                        event.stopPropagation();
+                                        speak(option.text);
+                                    }}
+                                >
+                                    <Ionicons name="volume-high" size={18} color="#FFB800" />
+                                </TouchableOpacity>
+                            )}
                         </TouchableOpacity>
                     ))}
                 </View>
+
+                {/* Buttons (Visible only when Reviewing) */}
+                {isReviewing && (
+                    <View style={[styles.bottomButtonRow, { paddingBottom: Math.max(insets.bottom, 16) }]}>
+                        <TouchableOpacity
+                            style={styles.showResultButton}
+                            onPress={() => setIsReviewing(false)}
+                        >
+                            <Text style={styles.showResultButtonText}>📋 查看结果</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.bottomContinueButton} onPress={onContinue}>
+                            <Text style={styles.bottomContinueButtonText}>下一题 →</Text>
+                        </TouchableOpacity>
+                    </View>
+                )}
             </ScrollView>
 
-            {/* Floating Modal Feedback */}
-            <Modal
-                visible={showExplanation && lastAnswer !== null}
-                transparent={true}
-                animationType="fade"
-            >
-                <View style={styles.modalOverlay}>
+            {/* Floating Feedback Overlay */}
+            {showExplanation && lastAnswer !== null && !isReviewing && (
+                <View style={[StyleSheet.absoluteFill, styles.modalOverlay]}>
+                    <TouchableOpacity
+                        style={StyleSheet.absoluteFill}
+                        activeOpacity={1}
+                        onPress={() => setIsReviewing(true)}
+                    />
                     <Animated.View style={[
                         styles.modalContent,
                         lastAnswer?.isCorrect ? styles.modalCorrect : styles.modalWrong,
@@ -127,7 +162,7 @@ export default function TransferStep({
                             opacity: feedbackAnim,
                             transform: [{ scale: feedbackAnim.interpolate({ inputRange: [0, 1], outputRange: [0.8, 1] }) }],
                         },
-                    ]}>
+                    ]} pointerEvents="box-none">
                         <Text style={styles.feedbackEmoji}>
                             {lastAnswer?.isCorrect ? '🎯' : '💭'}
                         </Text>
@@ -136,12 +171,15 @@ export default function TransferStep({
                         </Text>
                         <Text style={styles.explanationText}>{lastAnswer?.explanation}</Text>
 
-                        <TouchableOpacity style={styles.continueButton} onPress={onContinue}>
-                            <Text style={styles.continueButtonText}>继续 →</Text>
-                        </TouchableOpacity>
+                        <View style={styles.modalButtonContainer}>
+                            <TouchableOpacity style={styles.continueButton} onPress={onContinue}>
+                                <Text style={styles.continueButtonText}>继续 →</Text>
+                            </TouchableOpacity>
+                        </View>
+                        <Text style={styles.dismissHint}>点击空白处查看题目</Text>
                     </Animated.View>
                 </View>
-            </Modal>
+            )}
         </View>
     );
 }
@@ -210,6 +248,7 @@ const styles = StyleSheet.create({
         borderRadius: 16,
         padding: 24,
         marginBottom: 24,
+        alignItems: 'center',
     },
     questionStem: {
         fontSize: 18,
@@ -265,6 +304,12 @@ const styles = StyleSheet.create({
         fontSize: 15,
         color: '#fff',
     },
+    optionSpeakerButton: {
+        marginLeft: 8,
+        padding: 6,
+        borderRadius: 14,
+        backgroundColor: 'rgba(255, 184, 0, 0.12)',
+    },
     // Modal styles
     modalOverlay: {
         flex: 1,
@@ -313,6 +358,48 @@ const styles = StyleSheet.create({
         borderRadius: 24,
     },
     continueButtonText: {
+        color: '#000',
+        fontSize: 18,
+        fontWeight: 'bold',
+    },
+    dismissHint: {
+        color: '#666',
+        fontSize: 12,
+        marginTop: 16,
+    },
+    modalButtonContainer: {
+        flexDirection: 'row',
+        gap: 12,
+        marginTop: 8,
+        justifyContent: 'center',
+        width: '100%',
+    },
+    bottomButtonRow: {
+        flexDirection: 'row',
+        gap: 12,
+        marginTop: 32,
+        marginBottom: 20,
+    },
+    showResultButton: {
+        flex: 1,
+        backgroundColor: '#333',
+        paddingVertical: 16,
+        borderRadius: 16,
+        alignItems: 'center',
+    },
+    showResultButtonText: {
+        color: '#fff',
+        fontSize: 16,
+        fontWeight: '600',
+    },
+    bottomContinueButton: {
+        flex: 1,
+        backgroundColor: '#FFB800',
+        paddingVertical: 16,
+        borderRadius: 16,
+        alignItems: 'center',
+    },
+    bottomContinueButtonText: {
         color: '#000',
         fontSize: 18,
         fontWeight: 'bold',

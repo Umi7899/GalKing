@@ -1,0 +1,37 @@
+{
+  "dataset_id": "shin-nihongo-shokyu2-complete-v1.0",
+  "created_at": "2026-02-05",
+  "description": "《新版中日交流标准日本语》初级下（第25-48课）完整数据包。包含课程结构、核心语法点、核心词汇库（含词汇包定义）及每课基本文型（Key Sentences）。",
+  "files": [
+    {
+      "name": "lessons.json",
+      "sha256": "",
+      "bytes": 0,
+      "description": "课程目录结构，包含第25-48课标题、目标及关联ID"
+    },
+    {
+      "name": "grammar_points.json",
+      "sha256": "",
+      "bytes": 0,
+      "description": "核心语法点数据，包含接续、含义及例句"
+    },
+    {
+      "name": "vocab.json",
+      "sha256": "",
+      "bytes": 0,
+      "description": "核心词汇表（Flat List）"
+    },
+    {
+      "name": "vocab_packs.json",
+      "sha256": "",
+      "bytes": 0,
+      "description": "词汇包定义，关联课程与单词ID"
+    },
+    {
+      "name": "sentences.json",
+      "sha256": "",
+      "bytes": 0,
+      "description": "每课的关键句（基本文型）"
+    }
+  ]
+}

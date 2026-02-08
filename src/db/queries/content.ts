@@ -234,3 +234,13 @@ function parseSentenceRow(row: any): Sentence {
         tokens: row.tokensJson ? JSON.parse(row.tokensJson) : undefined,
     };
 }
+
+export async function getSentencesByLesson(lessonId: number): Promise<Sentence[]> {
+    const db = getDatabase();
+    const rows = await db.getAllAsync<any>(
+        'SELECT * FROM sentences WHERE lessonId = ? ORDER BY sentenceId',
+        [lessonId]
+    );
+
+    return rows.map(parseSentenceRow);
+}

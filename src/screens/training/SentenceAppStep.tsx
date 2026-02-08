@@ -5,11 +5,13 @@ import React, { useState, useEffect, useRef } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Modal, Animated, ActivityIndicator } from 'react-native';
 import type { Sentence } from '../../schemas/content';
 import type { SentenceParseResponse } from '../../schemas/llm';
+import { speak } from '../../utils/tts';
 
 interface Props {
     sentence: Sentence;
-    onSubmit: (checkedKeyPointIds: string[]) => void;
+    onSubmit: (checkedKeyPointIds: string[]) => Promise<{ passed: boolean; hitRate: number }>;
     onContinue: () => void;
+    submitPending?: boolean;
     stepProgress: { current: number; total: number };
     onAIParse?: () => void;
     onRegenerate?: () => void;
@@ -21,6 +23,7 @@ export default function SentenceAppStep({
     sentence,
     onSubmit,
     onContinue,
+    submitPending = false,
     stepProgress,
     onAIParse,
     onRegenerate,
@@ -29,13 +32,19 @@ export default function SentenceAppStep({
 }: Props) {
     const [checkedIds, setCheckedIds] = useState<Set<string>>(new Set());
     const [submitted, setSubmitted] = useState(false);
+    const [submitResult, setSubmitResult] = useState<{ passed: boolean; hitRate: number } | null>(null);
     const feedbackAnim = useRef(new Animated.Value(0)).current;
+    const [localSubmitting, setLocalSubmitting] = useState(false);
+    const progressTotal = Math.max(stepProgress.total, 1);
+    const progressCurrent = Math.min(stepProgress.current + 1, progressTotal);
 
     // Reset state when sentence changes (moving to next question)
     useEffect(() => {
         setCheckedIds(new Set());
         setSubmitted(false);
+        setSubmitResult(null);
         feedbackAnim.setValue(0);
+        setLocalSubmitting(false);
     }, [sentence.sentenceId]);
 
     useEffect(() => {
@@ -59,12 +68,24 @@ export default function SentenceAppStep({
         setCheckedIds(newChecked);
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
+        if (localSubmitting) return;
         setSubmitted(true);
-        onSubmit(Array.from(checkedIds));
+        setLocalSubmitting(true);
+        try {
+            const result = await onSubmit(Array.from(checkedIds));
+            setSubmitResult(result);
+        } finally {
+            setLocalSubmitting(false);
+        }
     };
 
-    const isGoodResult = checkedIds.size >= 3;
+    const fallbackHitRate = sentence.keyPoints.length > 0
+        ? checkedIds.size / sentence.keyPoints.length
+        : 0;
+    const fallbackPassed = checkedIds.size >= 3 || fallbackHitRate >= 0.7;
+    const isGoodResult = submitResult?.passed ?? fallbackPassed;
+    const isSubmitBusy = submitPending || localSubmitting;
 
     const [showParseModal, setShowParseModal] = useState(false);
 
@@ -85,12 +106,12 @@ export default function SentenceAppStep({
                 {/* Header */}
                 <View style={styles.header}>
                     <Text style={styles.stepLabel}>句子应用</Text>
-                    <Text style={styles.stepProgress}>{stepProgress.current + 1} / {stepProgress.total}</Text>
+                    <Text style={styles.stepProgress}>{progressCurrent} / {progressTotal}</Text>
                 </View>
 
                 {/* Progress */}
                 <View style={styles.progressBar}>
-                    <View style={[styles.progressFill, { width: `${((stepProgress.current + 1) / stepProgress.total) * 100}%` }]} />
+                    <View style={[styles.progressFill, { width: `${(progressCurrent / progressTotal) * 100}%` }]} />
                 </View>
 
                 {/* Style tag */}
@@ -101,6 +122,13 @@ export default function SentenceAppStep({
                 {/* Sentence card */}
                 <View style={styles.sentenceCard}>
                     <Text style={styles.sentenceText}>{sentence.text}</Text>
+                    <TouchableOpacity
+                        style={styles.speakerButton}
+                        onPress={() => speak(sentence.text)}
+                        activeOpacity={0.8}
+                    >
+                        <Text style={styles.speakerButtonText}>🔊 朗读例句</Text>
+                    </TouchableOpacity>
 
                     {/* Tokens display (if available) */}
                     {sentence.tokens && (
@@ -148,12 +176,12 @@ export default function SentenceAppStep({
                     <TouchableOpacity
                         style={[
                             styles.submitButton,
-                            checkedIds.size === 0 && styles.submitButtonDisabled,
+                            (checkedIds.size === 0 || isSubmitBusy) && styles.submitButtonDisabled,
                         ]}
                         onPress={handleSubmit}
-                        disabled={checkedIds.size === 0}
+                        disabled={checkedIds.size === 0 || isSubmitBusy}
                     >
-                        <Text style={styles.submitButtonText}>确认理解</Text>
+                        <Text style={styles.submitButtonText}>{isSubmitBusy ? '处理中...' : '确认理解'}</Text>
                     </TouchableOpacity>
                 )}
             </ScrollView>
@@ -206,8 +234,14 @@ export default function SentenceAppStep({
                             </TouchableOpacity>
                         )}
 
-                        <TouchableOpacity style={styles.continueButton} onPress={onContinue}>
-                            <Text style={styles.continueButtonText}>继续 →</Text>
+                        <TouchableOpacity
+                            style={[styles.continueButton, isSubmitBusy && styles.continueButtonDisabled]}
+                            onPress={onContinue}
+                            disabled={isSubmitBusy}
+                        >
+                            <Text style={styles.continueButtonText}>
+                                {isSubmitBusy ? '处理中...' : '继续 →'}
+                            </Text>
                         </TouchableOpacity>
                     </Animated.View>
                 </View>
@@ -344,6 +378,21 @@ const styles = StyleSheet.create({
         lineHeight: 36,
         textAlign: 'center',
     },
+    speakerButton: {
+        flexDirection: 'row',
+        alignSelf: 'center',
+        alignItems: 'center',
+        backgroundColor: 'rgba(156, 39, 176, 0.15)',
+        paddingHorizontal: 10,
+        paddingVertical: 6,
+        borderRadius: 14,
+        marginTop: 12,
+    },
+    speakerButtonText: {
+        color: '#C8A7D8',
+        fontSize: 12,
+        fontWeight: '600',
+    },
     tokensContainer: {
         flexDirection: 'row',
         flexWrap: 'wrap',
@@ -477,6 +526,9 @@ const styles = StyleSheet.create({
         paddingHorizontal: 40,
         paddingVertical: 14,
         borderRadius: 24,
+    },
+    continueButtonDisabled: {
+        backgroundColor: '#5A3760',
     },
     continueButtonText: {
         color: '#fff',

@@ -37,6 +37,7 @@ export interface SessionManager {
     // Actions
     answerQuestion(selectedId: string, timeMs: number): Promise<AnswerResult>;
     submitSentence(checkedKeyPointIds: string[]): Promise<SentenceResult>;
+    updateVocabStats(correct: number, wrong: number, avgRtMs: number): Promise<void>;
     nextStep(): Promise<boolean>;
     finishSession(): Promise<ResultJson>;
 
@@ -135,6 +136,14 @@ function createSessionManager(sessionId: number, initialState: StepStateJson): S
             }
 
             return await handleStep4Submit(state, checkedKeyPointIds);
+        },
+
+        async updateVocabStats(correct: number, wrong: number, avgRtMs: number): Promise<void> {
+            if (state.currentStep !== 3) return;
+            state.plan.step3.correct = correct;
+            state.plan.step3.wrong = wrong;
+            state.plan.step3.avgRtMs = avgRtMs;
+            await manager.save();
         },
 
         async nextStep(): Promise<boolean> {

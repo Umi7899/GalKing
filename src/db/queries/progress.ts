@@ -15,11 +15,11 @@ export async function getUserProgress(): Promise<DbUserProgress> {
         // Initialize if not exists
         await db.runAsync(
             `INSERT INTO user_progress (id, currentLessonId, currentGrammarIndex, currentLevel, streakDays)
-       VALUES (1, 1, 0, 1, 0)`
+       VALUES (1, 25, 0, 1, 0)`
         );
         return {
             id: 1,
-            currentLessonId: 1,
+            currentLessonId: 25,
             currentGrammarIndex: 0,
             currentLevel: 1,
             streakDays: 0,
