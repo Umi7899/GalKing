@@ -157,6 +157,10 @@ function createSessionManager(sessionId: number, initialState: StepStateJson): S
         },
 
         async finishSession(): Promise<ResultJson> {
+            // Save final timing before calculating result
+            state.timing.elapsedMs = Date.now() - state.timing.startedAt;
+            await manager.save();
+
             // Calculate result
             const recentAccuracies = await getRecentAccuracies(2);
 

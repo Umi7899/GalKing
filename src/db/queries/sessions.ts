@@ -192,11 +192,18 @@ export interface DailyActivity {
 
 export async function getActivityHeatmap(days: number = 84): Promise<DailyActivity[]> {
     const db = getDatabase();
+
+    // Calculate cutoff date in JS to avoid SQLite date() timezone issues
+    const cutoff = new Date();
+    cutoff.setDate(cutoff.getDate() - days);
+    const cutoffStr = cutoff.toISOString().split('T')[0];
+
     const sessions = await db.getAllAsync<DbSession>(
         `SELECT date, status, stars, startedAt, finishedAt
          FROM sessions
-         WHERE date >= date('now', '-${days} days')
-         ORDER BY date ASC`
+         WHERE date >= ?
+         ORDER BY date ASC`,
+        [cutoffStr]
     );
 
     const dateMap = new Map<string, DailyActivity>();
@@ -241,10 +248,17 @@ export interface AccuracyTrend {
 
 export async function getAccuracyTrend(days: number = 14): Promise<AccuracyTrend[]> {
     const db = getDatabase();
+
+    // Calculate cutoff date in JS to avoid SQLite date() timezone issues
+    const cutoff = new Date();
+    cutoff.setDate(cutoff.getDate() - days);
+    const cutoffStr = cutoff.toISOString().split('T')[0];
+
     const sessions = await db.getAllAsync<DbSession>(
         `SELECT * FROM sessions
-         WHERE status = 'completed' AND date >= date('now', '-${days} days')
-         ORDER BY date ASC`
+         WHERE status = 'completed' AND date >= ?
+         ORDER BY date ASC`,
+        [cutoffStr]
     );
 
     const dateMap = new Map<string, { gC: number; gT: number; vAcc: number; vN: number; sP: number; sT: number }>();
@@ -285,11 +299,32 @@ export async function getAccuracyTrend(days: number = 14): Promise<AccuracyTrend
 
 export async function getTotalLearningTime(): Promise<number> {
     const db = getDatabase();
+
+    // Primary: use finishedAt - startedAt from sessions table
     const row = await db.getFirstAsync<{ total: number }>(
         `SELECT COALESCE(SUM(finishedAt - startedAt), 0) as total
-         FROM sessions WHERE status = 'completed' AND finishedAt IS NOT NULL`
+         FROM sessions WHERE status = 'completed' AND finishedAt IS NOT NULL AND startedAt IS NOT NULL`
     );
-    return row?.total ?? 0;
+    const fromTable = row?.total ?? 0;
+
+    if (fromTable > 0) return fromTable;
+
+    // Fallback: sum elapsedMs from stepStateJson timing
+    const sessions = await db.getAllAsync<{ stepStateJson: string }>(
+        `SELECT stepStateJson FROM sessions WHERE status = 'completed' AND stepStateJson IS NOT NULL`
+    );
+
+    let total = 0;
+    for (const s of sessions) {
+        try {
+            const state = JSON.parse(s.stepStateJson);
+            if (state?.timing?.elapsedMs) {
+                total += state.timing.elapsedMs;
+            }
+        } catch {}
+    }
+
+    return total;
 }
 
 // ============ Helpers ============

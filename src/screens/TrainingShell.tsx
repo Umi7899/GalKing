@@ -21,6 +21,7 @@ import { explainMistake, parseSentence, isLLMAvailable } from '../llm/client';
 import type { Drill, GrammarPoint, Sentence, Vocab } from '../schemas/content';
 import type { ResultJson } from '../schemas/session';
 import type { SentenceParseResponse, MistakeExplainResponse } from '../schemas/llm';
+import type { VocabAnswer } from './training/VocabComboStep';
 
 // Step components
 import GrammarDrillStep from './training/GrammarDrillStep';
@@ -212,11 +213,26 @@ export default function TrainingShell() {
         }
     };
 
-    const handleVocabComplete = async (correct: number, wrong: number, avgRtMs: number) => {
+    const handleVocabComplete = async (correct: number, wrong: number, avgRtMs: number, answers: VocabAnswer[]) => {
         if (!session) return;
-        // Record vocab results before moving on
-        console.log('[Training] Vocab complete:', { correct, wrong, avgRtMs });
-        // Move to next step after a short delay
+        console.log('[Training] Vocab complete:', { correct, wrong, avgRtMs, answersCount: answers.length });
+
+        // Save totals to session state
+        session.state.plan.step3.correct = correct;
+        session.state.plan.step3.wrong = wrong;
+        session.state.plan.step3.avgRtMs = avgRtMs;
+
+        // Save per-vocab answers for finishSession to update vocab state
+        session.state.plan.step3.answers = answers.map(a => ({
+            questionId: `vocab_${a.vocabId}`,
+            selectedId: a.isCorrect ? 'correct' : 'wrong',
+            correctId: 'correct',
+            isCorrect: a.isCorrect,
+            timeMs: a.timeMs,
+        }));
+
+        await session.save();
+        // Move to next step after saving
         await handleNextStep();
     };
 

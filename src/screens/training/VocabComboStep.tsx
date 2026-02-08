@@ -6,9 +6,15 @@ import { View, Text, StyleSheet, TouchableOpacity, Animated } from 'react-native
 import type { Vocab } from '../../schemas/content';
 import { speak } from '../../utils/tts';
 
+export interface VocabAnswer {
+    vocabId: number;
+    isCorrect: boolean;
+    timeMs: number;
+}
+
 interface Props {
     vocabItems: Vocab[];
-    onComplete: (correct: number, wrong: number, avgRtMs: number) => void;
+    onComplete: (correct: number, wrong: number, avgRtMs: number, answers: VocabAnswer[]) => void;
     stepProgress: { current: number; total: number };
 }
 
@@ -27,6 +33,7 @@ export default function VocabComboStep({ vocabItems, onComplete, stepProgress }:
     const [showFeedback, setShowFeedback] = useState(false);
     const [lastCorrect, setLastCorrect] = useState(false);
     const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+    const answersRef = useRef<VocabAnswer[]>([]);
 
     const startTimeRef = useRef(Date.now());
     const comboRef = useRef(0);
@@ -81,6 +88,13 @@ export default function VocabComboStep({ vocabItems, onComplete, stepProgress }:
         const isCorrect = index === quizItems[currentIndex].correctIndex;
         setLastCorrect(isCorrect);
 
+        // Record per-vocab answer
+        answersRef.current.push({
+            vocabId: quizItems[currentIndex].vocab.vocabId,
+            isCorrect,
+            timeMs: elapsed,
+        });
+
         if (isCorrect) {
             setCorrect(prev => prev + 1);
             comboRef.current++;
@@ -108,8 +122,10 @@ export default function VocabComboStep({ vocabItems, onComplete, stepProgress }:
         // Auto advance
         setTimeout(() => {
             if (currentIndex + 1 >= quizItems.length) {
+                const newCorrect = correct + (isCorrect ? 1 : 0);
+                const newWrong = wrong + (isCorrect ? 0 : 1);
                 const avgRtMs = (totalTime + elapsed) / quizItems.length;
-                onComplete(correct + (isCorrect ? 1 : 0), wrong + (isCorrect ? 0 : 1), avgRtMs);
+                onComplete(newCorrect, newWrong, avgRtMs, answersRef.current);
             } else {
                 setCurrentIndex(prev => prev + 1);
                 setShowFeedback(false);

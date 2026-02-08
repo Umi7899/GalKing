@@ -129,6 +129,10 @@ function ActivityHeatmap({ data }: { data: DailyActivity[] }) {
 }
 
 // ============ Mastery Ring Component ============
+// Uses two clipped half-circles with corrected rotation offsets.
+// CSS borders on a circle split at 45° diagonals, not at 0°/90° axes.
+// Right half offset: -225° to align border seam with vertical clip edge.
+// Left half offset: -135° for the same reason (mirrored).
 
 function MasteryRing({
     label,
@@ -144,33 +148,56 @@ function MasteryRing({
     color: string;
 }) {
     const percentage = Math.round(value);
-    const ringSize = 80;
-    const strokeWidth = 6;
-    const radius = (ringSize - strokeWidth) / 2;
-    const circumference = 2 * Math.PI * radius;
-    const progressLength = (percentage / 100) * circumference;
+    const size = 84;
+    const sw = 7;
+    const half = size / 2;
+    const deg = (percentage / 100) * 360;
 
     return (
         <View style={ringStyles.container}>
-            {/* Fake ring with View */}
-            <View style={[ringStyles.ringOuter, { width: ringSize, height: ringSize, borderRadius: ringSize / 2 }]}>
-                <View
-                    style={[
-                        ringStyles.ringProgress,
-                        {
-                            width: ringSize,
-                            height: ringSize,
-                            borderRadius: ringSize / 2,
-                            borderWidth: strokeWidth,
-                            borderColor: color,
-                            borderTopColor: percentage >= 25 ? color : '#333',
-                            borderRightColor: percentage >= 50 ? color : '#333',
-                            borderBottomColor: percentage >= 75 ? color : '#333',
-                            borderLeftColor: percentage >= 100 ? color : '#333',
-                        },
-                    ]}
-                />
-                <View style={ringStyles.ringInner}>
+            <View style={[ringStyles.ringOuter, { width: size, height: size }]}>
+                {/* Track */}
+                <View style={{
+                    position: 'absolute', width: size, height: size,
+                    borderRadius: half, borderWidth: sw, borderColor: '#333',
+                }} />
+
+                {/* Right half (0-50%) */}
+                <View style={{
+                    position: 'absolute', top: 0, left: half,
+                    width: half, height: size, overflow: 'hidden',
+                }}>
+                    <View style={{
+                        position: 'absolute', top: 0, left: -half,
+                        width: size, height: size, borderRadius: half, borderWidth: sw,
+                        borderTopColor: color,
+                        borderRightColor: color,
+                        borderBottomColor: 'transparent',
+                        borderLeftColor: 'transparent',
+                        transform: [{ rotate: `${-225 + Math.min(deg, 180)}deg` }],
+                    }} />
+                </View>
+
+                {/* Left half (50-100%) */}
+                {deg > 180 && (
+                    <View style={{
+                        position: 'absolute', top: 0, left: 0,
+                        width: half, height: size, overflow: 'hidden',
+                    }}>
+                        <View style={{
+                            position: 'absolute', top: 0, left: 0,
+                            width: size, height: size, borderRadius: half, borderWidth: sw,
+                            borderTopColor: color,
+                            borderLeftColor: color,
+                            borderBottomColor: 'transparent',
+                            borderRightColor: 'transparent',
+                            transform: [{ rotate: `${-135 + (deg - 180)}deg` }],
+                        }} />
+                    </View>
+                )}
+
+                {/* Center text */}
+                <View style={ringStyles.centerLabel}>
                     <Text style={[ringStyles.ringValue, { color }]}>{percentage}%</Text>
                 </View>
             </View>
@@ -193,7 +220,7 @@ function AccuracyTrendChart({ data }: { data: AccuracyTrend[] }) {
     }
 
     const barWidth = 100 / data.length;
-    const maxHeight = 100;
+    const maxBarPx = 88; // chartArea(120) - paddingBottom(16) - margin(16)
 
     return (
         <View style={trendStyles.container}>
@@ -238,7 +265,7 @@ function AccuracyTrendChart({ data }: { data: AccuracyTrend[] }) {
                                 style={[
                                     trendStyles.bar,
                                     {
-                                        height: `${Math.max(item.grammarAcc * maxHeight, 2)}%`,
+                                        height: Math.max(item.grammarAcc * maxBarPx, 2),
                                         backgroundColor: '#FF6B9D',
                                     },
                                 ]}
@@ -248,7 +275,7 @@ function AccuracyTrendChart({ data }: { data: AccuracyTrend[] }) {
                                 style={[
                                     trendStyles.bar,
                                     {
-                                        height: `${Math.max(item.vocabAcc * maxHeight, 2)}%`,
+                                        height: Math.max(item.vocabAcc * maxBarPx, 2),
                                         backgroundColor: '#4CAF50',
                                     },
                                 ]}
@@ -258,7 +285,7 @@ function AccuracyTrendChart({ data }: { data: AccuracyTrend[] }) {
                                 style={[
                                     trendStyles.bar,
                                     {
-                                        height: `${Math.max(item.sentenceAcc * maxHeight, 2)}%`,
+                                        height: Math.max(item.sentenceAcc * maxBarPx, 2),
                                         backgroundColor: '#9C27B0',
                                     },
                                 ]}
@@ -642,13 +669,12 @@ const ringStyles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    ringProgress: {
+    centerLabel: {
         position: 'absolute',
-        transform: [{ rotate: '-45deg' }],
-    },
-    ringInner: {
         justifyContent: 'center',
         alignItems: 'center',
+        width: '100%',
+        height: '100%',
     },
     ringValue: {
         fontSize: 18,
