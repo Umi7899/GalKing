@@ -115,6 +115,11 @@ export default function GrammarDrillStep({
 
                 {/* Question */}
                 <View style={styles.questionCard}>
+                    {drill.drillId.startsWith('ai_') && (
+                        <View style={styles.aiBadge}>
+                            <Text style={styles.aiBadgeText}>AI</Text>
+                        </View>
+                    )}
                     <Text style={styles.questionStem}>{drill.stem}</Text>
                     {hasJapaneseStem && (
                         <TouchableOpacity
@@ -269,6 +274,21 @@ const styles = StyleSheet.create({
         padding: 24,
         marginBottom: 24,
         alignItems: 'center',
+        position: 'relative' as const,
+    },
+    aiBadge: {
+        position: 'absolute' as const,
+        top: 8,
+        right: 8,
+        backgroundColor: '#00BCD4',
+        paddingHorizontal: 8,
+        paddingVertical: 2,
+        borderRadius: 8,
+    },
+    aiBadgeText: {
+        color: '#fff',
+        fontSize: 10,
+        fontWeight: 'bold' as const,
     },
     questionStem: {
         fontSize: 20,

@@ -518,24 +518,30 @@ export default function StatsScreen() {
                                 {item.result && (
                                     <View>
                                         <View style={styles.sessionStats}>
+                                            {item.result.grammar && (
                                             <View style={styles.sessionStatItem}>
                                                 <View style={[styles.statDot, { backgroundColor: '#FF6B9D' }]} />
                                                 <Text style={styles.sessionStat}>
                                                     语法 {item.result.grammar.correct}/{item.result.grammar.total}
                                                 </Text>
                                             </View>
+                                            )}
+                                            {item.result.vocab && (
                                             <View style={styles.sessionStatItem}>
                                                 <View style={[styles.statDot, { backgroundColor: '#4CAF50' }]} />
                                                 <Text style={styles.sessionStat}>
                                                     词汇 {(item.result.vocab.accuracy * 100).toFixed(0)}%
                                                 </Text>
                                             </View>
+                                            )}
+                                            {item.result.sentence && (
                                             <View style={styles.sessionStatItem}>
                                                 <View style={[styles.statDot, { backgroundColor: '#9C27B0' }]} />
                                                 <Text style={styles.sessionStat}>
                                                     句子 {item.result.sentence.pass}/{item.result.sentence.total}
                                                 </Text>
                                             </View>
+                                            )}
                                         </View>
                                         {item.result.coach?.summary && (
                                             <View style={styles.coachSection}>

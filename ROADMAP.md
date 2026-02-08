@@ -62,21 +62,21 @@
 
 ### P1 — 学习效果增强
 
-- [ ] **SRS 间隔重复系统**
-  - [ ] 基于遗忘曲线的复习调度算法
-  - [ ] 智能选题（优先弱项语法 + 即将遗忘词汇）
-  - [ ] 对接现有 nextReviewDate 字段
-  - [ ] 复习队列 UI
+- [x] **SRS 间隔重复系统**
+  - [x] 基于遗忘曲线的复习调度算法（SM-2 风格）
+  - [x] 智能选题（优先弱项语法 + 即将遗忘词汇 + 逾期优先）
+  - [x] 对接现有 nextReviewAt 字段
+  - [x] 复习队列 UI（ReviewQueueScreen）
 
-- [ ] **听力/发音练习模块**
-  - [ ] 听句选意（利用 TTS）
-  - [ ] 听写练习
+- [x] **听力/发音练习模块**
+  - [x] 听句选意（ListeningQuizScreen，利用 TTS）
+  - [x] 听写练习（DictationScreen，模糊匹配评分）
   - [ ] 语音识别跟读评分（条件允许时）
 
-- [ ] **AI 动态生成练习题**
-  - [ ] 利用 generate_drills LLM 特性扩展
-  - [ ] 动态难度调整
-  - [ ] 突破固定题库限制
+- [x] **AI 动态生成练习题**
+  - [x] 利用 generate_drills LLM 特性扩展
+  - [x] 动态难度调整（mastery 驱动 easy/medium/hard）
+  - [x] 突破固定题库限制（AI drill cache + fallback）
 
 ### P2 — 用户粘性与体验
 

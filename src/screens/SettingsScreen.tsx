@@ -20,7 +20,7 @@ import {
     type LLMSettings,
 } from '../settings/storage';
 import { testLLMConnection, clearSettingsCache } from '../llm/client';
-import { resetAllProgress } from '../db/queries/admin';
+import { resetAllProgress, seedTestData } from '../db/queries/admin';
 
 const PROVIDERS: LLMProvider[] = ['deepseek', 'openai', 'custom'];
 
@@ -102,6 +102,31 @@ export default function SettingsScreen() {
                             Alert.alert('已重置', '所有学习记录已清空。');
                         } catch (e) {
                             Alert.alert('失败', '重置失败');
+                            console.error(e);
+                        } finally {
+                            setSaving(false);
+                        }
+                    }
+                }
+            ]
+        );
+    }, []);
+
+    const handleSeedTestData = useCallback(() => {
+        Alert.alert(
+            '🧪 注入测试数据',
+            '将写入模拟数据用于测试新功能：\n\n• 设置进度到第28课\n• 注入语法/词汇掌握度（含到期复习项）\n• 创建已完成的训练会话\n\n已有数据会被覆盖。',
+            [
+                { text: '取消', style: 'cancel' },
+                {
+                    text: '确定注入',
+                    onPress: async () => {
+                        try {
+                            setSaving(true);
+                            const { summary } = await seedTestData();
+                            Alert.alert('注入成功', summary);
+                        } catch (e) {
+                            Alert.alert('失败', '注入测试数据失败');
                             console.error(e);
                         } finally {
                             setSaving(false);
@@ -305,8 +330,19 @@ export default function SettingsScreen() {
             {/* Danger Zone */}
             <View style={[styles.section, { marginTop: 40 }]}>
                 <Text style={[styles.sectionTitle, { color: '#FF5252' }]}>⚠️ 数据管理</Text>
+
                 <TouchableOpacity
-                    style={styles.dangerButton}
+                    style={styles.seedButton}
+                    onPress={handleSeedTestData}
+                    disabled={saving}
+                >
+                    <Text style={styles.seedButtonText}>
+                        {saving ? '处理中...' : '🧪 注入测试数据'}
+                    </Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                    style={[styles.dangerButton, { marginTop: 12 }]}
                     onPress={handleResetProgress}
                     disabled={saving}
                 >
@@ -477,6 +513,19 @@ const styles = StyleSheet.create({
     },
     dangerButtonText: {
         color: '#FF5252',
+        fontSize: 16,
+        fontWeight: 'bold',
+    },
+    seedButton: {
+        backgroundColor: 'rgba(0, 188, 212, 0.1)',
+        borderWidth: 1,
+        borderColor: '#00BCD4',
+        borderRadius: 12,
+        padding: 16,
+        alignItems: 'center',
+    },
+    seedButtonText: {
+        color: '#00BCD4',
         fontSize: 16,
         fontWeight: 'bold',
     },

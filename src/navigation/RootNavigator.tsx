@@ -18,6 +18,9 @@ import SettingsScreen from '../screens/SettingsScreen';
 import GrammarCardScreen from '../screens/quick/GrammarCardScreen';
 import VocabChallengeScreen from '../screens/quick/VocabChallengeScreen';
 import SentenceDojoScreen from '../screens/quick/SentenceDojoScreen';
+import ListeningQuizScreen from '../screens/quick/ListeningQuizScreen';
+import DictationScreen from '../screens/quick/DictationScreen';
+import ReviewQueueScreen from '../screens/quick/ReviewQueueScreen';
 
 // ============ Type Definitions ============
 
@@ -35,6 +38,9 @@ export type HomeStackParamList = {
     GrammarCard: undefined;
     VocabChallenge: undefined;
     SentenceDojo: undefined;
+    ListeningQuiz: undefined;
+    Dictation: undefined;
+    ReviewQueue: undefined;
 };
 
 export type StatsStackParamList = {
@@ -91,6 +97,21 @@ function HomeStackNavigator() {
                 name="SentenceDojo"
                 component={SentenceDojoScreen}
                 options={{ animation: 'slide_from_bottom' }}
+            />
+            <HomeStack.Screen
+                name="ListeningQuiz"
+                component={ListeningQuizScreen}
+                options={{ animation: 'slide_from_bottom' }}
+            />
+            <HomeStack.Screen
+                name="Dictation"
+                component={DictationScreen}
+                options={{ animation: 'slide_from_bottom' }}
+            />
+            <HomeStack.Screen
+                name="ReviewQueue"
+                component={ReviewQueueScreen}
+                options={{ animation: 'slide_from_right' }}
             />
         </HomeStack.Navigator>
     );

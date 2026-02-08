@@ -3,8 +3,22 @@
 
 import { getLesson, getGrammarPoint, getVocabPack, getSentencesByGrammar, getSentencesByLesson } from '../db/queries/content';
 import { getUserProgress, getGrammarState, getGrammarStatesForReview, getVocabForReview } from '../db/queries/progress';
+import { getCompletedDrillIds } from '../db/queries/sessions';
+import { generateDrills, checkLLMAvailable, type GenerateDrillsInput } from '../llm/client';
 import type { StepStateJson, Step1State, Step2State, Step3State, Step4State } from '../schemas/session';
 import type { GrammarPoint, Drill } from '../schemas/content';
+
+// ============ AI Drill Cache ============
+
+const aiDrillCache = new Map<string, Drill>();
+
+export function cacheAIDrill(drill: Drill): void {
+    aiDrillCache.set(drill.drillId, drill);
+}
+
+export function clearAIDrillCache(): void {
+    aiDrillCache.clear();
+}
 
 // ============ Main Plan Generator ============
 
@@ -92,18 +106,35 @@ async function generateStep1(grammarId: number, level: number): Promise<Step1Sta
     if (!grammar) throw new Error(`Grammar ${grammarId} not found`);
 
     const questionIds: string[] = [];
+    const today = Date.now();
 
-    // 2 questions from current grammar drills
-    const baseDrills = grammar.drills.slice(0, 2);
-    baseDrills.forEach(drill => questionIds.push(drill.drillId));
+    // Check how many review items are due (exclude current grammar)
+    const grammarReviews = await getGrammarStatesForReview(today, 5);
+    const eligibleReviews = grammarReviews.filter(g => g.grammarId !== grammarId);
 
-    // 1 review question
-    const reviewQuestion = await getReviewQuestion(grammarId);
-    if (reviewQuestion) {
-        questionIds.push(reviewQuestion);
-    } else if (grammar.drills.length > 2) {
-        // Use 3rd drill if no review available
-        questionIds.push(grammar.drills[2].drillId);
+    // Dynamic allocation: max 2 reviews, rest from current grammar (total always 3)
+    const reviewCount = Math.min(2, eligibleReviews.length);
+    const currentGrammarCount = 3 - reviewCount;
+
+    // Add current grammar drills (prefer fresh via AI if all done)
+    const completedIds = await getCompletedDrillIds(grammarId);
+    const freshDrills = await getOrGenerateDrills(grammar, currentGrammarCount, completedIds);
+    freshDrills.forEach(drill => questionIds.push(drill.drillId));
+
+    // Add review questions (prioritize overdue > 3 days)
+    const overdueThreshold = today - 3 * 24 * 60 * 60 * 1000;
+    const sortedReviews = [...eligibleReviews].sort((a, b) => {
+        const aOverdue = (a.nextReviewAt ?? 0) < overdueThreshold ? 1 : 0;
+        const bOverdue = (b.nextReviewAt ?? 0) < overdueThreshold ? 1 : 0;
+        return bOverdue - aOverdue; // Overdue first
+    });
+
+    for (let i = 0; i < reviewCount && i < sortedReviews.length; i++) {
+        const reviewGrammar = await getGrammarPoint(sortedReviews[i].grammarId);
+        if (reviewGrammar && reviewGrammar.drills.length > 0) {
+            const drill = reviewGrammar.drills[Math.floor(Math.random() * reviewGrammar.drills.length)];
+            questionIds.push(`rev_g${sortedReviews[i].grammarId}_${drill.drillId}`);
+        }
     }
 
     return {
@@ -147,10 +178,16 @@ async function generateStep2(grammarId: number): Promise<Step2State> {
 
     const questionIds: string[] = [];
 
-    // Use remaining drills (index 2+) or generate transfer questions
+    // Use remaining drills (index 2+) or AI-generated, or transfer placeholders
+    const completedIds = await getCompletedDrillIds(grammarId);
     const transferDrills = grammar.drills.slice(2);
+    const availableTransfer = transferDrills.filter(d => !completedIds.has(d.drillId));
 
-    if (transferDrills.length >= 2) {
+    if (availableTransfer.length >= 2) {
+        questionIds.push(availableTransfer[0].drillId);
+        questionIds.push(availableTransfer[1].drillId);
+    } else if (transferDrills.length >= 2) {
+        // Reuse existing drills if all completed
         questionIds.push(transferDrills[0].drillId);
         questionIds.push(transferDrills[1].drillId);
     } else {
@@ -196,14 +233,20 @@ async function generateStep3(lessonId: number, level: number): Promise<Step3Stat
         };
     }
 
-    // Sample up to 12 items, prioritize review candidates
+    // Sample up to 12 items, prioritize overdue > due > new
     const today = Date.now();
-    const vocabReviews = await getVocabForReview(today, 6);
+    const vocabReviews = await getVocabForReview(today, 8);
     const reviewIds = new Set(vocabReviews.map(v => v.vocabId));
 
-    // Prioritize: review words first, then new words
+    // Overdue items (more than 3 days past due) get highest priority
+    const overdueThreshold = today - 3 * 24 * 60 * 60 * 1000;
+    const overdueIds = new Set(
+        vocabReviews.filter(v => v.nextReviewAt != null && v.nextReviewAt < overdueThreshold).map(v => v.vocabId)
+    );
+
     const prioritized = [
-        ...pack.vocabIds.filter(id => reviewIds.has(id)),
+        ...pack.vocabIds.filter(id => overdueIds.has(id)),
+        ...pack.vocabIds.filter(id => reviewIds.has(id) && !overdueIds.has(id)),
         ...pack.vocabIds.filter(id => !reviewIds.has(id)),
     ];
 
@@ -217,6 +260,60 @@ async function generateStep3(lessonId: number, level: number): Promise<Step3Stat
         wrong: 0,
         avgRtMs: 0,
     };
+}
+
+// ============ AI Drill Generation ============
+
+async function getOrGenerateDrills(
+    grammar: GrammarPoint,
+    neededCount: number,
+    excludeIds: Set<string>
+): Promise<Drill[]> {
+    // 1. Filter available fixed drills (not yet completed)
+    const availableDrills = grammar.drills.filter(d => !excludeIds.has(d.drillId));
+
+    if (availableDrills.length >= neededCount) {
+        return availableDrills.slice(0, neededCount);
+    }
+
+    // 2. Not enough fresh drills — try AI generation
+    const stillNeeded = neededCount - availableDrills.length;
+
+    const llmAvailable = await checkLLMAvailable();
+    if (llmAvailable) {
+        try {
+            const grammarState = await getGrammarState(grammar.grammarId);
+            const mastery = grammarState?.mastery ?? 0;
+            const difficultyHint: 'easy' | 'medium' | 'hard' =
+                mastery < 40 ? 'easy' : mastery < 70 ? 'medium' : 'hard';
+
+            const input: GenerateDrillsInput = {
+                grammarId: grammar.grammarId,
+                grammarName: grammar.name,
+                coreRule: grammar.coreRule,
+                structure: grammar.structure,
+                difficultyHint,
+                count: stillNeeded,
+            };
+
+            const result = await generateDrills(input);
+
+            if (result.ok && result.data && result.data.drills.length > 0) {
+                const aiDrills = result.data.drills.map((d, i) => ({
+                    ...d,
+                    drillId: `ai_g${grammar.grammarId}_${Date.now()}_${i}`,
+                    grammarId: grammar.grammarId,
+                }));
+                aiDrills.forEach(d => cacheAIDrill(d));
+                return [...availableDrills, ...aiDrills.slice(0, stillNeeded)];
+            }
+        } catch (e) {
+            console.warn('[Plan] AI drill generation failed:', e);
+        }
+    }
+
+    // 3. Fallback: reuse completed drills (allow repetition)
+    return grammar.drills.slice(0, neededCount);
 }
 
 // ============ Step 4: Sentence Application ============
@@ -271,7 +368,23 @@ async function generateStep4(grammarId: number, level: number): Promise<Step4Sta
 // ============ Drill Lookup ============
 
 export async function getDrillById(drillId: string): Promise<Drill | null> {
-    // Parse drill ID format: g{grammarId}_q{n} or rev_g{gid}_{original} or transfer_g{gid}_{type}
+    // Parse drill ID format: g{grammarId}_q{n} or rev_g{gid}_{original} or transfer_g{gid}_{type} or ai_*
+
+    // AI-generated drill: look up from in-memory cache
+    if (drillId.startsWith('ai_')) {
+        const cached = aiDrillCache.get(drillId);
+        if (cached) return normalizeJudgeDrill(cached);
+        // Fallback: extract grammarId and use first fixed drill
+        const match = drillId.match(/^ai_g(\d+)/);
+        if (match) {
+            const grammarId = parseInt(match[1]);
+            const grammar = await getGrammarPoint(grammarId);
+            if (grammar && grammar.drills.length > 0) {
+                return normalizeJudgeDrill(grammar.drills[0]);
+            }
+        }
+        return null;
+    }
 
     if (drillId.startsWith('rev_g')) {
         // Review drill: rev_g{grammarId}_{originalDrillId}
@@ -376,9 +489,37 @@ async function generateTransferDrill(grammarId: number, type: string): Promise<D
                 grammarId,
             };
         }
+        // Fallback: no counterExamples, generate true/false about grammar rule
+        const example = grammar.examples[0];
+        return {
+            drillId: `transfer_g${grammarId}_counter`,
+            type: 'choice',
+            stem: `以下句子使用了「${grammar.name}」，是否正确？\n${example?.jp ?? grammar.name}`,
+            options: [
+                { id: 'a', text: '○ 正确' },
+                { id: 'b', text: '× 错误' },
+            ],
+            correctId: 'a',
+            explanation: grammar.coreRule,
+            grammarId,
+        };
     }
 
-    return null;
+    // Final fallback for unknown type
+    return {
+        drillId: `transfer_g${grammarId}_${type}`,
+        type: 'choice',
+        stem: `「${grammar.name}」的核心规则是什么？`,
+        options: [
+            { id: 'a', text: grammar.coreRule },
+            { id: 'b', text: '表示动作的持续状态' },
+            { id: 'c', text: '表示过去的经历' },
+            { id: 'd', text: '表示将来的推测' },
+        ],
+        correctId: 'a',
+        explanation: grammar.coreRule,
+        grammarId,
+    };
 }
 
 function cleanOptionText(text: string): string {

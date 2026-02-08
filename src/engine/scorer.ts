@@ -4,6 +4,44 @@
 import type { AnswerRecord, SentenceSubmission, ResultJson } from '../schemas/session';
 import type { KeyPoint } from '../schemas/content';
 
+// ============ SM-2 Interval Algorithm ============
+
+/**
+ * SM-2 style interval for grammar review.
+ * Derives easeFactor from mastery (0-100 → EF 1.3-2.5).
+ * Uses correctStreak as repetition count.
+ */
+export function computeSM2Interval(mastery: number, correctStreak: number, wasAllCorrect: boolean): number {
+    if (!wasAllCorrect) return 1;
+
+    const easeFactor = Math.max(1.3, 1.3 + (mastery / 100) * 1.2);
+
+    if (correctStreak <= 1) return 1;
+    if (correctStreak === 2) return 3;
+
+    // streak >= 3: base(3) * EF^(streak-2), capped at 60 days
+    const interval = Math.round(3 * Math.pow(easeFactor, correctStreak - 2));
+    return Math.min(interval, 60);
+}
+
+/**
+ * SM-2 style interval for vocab review.
+ * Derives easeFactor from strength (0-100 → EF 1.3-2.5).
+ */
+export function computeVocabSM2Interval(strength: number, isCorrect: boolean): number {
+    if (!isCorrect) return 1;
+
+    const easeFactor = Math.max(1.3, 1.3 + (strength / 100) * 1.2);
+
+    if (strength < 30) return 1;
+    if (strength < 50) return 2;
+
+    // Graduated intervals with EF scaling
+    const repetitions = Math.floor(strength / 20); // 0-5
+    const interval = Math.round(2 * Math.pow(easeFactor, Math.max(0, repetitions - 1)));
+    return Math.min(interval, 45);
+}
+
 // ============ Grammar Mastery Calculation ============
 
 export interface GrammarScoreUpdate {
@@ -38,22 +76,9 @@ export function calculateGrammarUpdates(
     // Clamp mastery to 0-100
     const newMastery = Math.max(0, Math.min(100, currentMastery + masteryDelta));
 
-    // Calculate next review interval based on mastery
-    let nextReviewDays: number;
-    if (newMastery < 40) {
-        nextReviewDays = 1;
-    } else if (newMastery < 70) {
-        nextReviewDays = 3;
-    } else if (newMastery < 85) {
-        nextReviewDays = 7;
-    } else {
-        nextReviewDays = 14;
-    }
-
-    // If any wrong answer, review sooner
-    if (answers.some(a => !a.isCorrect)) {
-        nextReviewDays = Math.min(nextReviewDays, 1);
-    }
+    // SM-2 interval calculation
+    const wasAllCorrect = answers.every(a => a.isCorrect);
+    const nextReviewDays = computeSM2Interval(newMastery, streak, wasAllCorrect);
 
     return {
         grammarId: 0, // To be filled by caller
@@ -91,17 +116,8 @@ export function calculateVocabUpdate(
     const newStrength = Math.max(0, Math.min(100, currentStrength + strengthDelta));
     const newWrongCount = isCorrect ? currentWrongCount : currentWrongCount + 1;
 
-    // Calculate next review interval
-    let nextReviewDays: number;
-    if (newStrength < 30) {
-        nextReviewDays = 1;
-    } else if (newStrength < 60) {
-        nextReviewDays = 2;
-    } else if (newStrength < 80) {
-        nextReviewDays = 5;
-    } else {
-        nextReviewDays = 10;
-    }
+    // SM-2 interval calculation
+    const nextReviewDays = computeVocabSM2Interval(newStrength, isCorrect);
 
     // Should block if wrong too many times
     const shouldBlock = newWrongCount >= 3;
