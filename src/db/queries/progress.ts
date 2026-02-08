@@ -192,3 +192,42 @@ export async function getBlockingVocab(): Promise<DbUserVocabState[]> {
         'SELECT * FROM user_vocab_state WHERE isBlocking = 1'
     );
 }
+
+// ============ Mastery Overview ============
+
+export interface MasteryOverview {
+    grammarAvg: number;
+    grammarTotal: number;
+    grammarMastered: number;
+    vocabAvg: number;
+    vocabTotal: number;
+    vocabMastered: number;
+}
+
+export async function getMasteryOverview(): Promise<MasteryOverview> {
+    const db = await getDatabase();
+
+    const grammarRows = await db.getAllAsync<{ mastery: number }>(
+        'SELECT mastery FROM user_grammar_state'
+    );
+    const vocabRows = await db.getAllAsync<{ strength: number }>(
+        'SELECT strength FROM user_vocab_state'
+    );
+
+    const grammarTotal = grammarRows.length;
+    const grammarSum = grammarRows.reduce((s, r) => s + r.mastery, 0);
+    const grammarMastered = grammarRows.filter(r => r.mastery >= 80).length;
+
+    const vocabTotal = vocabRows.length;
+    const vocabSum = vocabRows.reduce((s, r) => s + r.strength, 0);
+    const vocabMastered = vocabRows.filter(r => r.strength >= 80).length;
+
+    return {
+        grammarAvg: grammarTotal > 0 ? grammarSum / grammarTotal : 0,
+        grammarTotal,
+        grammarMastered,
+        vocabAvg: vocabTotal > 0 ? vocabSum / vocabTotal : 0,
+        vocabTotal,
+        vocabMastered,
+    };
+}

@@ -181,6 +181,152 @@ export async function getSessionStats(): Promise<{
     };
 }
 
+// ============ Enhanced Stats ============
+
+export interface DailyActivity {
+    date: string;
+    completed: boolean;
+    stars: number;
+    durationMs: number;
+}
+
+export async function getActivityHeatmap(days: number = 84): Promise<DailyActivity[]> {
+    const db = getDatabase();
+
+    // Calculate cutoff date in JS to avoid SQLite date() timezone issues
+    const cutoff = new Date();
+    cutoff.setDate(cutoff.getDate() - days);
+    const cutoffStr = cutoff.toISOString().split('T')[0];
+
+    const sessions = await db.getAllAsync<DbSession>(
+        `SELECT date, status, stars, startedAt, finishedAt
+         FROM sessions
+         WHERE date >= ?
+         ORDER BY date ASC`,
+        [cutoffStr]
+    );
+
+    const dateMap = new Map<string, DailyActivity>();
+
+    for (const s of sessions) {
+        const existing = dateMap.get(s.date);
+        const duration = (s.finishedAt && s.startedAt) ? s.finishedAt - s.startedAt : 0;
+
+        if (existing) {
+            if (s.status === 'completed') existing.completed = true;
+            existing.stars = Math.max(existing.stars, s.stars ?? 0);
+            existing.durationMs += duration;
+        } else {
+            dateMap.set(s.date, {
+                date: s.date,
+                completed: s.status === 'completed',
+                stars: s.stars ?? 0,
+                durationMs: duration,
+            });
+        }
+    }
+
+    // Fill missing dates
+    const result: DailyActivity[] = [];
+    const today = new Date();
+    for (let i = days - 1; i >= 0; i--) {
+        const d = new Date(today);
+        d.setDate(d.getDate() - i);
+        const dateStr = d.toISOString().split('T')[0];
+        result.push(dateMap.get(dateStr) ?? { date: dateStr, completed: false, stars: 0, durationMs: 0 });
+    }
+
+    return result;
+}
+
+export interface AccuracyTrend {
+    date: string;
+    grammarAcc: number;
+    vocabAcc: number;
+    sentenceAcc: number;
+}
+
+export async function getAccuracyTrend(days: number = 14): Promise<AccuracyTrend[]> {
+    const db = getDatabase();
+
+    // Calculate cutoff date in JS to avoid SQLite date() timezone issues
+    const cutoff = new Date();
+    cutoff.setDate(cutoff.getDate() - days);
+    const cutoffStr = cutoff.toISOString().split('T')[0];
+
+    const sessions = await db.getAllAsync<DbSession>(
+        `SELECT * FROM sessions
+         WHERE status = 'completed' AND date >= ?
+         ORDER BY date ASC`,
+        [cutoffStr]
+    );
+
+    const dateMap = new Map<string, { gC: number; gT: number; vAcc: number; vN: number; sP: number; sT: number }>();
+
+    for (const s of sessions) {
+        const r = parseResult(s);
+        if (!r) continue;
+
+        const existing = dateMap.get(s.date) ?? { gC: 0, gT: 0, vAcc: 0, vN: 0, sP: 0, sT: 0 };
+        existing.gC += r.grammar.correct + r.transfer.correct;
+        existing.gT += r.grammar.total + r.transfer.total;
+        existing.vAcc += r.vocab.accuracy;
+        existing.vN += 1;
+        existing.sP += r.sentence.pass;
+        existing.sT += r.sentence.total;
+        dateMap.set(s.date, existing);
+    }
+
+    const result: AccuracyTrend[] = [];
+    const today = new Date();
+    for (let i = days - 1; i >= 0; i--) {
+        const d = new Date(today);
+        d.setDate(d.getDate() - i);
+        const dateStr = d.toISOString().split('T')[0];
+        const data = dateMap.get(dateStr);
+        if (data) {
+            result.push({
+                date: dateStr,
+                grammarAcc: data.gT > 0 ? data.gC / data.gT : 0,
+                vocabAcc: data.vN > 0 ? data.vAcc / data.vN : 0,
+                sentenceAcc: data.sT > 0 ? data.sP / data.sT : 0,
+            });
+        }
+    }
+
+    return result;
+}
+
+export async function getTotalLearningTime(): Promise<number> {
+    const db = getDatabase();
+
+    // Primary: use finishedAt - startedAt from sessions table
+    const row = await db.getFirstAsync<{ total: number }>(
+        `SELECT COALESCE(SUM(finishedAt - startedAt), 0) as total
+         FROM sessions WHERE status = 'completed' AND finishedAt IS NOT NULL AND startedAt IS NOT NULL`
+    );
+    const fromTable = row?.total ?? 0;
+
+    if (fromTable > 0) return fromTable;
+
+    // Fallback: sum elapsedMs from stepStateJson timing
+    const sessions = await db.getAllAsync<{ stepStateJson: string }>(
+        `SELECT stepStateJson FROM sessions WHERE status = 'completed' AND stepStateJson IS NOT NULL`
+    );
+
+    let total = 0;
+    for (const s of sessions) {
+        try {
+            const state = JSON.parse(s.stepStateJson);
+            if (state?.timing?.elapsedMs) {
+                total += state.timing.elapsedMs;
+            }
+        } catch {}
+    }
+
+    return total;
+}
+
 // ============ Helpers ============
 
 export function parseStepState(session: DbSession | null): StepStateJson {
