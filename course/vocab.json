@@ -1,0 +1,1407 @@
+[
+  {
+    "vocabId": 25001,
+    "word": "フライト",
+    "kana": "フライト",
+    "meaning": "航班，空运",
+    "lessonId": 25,
+    "type": "noun",
+    "tags": [
+      "katakana"
+    ]
+  },
+  {
+    "vocabId": 25002,
+    "word": "会議",
+    "kana": "かいぎ",
+    "meaning": "会议",
+    "lessonId": 25,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 25003,
+    "word": "資料",
+    "kana": "しりょう",
+    "meaning": "资料",
+    "lessonId": 25,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 25004,
+    "word": "専門",
+    "kana": "せんもん",
+    "meaning": "专门，专业",
+    "lessonId": 25,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 25005,
+    "word": "空港",
+    "kana": "くうこう",
+    "meaning": "机场",
+    "lessonId": 25,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 25006,
+    "word": "使う",
+    "kana": "つかう",
+    "meaning": "使用",
+    "lessonId": 25,
+    "type": "verb_u",
+    "tags": []
+  },
+  {
+    "vocabId": 25007,
+    "word": "渡す",
+    "kana": "わたす",
+    "meaning": "交给，递给",
+    "lessonId": 25,
+    "type": "verb_u",
+    "tags": []
+  },
+  {
+    "vocabId": 25008,
+    "word": "泊まる",
+    "kana": "とまる",
+    "meaning": "住宿",
+    "lessonId": 25,
+    "type": "verb_u",
+    "tags": []
+  },
+  {
+    "vocabId": 25009,
+    "word": "急ぐ",
+    "kana": "いそぐ",
+    "meaning": "急，匆忙",
+    "lessonId": 25,
+    "type": "verb_u",
+    "tags": []
+  },
+  {
+    "vocabId": 25010,
+    "word": "迷う",
+    "kana": "まよう",
+    "meaning": "迷失，犹豫",
+    "lessonId": 25,
+    "type": "verb_u",
+    "tags": []
+  },
+  {
+    "vocabId": 26001,
+    "word": "自転車",
+    "kana": "じてんしゃ",
+    "meaning": "自行车",
+    "lessonId": 26,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 26002,
+    "word": "危ない",
+    "kana": "あぶない",
+    "meaning": "危险",
+    "lessonId": 26,
+    "type": "adj_i",
+    "tags": []
+  },
+  {
+    "vocabId": 26003,
+    "word": "置く",
+    "kana": "おく",
+    "meaning": "放置",
+    "lessonId": 26,
+    "type": "verb_u",
+    "tags": []
+  },
+  {
+    "vocabId": 26004,
+    "word": "心配",
+    "kana": "しんぱい",
+    "meaning": "担心",
+    "lessonId": 26,
+    "type": "noun_suru",
+    "tags": []
+  },
+  {
+    "vocabId": 26005,
+    "word": "通る",
+    "kana": "とおる",
+    "meaning": "通过",
+    "lessonId": 26,
+    "type": "verb_u",
+    "tags": []
+  },
+  {
+    "vocabId": 26006,
+    "word": "荷物",
+    "kana": "にもつ",
+    "meaning": "行李",
+    "lessonId": 26,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 26007,
+    "word": "趣味",
+    "kana": "しゅみ",
+    "meaning": "爱好",
+    "lessonId": 26,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 26008,
+    "word": "特技",
+    "kana": "とくぎ",
+    "meaning": "特长",
+    "lessonId": 26,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 27001,
+    "word": "時",
+    "kana": "とき",
+    "meaning": "时候",
+    "lessonId": 27,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 27002,
+    "word": "閉める",
+    "kana": "しめる",
+    "meaning": "关闭",
+    "lessonId": 27,
+    "type": "verb_ru",
+    "tags": []
+  },
+  {
+    "vocabId": 27003,
+    "word": "忘れる",
+    "kana": "わすれる",
+    "meaning": "忘记",
+    "lessonId": 27,
+    "type": "verb_ru",
+    "tags": []
+  },
+  {
+    "vocabId": 27004,
+    "word": "鍵",
+    "kana": "かぎ",
+    "meaning": "钥匙",
+    "lessonId": 27,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 27005,
+    "word": "部屋",
+    "kana": "へや",
+    "meaning": "房间",
+    "lessonId": 27,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 27006,
+    "word": "消す",
+    "kana": "けす",
+    "meaning": "关掉，熄灭",
+    "lessonId": 27,
+    "type": "verb_u",
+    "tags": []
+  },
+  {
+    "vocabId": 27007,
+    "word": "電気",
+    "kana": "でんき",
+    "meaning": "电，电灯",
+    "lessonId": 27,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 28001,
+    "word": "秋葉原",
+    "kana": "あきはばら",
+    "meaning": "秋叶原",
+    "lessonId": 28,
+    "type": "noun",
+    "tags": [
+      "place"
+    ]
+  },
+  {
+    "vocabId": 28002,
+    "word": "観光",
+    "kana": "かんこう",
+    "meaning": "观光",
+    "lessonId": 28,
+    "type": "noun_suru",
+    "tags": []
+  },
+  {
+    "vocabId": 28003,
+    "word": "案内",
+    "kana": "あんない",
+    "meaning": "向导，导游",
+    "lessonId": 28,
+    "type": "noun_suru",
+    "tags": []
+  },
+  {
+    "vocabId": 28004,
+    "word": "馬",
+    "kana": "うま",
+    "meaning": "马",
+    "lessonId": 28,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 28005,
+    "word": "店",
+    "kana": "みせ",
+    "meaning": "商店",
+    "lessonId": 28,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 28006,
+    "word": "～とか",
+    "kana": "～とか",
+    "meaning": "...之类的",
+    "lessonId": 28,
+    "type": "particle",
+    "tags": []
+  },
+  {
+    "vocabId": 29001,
+    "word": "つく",
+    "kana": "つく",
+    "meaning": "灯亮，附着",
+    "lessonId": 29,
+    "type": "verb_u",
+    "tags": [
+      "intransitive"
+    ]
+  },
+  {
+    "vocabId": 29002,
+    "word": "消える",
+    "kana": "きえる",
+    "meaning": "熄灭，消失",
+    "lessonId": 29,
+    "type": "verb_ru",
+    "tags": [
+      "intransitive"
+    ]
+  },
+  {
+    "vocabId": 29003,
+    "word": "壊れる",
+    "kana": "こわれる",
+    "meaning": "坏，破碎",
+    "lessonId": 29,
+    "type": "verb_ru",
+    "tags": [
+      "intransitive"
+    ]
+  },
+  {
+    "vocabId": 29004,
+    "word": "窓",
+    "kana": "まど",
+    "meaning": "窗户",
+    "lessonId": 29,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 29005,
+    "word": "開く",
+    "kana": "あく",
+    "meaning": "开",
+    "lessonId": 29,
+    "type": "verb_u",
+    "tags": [
+      "intransitive"
+    ]
+  },
+  {
+    "vocabId": 29006,
+    "word": "汚れる",
+    "kana": "よごれる",
+    "meaning": "脏",
+    "lessonId": 29,
+    "type": "verb_ru",
+    "tags": [
+      "intransitive"
+    ]
+  },
+  {
+    "vocabId": 30001,
+    "word": "貼る",
+    "kana": "はる",
+    "meaning": "贴",
+    "lessonId": 30,
+    "type": "verb_u",
+    "tags": []
+  },
+  {
+    "vocabId": 30002,
+    "word": "掛ける",
+    "kana": "かける",
+    "meaning": "挂",
+    "lessonId": 30,
+    "type": "verb_ru",
+    "tags": []
+  },
+  {
+    "vocabId": 30003,
+    "word": "飾る",
+    "kana": "かざる",
+    "meaning": "装饰",
+    "lessonId": 30,
+    "type": "verb_u",
+    "tags": []
+  },
+  {
+    "vocabId": 30004,
+    "word": "しまう",
+    "kana": "しまう",
+    "meaning": "收拾，放置",
+    "lessonId": 30,
+    "type": "verb_u",
+    "tags": []
+  },
+  {
+    "vocabId": 30005,
+    "word": "並べる",
+    "kana": "ならべる",
+    "meaning": "排列",
+    "lessonId": 30,
+    "type": "verb_ru",
+    "tags": []
+  },
+  {
+    "vocabId": 30006,
+    "word": "植える",
+    "kana": "うえる",
+    "meaning": "种植",
+    "lessonId": 30,
+    "type": "verb_ru",
+    "tags": []
+  },
+  {
+    "vocabId": 31001,
+    "word": "ボタン",
+    "kana": "ボタン",
+    "meaning": "按钮",
+    "lessonId": 31,
+    "type": "noun",
+    "tags": [
+      "katakana"
+    ]
+  },
+  {
+    "vocabId": 31002,
+    "word": "押す",
+    "kana": "おす",
+    "meaning": "按，推",
+    "lessonId": 31,
+    "type": "verb_u",
+    "tags": []
+  },
+  {
+    "vocabId": 31003,
+    "word": "電源",
+    "kana": "でんげん",
+    "meaning": "电源",
+    "lessonId": 31,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 31004,
+    "word": "入れる",
+    "kana": "いれる",
+    "meaning": "放入，开启",
+    "lessonId": 31,
+    "type": "verb_ru",
+    "tags": []
+  },
+  {
+    "vocabId": 31005,
+    "word": "下がる",
+    "kana": "さがる",
+    "meaning": "下降，后退",
+    "lessonId": 31,
+    "type": "verb_u",
+    "tags": []
+  },
+  {
+    "vocabId": 31006,
+    "word": "親切",
+    "kana": "しんせつ",
+    "meaning": "热情，亲切",
+    "lessonId": 31,
+    "type": "adj_na",
+    "tags": []
+  },
+  {
+    "vocabId": 32001,
+    "word": "名所",
+    "kana": "めいしょ",
+    "meaning": "名胜",
+    "lessonId": 32,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 32002,
+    "word": "大概",
+    "kana": "たいがい",
+    "meaning": "大概",
+    "lessonId": 32,
+    "type": "adv",
+    "tags": []
+  },
+  {
+    "vocabId": 32003,
+    "word": "賑やか",
+    "kana": "にぎやか",
+    "meaning": "热闹",
+    "lessonId": 32,
+    "type": "adj_na",
+    "tags": []
+  },
+  {
+    "vocabId": 32004,
+    "word": "お祭り",
+    "kana": "おまつり",
+    "meaning": "节日，庆典",
+    "lessonId": 32,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 32005,
+    "word": "美しい",
+    "kana": "うつくしい",
+    "meaning": "美丽",
+    "lessonId": 32,
+    "type": "adj_i",
+    "tags": []
+  },
+  {
+    "vocabId": 32006,
+    "word": "選ぶ",
+    "kana": "えらぶ",
+    "meaning": "选择",
+    "lessonId": 32,
+    "type": "verb_u",
+    "tags": []
+  },
+  {
+    "vocabId": 33001,
+    "word": "泥棒",
+    "kana": "どろぼう",
+    "meaning": "小偷",
+    "lessonId": 33,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 33002,
+    "word": "盗む",
+    "kana": "ぬすむ",
+    "meaning": "偷",
+    "lessonId": 33,
+    "type": "verb_u",
+    "tags": []
+  },
+  {
+    "vocabId": 33003,
+    "word": "触る",
+    "kana": "さわる",
+    "meaning": "触摸",
+    "lessonId": 33,
+    "type": "verb_u",
+    "tags": []
+  },
+  {
+    "vocabId": 33004,
+    "word": "踏む",
+    "kana": "ふむ",
+    "meaning": "踩",
+    "lessonId": 33,
+    "type": "verb_u",
+    "tags": []
+  },
+  {
+    "vocabId": 33005,
+    "word": "行う",
+    "kana": "おこなう",
+    "meaning": "举行",
+    "lessonId": 33,
+    "type": "verb_u",
+    "tags": []
+  },
+  {
+    "vocabId": 33006,
+    "word": "褒める",
+    "kana": "ほめる",
+    "meaning": "表扬",
+    "lessonId": 33,
+    "type": "verb_ru",
+    "tags": []
+  },
+  {
+    "vocabId": 34001,
+    "word": "パンダ",
+    "kana": "パンダ",
+    "meaning": "熊猫",
+    "lessonId": 34,
+    "type": "noun",
+    "tags": [
+      "katakana"
+    ]
+  },
+  {
+    "vocabId": 34002,
+    "word": "逃げる",
+    "kana": "にげる",
+    "meaning": "逃跑",
+    "lessonId": 34,
+    "type": "verb_ru",
+    "tags": []
+  },
+  {
+    "vocabId": 34003,
+    "word": "探す",
+    "kana": "さがす",
+    "meaning": "寻找",
+    "lessonId": 34,
+    "type": "verb_u",
+    "tags": []
+  },
+  {
+    "vocabId": 34004,
+    "word": "試合",
+    "kana": "しあい",
+    "meaning": "比赛",
+    "lessonId": 34,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 34005,
+    "word": "応援",
+    "kana": "おうえん",
+    "meaning": "加油，助威",
+    "lessonId": 34,
+    "type": "noun_suru",
+    "tags": []
+  },
+  {
+    "vocabId": 34006,
+    "word": "勝つ",
+    "kana": "かつ",
+    "meaning": "胜利",
+    "lessonId": 34,
+    "type": "verb_u",
+    "tags": []
+  },
+  {
+    "vocabId": 35001,
+    "word": "台風",
+    "kana": "たいふう",
+    "meaning": "台风",
+    "lessonId": 35,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 35002,
+    "word": "地震",
+    "kana": "じしん",
+    "meaning": "地震",
+    "lessonId": 35,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 35003,
+    "word": "降る",
+    "kana": "ふる",
+    "meaning": "下(雨/雪)",
+    "lessonId": 35,
+    "type": "verb_u",
+    "tags": []
+  },
+  {
+    "vocabId": 35004,
+    "word": "曇り",
+    "kana": "くもり",
+    "meaning": "阴天",
+    "lessonId": 35,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 35005,
+    "word": "事故",
+    "kana": "じこ",
+    "meaning": "事故",
+    "lessonId": 35,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 35006,
+    "word": "起きる",
+    "kana": "おきる",
+    "meaning": "发生，起床",
+    "lessonId": 35,
+    "type": "verb_ru",
+    "tags": []
+  },
+  {
+    "vocabId": 36001,
+    "word": "遅れる",
+    "kana": "おくれる",
+    "meaning": "迟到",
+    "lessonId": 36,
+    "type": "verb_ru",
+    "tags": []
+  },
+  {
+    "vocabId": 36002,
+    "word": "間に合う",
+    "kana": "まにあう",
+    "meaning": "赶上",
+    "lessonId": 36,
+    "type": "verb_u",
+    "tags": []
+  },
+  {
+    "vocabId": 36003,
+    "word": "連絡",
+    "kana": "れんらく",
+    "meaning": "联系",
+    "lessonId": 36,
+    "type": "noun_suru",
+    "tags": []
+  },
+  {
+    "vocabId": 36004,
+    "word": "電話",
+    "kana": "でんわ",
+    "meaning": "电话",
+    "lessonId": 36,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 36005,
+    "word": "困る",
+    "kana": "こまる",
+    "meaning": "为难",
+    "lessonId": 36,
+    "type": "verb_u",
+    "tags": []
+  },
+  {
+    "vocabId": 36006,
+    "word": "先",
+    "kana": "さき",
+    "meaning": "先，前",
+    "lessonId": 36,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 37001,
+    "word": "優勝",
+    "kana": "ゆうしょう",
+    "meaning": "冠军",
+    "lessonId": 37,
+    "type": "noun_suru",
+    "tags": []
+  },
+  {
+    "vocabId": 37002,
+    "word": "眠い",
+    "kana": "ねむい",
+    "meaning": "困倦",
+    "lessonId": 37,
+    "type": "adj_i",
+    "tags": []
+  },
+  {
+    "vocabId": 37003,
+    "word": "叱る",
+    "kana": "しかる",
+    "meaning": "批评",
+    "lessonId": 37,
+    "type": "verb_u",
+    "tags": []
+  },
+  {
+    "vocabId": 37004,
+    "word": "嘘",
+    "kana": "うそ",
+    "meaning": "谎言",
+    "lessonId": 37,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 37005,
+    "word": "理由",
+    "kana": "りゆう",
+    "meaning": "理由",
+    "lessonId": 37,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 37006,
+    "word": "参加",
+    "kana": "さんか",
+    "meaning": "参加",
+    "lessonId": 37,
+    "type": "noun_suru",
+    "tags": []
+  },
+  {
+    "vocabId": 38001,
+    "word": "帽子",
+    "kana": "ぼうし",
+    "meaning": "帽子",
+    "lessonId": 38,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 38002,
+    "word": "被る",
+    "kana": "かぶる",
+    "meaning": "戴(帽子)",
+    "lessonId": 38,
+    "type": "verb_u",
+    "tags": []
+  },
+  {
+    "vocabId": 38003,
+    "word": "眼鏡",
+    "kana": "めがね",
+    "meaning": "眼镜",
+    "lessonId": 38,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 38004,
+    "word": "掛ける",
+    "kana": "かける",
+    "meaning": "戴(眼镜)",
+    "lessonId": 38,
+    "type": "verb_ru",
+    "tags": []
+  },
+  {
+    "vocabId": 38005,
+    "word": "着る",
+    "kana": "きる",
+    "meaning": "穿(上衣)",
+    "lessonId": 38,
+    "type": "verb_ru",
+    "tags": []
+  },
+  {
+    "vocabId": 38006,
+    "word": "履く",
+    "kana": "はく",
+    "meaning": "穿(鞋/裤)",
+    "lessonId": 38,
+    "type": "verb_u",
+    "tags": []
+  },
+  {
+    "vocabId": 39001,
+    "word": "ニュース",
+    "kana": "ニュース",
+    "meaning": "新闻",
+    "lessonId": 39,
+    "type": "noun",
+    "tags": [
+      "katakana"
+    ]
+  },
+  {
+    "vocabId": 39002,
+    "word": "びっくり",
+    "kana": "びっくり",
+    "meaning": "吃惊",
+    "lessonId": 39,
+    "type": "adv",
+    "tags": []
+  },
+  {
+    "vocabId": 39003,
+    "word": "複雑",
+    "kana": "ふくざつ",
+    "meaning": "复杂",
+    "lessonId": 39,
+    "type": "adj_na",
+    "tags": []
+  },
+  {
+    "vocabId": 39004,
+    "word": "変わる",
+    "kana": "かわる",
+    "meaning": "变化",
+    "lessonId": 39,
+    "type": "verb_u",
+    "tags": []
+  },
+  {
+    "vocabId": 39005,
+    "word": "火事",
+    "kana": "かじ",
+    "meaning": "火灾",
+    "lessonId": 39,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 39006,
+    "word": "怪我",
+    "kana": "けが",
+    "meaning": "受伤",
+    "lessonId": 39,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 40001,
+    "word": "下さる",
+    "kana": "くださる",
+    "meaning": "给(尊)",
+    "lessonId": 40,
+    "type": "verb_u",
+    "tags": [
+      "honorific"
+    ]
+  },
+  {
+    "vocabId": 40002,
+    "word": "いただく",
+    "kana": "いただく",
+    "meaning": "收下(自谦)",
+    "lessonId": 40,
+    "type": "verb_u",
+    "tags": [
+      "humble"
+    ]
+  },
+  {
+    "vocabId": 40003,
+    "word": "やる",
+    "kana": "やる",
+    "meaning": "给(卑)",
+    "lessonId": 40,
+    "type": "verb_u",
+    "tags": []
+  },
+  {
+    "vocabId": 40004,
+    "word": "お祝い",
+    "kana": "おいわい",
+    "meaning": "祝贺",
+    "lessonId": 40,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 40005,
+    "word": "お年玉",
+    "kana": "おとしだま",
+    "meaning": "压岁钱",
+    "lessonId": 40,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 40006,
+    "word": "興味",
+    "kana": "きょうみ",
+    "meaning": "兴趣",
+    "lessonId": 40,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 41001,
+    "word": "尊敬",
+    "kana": "そんけい",
+    "meaning": "尊敬",
+    "lessonId": 41,
+    "type": "noun_suru",
+    "tags": []
+  },
+  {
+    "vocabId": 41002,
+    "word": "先生",
+    "kana": "せんせい",
+    "meaning": "老师",
+    "lessonId": 41,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 41003,
+    "word": "申す",
+    "kana": "もうす",
+    "meaning": "说(自谦)",
+    "lessonId": 41,
+    "type": "verb_u",
+    "tags": [
+      "humble"
+    ]
+  },
+  {
+    "vocabId": 41004,
+    "word": "参る",
+    "kana": "まいる",
+    "meaning": "去/来(自谦)",
+    "lessonId": 41,
+    "type": "verb_u",
+    "tags": [
+      "humble"
+    ]
+  },
+  {
+    "vocabId": 41005,
+    "word": "おっしゃる",
+    "kana": "おっしゃる",
+    "meaning": "说(尊)",
+    "lessonId": 41,
+    "type": "verb_u",
+    "tags": [
+      "honorific"
+    ]
+  },
+  {
+    "vocabId": 41006,
+    "word": "なさる",
+    "kana": "なさる",
+    "meaning": "做(尊)",
+    "lessonId": 41,
+    "type": "verb_u",
+    "tags": [
+      "honorific"
+    ]
+  },
+  {
+    "vocabId": 42001,
+    "word": "貯金",
+    "kana": "ちょきん",
+    "meaning": "存钱",
+    "lessonId": 42,
+    "type": "noun_suru",
+    "tags": []
+  },
+  {
+    "vocabId": 42002,
+    "word": "将来",
+    "kana": "しょうらい",
+    "meaning": "将来",
+    "lessonId": 42,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 42003,
+    "word": "夢",
+    "kana": "ゆめ",
+    "meaning": "梦想",
+    "lessonId": 42,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 42004,
+    "word": "ため",
+    "kana": "ため",
+    "meaning": "为了",
+    "lessonId": 42,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 42005,
+    "word": "健康",
+    "kana": "けんこう",
+    "meaning": "健康",
+    "lessonId": 42,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 42006,
+    "word": "引っ越し",
+    "kana": "ひっこし",
+    "meaning": "搬家",
+    "lessonId": 42,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 43001,
+    "word": "様子",
+    "kana": "ようす",
+    "meaning": "样子",
+    "lessonId": 43,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 43002,
+    "word": "雷",
+    "kana": "かみなり",
+    "meaning": "雷",
+    "lessonId": 43,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 43003,
+    "word": "止む",
+    "kana": "やむ",
+    "meaning": "停止(雨/雪)",
+    "lessonId": 43,
+    "type": "verb_u",
+    "tags": []
+  },
+  {
+    "vocabId": 43004,
+    "word": "降り出す",
+    "kana": "ふりだす",
+    "meaning": "下起来",
+    "lessonId": 43,
+    "type": "verb_u",
+    "tags": []
+  },
+  {
+    "vocabId": 43005,
+    "word": "楽しみ",
+    "kana": "たのしみ",
+    "meaning": "期待，乐趣",
+    "lessonId": 43,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 43006,
+    "word": "それほど",
+    "kana": "それほど",
+    "meaning": "那么(程度)",
+    "lessonId": 43,
+    "type": "adv",
+    "tags": []
+  },
+  {
+    "vocabId": 44001,
+    "word": "噂",
+    "kana": "うわさ",
+    "meaning": "传闻",
+    "lessonId": 44,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 44002,
+    "word": "記事",
+    "kana": "きじ",
+    "meaning": "报道",
+    "lessonId": 44,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 44003,
+    "word": "発表",
+    "kana": "はっぴょう",
+    "meaning": "发表",
+    "lessonId": 44,
+    "type": "noun_suru",
+    "tags": []
+  },
+  {
+    "vocabId": 44004,
+    "word": "天気予報",
+    "kana": "てんきよほう",
+    "meaning": "天气预报",
+    "lessonId": 44,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 44005,
+    "word": "実験",
+    "kana": "じっけん",
+    "meaning": "实验",
+    "lessonId": 44,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 44006,
+    "word": "データ",
+    "kana": "データ",
+    "meaning": "数据",
+    "lessonId": 44,
+    "type": "noun",
+    "tags": [
+      "katakana"
+    ]
+  },
+  {
+    "vocabId": 45001,
+    "word": "もし",
+    "kana": "もし",
+    "meaning": "如果",
+    "lessonId": 45,
+    "type": "adv",
+    "tags": []
+  },
+  {
+    "vocabId": 45002,
+    "word": "積もる",
+    "kana": "つもる",
+    "meaning": "积",
+    "lessonId": 45,
+    "type": "verb_u",
+    "tags": []
+  },
+  {
+    "vocabId": 45003,
+    "word": "相談",
+    "kana": "そうだん",
+    "meaning": "商量",
+    "lessonId": 45,
+    "type": "noun_suru",
+    "tags": []
+  },
+  {
+    "vocabId": 45004,
+    "word": "無理",
+    "kana": "むり",
+    "meaning": "勉强",
+    "lessonId": 45,
+    "type": "adj_na",
+    "tags": []
+  },
+  {
+    "vocabId": 45005,
+    "word": "一生懸命",
+    "kana": "いっしょうけんめい",
+    "meaning": "拼命",
+    "lessonId": 45,
+    "type": "adv",
+    "tags": []
+  },
+  {
+    "vocabId": 45006,
+    "word": "成功",
+    "kana": "せいこう",
+    "meaning": "成功",
+    "lessonId": 45,
+    "type": "noun_suru",
+    "tags": []
+  },
+  {
+    "vocabId": 46001,
+    "word": "卒業",
+    "kana": "そつぎょう",
+    "meaning": "毕业",
+    "lessonId": 46,
+    "type": "noun_suru",
+    "tags": []
+  },
+  {
+    "vocabId": 46002,
+    "word": "留学",
+    "kana": "りゅうがく",
+    "meaning": "留学",
+    "lessonId": 46,
+    "type": "noun_suru",
+    "tags": []
+  },
+  {
+    "vocabId": 46003,
+    "word": "準備",
+    "kana": "じゅんび",
+    "meaning": "准备",
+    "lessonId": 46,
+    "type": "noun_suru",
+    "tags": []
+  },
+  {
+    "vocabId": 46004,
+    "word": "決める",
+    "kana": "きめる",
+    "meaning": "决定",
+    "lessonId": 46,
+    "type": "verb_ru",
+    "tags": []
+  },
+  {
+    "vocabId": 46005,
+    "word": "関係",
+    "kana": "かんけい",
+    "meaning": "关系",
+    "lessonId": 46,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 46006,
+    "word": "歴史",
+    "kana": "れきし",
+    "meaning": "历史",
+    "lessonId": 46,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 47001,
+    "word": "いらっしゃる",
+    "kana": "いらっしゃる",
+    "meaning": "来/去/在(尊)",
+    "lessonId": 47,
+    "type": "verb_u",
+    "tags": [
+      "honorific"
+    ]
+  },
+  {
+    "vocabId": 47002,
+    "word": "召し上がる",
+    "kana": "めしあがる",
+    "meaning": "吃/喝(尊)",
+    "lessonId": 47,
+    "type": "verb_u",
+    "tags": [
+      "honorific"
+    ]
+  },
+  {
+    "vocabId": 47003,
+    "word": "ご覧になる",
+    "kana": "ごらんになる",
+    "meaning": "看(尊)",
+    "lessonId": 47,
+    "type": "verb_u",
+    "tags": [
+      "honorific"
+    ]
+  },
+  {
+    "vocabId": 47004,
+    "word": "拝見する",
+    "kana": "はいけんする",
+    "meaning": "看(自谦)",
+    "lessonId": 47,
+    "type": "verb_suru",
+    "tags": [
+      "humble"
+    ]
+  },
+  {
+    "vocabId": 47005,
+    "word": "伺う",
+    "kana": "うかがう",
+    "meaning": "拜访/问(自谦)",
+    "lessonId": 47,
+    "type": "verb_u",
+    "tags": [
+      "humble"
+    ]
+  },
+  {
+    "vocabId": 47006,
+    "word": "存じる",
+    "kana": "ぞんじる",
+    "meaning": "知道(自谦)",
+    "lessonId": 47,
+    "type": "verb_ru",
+    "tags": [
+      "humble"
+    ]
+  },
+  {
+    "vocabId": 48001,
+    "word": "翻訳",
+    "kana": "ほんやく",
+    "meaning": "翻译",
+    "lessonId": 48,
+    "type": "noun_suru",
+    "tags": []
+  },
+  {
+    "vocabId": 48002,
+    "word": "手伝う",
+    "kana": "てつだう",
+    "meaning": "帮忙",
+    "lessonId": 48,
+    "type": "verb_u",
+    "tags": []
+  },
+  {
+    "vocabId": 48003,
+    "word": "自由",
+    "kana": "じゆう",
+    "meaning": "自由",
+    "lessonId": 48,
+    "type": "adj_na",
+    "tags": []
+  },
+  {
+    "vocabId": 48004,
+    "word": "育てる",
+    "kana": "そだてる",
+    "meaning": "抚养，培养",
+    "lessonId": 48,
+    "type": "verb_ru",
+    "tags": []
+  },
+  {
+    "vocabId": 48005,
+    "word": "日記",
+    "kana": "にっき",
+    "meaning": "日记",
+    "lessonId": 48,
+    "type": "noun",
+    "tags": []
+  },
+  {
+    "vocabId": 48006,
+    "word": "通う",
+    "kana": "かよう",
+    "meaning": "上学，通勤",
+    "lessonId": 48,
+    "type": "verb_u",
+    "tags": []
+  }
+]

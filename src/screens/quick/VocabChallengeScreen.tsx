@@ -5,6 +5,7 @@ import { getAllVocab, getVocab } from '../../db/queries/content';
 import { getVocabStates, upsertVocabState, type DbUserVocabState } from '../../db/queries/progress';
 import { getBlitzSummary } from '../../llm/client';
 import type { Vocab } from '../../schemas/content';
+import { speak } from '../../utils/tts';
 
 const GAME_DURATION = 60;
 const VICTORY_COUNT = 30; // 30 correct answers to win
@@ -162,6 +163,12 @@ export default function VocabChallengeScreen() {
             correctIndex
         });
     };
+
+    useEffect(() => {
+        if (currentQuestion?.target) {
+            speak(currentQuestion.target.surface);
+        }
+    }, [currentQuestion]);
 
     const updateVocabMastery = async (vocabId: number, isCorrect: boolean) => {
         const currentState = vocabStates[vocabId] || {

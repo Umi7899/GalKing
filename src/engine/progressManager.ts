@@ -10,7 +10,7 @@ import {
     upsertVocabState,
     type DbUserVocabState
 } from '../db/queries/progress';
-import { getLesson, getGrammarPointsByLesson } from '../db/queries/content';
+import { getLesson, getGrammarPointsForLesson } from '../db/queries/content';
 import { getRecentSessions, parseResult } from '../db/queries/sessions';
 import type { ResultJson } from '../schemas/session';
 import type { GrammarScoreUpdate, VocabScoreUpdate } from './scorer';
@@ -112,7 +112,7 @@ export async function checkAndAdvanceProgress(): Promise<{
         return { advanced: false };
     }
 
-    const grammarPoints = await getGrammarPointsByLesson(lesson.lessonId);
+    const grammarPoints = await getGrammarPointsForLesson(lesson.lessonId);
 
     // Check current grammar mastery
     if (progress.currentGrammarIndex < lesson.grammarIds.length) {

@@ -4,7 +4,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
-import { getAllLessons, getGrammarPointsByLesson } from '../db/queries/content';
+import { getAllLessons, getGrammarPointsForLesson } from '../db/queries/content';
 import { getUserProgress, getGrammarState } from '../db/queries/progress';
 import { jumpToLesson, getLessonProgress } from '../engine/progressManager';
 import type { Lesson, GrammarPoint } from '../schemas/content';
@@ -59,7 +59,7 @@ export default function CourseScreen() {
             setGrammarPoints([]);
         } else {
             setExpandedId(lessonId);
-            const gps = await getGrammarPointsByLesson(lessonId);
+            const gps = await getGrammarPointsForLesson(lessonId);
             setGrammarPoints(gps);
         }
     };

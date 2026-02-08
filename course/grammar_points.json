@@ -1,0 +1,174 @@
+[
+  {
+    "grammarId": 2501,
+    "lessonId": 25,
+    "name": "动词修饰名词 (定语从句)",
+    "coreRule": "动词(简体形/普通形) + 名词",
+    "structure": "V(普通形) + N",
+    "mnemonic": "把动词当形容词用，放在名词前",
+    "examples": [
+      "明日会議で使う資料 (明天会议要用的资料)",
+      "あれは森さんが撮った写真です (那是森先生拍的照片)"
+    ],
+    "level": 2,
+    "tags": ["modifier", "clause"]
+  },
+  {
+    "grammarId": 2502,
+    "lessonId": 25,
+    "name": "小句 + の (名词化)",
+    "coreRule": "将句子变为名词成分，以便做主语或宾语",
+    "structure": "小句(普通形) + の",
+    "mnemonic": "加个'的'字变名词",
+    "examples": [
+      "自転車に二人で乗るのは危ないです (两个人骑一辆自行车是危险的)",
+      "手紙を送るのを忘れました (忘了寄信)"
+    ],
+    "level": 2,
+    "tags": ["nominalization"]
+  },
+  {
+    "grammarId": 2503,
+    "lessonId": 25,
+    "name": "小句(疑问词) + か (不确定)",
+    "coreRule": "在句子中嵌入疑问句",
+    "structure": "小句(普通形) + か, ...",
+    "mnemonic": "ka表示不确定",
+    "examples": [
+      "鍵がどこにあるか分かりません (不知道钥匙在哪儿)",
+      "会議が何時に終わるか知っていますか (知道会议几点结束吗)"
+    ],
+    "level": 2,
+    "tags": ["question", "embedding"]
+  },
+  {
+    "grammarId": 2601,
+    "lessonId": 26,
+    "name": "S + のは + A です",
+    "coreRule": "表示对某种动作/状态的评价",
+    "structure": "V(辞书形) + のは + 形容词",
+    "mnemonic": "做...这件事，是...的",
+    "examples": [
+      "李さんは絵を描くのが好きです (小李喜欢画画)",
+      "東京は物価が高いです (东京物价高 -> 强调主语)"
+    ],
+    "level": 2,
+    "tags": ["nominalization", "adjective"]
+  },
+  {
+    "grammarId": 2602,
+    "lessonId": 26,
+    "name": "S + のを + 动词",
+    "coreRule": "感知动词或思考动词的对象",
+    "structure": "V(辞书形/他形) + のを + 忘れました/知っています",
+    "mnemonic": "把某事作为宾语",
+    "examples": ["電気を消すのを忘れました (忘了关灯)"],
+    "level": 2,
+    "tags": ["nominalization", "object"]
+  },
+  {
+    "grammarId": 2603,
+    "lessonId": 26,
+    "name": "S + のが + 形容词",
+    "coreRule": "描述好恶、能力、速度等",
+    "structure": "V(辞书形) + のが + 好きです/上手です/速いです",
+    "mnemonic": "",
+    "examples": ["森さんは車を運転するのが上手です (森先生擅长开车)"],
+    "level": 2,
+    "tags": ["nominalization", "ability"]
+  },
+  {
+    "grammarId": 2701,
+    "lessonId": 27,
+    "name": "～とき (时间状语)",
+    "coreRule": "表示“...的时候”",
+    "structure": "V(辞书形/他形/内形) / A / Nの + とき",
+    "mnemonic": "Toki = Time",
+    "examples": [
+      "日本へ行くとき、船で行きました (去日本的时候，坐船去的 - 此时还没到)",
+      "日本へ行ったとき、着物を買いました (去了日本的时候 - 已经到了)"
+    ],
+    "level": 2,
+    "tags": ["time", "conjunction"]
+  },
+  {
+    "grammarId": 2702,
+    "lessonId": 27,
+    "name": "～ながら (同时进行)",
+    "coreRule": "一边...一边...",
+    "structure": "V(masu形去掉masu) + ながら",
+    "mnemonic": "主要动作在后面",
+    "examples": ["お茶を飲みながら話します (一边喝茶一边聊天)"],
+    "level": 2,
+    "tags": ["simultaneous"]
+  },
+  {
+    "grammarId": 2703,
+    "lessonId": 27,
+    "name": "～でしょう (确认/推测)",
+    "coreRule": "表示征求对方同意或推测",
+    "structure": "普通形 + でしょう",
+    "mnemonic": "读升调表示确认",
+    "examples": [
+      "明日は晴れるでしょう (明天会晴吧)",
+      "李さんも行くでしょう？ (小李也去吧？)"
+    ],
+    "level": 2,
+    "tags": ["conjecture", "confirmation"]
+  },
+  {
+    "grammarId": 3301,
+    "lessonId": 33,
+    "name": "被动语态 (受身)",
+    "coreRule": "主语承受动作",
+    "structure": "V1: u -> areru; V2: ru -> rareru; V3: sareru/korareru",
+    "mnemonic": "被...怎么样了",
+    "examples": [
+      "森さんは部長に褒められました (森先生被部长表扬了)",
+      "私の自転車は弟に使われました (我的自行车被弟弟用了)"
+    ],
+    "level": 3,
+    "tags": ["passive", "voice"]
+  },
+  {
+    "grammarId": 3302,
+    "lessonId": 33,
+    "name": "物主被动 (持ち主の受け身)",
+    "coreRule": "身体部位或持有物被...了（通常含受害感）",
+    "structure": "Aは Bに Nを V(被动)",
+    "mnemonic": "我被谁弄坏了东西",
+    "examples": [
+      "馬さんは車にカメラを壊されました (小马被车把相机弄坏了 -> 相机被车撞坏了)"
+    ],
+    "level": 3,
+    "tags": ["passive", "adversative"]
+  },
+  {
+    "grammarId": 4801,
+    "lessonId": 48,
+    "name": "使役语态 (使役)",
+    "coreRule": "让某人做某事 / 允许某人做某事",
+    "structure": "V1: u -> aseru; V2: ru -> saseru; V3: saseru/kosaseru",
+    "mnemonic": "Maker/Let",
+    "examples": [
+      "部長は森さんを中国へ出張させます (部长让森先生去中国出差)",
+      "子供に野菜を食べさせます (让孩子吃蔬菜)"
+    ],
+    "level": 3,
+    "tags": ["causative", "voice"]
+  },
+  {
+    "grammarId": 4802,
+    "lessonId": 48,
+    "name": "使役被动 (被迫)",
+    "coreRule": "被迫做某事 / 不情愿地做某事",
+    "structure": "V(使役形) + られる -> 缩约形 asareru (一类动词)",
+    "mnemonic": "不得不...",
+    "examples": [
+      "昨日はお酒を飲まされました (昨天被迫喝了酒)",
+      "母に野菜を食べさせられました (被妈妈逼着吃蔬菜)"
+    ],
+    "level": 3,
+    "tags": ["causative-passive", "voice"]
+  }
+]

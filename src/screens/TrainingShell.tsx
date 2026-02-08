@@ -1,7 +1,7 @@
 // src/screens/TrainingShell.tsx
 // Training flow container for 5-step daily training
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     View,
     Text,
@@ -17,7 +17,6 @@ import type { HomeStackParamList } from '../navigation/RootNavigator';
 import { getOrCreateSession, type SessionManager } from '../engine/sessionStateMachine';
 import { getDrillById } from '../engine/planGenerator';
 import { getGrammarPoint, getSentence, getVocabByIds } from '../db/queries/content';
-import { getVocabPack } from '../db/queries/content';
 import { explainMistake, parseSentence, isLLMAvailable } from '../llm/client';
 import type { Drill, GrammarPoint, Sentence, Vocab } from '../schemas/content';
 import type { ResultJson } from '../schemas/session';
@@ -48,6 +47,7 @@ export default function TrainingShell() {
     const [vocabItems, setVocabItems] = useState<Vocab[]>([]);
     const [showExplanation, setShowExplanation] = useState(false);
     const [lastAnswer, setLastAnswer] = useState<{ isCorrect: boolean; explanation: string } | null>(null);
+    const [isSubmittingSentence, setIsSubmittingSentence] = useState(false);
 
     // Initialize session
     useEffect(() => {
@@ -95,10 +95,17 @@ export default function TrainingShell() {
                 break;
             }
             case 4: {
+                console.log('[Training] Loading Step 4 data...');
+                console.log('[Training] Plan Step 4:', plan.step4);
                 if (plan.step4.currentIndex < plan.step4.sentenceIds.length) {
                     const sentenceId = plan.step4.sentenceIds[plan.step4.currentIndex];
+                    console.log('[Training] Fetching sentence:', sentenceId);
                     const sentence = await getSentence(sentenceId);
+                    console.log('[Training] Sentence Loaded:', sentence);
                     setCurrentSentence(sentence);
+                } else {
+                    console.warn('[Training] Step 4 index out of bounds:', plan.step4.currentIndex, plan.step4.sentenceIds.length);
+                    setCurrentSentence(null);
                 }
                 break;
             }
@@ -138,26 +145,44 @@ export default function TrainingShell() {
         }
     };
 
-    const handleSentenceSubmit = async (checkedIds: string[]) => {
-        if (!session) return;
+    const handleSentenceSubmit = async (checkedIds: string[]): Promise<{ passed: boolean; hitRate: number }> => {
+        if (!session) return { passed: false, hitRate: 0 };
 
         try {
+            setIsSubmittingSentence(true);
             const result = await session.submitSentence(checkedIds);
             setCanContinueInStep(result.canContinue);
             await session.save();
-            // Don't auto-advance - continue button in SentenceAppStep handles it
+            return { passed: result.passed, hitRate: result.hitRate };
         } catch (e) {
             console.error('[Training] Sentence submit error:', e);
+            return { passed: false, hitRate: 0 };
+        } finally {
+            setIsSubmittingSentence(false);
         }
     };
 
     // Called when user clicks continue in SentenceAppStep
     const handleSentenceContinue = async () => {
-        if (!session) return;
+        console.log('[Training] handleSentenceContinue called');
+        if (!session) {
+            console.log('[Training] No session, returning');
+            return;
+        }
 
-        if (!canContinueInStep) {
+        if (isSubmittingSentence) {
+            console.log('[Training] Sentence is still submitting, ignoring continue click');
+            return;
+        }
+
+        const step4 = session.getPlan().step4;
+        const hasMoreSentences = step4.currentIndex < step4.sentenceIds.length;
+
+        if (!hasMoreSentences) {
+            console.log('[Training] Last sentence, calling handleNextStep');
             await handleNextStep();
         } else {
+            console.log('[Training] More sentences, loading next');
             await loadStepData(session, currentStep);
         }
     };
@@ -165,26 +190,34 @@ export default function TrainingShell() {
     const handleNextStep = async () => {
         if (!session) return;
 
-        const nextStep = currentStep + 1;
+        try {
+            const nextStep = currentStep + 1;
 
-        if (nextStep >= 5) {
-            // Step 5 is Summary - finish session and show results
-            console.log('[Training] Finishing session, moving to step 5');
-            const sessionResult = await session.finishSession();
-            setResult(sessionResult);
-            setCurrentStep(5);
-        } else {
-            await session.nextStep();
-            setCurrentStep(nextStep);
-            await loadStepData(session, nextStep);
-            setShowExplanation(false);
-            setLastAnswer(null);
+            if (nextStep >= 5) {
+                // Step 5 is Summary - finish session and show results
+                console.log('[Training] Finishing session, moving to step 5');
+                const sessionResult = await session.finishSession();
+                setResult(sessionResult);
+                setCurrentStep(5);
+            } else {
+                await session.nextStep();
+                setCurrentStep(nextStep);
+                await loadStepData(session, nextStep);
+                setShowExplanation(false);
+                setLastAnswer(null);
+            }
+        } catch (e) {
+            console.error('[Training] Next step error:', e);
+            Alert.alert('错误', '进入下一步失败，请重试');
         }
     };
 
     const handleVocabComplete = async (correct: number, wrong: number, avgRtMs: number) => {
-        // Vocab step completed, move to next
-        setTimeout(() => handleNextStep(), 500);
+        if (!session) return;
+        // Record vocab results before moving on
+        console.log('[Training] Vocab complete:', { correct, wrong, avgRtMs });
+        // Move to next step after a short delay
+        await handleNextStep();
     };
 
     const [aiLoading, setAiLoading] = useState(false);
@@ -376,12 +409,22 @@ export default function TrainingShell() {
                         sentence={currentSentence}
                         onSubmit={handleSentenceSubmit}
                         onContinue={handleSentenceContinue}
+                        submitPending={isSubmittingSentence}
                         stepProgress={session?.getStepProgress() || { current: 0, total: 0 }}
                         onAIParse={() => handleSentenceParse(false)}
                         onRegenerate={() => handleSentenceParse(true)}
                         aiParsing={aiLoading}
                         aiParseResult={aiParseResult}
                     />
+                )}
+
+                {currentStep === 4 && !currentSentence && !loading && (
+                    <View style={styles.loadingContainer}>
+                        <Text style={styles.loadingText}>句子练习已完成</Text>
+                        <TouchableOpacity style={styles.fallbackContinueButton} onPress={handleSentenceContinue}>
+                            <Text style={styles.fallbackContinueButtonText}>进入总结 →</Text>
+                        </TouchableOpacity>
+                    </View>
                 )}
 
                 {currentStep === 5 && result && (
@@ -417,6 +460,18 @@ const styles = StyleSheet.create({
         marginTop: 16,
         color: '#888',
         fontSize: 16,
+    },
+    fallbackContinueButton: {
+        marginTop: 16,
+        backgroundColor: '#9C27B0',
+        paddingHorizontal: 24,
+        paddingVertical: 12,
+        borderRadius: 20,
+    },
+    fallbackContinueButtonText: {
+        color: '#fff',
+        fontSize: 16,
+        fontWeight: '600',
     },
     header: {
         paddingTop: 50,

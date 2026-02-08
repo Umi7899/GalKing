@@ -23,7 +23,7 @@ export async function resetAllProgress(): Promise<void> {
     // We assume user_progress row with id=1 always exists (created on app start)
     await db.runAsync(`
         UPDATE user_progress 
-        SET currentLessonId = 1, 
+        SET currentLessonId = 25, 
             currentGrammarIndex = 0, 
             currentLevel = 1, 
             streakDays = 0, 

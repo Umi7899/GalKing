@@ -214,7 +214,7 @@ export async function importDataset(): Promise<{ success: boolean; error?: strin
         if (!userProgress) {
             await database.runAsync(
                 `INSERT INTO user_progress (id, currentLessonId, currentGrammarIndex, currentLevel, streakDays)
-         VALUES (1, 1, 0, 1, 0)`
+         VALUES (1, 25, 0, 1, 0)`
             );
             console.log('[DB] Initialized user progress');
         }
