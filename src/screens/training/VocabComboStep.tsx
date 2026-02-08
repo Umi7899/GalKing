@@ -4,6 +4,7 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Animated } from 'react-native';
 import type { Vocab } from '../../schemas/content';
+import { speak } from '../../utils/tts';
 
 interface Props {
     vocabItems: Vocab[];
@@ -44,6 +45,16 @@ export default function VocabComboStep({ vocabItems, onComplete, stepProgress }:
         });
         setQuizItems(items);
     }, [vocabItems]);
+
+    // Derived state for current item
+    const currentItem = quizItems[currentIndex];
+
+    // TTS Effect
+    useEffect(() => {
+        if (currentItem) {
+            speak(currentItem.vocab.reading);
+        }
+    }, [currentItem?.vocab.vocabId]);
 
     const generateDistractors = (target: Vocab, all: Vocab[]): string[] => {
         const others = all.filter(v => v.vocabId !== target.vocabId);
@@ -112,7 +123,7 @@ export default function VocabComboStep({ vocabItems, onComplete, stepProgress }:
         return <View style={styles.container}><Text style={styles.loadingText}>加载中...</Text></View>;
     }
 
-    const currentItem = quizItems[currentIndex];
+
 
     return (
         <View style={styles.container}>

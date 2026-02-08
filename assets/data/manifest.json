@@ -1,6 +1,7 @@
 {
-  "datasetId": "galking-biaori-v1",
-  "version": "1.0.0",
-  "createdAt": "2026-02-06T00:00:00Z",
-  "description": "标准日本语初级上册骨架 + MVP内容（第1-2课）"
+  "datasetId": "shin-nihongo-shokyu2-complete-v1.0",
+  "version": "1.0",
+  "createdAt": "2026-02-05",
+  "description": "《新版中日交流标准日本语》初级下（第25-48课）完整数据包。包含课程结构、核心语法点、核心词汇库（含词汇包定义）及每课基本文型（Key Sentences）。",
+  "fileHashes": {}
 }

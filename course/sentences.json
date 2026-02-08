@@ -1,0 +1,338 @@
+[
+  {
+    "sentenceId": 2501,
+    "lessonId": 25,
+    "japanese": "これは明日会議で使う資料です。",
+    "cn": "这是明天会议要用的资料。",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 2502,
+    "lessonId": 25,
+    "japanese": "あれは森さんが撮った写真です。",
+    "cn": "那是森先生拍的照片。",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 2601,
+    "lessonId": 26,
+    "japanese": "自転車に二人で乗るのは危ないです。",
+    "cn": "两个人骑一辆自行车是危险的。",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 2602,
+    "lessonId": 26,
+    "japanese": "私は絵を描くのが好きです。",
+    "cn": "我喜欢画画。",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 2701,
+    "lessonId": 27,
+    "japanese": "日本へ行くとき、船で行きました。",
+    "cn": "去日本的时候，是坐船去的。",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 2702,
+    "lessonId": 27,
+    "japanese": "お茶を飲みながら話します。",
+    "cn": "边喝茶边聊天。",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 2801,
+    "lessonId": 28,
+    "japanese": "今日は忙しいし、頭も痛いし、帰りたくありません。",
+    "cn": "今天又忙头又痛，不想回去。",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 2802,
+    "lessonId": 28,
+    "japanese": "この店は値段も安いし、味もいいです。",
+    "cn": "这家店价格既便宜，味道又好。",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 2901,
+    "lessonId": 29,
+    "japanese": "窓が開いています。",
+    "cn": "窗户开着。",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 2902,
+    "lessonId": 29,
+    "japanese": "電気がついています。",
+    "cn": "灯亮着。",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 3001,
+    "lessonId": 30,
+    "japanese": "忙しくても、毎日日本語を勉強します。",
+    "cn": "即使忙，每天也学日语。",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 3002,
+    "lessonId": 30,
+    "japanese": "壁にカレンダーが掛けてあります。",
+    "cn": "墙上挂着日历。",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 3101,
+    "lessonId": 31,
+    "japanese": "このボタンを押すと、電源が入ります。",
+    "cn": "一按这个按钮，电源就通了。",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 3102,
+    "lessonId": 31,
+    "japanese": "春になると、桜が咲きます。",
+    "cn": "一到春天，樱花就开了。",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 3201,
+    "lessonId": 32,
+    "japanese": "今度の旅行は楽しいでしょう。",
+    "cn": "这次旅行会很愉快吧。",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 3202,
+    "lessonId": 32,
+    "japanese": "李さんも行くでしょう。",
+    "cn": "小李也去吧。",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 3301,
+    "lessonId": 33,
+    "japanese": "森さんは部長に褒められました。",
+    "cn": "森先生受到部长的表扬。",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 3302,
+    "lessonId": 33,
+    "japanese": "私は弟にカメラを壊されました。",
+    "cn": "我的照相机被弟弟弄坏了。",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 3401,
+    "lessonId": 34,
+    "japanese": "早く来い。",
+    "cn": "快来。",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 3402,
+    "lessonId": 34,
+    "japanese": "ここでタバコを吸うな。",
+    "cn": "不许在这里吸烟。",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 3501,
+    "lessonId": 35,
+    "japanese": "明日は雨が降るかもしれません。",
+    "cn": "明天可能会下雨。",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 3502,
+    "lessonId": 35,
+    "japanese": "森さんは今日会社を休むはずです。",
+    "cn": "森先生今天应该不来上班。",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 3601,
+    "lessonId": 36,
+    "japanese": "このケーキは食べてしまいました。",
+    "cn": "这块蛋糕已经吃完了。",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 3602,
+    "lessonId": 36,
+    "japanese": "電車にカバンを忘れてしまいました。",
+    "cn": "把包忘在电车里了（遗憾）。",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 3701,
+    "lessonId": 37,
+    "japanese": "優勝して、うれしいです。",
+    "cn": "得了冠军，很高兴。",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 3702,
+    "lessonId": 37,
+    "japanese": "ニュースを聞いて、びっくりしました。",
+    "cn": "听到新闻，吃了一惊。",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 3801,
+    "lessonId": 38,
+    "japanese": "眼鏡をかけて本を読みます。",
+    "cn": "戴着眼镜看书。",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 3802,
+    "lessonId": 38,
+    "japanese": "傘を持って出かけます。",
+    "cn": "带着伞出门。",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 3901,
+    "lessonId": 39,
+    "japanese": "ニュースによると、火事があったそうです。",
+    "cn": "据新闻报道，发生了火灾。",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 3902,
+    "lessonId": 39,
+    "japanese": "窓ガラスが割れています。",
+    "cn": "窗玻璃破了。",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 4001,
+    "lessonId": 40,
+    "japanese": "友達は私に本をくれました。",
+    "cn": "朋友给了我一本书。",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 4002,
+    "lessonId": 40,
+    "japanese": "私は先生に荷物を持っていただきました。",
+    "cn": "我请老师帮我拿了行李。",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 4101,
+    "lessonId": 41,
+    "japanese": "先生は明日日本へ行かれます。",
+    "cn": "老师明天要去日本（尊他）。",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 4102,
+    "lessonId": 41,
+    "japanese": "どうぞ、お座りください。",
+    "cn": "请坐。",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 4201,
+    "lessonId": 42,
+    "japanese": "家を買うために、貯金しています。",
+    "cn": "为了买房，正在存钱。",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 4202,
+    "lessonId": 42,
+    "japanese": "よく見えるように、大きく書きました。",
+    "cn": "为了让人看清，字写得很大。",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 4301,
+    "lessonId": 43,
+    "japanese": "雨が降りそうです。",
+    "cn": "眼看就要下雨了。",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 4302,
+    "lessonId": 43,
+    "japanese": "このケーキはとてもおいしそうです。",
+    "cn": "这蛋糕看上去很好吃。",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 4401,
+    "lessonId": 44,
+    "japanese": "天気予報によると、明日は晴れるそうです。",
+    "cn": "天气预报说，明天是晴天。",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 4402,
+    "lessonId": 44,
+    "japanese": "田中さんは元気だそうです。",
+    "cn": "听说田中先生很健康。",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 4501,
+    "lessonId": 45,
+    "japanese": "雨が降れば、行きません。",
+    "cn": "如果下雨，就不去。",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 4502,
+    "lessonId": 45,
+    "japanese": "安ければ、買います。",
+    "cn": "便宜的话就买。",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 4601,
+    "lessonId": 46,
+    "japanese": "卒業してから、会社で働きます。",
+    "cn": "毕业之后，在公司工作。",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 4602,
+    "lessonId": 46,
+    "japanese": "会議が終わった後で、食事に行きましょう。",
+    "cn": "会议结束之后，去吃饭吧。",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 4701,
+    "lessonId": 47,
+    "japanese": "社長はいついらっしゃいますか。",
+    "cn": "总经理什么时候来？（尊他）",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 4702,
+    "lessonId": 47,
+    "japanese": "私は来週、アメリカへ参ります。",
+    "cn": "我下周去美国。（自谦）",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 4801,
+    "lessonId": 48,
+    "japanese": "部長は森さんを中国へ行かせます。",
+    "cn": "部长让森先生去中国。",
+    "type": "key_sentence"
+  },
+  {
+    "sentenceId": 4802,
+    "lessonId": 48,
+    "japanese": "私は子供に野菜を食べさせます。",
+    "cn": "我让孩子吃蔬菜。",
+    "type": "key_sentence"
+  }
+]

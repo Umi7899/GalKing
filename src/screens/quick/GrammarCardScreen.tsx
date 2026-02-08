@@ -6,6 +6,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { getAllGrammarPoints } from '../../db/queries/content';
 import { getUserProgress } from '../../db/queries/progress';
 import type { GrammarPoint } from '../../schemas/content';
+import { speak } from '../../utils/tts';
 
 const { width, height } = Dimensions.get('window');
 const CARD_HEIGHT = 280;
@@ -116,6 +117,12 @@ const GrammarCard = ({ item, index, scrollY, onExpand }: { item: GrammarPoint; i
                         <View style={styles.pillContainer}>
                             <Text style={styles.pillText}>N{item.level || '?'}</Text>
                         </View>
+                        <TouchableOpacity
+                            style={styles.frontSpeaker}
+                            onPress={() => speak(item.name)}
+                        >
+                            <Text style={styles.speakerText}>🔊</Text>
+                        </TouchableOpacity>
                         <Text style={styles.tapHint}>点击翻转</Text>
                     </Animated.View>
 
@@ -209,10 +216,14 @@ export default function GrammarCardScreen() {
                             <View style={styles.divider} />
                             <Text style={styles.modalSectionTitle}>📝 例句</Text>
                             {expandedItem.examples?.map((ex, i) => (
-                                <View key={i} style={styles.exampleBlock}>
-                                    <Text style={styles.modalExampleJp}>{ex.jp}</Text>
+                                <TouchableOpacity
+                                    key={i}
+                                    style={styles.exampleBlock}
+                                    onPress={() => speak(ex.jp)}
+                                >
+                                    <Text style={styles.modalExampleJp}>{ex.jp} 🔊</Text>
                                     <Text style={styles.modalExampleZh}>{ex.zhHint}</Text>
-                                </View>
+                                </TouchableOpacity>
                             ))}
                             {expandedItem.mnemonic && (
                                 <>
@@ -370,4 +381,11 @@ const styles = StyleSheet.create({
     modalExampleJp: { color: '#FF6B9D', fontSize: 16, marginBottom: 4, fontWeight: '500' },
     modalExampleZh: { color: '#AAA', fontSize: 14 },
     divider: { height: 1, backgroundColor: '#333', marginVertical: 12 },
+    frontSpeaker: {
+        marginBottom: 20,
+        backgroundColor: 'rgba(255,255,255,0.1)',
+        padding: 12,
+        borderRadius: 20,
+    },
+    speakerText: { fontSize: 24 },
 });

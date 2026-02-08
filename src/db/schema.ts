@@ -79,7 +79,7 @@ export const CREATE_SENTENCES_TABLE = `
 export const CREATE_USER_PROGRESS_TABLE = `
   CREATE TABLE IF NOT EXISTS user_progress (
     id INTEGER PRIMARY KEY CHECK(id=1),
-    currentLessonId INTEGER NOT NULL DEFAULT 1,
+    currentLessonId INTEGER NOT NULL DEFAULT 25,
     currentGrammarIndex INTEGER NOT NULL DEFAULT 0,
     currentLevel INTEGER NOT NULL DEFAULT 1,
     streakDays INTEGER NOT NULL DEFAULT 0,

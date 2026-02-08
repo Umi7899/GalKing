@@ -1,361 +1,568 @@
 [
-    {
-        "sentenceId": 3001,
-        "text": "ねえ、先輩は日本人ですか？",
-        "styleTag": "gal",
-        "lessonId": 1,
-        "level": 1,
-        "grammarIds": [
-            101,
-            103
-        ],
-        "keyPoints": [
-            {
-                "id": "kp1",
-                "labelZh": "主语标记",
-                "expectedValueZh": "は标记主语「先輩」",
-                "hint": "注意は的用法"
-            },
-            {
-                "id": "kp2",
-                "labelZh": "疑问语气",
-                "expectedValueZh": "か表示疑问",
-                "hint": "句尾的か"
-            },
-            {
-                "id": "kp3",
-                "labelZh": "语气词",
-                "expectedValueZh": "ねえ表示呼唤/引起注意",
-                "hint": "开头的语气词"
-            }
-        ],
-        "blockingVocabIds": [
-            9007
-        ],
-        "tokens": [
-            "ねえ",
-            "、",
-            "先輩",
-            "は",
-            "日本人",
-            "です",
-            "か",
-            "？"
-        ]
-    },
-    {
-        "sentenceId": 3002,
-        "text": "えっと…わたしは学生じゃないよ。会社員です。",
-        "styleTag": "gal",
-        "lessonId": 1,
-        "level": 2,
-        "grammarIds": [
-            101,
-            102
-        ],
-        "keyPoints": [
-            {
-                "id": "kp1",
-                "labelZh": "否定形式",
-                "expectedValueZh": "じゃない是ではありません的口语形式",
-                "hint": "口语否定"
-            },
-            {
-                "id": "kp2",
-                "labelZh": "语气词よ",
-                "expectedValueZh": "よ表示强调/告知对方",
-                "hint": "句尾语气"
-            },
-            {
-                "id": "kp3",
-                "labelZh": "填充词",
-                "expectedValueZh": "えっと表示思考犹豫",
-                "hint": "口语常用"
-            }
-        ],
-        "blockingVocabIds": [
-            9009,
-            9010
-        ],
-        "tokens": [
-            "えっと",
-            "…",
-            "わたし",
-            "は",
-            "学生",
-            "じゃない",
-            "よ",
-            "。",
-            "会社員",
-            "です",
-            "。"
-        ]
-    },
-    {
-        "sentenceId": 3003,
-        "text": "これ、お兄ちゃんの本？",
-        "styleTag": "gal",
-        "lessonId": 2,
-        "level": 1,
-        "grammarIds": [
-            201,
-            203
-        ],
-        "keyPoints": [
-            {
-                "id": "kp1",
-                "labelZh": "指示代词",
-                "expectedValueZh": "これ指说话人手边的东西",
-                "hint": "这个"
-            },
-            {
-                "id": "kp2",
-                "labelZh": "所属关系",
-                "expectedValueZh": "の表示「哥哥的」",
-                "hint": "名词+の+名词"
-            },
-            {
-                "id": "kp3",
-                "labelZh": "省略疑问",
-                "expectedValueZh": "口语中ですか可省略，只靠语调",
-                "hint": "口语特征"
-            }
-        ],
-        "blockingVocabIds": [
-            9006
-        ],
-        "tokens": [
-            "これ",
-            "、",
-            "お兄ちゃん",
-            "の",
-            "本",
-            "？"
-        ]
-    },
-    {
-        "sentenceId": 3004,
-        "text": "あの人、すごく綺麗ね。誰？",
-        "styleTag": "gal",
-        "lessonId": 2,
-        "level": 2,
-        "grammarIds": [
-            202
-        ],
-        "keyPoints": [
-            {
-                "id": "kp1",
-                "labelZh": "连体词",
-                "expectedValueZh": "あの修饰名词「人」",
-                "hint": "那个人"
-            },
-            {
-                "id": "kp2",
-                "labelZh": "程度副词",
-                "expectedValueZh": "すごく表示程度很高",
-                "hint": "非常"
-            },
-            {
-                "id": "kp3",
-                "labelZh": "感叹语气",
-                "expectedValueZh": "ね表示感叹/寻求共鸣",
-                "hint": "对吧/是啊"
-            }
-        ],
-        "blockingVocabIds": [
-            9004,
-            9008
-        ],
-        "tokens": [
-            "あの",
-            "人",
-            "、",
-            "すごく",
-            "綺麗",
-            "ね",
-            "。",
-            "誰",
-            "？"
-        ]
-    },
-    {
-        "sentenceId": 3005,
-        "text": "先輩の鞄、可愛いですね！",
-        "styleTag": "gal",
-        "lessonId": 2,
-        "level": 1,
-        "grammarIds": [
-            203
-        ],
-        "keyPoints": [
-            {
-                "id": "kp1",
-                "labelZh": "所属关系",
-                "expectedValueZh": "先輩の鞄＝前辈的包",
-                "hint": "の连接"
-            },
-            {
-                "id": "kp2",
-                "labelZh": "形容词用法",
-                "expectedValueZh": "可愛い是い形容词",
-                "hint": "词尾い"
-            },
-            {
-                "id": "kp3",
-                "labelZh": "语气词ね",
-                "expectedValueZh": "ね表示感叹/赞美",
-                "hint": "寻求共鸣"
-            }
-        ],
-        "blockingVocabIds": [
-            9003,
-            9007,
-            9008
-        ],
-        "tokens": [
-            "先輩",
-            "の",
-            "鞄",
-            "、",
-            "可愛い",
-            "です",
-            "ね",
-            "！"
-        ]
-    },
-    {
-        "sentenceId": 3006,
-        "text": "それ、何の雑誌ですか？",
-        "styleTag": "gal",
-        "lessonId": 2,
-        "level": 1,
-        "grammarIds": [
-            201,
-            203,
-            103
-        ],
-        "keyPoints": [
-            {
-                "id": "kp1",
-                "labelZh": "指示代词それ",
-                "expectedValueZh": "指听话人附近的东西",
-                "hint": "那个（近你）"
-            },
-            {
-                "id": "kp2",
-                "labelZh": "疑问词+の",
-                "expectedValueZh": "何の表示「什么样的」",
-                "hint": "什么的"
-            },
-            {
-                "id": "kp3",
-                "labelZh": "疑问句",
-                "expectedValueZh": "ですか构成疑问",
-                "hint": "是...吗"
-            }
-        ],
-        "blockingVocabIds": [],
-        "tokens": [
-            "それ",
-            "、",
-            "何",
-            "の",
-            "雑誌",
-            "です",
-            "か",
-            "？"
-        ]
-    },
-    {
-        "sentenceId": 3007,
-        "text": "わたし、田中さんのこと、大好き！",
-        "styleTag": "gal",
-        "lessonId": 1,
-        "level": 3,
-        "grammarIds": [
-            101,
-            203
-        ],
-        "keyPoints": [
-            {
-                "id": "kp1",
-                "labelZh": "は省略",
-                "expectedValueZh": "口语中主语后的は常省略",
-                "hint": "わたしは→わたし"
-            },
-            {
-                "id": "kp2",
-                "labelZh": "〜のこと",
-                "expectedValueZh": "表示「关于某人/某事」",
-                "hint": "关于..."
-            },
-            {
-                "id": "kp3",
-                "labelZh": "大好き",
-                "expectedValueZh": "表示非常喜欢",
-                "hint": "形容动词"
-            },
-            {
-                "id": "kp4",
-                "labelZh": "です省略",
-                "expectedValueZh": "口语中常省略です",
-                "hint": "口语特征"
-            }
-        ],
-        "blockingVocabIds": [
-            9002
-        ],
-        "tokens": [
-            "わたし",
-            "、",
-            "田中さん",
-            "の",
-            "こと",
-            "、",
-            "大好き",
-            "！"
-        ]
-    },
-    {
-        "sentenceId": 3008,
-        "text": "あの先生、優しいね。",
-        "styleTag": "gal",
-        "lessonId": 2,
-        "level": 1,
-        "grammarIds": [
-            202
-        ],
-        "keyPoints": [
-            {
-                "id": "kp1",
-                "labelZh": "连体词あの",
-                "expectedValueZh": "修饰远处的「先生」",
-                "hint": "那位"
-            },
-            {
-                "id": "kp2",
-                "labelZh": "形容词谓语",
-                "expectedValueZh": "优しい直接做谓语",
-                "hint": "い形容词"
-            },
-            {
-                "id": "kp3",
-                "labelZh": "确认语气",
-                "expectedValueZh": "ね寻求对方认同",
-                "hint": "是吧"
-            }
-        ],
-        "blockingVocabIds": [
-            9005,
-            9008
-        ],
-        "tokens": [
-            "あの",
-            "先生",
-            "、",
-            "優しい",
-            "ね",
-            "。"
-        ]
-    }
+  {
+    "sentenceId": 2501,
+    "text": "これは明日会議で使う資料です。",
+    "styleTag": "textbook",
+    "lessonId": 25,
+    "level": 2,
+    "grammarIds": [
+      2501
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_2501_1",
+        "labelZh": "定语从句",
+        "hint": "动词修饰名词"
+      }
+    ],
+    "blockingVocabIds": [
+      25001,
+      25002
+    ],
+    "tokens": [
+      "これ",
+      "は",
+      "明日",
+      "会議",
+      "で",
+      "使う",
+      "資料",
+      "です"
+    ]
+  },
+  {
+    "sentenceId": 2502,
+    "text": "あれは森さんが撮った写真です。",
+    "styleTag": "textbook",
+    "lessonId": 25,
+    "level": 2,
+    "grammarIds": [
+      2501
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_2502_1",
+        "labelZh": "定语从句",
+        "hint": "动词修饰名词"
+      }
+    ],
+    "blockingVocabIds": [
+      2018
+    ],
+    "tokens": [
+      "あれ",
+      "は",
+      "森さん",
+      "が",
+      "撮った",
+      "写真",
+      "です"
+    ]
+  },
+  {
+    "sentenceId": 2601,
+    "text": "自転車に二人で乗るのは危ないです。",
+    "styleTag": "textbook",
+    "lessonId": 26,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  },
+  {
+    "sentenceId": 2602,
+    "text": "私は絵を描くのが好きです。",
+    "styleTag": "textbook",
+    "lessonId": 26,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  },
+  {
+    "sentenceId": 2701,
+    "text": "日本へ行くとき、船で行きました。",
+    "styleTag": "textbook",
+    "lessonId": 27,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  },
+  {
+    "sentenceId": 2702,
+    "text": "お茶を飲みながら話します。",
+    "styleTag": "textbook",
+    "lessonId": 27,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  },
+  {
+    "sentenceId": 2801,
+    "text": "今日は忙しいし、頭も痛いし、帰りたくありません。",
+    "styleTag": "textbook",
+    "lessonId": 28,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  },
+  {
+    "sentenceId": 2802,
+    "text": "この店は値段も安いし、味もいいです。",
+    "styleTag": "textbook",
+    "lessonId": 28,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  },
+  {
+    "sentenceId": 2901,
+    "text": "窓が開いています。",
+    "styleTag": "textbook",
+    "lessonId": 29,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  },
+  {
+    "sentenceId": 2902,
+    "text": "電気がついています。",
+    "styleTag": "textbook",
+    "lessonId": 29,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  },
+  {
+    "sentenceId": 3001,
+    "text": "忙しくても、毎日日本語を勉強します。",
+    "styleTag": "textbook",
+    "lessonId": 30,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  },
+  {
+    "sentenceId": 3002,
+    "text": "壁にカレンダーが掛けてあります。",
+    "styleTag": "textbook",
+    "lessonId": 30,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  },
+  {
+    "sentenceId": 3101,
+    "text": "このボタンを押すと、電源が入ります。",
+    "styleTag": "textbook",
+    "lessonId": 31,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  },
+  {
+    "sentenceId": 3102,
+    "text": "春になると、桜が咲きます。",
+    "styleTag": "textbook",
+    "lessonId": 31,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  },
+  {
+    "sentenceId": 3201,
+    "text": "今度の旅行は楽しいでしょう。",
+    "styleTag": "textbook",
+    "lessonId": 32,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  },
+  {
+    "sentenceId": 3202,
+    "text": "李さんも行くでしょう。",
+    "styleTag": "textbook",
+    "lessonId": 32,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  },
+  {
+    "sentenceId": 3301,
+    "text": "森さんは部長に褒められました。",
+    "styleTag": "textbook",
+    "lessonId": 33,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  },
+  {
+    "sentenceId": 3302,
+    "text": "私は弟にカメラを壊されました。",
+    "styleTag": "textbook",
+    "lessonId": 33,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  },
+  {
+    "sentenceId": 3401,
+    "text": "早く来い。",
+    "styleTag": "textbook",
+    "lessonId": 34,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  },
+  {
+    "sentenceId": 3402,
+    "text": "ここでタバコを吸うな。",
+    "styleTag": "textbook",
+    "lessonId": 34,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  },
+  {
+    "sentenceId": 3501,
+    "text": "明日は雨が降るかもしれません。",
+    "styleTag": "textbook",
+    "lessonId": 35,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  },
+  {
+    "sentenceId": 3502,
+    "text": "森さんは今日会社を休むはずです。",
+    "styleTag": "textbook",
+    "lessonId": 35,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  },
+  {
+    "sentenceId": 3601,
+    "text": "このケーキは食べてしまいました。",
+    "styleTag": "textbook",
+    "lessonId": 36,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  },
+  {
+    "sentenceId": 3602,
+    "text": "電車にカバンを忘れてしまいました。",
+    "styleTag": "textbook",
+    "lessonId": 36,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  },
+  {
+    "sentenceId": 3701,
+    "text": "優勝して、うれしいです。",
+    "styleTag": "textbook",
+    "lessonId": 37,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  },
+  {
+    "sentenceId": 3702,
+    "text": "ニュースを聞いて、びっくりしました。",
+    "styleTag": "textbook",
+    "lessonId": 37,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  },
+  {
+    "sentenceId": 3801,
+    "text": "眼鏡をかけて本を読みます。",
+    "styleTag": "textbook",
+    "lessonId": 38,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  },
+  {
+    "sentenceId": 3802,
+    "text": "傘を持って出かけます。",
+    "styleTag": "textbook",
+    "lessonId": 38,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  },
+  {
+    "sentenceId": 3901,
+    "text": "ニュースによると、火事があったそうです。",
+    "styleTag": "textbook",
+    "lessonId": 39,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  },
+  {
+    "sentenceId": 3902,
+    "text": "窓ガラスが割れています。",
+    "styleTag": "textbook",
+    "lessonId": 39,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  },
+  {
+    "sentenceId": 4001,
+    "text": "友達は私に本をくれました。",
+    "styleTag": "textbook",
+    "lessonId": 40,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  },
+  {
+    "sentenceId": 4002,
+    "text": "私は先生に荷物を持っていただきました。",
+    "styleTag": "textbook",
+    "lessonId": 40,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  },
+  {
+    "sentenceId": 4101,
+    "text": "先生は明日日本へ行かれます。",
+    "styleTag": "textbook",
+    "lessonId": 41,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  },
+  {
+    "sentenceId": 4102,
+    "text": "どうぞ、お座りください。",
+    "styleTag": "textbook",
+    "lessonId": 41,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  },
+  {
+    "sentenceId": 4201,
+    "text": "家を買うために、貯金しています。",
+    "styleTag": "textbook",
+    "lessonId": 42,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  },
+  {
+    "sentenceId": 4202,
+    "text": "よく見えるように、大きく書きました。",
+    "styleTag": "textbook",
+    "lessonId": 42,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  },
+  {
+    "sentenceId": 4301,
+    "text": "雨が降りそうです。",
+    "styleTag": "textbook",
+    "lessonId": 43,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  },
+  {
+    "sentenceId": 4302,
+    "text": "このケーキはとてもおいしそうです。",
+    "styleTag": "textbook",
+    "lessonId": 43,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  },
+  {
+    "sentenceId": 4401,
+    "text": "天気予報によると、明日は晴れるそうです。",
+    "styleTag": "textbook",
+    "lessonId": 44,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  },
+  {
+    "sentenceId": 4402,
+    "text": "田中さんは元気だそうです。",
+    "styleTag": "textbook",
+    "lessonId": 44,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  },
+  {
+    "sentenceId": 4501,
+    "text": "雨が降れば、行きません。",
+    "styleTag": "textbook",
+    "lessonId": 45,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  },
+  {
+    "sentenceId": 4502,
+    "text": "安ければ、買います。",
+    "styleTag": "textbook",
+    "lessonId": 45,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  },
+  {
+    "sentenceId": 4601,
+    "text": "卒業してから、会社で働きます。",
+    "styleTag": "textbook",
+    "lessonId": 46,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  },
+  {
+    "sentenceId": 4602,
+    "text": "会議が終わった後で、食事に行きましょう。",
+    "styleTag": "textbook",
+    "lessonId": 46,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  },
+  {
+    "sentenceId": 4701,
+    "text": "社長はいついらっしゃいますか。",
+    "styleTag": "textbook",
+    "lessonId": 47,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  },
+  {
+    "sentenceId": 4702,
+    "text": "私は来週、アメリカへ参ります。",
+    "styleTag": "textbook",
+    "lessonId": 47,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  },
+  {
+    "sentenceId": 4801,
+    "text": "部長は森さんを中国へ行かせます。",
+    "styleTag": "textbook",
+    "lessonId": 48,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  },
+  {
+    "sentenceId": 4802,
+    "text": "私は子供に野菜を食べさせます。",
+    "styleTag": "textbook",
+    "lessonId": 48,
+    "level": 2,
+    "grammarIds": [],
+    "keyPoints": [],
+    "blockingVocabIds": [],
+    "tokens": []
+  }
 ]
