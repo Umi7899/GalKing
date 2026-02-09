@@ -276,7 +276,60 @@
       }
     ],
     "counterExamples": [],
-    "drills": [],
+    "drills": [
+      {
+        "drillId": "g2602_q1",
+        "type": "choice",
+        "stem": "窓を＿＿のを忘れました。",
+        "options": [
+          {
+            "id": "a",
+            "text": "閉める"
+          },
+          {
+            "id": "b",
+            "text": "閉めます"
+          },
+          {
+            "id": "c",
+            "text": "閉めて"
+          },
+          {
+            "id": "d",
+            "text": "閉めた"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "のを前面用动词辞书形（基本形）。「忘れました」表示忘了做某事，前面用辞书形。",
+        "grammarId": 2602
+      },
+      {
+        "drillId": "g2602_q2",
+        "type": "choice",
+        "stem": "友達が来る＿＿知っていますか。",
+        "options": [
+          {
+            "id": "a",
+            "text": "のを"
+          },
+          {
+            "id": "b",
+            "text": "のは"
+          },
+          {
+            "id": "c",
+            "text": "のが"
+          },
+          {
+            "id": "d",
+            "text": "のに"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "「知る」是他动词，前面的名词化小句作宾语，所以用のを。",
+        "grammarId": 2602
+      }
+    ],
     "level": 2,
     "tags": [
       "nominalization",
@@ -301,7 +354,60 @@
       }
     ],
     "counterExamples": [],
-    "drills": [],
+    "drills": [
+      {
+        "drillId": "g2603_q1",
+        "type": "choice",
+        "stem": "私は料理を＿＿のが好きです。",
+        "options": [
+          {
+            "id": "a",
+            "text": "作る"
+          },
+          {
+            "id": "b",
+            "text": "作ります"
+          },
+          {
+            "id": "c",
+            "text": "作って"
+          },
+          {
+            "id": "d",
+            "text": "作った"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "のが前面用动词辞书形。「好きです」表示喜好，前面用のが。",
+        "grammarId": 2603
+      },
+      {
+        "drillId": "g2603_q2",
+        "type": "choice",
+        "stem": "田中さんは泳ぐ＿＿速いです。",
+        "options": [
+          {
+            "id": "a",
+            "text": "のが"
+          },
+          {
+            "id": "b",
+            "text": "のを"
+          },
+          {
+            "id": "c",
+            "text": "のは"
+          },
+          {
+            "id": "d",
+            "text": "のに"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "描述能力、速度等特征时，名词化小句作主语用のが。",
+        "grammarId": 2603
+      }
+    ],
     "level": 2,
     "tags": [
       "nominalization",
@@ -326,7 +432,60 @@
       }
     ],
     "counterExamples": [],
-    "drills": [],
+    "drills": [
+      {
+        "drillId": "g2701_q1",
+        "type": "choice",
+        "stem": "国へ＿＿とき、空港で友達に会いました。",
+        "options": [
+          {
+            "id": "a",
+            "text": "帰る"
+          },
+          {
+            "id": "b",
+            "text": "帰った"
+          },
+          {
+            "id": "c",
+            "text": "帰ります"
+          },
+          {
+            "id": "d",
+            "text": "帰って"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "在机场遇到朋友时还没回到国内，动作尚未完成，用辞书形「帰る」。",
+        "grammarId": 2701
+      },
+      {
+        "drillId": "g2701_q2",
+        "type": "choice",
+        "stem": "＿＿とき、「ただいま」と言います。",
+        "options": [
+          {
+            "id": "a",
+            "text": "家へ帰った"
+          },
+          {
+            "id": "b",
+            "text": "家へ帰る"
+          },
+          {
+            "id": "c",
+            "text": "家へ帰ります"
+          },
+          {
+            "id": "d",
+            "text": "家へ帰って"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "说「ただいま」的时候已经到家了，动作已完成，用た形「帰った」。",
+        "grammarId": 2701
+      }
+    ],
     "level": 2,
     "tags": [
       "time",
@@ -347,7 +506,60 @@
       }
     ],
     "counterExamples": [],
-    "drills": [],
+    "drills": [
+      {
+        "drillId": "g2702_q1",
+        "type": "choice",
+        "stem": "音楽を＿＿ながら勉強します。",
+        "options": [
+          {
+            "id": "a",
+            "text": "聞き"
+          },
+          {
+            "id": "b",
+            "text": "聞く"
+          },
+          {
+            "id": "c",
+            "text": "聞いて"
+          },
+          {
+            "id": "d",
+            "text": "聞きます"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "ながら前面接动词ます形去掉ます。「聞きます」→「聞き」+ ながら。",
+        "grammarId": 2702
+      },
+      {
+        "drillId": "g2702_q2",
+        "type": "choice",
+        "stem": "テレビを見ながら＿＿のはよくないです。",
+        "options": [
+          {
+            "id": "a",
+            "text": "ご飯を食べる"
+          },
+          {
+            "id": "b",
+            "text": "ご飯を食べ"
+          },
+          {
+            "id": "c",
+            "text": "ご飯を食べて"
+          },
+          {
+            "id": "d",
+            "text": "ご飯を食べます"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "ながら后面接主要动作，这里后面跟のは需要辞书形。主要动作是「食べる」。",
+        "grammarId": 2702
+      }
+    ],
     "level": 2,
     "tags": [
       "simultaneous"
@@ -371,11 +583,1373 @@
       }
     ],
     "counterExamples": [],
-    "drills": [],
+    "drills": [
+      {
+        "drillId": "g2703_q1",
+        "type": "choice",
+        "stem": "あの映画は＿＿でしょう。",
+        "options": [
+          {
+            "id": "a",
+            "text": "面白い"
+          },
+          {
+            "id": "b",
+            "text": "面白いだ"
+          },
+          {
+            "id": "c",
+            "text": "面白いです"
+          },
+          {
+            "id": "d",
+            "text": "面白くて"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "い形容词直接接でしょう，不需要加だ或です。",
+        "grammarId": 2703
+      },
+      {
+        "drillId": "g2703_q2",
+        "type": "choice",
+        "stem": "明日は＿＿でしょう。",
+        "options": [
+          {
+            "id": "a",
+            "text": "雨"
+          },
+          {
+            "id": "b",
+            "text": "雨だ"
+          },
+          {
+            "id": "c",
+            "text": "雨です"
+          },
+          {
+            "id": "d",
+            "text": "雨な"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "名词直接接でしょう，不加だ。「雨でしょう」= 大概会下雨吧。",
+        "grammarId": 2703
+      }
+    ],
     "level": 2,
     "tags": [
       "conjecture",
       "confirmation"
+    ]
+  },
+  {
+    "grammarId": 2801,
+    "lessonId": 28,
+    "name": "～し、～し (列举理由)",
+    "coreRule": "列举多个理由或性质，表示\"又...又...\"",
+    "structure": "小句(普通形) + し、小句(普通形) + し",
+    "mnemonic": "又A又B，理由叠加",
+    "examples": [
+      {
+        "jp": "この店は安いし、おいしいし、よく来ます",
+        "zhHint": "这家店又便宜又好吃，经常来"
+      },
+      {
+        "jp": "今日は天気もいいし、暇だし、どこかへ行きませんか",
+        "zhHint": "今天天气又好又有空，去哪里走走吧？"
+      },
+      {
+        "jp": "あの人は頭もいいし、スポーツもできるし、すごいですね",
+        "zhHint": "那个人又聪明又擅长运动，很厉害啊"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× この店は安いし、おいしいから、よく来ます",
+        "zhHint": "し和から不要混用，し本身就表示原因列举"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g2801_q1",
+        "type": "choice",
+        "stem": "あの映画は面白い＿＿、感動する＿＿、もう一度見たいです。",
+        "options": [
+          {
+            "id": "a",
+            "text": "し...し"
+          },
+          {
+            "id": "b",
+            "text": "て...て"
+          },
+          {
+            "id": "c",
+            "text": "から...から"
+          },
+          {
+            "id": "d",
+            "text": "ので...ので"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "列举多个理由时用「～し、～し」。",
+        "grammarId": 2801
+      },
+      {
+        "drillId": "g2801_q2",
+        "type": "choice",
+        "stem": "この部屋は広い＿＿、明るいし、とてもいいです。",
+        "options": [
+          {
+            "id": "a",
+            "text": "し"
+          },
+          {
+            "id": "b",
+            "text": "くて"
+          },
+          {
+            "id": "c",
+            "text": "だし"
+          },
+          {
+            "id": "d",
+            "text": "ので"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "い形容词直接加し。広い＋し＝広いし。",
+        "grammarId": 2801
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "listing",
+      "reason",
+      "conjunction"
+    ]
+  },
+  {
+    "grammarId": 2802,
+    "lessonId": 28,
+    "name": "～し (原因理由的一端)",
+    "coreRule": "暗示还有其他理由，只说其中一个",
+    "structure": "小句(普通形) + し",
+    "mnemonic": "理由不止一个，先说一个",
+    "examples": [
+      {
+        "jp": "疲れたし、もう帰ります",
+        "zhHint": "累了，（而且还有别的原因）就回去了"
+      },
+      {
+        "jp": "お金もないし、旅行はやめます",
+        "zhHint": "也没钱，（所以）不去旅行了"
+      },
+      {
+        "jp": "明日は試験だし、今日は早く寝ます",
+        "zhHint": "明天有考试，今天早点睡"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× 疲れたし。",
+        "zhHint": "し不能单独结句，后面需要接结论"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g2802_q1",
+        "type": "choice",
+        "stem": "雨も降っている＿＿、出かけるのはやめましょう。",
+        "options": [
+          {
+            "id": "a",
+            "text": "し"
+          },
+          {
+            "id": "b",
+            "text": "から"
+          },
+          {
+            "id": "c",
+            "text": "て"
+          },
+          {
+            "id": "d",
+            "text": "ば"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "用し暗示除了下雨还有其他不想出门的理由。",
+        "grammarId": 2802
+      },
+      {
+        "drillId": "g2802_q2",
+        "type": "choice",
+        "stem": "明日は＿＿し、今日中にレポートを出します。",
+        "options": [
+          {
+            "id": "a",
+            "text": "休みだ"
+          },
+          {
+            "id": "b",
+            "text": "休みです"
+          },
+          {
+            "id": "c",
+            "text": "休みな"
+          },
+          {
+            "id": "d",
+            "text": "休みの"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "名词/な形容词+だし。休み是名词，所以用「休みだし」。",
+        "grammarId": 2802
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "reason",
+      "conjunction"
+    ]
+  },
+  {
+    "grammarId": 2803,
+    "lessonId": 28,
+    "name": "それに / その上 (递进补充)",
+    "coreRule": "在前句基础上补充同方向的信息",
+    "structure": "S1。それに / その上、S2。",
+    "mnemonic": "而且，再加上",
+    "examples": [
+      {
+        "jp": "この店は安いです。それに、おいしいです",
+        "zhHint": "这家店便宜。而且还好吃"
+      },
+      {
+        "jp": "仕事が大変です。その上、給料も安いです",
+        "zhHint": "工作辛苦。而且工资还低"
+      },
+      {
+        "jp": "彼は優しいです。それに、頭もいいです",
+        "zhHint": "他很温柔。而且还很聪明"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× この店は安いです。それに、まずいです",
+        "zhHint": "それに用于同方向递进，不能前面说好、后面说坏"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g2803_q1",
+        "type": "choice",
+        "stem": "あのレストランは料理がおいしいです。＿＿、サービスもいいです。",
+        "options": [
+          {
+            "id": "a",
+            "text": "それに"
+          },
+          {
+            "id": "b",
+            "text": "でも"
+          },
+          {
+            "id": "c",
+            "text": "しかし"
+          },
+          {
+            "id": "d",
+            "text": "ところが"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "前后都是正面评价，用「それに」递进补充。",
+        "grammarId": 2803
+      },
+      {
+        "drillId": "g2803_q2",
+        "type": "choice",
+        "stem": "今日は寒いです。＿＿、風も強いです。",
+        "options": [
+          {
+            "id": "a",
+            "text": "その上"
+          },
+          {
+            "id": "b",
+            "text": "だから"
+          },
+          {
+            "id": "c",
+            "text": "そして"
+          },
+          {
+            "id": "d",
+            "text": "ところで"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "「その上」用于在前句基础上进一步补充同方向的信息。",
+        "grammarId": 2803
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "addition",
+      "conjunction"
+    ]
+  },
+  {
+    "grammarId": 2901,
+    "lessonId": 29,
+    "name": "～ています (结果状态持续)",
+    "coreRule": "表示某一动作的结果状态一直持续着",
+    "structure": "V(て形) + います",
+    "mnemonic": "做完之后的状态还在",
+    "examples": [
+      {
+        "jp": "窓が開いています",
+        "zhHint": "窗户开着（打开的状态持续）"
+      },
+      {
+        "jp": "電気がついています",
+        "zhHint": "灯亮着"
+      },
+      {
+        "jp": "田中さんはもう結婚しています",
+        "zhHint": "田中先生已经结婚了（结婚的状态持续）"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× 窓が開けています",
+        "zhHint": "表示状态用自动词「開いている」，不用他动词「開ける」"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g2901_q1",
+        "type": "choice",
+        "stem": "ドアが＿＿います。",
+        "options": [
+          {
+            "id": "a",
+            "text": "閉まって"
+          },
+          {
+            "id": "b",
+            "text": "閉めて"
+          },
+          {
+            "id": "c",
+            "text": "閉まり"
+          },
+          {
+            "id": "d",
+            "text": "閉める"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "表示门关着的状态，用自动词「閉まる」的て形＋います。",
+        "grammarId": 2901
+      },
+      {
+        "drillId": "g2901_q2",
+        "type": "choice",
+        "stem": "あ、財布が＿＿いますよ。拾ってください。",
+        "options": [
+          {
+            "id": "a",
+            "text": "落ちて"
+          },
+          {
+            "id": "b",
+            "text": "落として"
+          },
+          {
+            "id": "c",
+            "text": "落ちる"
+          },
+          {
+            "id": "d",
+            "text": "落とす"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "钱包掉在那里（结果状态），用自动词「落ちる」的て形＋います。",
+        "grammarId": 2901
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "state",
+      "aspect",
+      "intransitive"
+    ]
+  },
+  {
+    "grammarId": 2902,
+    "lessonId": 29,
+    "name": "～てあります (有意行为结果存续)",
+    "coreRule": "某人有意做了某事，其结果状态还在",
+    "structure": "N が V(他动词て形) + あります",
+    "mnemonic": "有人做了，结果还在",
+    "examples": [
+      {
+        "jp": "壁にカレンダーが掛けてあります",
+        "zhHint": "墙上挂着日历（有人挂的）"
+      },
+      {
+        "jp": "テーブルの上にメモが置いてあります",
+        "zhHint": "桌上放着备忘录（有人放的）"
+      },
+      {
+        "jp": "部屋にエアコンがつけてあります",
+        "zhHint": "房间里开着空调（有人开的）"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× 壁にカレンダーが掛かっています → てあります",
+        "zhHint": "掛かっています只描述状态，掛けてあります强调是有人挂的"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g2902_q1",
+        "type": "choice",
+        "stem": "黒板に字が＿＿あります。",
+        "options": [
+          {
+            "id": "a",
+            "text": "書いて"
+          },
+          {
+            "id": "b",
+            "text": "書かれて"
+          },
+          {
+            "id": "c",
+            "text": "書き"
+          },
+          {
+            "id": "d",
+            "text": "書く"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "有人写了字，结果状态还在。用他动词「書く」的て形＋あります。",
+        "grammarId": 2902
+      },
+      {
+        "drillId": "g2902_q2",
+        "type": "choice",
+        "stem": "窓が＿＿あります。誰が開けたんですか。",
+        "options": [
+          {
+            "id": "a",
+            "text": "開けて"
+          },
+          {
+            "id": "b",
+            "text": "開いて"
+          },
+          {
+            "id": "c",
+            "text": "開き"
+          },
+          {
+            "id": "d",
+            "text": "開ける"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "てあります搭配他动词，强调有人开了窗。用「開ける」的て形。",
+        "grammarId": 2902
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "state",
+      "aspect",
+      "transitive"
+    ]
+  },
+  {
+    "grammarId": 2903,
+    "lessonId": 29,
+    "name": "～ておきます (事先准备/善后)",
+    "coreRule": "为将来某目的事先做好准备，或事后妥善处理",
+    "structure": "V(て形) + おきます",
+    "mnemonic": "提前做好，放在那里",
+    "examples": [
+      {
+        "jp": "会議の前に資料をコピーしておきます",
+        "zhHint": "开会前先把资料复印好"
+      },
+      {
+        "jp": "旅行の前にホテルを予約しておきます",
+        "zhHint": "旅行前先预订好酒店"
+      },
+      {
+        "jp": "使ったら、元の場所に戻しておいてください",
+        "zhHint": "用完请放回原来的地方"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× 会議の前に資料をコピーしてあります",
+        "zhHint": "てあります描述已完成的结果状态；ておきます强调为了将来而做准备"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g2903_q1",
+        "type": "choice",
+        "stem": "明日テストがあるから、今日＿＿おきます。",
+        "options": [
+          {
+            "id": "a",
+            "text": "勉強して"
+          },
+          {
+            "id": "b",
+            "text": "勉強し"
+          },
+          {
+            "id": "c",
+            "text": "勉強する"
+          },
+          {
+            "id": "d",
+            "text": "勉強した"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "为了明天的考试事先做准备，用て形＋おきます。",
+        "grammarId": 2903
+      },
+      {
+        "drillId": "g2903_q2",
+        "type": "choice",
+        "stem": "お客さんが来るから、部屋を＿＿おいてください。",
+        "options": [
+          {
+            "id": "a",
+            "text": "掃除して"
+          },
+          {
+            "id": "b",
+            "text": "掃除し"
+          },
+          {
+            "id": "c",
+            "text": "掃除する"
+          },
+          {
+            "id": "d",
+            "text": "掃除した"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "客人要来所以提前打扫房间，用て形＋おいてください。",
+        "grammarId": 2903
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "preparation",
+      "aspect"
+    ]
+  },
+  {
+    "grammarId": 3001,
+    "lessonId": 30,
+    "name": "～ても (让步，即使...也)",
+    "coreRule": "即使前项条件成立，后项结果也不受影响",
+    "structure": "V(て形) + も / い形(-くても) / な形(-でも) / N(でも)",
+    "mnemonic": "就算...也不变",
+    "examples": [
+      {
+        "jp": "雨が降っても、サッカーをします",
+        "zhHint": "即使下雨也踢足球"
+      },
+      {
+        "jp": "薬を飲んでも、熱が下がりません",
+        "zhHint": "即使吃了药，烧也不退"
+      },
+      {
+        "jp": "高くても、買いたいです",
+        "zhHint": "即使贵也想买"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× 雨が降ったも、サッカーをします",
+        "zhHint": "ても的接续是て形＋も，不是た形＋も"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g3001_q1",
+        "type": "choice",
+        "stem": "忙し＿＿、毎日運動しています。",
+        "options": [
+          {
+            "id": "a",
+            "text": "くても"
+          },
+          {
+            "id": "b",
+            "text": "いても"
+          },
+          {
+            "id": "c",
+            "text": "くて"
+          },
+          {
+            "id": "d",
+            "text": "いでも"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "い形容词的ても形：去い＋くても。忙しい→忙しくても。",
+        "grammarId": 3001
+      },
+      {
+        "drillId": "g3001_q2",
+        "type": "choice",
+        "stem": "日曜日＿＿、会社に行かなければなりません。",
+        "options": [
+          {
+            "id": "a",
+            "text": "でも"
+          },
+          {
+            "id": "b",
+            "text": "ても"
+          },
+          {
+            "id": "c",
+            "text": "だって"
+          },
+          {
+            "id": "d",
+            "text": "にも"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "名词的让步形式：名词＋でも。日曜日→日曜日でも。",
+        "grammarId": 3001
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "concession",
+      "conjunction"
+    ]
+  },
+  {
+    "grammarId": 3002,
+    "lessonId": 30,
+    "name": "V(意向形) + と思っています (打算)",
+    "coreRule": "表示说话人持续抱有的打算、意向",
+    "structure": "V(意向形) + と思っています",
+    "mnemonic": "一直在想要做某事",
+    "examples": [
+      {
+        "jp": "来年、日本へ行こうと思っています",
+        "zhHint": "打算明年去日本"
+      },
+      {
+        "jp": "新しいパソコンを買おうと思っています",
+        "zhHint": "打算买新电脑"
+      },
+      {
+        "jp": "週末、映画を見ようと思っています",
+        "zhHint": "打算周末去看电影"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× 日本へ行くと思っています",
+        "zhHint": "「行くと思う」是推测别人，不是表示自己打算"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g3002_q1",
+        "type": "choice",
+        "stem": "夏休みに旅行＿＿と思っています。",
+        "options": [
+          {
+            "id": "a",
+            "text": "しよう"
+          },
+          {
+            "id": "b",
+            "text": "する"
+          },
+          {
+            "id": "c",
+            "text": "して"
+          },
+          {
+            "id": "d",
+            "text": "した"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "表示打算用意向形＋と思っています。する的意向形是しよう。",
+        "grammarId": 3002
+      },
+      {
+        "drillId": "g3002_q2",
+        "type": "choice",
+        "stem": "来月から日本語を＿＿と思っています。",
+        "options": [
+          {
+            "id": "a",
+            "text": "習おう"
+          },
+          {
+            "id": "b",
+            "text": "習う"
+          },
+          {
+            "id": "c",
+            "text": "習って"
+          },
+          {
+            "id": "d",
+            "text": "習いたい"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "習う的意向形是習おう。表示打算从下个月开始学日语。",
+        "grammarId": 3002
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "intention",
+      "volitional"
+    ]
+  },
+  {
+    "grammarId": 3003,
+    "lessonId": 30,
+    "name": "まだ～ていません (尚未完成)",
+    "coreRule": "表示某动作到现在还没有完成",
+    "structure": "まだ + V(て形) + いません",
+    "mnemonic": "还没做呢",
+    "examples": [
+      {
+        "jp": "まだ昼ご飯を食べていません",
+        "zhHint": "还没吃午饭"
+      },
+      {
+        "jp": "レポートはまだ書いていません",
+        "zhHint": "报告还没写"
+      },
+      {
+        "jp": "田中さんはまだ来ていません",
+        "zhHint": "田中先生还没来"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× まだ昼ご飯を食べません",
+        "zhHint": "食べません是将来不吃；食べていません才是还没吃"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g3003_q1",
+        "type": "choice",
+        "stem": "A：もう宿題をしましたか。B：いいえ、まだ＿＿。",
+        "options": [
+          {
+            "id": "a",
+            "text": "していません"
+          },
+          {
+            "id": "b",
+            "text": "しません"
+          },
+          {
+            "id": "c",
+            "text": "しなかった"
+          },
+          {
+            "id": "d",
+            "text": "できません"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "回答「もう～ましたか」的否定用「まだ～ていません」。",
+        "grammarId": 3003
+      },
+      {
+        "drillId": "g3003_q2",
+        "type": "choice",
+        "stem": "この映画はまだ＿＿いません。",
+        "options": [
+          {
+            "id": "a",
+            "text": "見て"
+          },
+          {
+            "id": "b",
+            "text": "見"
+          },
+          {
+            "id": "c",
+            "text": "見る"
+          },
+          {
+            "id": "d",
+            "text": "見た"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "まだ＋て形＋いません。見る的て形是見て。",
+        "grammarId": 3003
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "negation",
+      "aspect",
+      "incomplete"
+    ]
+  },
+  {
+    "grammarId": 3101,
+    "lessonId": 31,
+    "name": "～と (自然/必然条件)",
+    "coreRule": "前项一发生，后项自然/必然发生",
+    "structure": "V(辞書形/ない形) + と",
+    "mnemonic": "一A就必然B",
+    "examples": [
+      {
+        "jp": "このボタンを押すと、電気がつきます",
+        "zhHint": "按这个按钮，灯就亮了"
+      },
+      {
+        "jp": "春になると、桜が咲きます",
+        "zhHint": "一到春天，樱花就开了"
+      },
+      {
+        "jp": "右に曲がると、駅があります",
+        "zhHint": "往右拐就到车站了"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× このボタンを押すと、電気をつけてください",
+        "zhHint": "と条件句后面不能接请求、命令、意志表达"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g3101_q1",
+        "type": "choice",
+        "stem": "この道をまっすぐ＿＿と、右に郵便局があります。",
+        "options": [
+          {
+            "id": "a",
+            "text": "行く"
+          },
+          {
+            "id": "b",
+            "text": "行って"
+          },
+          {
+            "id": "c",
+            "text": "行けば"
+          },
+          {
+            "id": "d",
+            "text": "行った"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "と接动词辞书形，表示自然条件。",
+        "grammarId": 3101
+      },
+      {
+        "drillId": "g3101_q2",
+        "type": "choice",
+        "stem": "冬に＿＿と、雪が降ります。",
+        "options": [
+          {
+            "id": "a",
+            "text": "なる"
+          },
+          {
+            "id": "b",
+            "text": "なって"
+          },
+          {
+            "id": "c",
+            "text": "なれば"
+          },
+          {
+            "id": "d",
+            "text": "なった"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "自然规律用と。一到冬天就下雪。",
+        "grammarId": 3101
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "condition",
+      "natural"
+    ]
+  },
+  {
+    "grammarId": 3102,
+    "lessonId": 31,
+    "name": "～と (发现，一...就...)",
+    "coreRule": "做了前项之后，发现/出现了后项的情况",
+    "structure": "V(辞書形) + と、...（后项多为过去式）",
+    "mnemonic": "一做就发现了",
+    "examples": [
+      {
+        "jp": "窓を開けると、富士山が見えました",
+        "zhHint": "一打开窗户，就看到了富士山"
+      },
+      {
+        "jp": "家に帰ると、手紙が届いていました",
+        "zhHint": "一回到家，发现信已经到了"
+      },
+      {
+        "jp": "ドアを開けると、猫が寝ていました",
+        "zhHint": "一开门，发现猫在睡觉"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× 窓を開けたと、富士山が見えました",
+        "zhHint": "发现用法也用辞书形＋と，不用た形＋と"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g3102_q1",
+        "type": "choice",
+        "stem": "部屋に＿＿と、誰もいませんでした。",
+        "options": [
+          {
+            "id": "a",
+            "text": "入る"
+          },
+          {
+            "id": "b",
+            "text": "入った"
+          },
+          {
+            "id": "c",
+            "text": "入って"
+          },
+          {
+            "id": "d",
+            "text": "入れば"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "发现用法：辞书形＋と，后面是过去式（发现的结果）。",
+        "grammarId": 3102
+      },
+      {
+        "drillId": "g3102_q2",
+        "type": "choice",
+        "stem": "箱を＿＿と、中にプレゼントが入っていました。",
+        "options": [
+          {
+            "id": "a",
+            "text": "開ける"
+          },
+          {
+            "id": "b",
+            "text": "開けた"
+          },
+          {
+            "id": "c",
+            "text": "開けて"
+          },
+          {
+            "id": "d",
+            "text": "開ければ"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "一打开箱子就发现了礼物。发现用法用辞书形＋と。",
+        "grammarId": 3102
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "condition",
+      "discovery"
+    ]
+  },
+  {
+    "grammarId": 3103,
+    "lessonId": 31,
+    "name": "～ば (假定条件)",
+    "coreRule": "如果前项成立，后项就会成立",
+    "structure": "V: u段→e段+ば / い形: い→ければ / な形: なら(ば) / N: なら(ば)",
+    "mnemonic": "如果A的话就B",
+    "examples": [
+      {
+        "jp": "天気がよければ、洗濯します",
+        "zhHint": "如果天气好的话，就洗衣服"
+      },
+      {
+        "jp": "安ければ、買います",
+        "zhHint": "如果便宜的话就买"
+      },
+      {
+        "jp": "時間があれば、映画を見に行きます",
+        "zhHint": "如果有时间的话，就去看电影"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× 天気がよければ、洗濯してください",
+        "zhHint": "ば条件句后面一般不接请求（よければ等少数例外）"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g3103_q1",
+        "type": "choice",
+        "stem": "お金が＿＿、新しい車を買います。",
+        "options": [
+          {
+            "id": "a",
+            "text": "あれば"
+          },
+          {
+            "id": "b",
+            "text": "あると"
+          },
+          {
+            "id": "c",
+            "text": "あって"
+          },
+          {
+            "id": "d",
+            "text": "あるなら"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "ある的ば形是あれば。如果有钱的话就买新车。",
+        "grammarId": 3103
+      },
+      {
+        "drillId": "g3103_q2",
+        "type": "choice",
+        "stem": "もっと＿＿、買えるのに。",
+        "options": [
+          {
+            "id": "a",
+            "text": "安ければ"
+          },
+          {
+            "id": "b",
+            "text": "安いと"
+          },
+          {
+            "id": "c",
+            "text": "安くて"
+          },
+          {
+            "id": "d",
+            "text": "安いなら"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "い形容词的ば形：去い＋ければ。安い→安ければ。",
+        "grammarId": 3103
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "condition",
+      "hypothetical"
+    ]
+  },
+  {
+    "grammarId": 3201,
+    "lessonId": 32,
+    "name": "～でしょう (推测)",
+    "coreRule": "根据某种依据进行推测",
+    "structure": "普通形 + でしょう (名词/な形容词去だ)",
+    "mnemonic": "大概是吧",
+    "examples": [
+      {
+        "jp": "明日は雨でしょう",
+        "zhHint": "明天大概会下雨吧"
+      },
+      {
+        "jp": "この問題は難しいでしょう",
+        "zhHint": "这个问题大概很难吧"
+      },
+      {
+        "jp": "田中さんはもう帰ったでしょう",
+        "zhHint": "田中先生大概已经回去了吧"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× 明日は雨だでしょう",
+        "zhHint": "名词/な形容词接でしょう时去掉だ"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g3201_q1",
+        "type": "choice",
+        "stem": "あの人は＿＿でしょう。",
+        "options": [
+          {
+            "id": "a",
+            "text": "日本人"
+          },
+          {
+            "id": "b",
+            "text": "日本人だ"
+          },
+          {
+            "id": "c",
+            "text": "日本人です"
+          },
+          {
+            "id": "d",
+            "text": "日本人な"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "名词接でしょう时直接加，不加だ。",
+        "grammarId": 3201
+      },
+      {
+        "drillId": "g3201_q2",
+        "type": "choice",
+        "stem": "来週は＿＿でしょう。",
+        "options": [
+          {
+            "id": "a",
+            "text": "暖かい"
+          },
+          {
+            "id": "b",
+            "text": "暖かいだ"
+          },
+          {
+            "id": "c",
+            "text": "暖かく"
+          },
+          {
+            "id": "d",
+            "text": "暖かいな"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "い形容词直接加でしょう。暖かい＋でしょう。",
+        "grammarId": 3201
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "conjecture",
+      "modality"
+    ]
+  },
+  {
+    "grammarId": 3202,
+    "lessonId": 32,
+    "name": "～たほうがいいです (建议)",
+    "coreRule": "建议对方做某事或不做某事",
+    "structure": "V(た形) + ほうがいいです / V(ない形) + ほうがいいです",
+    "mnemonic": "做了比较好 / 不做比较好",
+    "examples": [
+      {
+        "jp": "薬を飲んだほうがいいですよ",
+        "zhHint": "吃药比较好哦"
+      },
+      {
+        "jp": "もっと野菜を食べたほうがいいです",
+        "zhHint": "多吃蔬菜比较好"
+      },
+      {
+        "jp": "夜遅く食べないほうがいいです",
+        "zhHint": "晚上不要吃太晚比较好"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× 薬を飲むほうがいいです",
+        "zhHint": "建议用た形＋ほうがいい，不用辞書形"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g3202_q1",
+        "type": "choice",
+        "stem": "風邪ですか。早く＿＿ほうがいいですよ。",
+        "options": [
+          {
+            "id": "a",
+            "text": "寝た"
+          },
+          {
+            "id": "b",
+            "text": "寝る"
+          },
+          {
+            "id": "c",
+            "text": "寝て"
+          },
+          {
+            "id": "d",
+            "text": "寝ます"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "建议做某事用「た形＋ほうがいい」。寝る→寝た＋ほうがいい。",
+        "grammarId": 3202
+      },
+      {
+        "drillId": "g3202_q2",
+        "type": "choice",
+        "stem": "お酒は＿＿ほうがいいですよ。",
+        "options": [
+          {
+            "id": "a",
+            "text": "飲まない"
+          },
+          {
+            "id": "b",
+            "text": "飲んだ"
+          },
+          {
+            "id": "c",
+            "text": "飲まなかった"
+          },
+          {
+            "id": "d",
+            "text": "飲む"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "建议不做某事用「ない形＋ほうがいい」。飲む→飲まない＋ほうがいい。",
+        "grammarId": 3202
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "advice",
+      "suggestion"
+    ]
+  },
+  {
+    "grammarId": 3203,
+    "lessonId": 32,
+    "name": "～でしょうか (委婉疑问)",
+    "coreRule": "用于委婉地提出疑问或请求",
+    "structure": "普通形 + でしょうか",
+    "mnemonic": "请问...呢？",
+    "examples": [
+      {
+        "jp": "この電車は東京駅に止まるでしょうか",
+        "zhHint": "请问这列电车在东京站停吗？"
+      },
+      {
+        "jp": "明日は何時に来ればいいでしょうか",
+        "zhHint": "请问明天几点来好呢？"
+      },
+      {
+        "jp": "ちょっとお聞きしたいんですが、駅はどこでしょうか",
+        "zhHint": "想请问一下，车站在哪里呢？"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× 駅はどこですでしょうか",
+        "zhHint": "でしょうか已经是礼貌形式，不需要再加です"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g3203_q1",
+        "type": "choice",
+        "stem": "すみません、この近くに銀行は＿＿でしょうか。",
+        "options": [
+          {
+            "id": "a",
+            "text": "ある"
+          },
+          {
+            "id": "b",
+            "text": "あります"
+          },
+          {
+            "id": "c",
+            "text": "ありません"
+          },
+          {
+            "id": "d",
+            "text": "あるの"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "でしょうか前面接普通形。ある＋でしょうか。",
+        "grammarId": 3203
+      },
+      {
+        "drillId": "g3203_q2",
+        "type": "choice",
+        "stem": "来週の会議は何曜日＿＿。",
+        "options": [
+          {
+            "id": "a",
+            "text": "でしょうか"
+          },
+          {
+            "id": "b",
+            "text": "だでしょうか"
+          },
+          {
+            "id": "c",
+            "text": "ですでしょうか"
+          },
+          {
+            "id": "d",
+            "text": "のでしょうか"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "名词直接加でしょうか（不加だ）。何曜日＋でしょうか。",
+        "grammarId": 3203
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "question",
+      "polite"
     ]
   },
   {
@@ -393,11 +1967,73 @@
       {
         "jp": "私の自転車は弟に使われました",
         "zhHint": "我的自行车被弟弟用了"
+      },
+      {
+        "jp": "私は先生に名前を呼ばれました",
+        "zhHint": "我被老师叫了名字"
       }
     ],
-    "counterExamples": [],
-    "drills": [],
-    "level": 3,
+    "counterExamples": [
+      {
+        "jp": "× 森さんは部長に褒めました",
+        "zhHint": "被动态必须用被动形。褒める→褒められる"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g3301_q1",
+        "type": "choice",
+        "stem": "私は電車の中で足を＿＿。",
+        "options": [
+          {
+            "id": "a",
+            "text": "踏まれました"
+          },
+          {
+            "id": "b",
+            "text": "踏みました"
+          },
+          {
+            "id": "c",
+            "text": "踏んでました"
+          },
+          {
+            "id": "d",
+            "text": "踏ませました"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "我在电车里被踩了脚。踏む的被动形是踏まれる。",
+        "grammarId": 3301
+      },
+      {
+        "drillId": "g3301_q2",
+        "type": "choice",
+        "stem": "この本は多くの人に＿＿います。",
+        "options": [
+          {
+            "id": "a",
+            "text": "読まれて"
+          },
+          {
+            "id": "b",
+            "text": "読んで"
+          },
+          {
+            "id": "c",
+            "text": "読みて"
+          },
+          {
+            "id": "d",
+            "text": "読ませて"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "这本书被很多人阅读。読む的被动形是読まれる。",
+        "grammarId": 3301
+      }
+    ],
+    "level": 2,
     "tags": [
       "passive",
       "voice"
@@ -413,15 +2049,3502 @@
     "examples": [
       {
         "jp": "馬さんは車にカメラを壊されました",
-        "zhHint": "小马被车把相机弄坏了 -> 相机被车撞坏了"
+        "zhHint": "小马被车把相机弄坏了"
+      },
+      {
+        "jp": "私は隣の人にたばこを吸われました",
+        "zhHint": "我被旁边的人抽了烟（很困扰）"
+      },
+      {
+        "jp": "彼女は子供にケーキを食べられました",
+        "zhHint": "她被孩子把蛋糕吃了"
       }
     ],
-    "counterExamples": [],
-    "drills": [],
-    "level": 3,
+    "counterExamples": [
+      {
+        "jp": "× 馬さんのカメラは車に壊されました",
+        "zhHint": "物主被动中，人做主语，物用を提示，不把物做主语"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g3302_q1",
+        "type": "choice",
+        "stem": "私は弟に日記を＿＿。",
+        "options": [
+          {
+            "id": "a",
+            "text": "読まれました"
+          },
+          {
+            "id": "b",
+            "text": "読みました"
+          },
+          {
+            "id": "c",
+            "text": "読ませました"
+          },
+          {
+            "id": "d",
+            "text": "読んでいました"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "我被弟弟看了日记（受害感）。物主被动：人は＋人に＋物を＋被动形。",
+        "grammarId": 3302
+      },
+      {
+        "drillId": "g3302_q2",
+        "type": "choice",
+        "stem": "田中さんは犬に手を＿＿。",
+        "options": [
+          {
+            "id": "a",
+            "text": "噛まれました"
+          },
+          {
+            "id": "b",
+            "text": "噛みました"
+          },
+          {
+            "id": "c",
+            "text": "噛ませました"
+          },
+          {
+            "id": "d",
+            "text": "噛んでいました"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "田中被狗咬了手。噛む的被动形是噛まれる。物主被动表示受害。",
+        "grammarId": 3302
+      }
+    ],
+    "level": 2,
     "tags": [
       "passive",
       "adversative"
+    ]
+  },
+  {
+    "grammarId": 3401,
+    "lessonId": 34,
+    "name": "命令形 (V命令形)",
+    "coreRule": "直接命令对方做某事（语气强硬）",
+    "structure": "V1: u段→e段 / V2: る→ろ / V3: しろ・来い(こい)",
+    "mnemonic": "给我做！",
+    "examples": [
+      {
+        "jp": "早く走れ！",
+        "zhHint": "快跑！"
+      },
+      {
+        "jp": "ここに名前を書け",
+        "zhHint": "在这里写名字"
+      },
+      {
+        "jp": "静かにしろ！",
+        "zhHint": "安静！"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× 早く走ろ！",
+        "zhHint": "走る是一类动词，命令形是走れ，不是走ろ"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g3401_q1",
+        "type": "choice",
+        "stem": "「食べる」の命令形は？",
+        "options": [
+          {
+            "id": "a",
+            "text": "食べろ"
+          },
+          {
+            "id": "b",
+            "text": "食べれ"
+          },
+          {
+            "id": "c",
+            "text": "食べよ"
+          },
+          {
+            "id": "d",
+            "text": "食べえ"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "二类动词的命令形：去る＋ろ。食べる→食べろ。",
+        "grammarId": 3401
+      },
+      {
+        "drillId": "g3401_q2",
+        "type": "choice",
+        "stem": "「急ぐ」の命令形は？",
+        "options": [
+          {
+            "id": "a",
+            "text": "急げ"
+          },
+          {
+            "id": "b",
+            "text": "急ご"
+          },
+          {
+            "id": "c",
+            "text": "急ぎろ"
+          },
+          {
+            "id": "d",
+            "text": "急ぐろ"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "一类动词命令形：u段→e段。急ぐ→急げ。",
+        "grammarId": 3401
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "imperative",
+      "command"
+    ]
+  },
+  {
+    "grammarId": 3402,
+    "lessonId": 34,
+    "name": "禁止形 (V辞書形 + な)",
+    "coreRule": "直接禁止对方做某事（语气强硬）",
+    "structure": "V(辞書形) + な",
+    "mnemonic": "不许做！",
+    "examples": [
+      {
+        "jp": "ここに入るな！",
+        "zhHint": "不许进来！"
+      },
+      {
+        "jp": "触るな！危ないぞ",
+        "zhHint": "不许碰！危险！"
+      },
+      {
+        "jp": "ここでたばこを吸うな",
+        "zhHint": "不许在这里抽烟"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× ここに入らな！",
+        "zhHint": "禁止形用辞書形＋な，不是ない形变化"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g3402_q1",
+        "type": "choice",
+        "stem": "ここで写真を＿＿な。",
+        "options": [
+          {
+            "id": "a",
+            "text": "撮る"
+          },
+          {
+            "id": "b",
+            "text": "撮り"
+          },
+          {
+            "id": "c",
+            "text": "撮って"
+          },
+          {
+            "id": "d",
+            "text": "撮ら"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "禁止形 = 辞書形＋な。撮る＋な = 不许拍照。",
+        "grammarId": 3402
+      },
+      {
+        "drillId": "g3402_q2",
+        "type": "choice",
+        "stem": "「遊ぶ」の禁止形は？",
+        "options": [
+          {
+            "id": "a",
+            "text": "遊ぶな"
+          },
+          {
+            "id": "b",
+            "text": "遊ばな"
+          },
+          {
+            "id": "c",
+            "text": "遊べな"
+          },
+          {
+            "id": "d",
+            "text": "遊びな"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "禁止形 = 辞書形＋な。遊ぶ＋な = 遊ぶな。",
+        "grammarId": 3402
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "prohibition",
+      "command"
+    ]
+  },
+  {
+    "grammarId": 3403,
+    "lessonId": 34,
+    "name": "～なさい (指示，温和命令)",
+    "coreRule": "用于上对下的温和指示，比命令形柔和",
+    "structure": "V(ます形去掉ます) + なさい",
+    "mnemonic": "请你做（长辈/老师口吻）",
+    "examples": [
+      {
+        "jp": "早く起きなさい",
+        "zhHint": "快点起床（妈妈对孩子说）"
+      },
+      {
+        "jp": "宿題をしなさい",
+        "zhHint": "做作业（老师对学生说）"
+      },
+      {
+        "jp": "もっとしっかり勉強しなさい",
+        "zhHint": "好好学习（父母/老师口吻）"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× 早く起きるなさい",
+        "zhHint": "なさい接ます形词干，不是辞書形。起きる→起き＋なさい"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g3403_q1",
+        "type": "choice",
+        "stem": "静かに＿＿なさい。",
+        "options": [
+          {
+            "id": "a",
+            "text": "し"
+          },
+          {
+            "id": "b",
+            "text": "する"
+          },
+          {
+            "id": "c",
+            "text": "して"
+          },
+          {
+            "id": "d",
+            "text": "した"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "する的ます形词干是し。し＋なさい＝しなさい。",
+        "grammarId": 3403
+      },
+      {
+        "drillId": "g3403_q2",
+        "type": "choice",
+        "stem": "先生：「教科書の30ページを＿＿なさい。」",
+        "options": [
+          {
+            "id": "a",
+            "text": "読み"
+          },
+          {
+            "id": "b",
+            "text": "読む"
+          },
+          {
+            "id": "c",
+            "text": "読んで"
+          },
+          {
+            "id": "d",
+            "text": "読め"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "読む的ます形词干是読み。読み＋なさい＝読みなさい。",
+        "grammarId": 3403
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "instruction",
+      "command",
+      "polite"
+    ]
+  },
+  {
+    "grammarId": 3501,
+    "lessonId": 35,
+    "name": "～かもしれません",
+    "coreRule": "表示不确定的推测，\"也许、可能\"，可能性约30%-50%",
+    "structure": "V/A(普通形) + かもしれません；ナAだ→ナA + かもしれません；Nだ→N + かもしれません",
+    "mnemonic": "かも=鸭子，鸭子也不知道=也许吧",
+    "examples": [
+      {
+        "jp": "明日は雨が降るかもしれません。",
+        "zhHint": "明天可能会下雨。"
+      },
+      {
+        "jp": "この料理は辛いかもしれません。",
+        "zhHint": "这道菜可能很辣。"
+      },
+      {
+        "jp": "彼は病気かもしれません。",
+        "zhHint": "他也许生病了。"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× 明日は雨が降るだかもしれません。",
+        "zhHint": "动词/い形容词后不加だ，直接接かもしれません"
+      },
+      {
+        "jp": "× 明日は雨が降りますかもしれません。",
+        "zhHint": "必须用普通形，不能用ます形"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g3501_q1",
+        "type": "choice",
+        "stem": "午後は雪が＿＿かもしれません。",
+        "options": [
+          {
+            "id": "a",
+            "text": "降る"
+          },
+          {
+            "id": "b",
+            "text": "降ります"
+          },
+          {
+            "id": "c",
+            "text": "降るだ"
+          },
+          {
+            "id": "d",
+            "text": "降って"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "かもしれません前面用动词普通形（辞书形）。降ります是敬体，不能接かもしれません。",
+        "grammarId": 3501
+      },
+      {
+        "drillId": "g3501_q2",
+        "type": "choice",
+        "stem": "あの人は日本人＿＿。",
+        "options": [
+          {
+            "id": "a",
+            "text": "かもしれません"
+          },
+          {
+            "id": "b",
+            "text": "だかもしれません"
+          },
+          {
+            "id": "c",
+            "text": "なかもしれません"
+          },
+          {
+            "id": "d",
+            "text": "のかもしれません"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "名词后直接接かもしれません，不需要加だ。",
+        "grammarId": 3501
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "conjecture",
+      "possibility"
+    ]
+  },
+  {
+    "grammarId": 3502,
+    "lessonId": 35,
+    "name": "～はずです",
+    "coreRule": "根据已知信息做出合理推断，\"应该是…\"，说话人有较高把握",
+    "structure": "V(普通形) + はずです；ナA + な + はずです；N + の + はずです",
+    "mnemonic": "はず=有根据的应该",
+    "examples": [
+      {
+        "jp": "もう届いたはずです。先週送りましたから。",
+        "zhHint": "应该已经收到了，因为上周就寄了。"
+      },
+      {
+        "jp": "田中さんは今日暇なはずです。",
+        "zhHint": "田中今天应该有空。"
+      },
+      {
+        "jp": "この店は有名なはずです。いつも混んでいます。",
+        "zhHint": "这家店应该很有名，总是很拥挤。"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× もう届くはずです。先週送りましたから。",
+        "zhHint": "已经寄了是过去的事，应该用た形：届いたはずです"
+      },
+      {
+        "jp": "× 田中さんは今日暇はずです。",
+        "zhHint": "ナ形容词后需要加な：暇なはずです"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g3502_q1",
+        "type": "choice",
+        "stem": "彼女はもう家に＿＿はずです。",
+        "options": [
+          {
+            "id": "a",
+            "text": "帰った"
+          },
+          {
+            "id": "b",
+            "text": "帰りました"
+          },
+          {
+            "id": "c",
+            "text": "帰るの"
+          },
+          {
+            "id": "d",
+            "text": "帰って"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "はずです前面用动词普通形。已经发生的事用た形（帰った）。",
+        "grammarId": 3502
+      },
+      {
+        "drillId": "g3502_q2",
+        "type": "choice",
+        "stem": "この問題は簡単＿＿はずです。",
+        "options": [
+          {
+            "id": "a",
+            "text": "な"
+          },
+          {
+            "id": "b",
+            "text": "だ"
+          },
+          {
+            "id": "c",
+            "text": "の"
+          },
+          {
+            "id": "d",
+            "text": "に"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "ナ形容词接はず时，用「な」连接：簡単なはずです。",
+        "grammarId": 3502
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "conjecture",
+      "expectation"
+    ]
+  },
+  {
+    "grammarId": 3503,
+    "lessonId": 35,
+    "name": "～に違いない",
+    "coreRule": "表示说话人非常确信的推测，\"一定是…、肯定是…\"，确信度90%以上",
+    "structure": "V/A(普通形) + に違いない；ナA + に違いない；N + に違いない",
+    "mnemonic": "违い=差异，没有差异=一定是",
+    "examples": [
+      {
+        "jp": "彼は犯人に違いない。証拠がたくさんある。",
+        "zhHint": "他一定是犯人。有很多证据。"
+      },
+      {
+        "jp": "あの音は雷に違いない。",
+        "zhHint": "那个声音一定是打雷。"
+      },
+      {
+        "jp": "彼女は怒っているに違いない。",
+        "zhHint": "她一定在生气。"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× 彼は犯人だに違いない。",
+        "zhHint": "名词后直接接に違いない，不需要加だ"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g3503_q1",
+        "type": "choice",
+        "stem": "こんなに人気がある＿＿、おいしいに違いない。",
+        "options": [
+          {
+            "id": "a",
+            "text": "から"
+          },
+          {
+            "id": "b",
+            "text": "ので"
+          },
+          {
+            "id": "c",
+            "text": "けど"
+          },
+          {
+            "id": "d",
+            "text": "のに"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "这么受欢迎，所以一定好吃。から表示原因，连接に違いない的推测理由。",
+        "grammarId": 3503
+      },
+      {
+        "drillId": "g3503_q2",
+        "type": "choice",
+        "stem": "あの人は日本人＿＿。日本語がとても上手だ。",
+        "options": [
+          {
+            "id": "a",
+            "text": "に違いない"
+          },
+          {
+            "id": "b",
+            "text": "だに違いない"
+          },
+          {
+            "id": "c",
+            "text": "かもしれない"
+          },
+          {
+            "id": "d",
+            "text": "はずだ"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "名词后直接接に違いない。因为日语说得非常好，所以用确信度最高的に違いない。",
+        "grammarId": 3503
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "conjecture",
+      "certainty"
+    ]
+  },
+  {
+    "grammarId": 3601,
+    "lessonId": 36,
+    "name": "～てしまいました (遗憾)",
+    "coreRule": "表示做了不该做的事或发生了不好的结果，带有遗憾、后悔的语气",
+    "structure": "V(て形) + しまいました",
+    "mnemonic": "しまった=糟了！后悔莫及",
+    "examples": [
+      {
+        "jp": "財布を落としてしまいました。",
+        "zhHint": "把钱包弄丢了。（不小心）"
+      },
+      {
+        "jp": "約束を忘れてしまいました。",
+        "zhHint": "把约定忘了。（遗憾）"
+      },
+      {
+        "jp": "大切な花瓶を割ってしまいました。",
+        "zhHint": "把重要的花瓶打碎了。（懊悔）"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× 財布を落としました。",
+        "zhHint": "虽然语法正确，但没有表达出\"不小心、遗憾\"的语气，应该用てしまいました"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g3601_q1",
+        "type": "choice",
+        "stem": "電車の中で寝て＿＿、駅を乗り過ごしました。",
+        "options": [
+          {
+            "id": "a",
+            "text": "しまって"
+          },
+          {
+            "id": "b",
+            "text": "しまいます"
+          },
+          {
+            "id": "c",
+            "text": "しまう"
+          },
+          {
+            "id": "d",
+            "text": "しまった"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "前后两个动作用て形连接。寝てしまって表示不小心睡着了，后面接结果。",
+        "grammarId": 3601
+      },
+      {
+        "drillId": "g3601_q2",
+        "type": "choice",
+        "stem": "せっかく作ったケーキを＿＿しまいました。",
+        "options": [
+          {
+            "id": "a",
+            "text": "焦がして"
+          },
+          {
+            "id": "b",
+            "text": "焦がす"
+          },
+          {
+            "id": "c",
+            "text": "焦がした"
+          },
+          {
+            "id": "d",
+            "text": "焦がし"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "动词て形+しまいました。焦がす的て形是焦がして。表示不小心把蛋糕烤焦了。",
+        "grammarId": 3601
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "regret",
+      "completion",
+      "shimau"
+    ]
+  },
+  {
+    "grammarId": 3602,
+    "lessonId": 36,
+    "name": "～てしまいます (彻底完成)",
+    "coreRule": "表示动作彻底完成，强调全部做完，无遗憾含义",
+    "structure": "V(て形) + しまいます",
+    "mnemonic": "しまう=收起来=彻底搞定",
+    "examples": [
+      {
+        "jp": "この本は面白くて、一日で読んでしまいました。",
+        "zhHint": "这本书很有趣，一天就读完了。"
+      },
+      {
+        "jp": "宿題を全部やってしまいましょう。",
+        "zhHint": "把作业全部做完吧。"
+      },
+      {
+        "jp": "冷蔵庫のケーキを全部食べてしまった。",
+        "zhHint": "把冰箱里的蛋糕全吃光了。"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× この本を読みてしまいました。",
+        "zhHint": "読む的て形是読んで，不是読みて"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g3602_q1",
+        "type": "choice",
+        "stem": "おいしかったので、全部＿＿しまいました。",
+        "options": [
+          {
+            "id": "a",
+            "text": "食べて"
+          },
+          {
+            "id": "b",
+            "text": "食べ"
+          },
+          {
+            "id": "c",
+            "text": "食べる"
+          },
+          {
+            "id": "d",
+            "text": "食べた"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "动词て形+しまいました。因为好吃所以全部吃完了，强调彻底完成。",
+        "grammarId": 3602
+      },
+      {
+        "drillId": "g3602_q2",
+        "type": "choice",
+        "stem": "この映画は感動的で、2時間で＿＿。",
+        "options": [
+          {
+            "id": "a",
+            "text": "見てしまいました"
+          },
+          {
+            "id": "b",
+            "text": "見るしまいました"
+          },
+          {
+            "id": "c",
+            "text": "見たしまいました"
+          },
+          {
+            "id": "d",
+            "text": "見ましてしまいました"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "V(て形)+しまいました。見る的て形是見て。表示一口气看完了。",
+        "grammarId": 3602
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "completion",
+      "shimau"
+    ]
+  },
+  {
+    "grammarId": 3603,
+    "lessonId": 36,
+    "name": "～ちゃった/～じゃった (口語縮約形)",
+    "coreRule": "てしまう的口语缩略形式。て→ちゃ；で→じゃ",
+    "structure": "V(て形)しまう → Vちゃう；V(で形)しまう → Vじゃう（過去形：ちゃった/じゃった）",
+    "mnemonic": "ちゃう=てしまう的懒人说法",
+    "examples": [
+      {
+        "jp": "また遅刻しちゃった。",
+        "zhHint": "又迟到了。（遅刻してしまった的缩略）"
+      },
+      {
+        "jp": "コップを割っちゃった。ごめん。",
+        "zhHint": "把杯子打碎了，对不起。"
+      },
+      {
+        "jp": "宿題、もう終わっちゃったよ。",
+        "zhHint": "作业已经做完了哦。"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× 飲んちゃった。",
+        "zhHint": "飲んで→飲んじゃった，で变成じゃ，不是ちゃ"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g3603_q1",
+        "type": "choice",
+        "stem": "「忘れてしまった」の口語形は？",
+        "options": [
+          {
+            "id": "a",
+            "text": "忘れちゃった"
+          },
+          {
+            "id": "b",
+            "text": "忘れじゃった"
+          },
+          {
+            "id": "c",
+            "text": "忘っちゃった"
+          },
+          {
+            "id": "d",
+            "text": "忘れてった"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "忘れて+しまった → 忘れちゃった。て→ちゃ的变换。",
+        "grammarId": 3603
+      },
+      {
+        "drillId": "g3603_q2",
+        "type": "choice",
+        "stem": "「飲んでしまった」の口語形は？",
+        "options": [
+          {
+            "id": "a",
+            "text": "飲んじゃった"
+          },
+          {
+            "id": "b",
+            "text": "飲んちゃった"
+          },
+          {
+            "id": "c",
+            "text": "飲みちゃった"
+          },
+          {
+            "id": "d",
+            "text": "飲でじゃった"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "飲んで+しまった → 飲んじゃった。で→じゃ的变换。",
+        "grammarId": 3603
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "colloquial",
+      "shimau",
+      "contraction"
+    ]
+  },
+  {
+    "grammarId": 3701,
+    "lessonId": 37,
+    "name": "V(て形) + 感情形容詞",
+    "coreRule": "用动词て形表示引起某种感情的原因，\"因为...所以（高兴/难过/吃惊等）\"",
+    "structure": "V(て形) + うれしい/悲しい/びっくりした/残念です/安心しました 等",
+    "mnemonic": "做了某事 → 产生感情",
+    "examples": [
+      {
+        "jp": "試合に勝って、うれしいです。",
+        "zhHint": "赢了比赛，很高兴。"
+      },
+      {
+        "jp": "友達に会えて、よかったです。",
+        "zhHint": "能见到朋友，太好了。"
+      },
+      {
+        "jp": "財布をなくして、困っています。",
+        "zhHint": "丢了钱包，很为难。"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× 試合に勝つ、うれしいです。",
+        "zhHint": "原因引起感情的句型需要用て形连接，不能用辞书形"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g3701_q1",
+        "type": "choice",
+        "stem": "大学に合格＿＿、とてもうれしいです。",
+        "options": [
+          {
+            "id": "a",
+            "text": "して"
+          },
+          {
+            "id": "b",
+            "text": "する"
+          },
+          {
+            "id": "c",
+            "text": "した"
+          },
+          {
+            "id": "d",
+            "text": "すれば"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "原因引起感情用て形。合格する→合格して+うれしい。",
+        "grammarId": 3701
+      },
+      {
+        "drillId": "g3701_q2",
+        "type": "choice",
+        "stem": "プレゼントを＿＿、感動しました。",
+        "options": [
+          {
+            "id": "a",
+            "text": "もらって"
+          },
+          {
+            "id": "b",
+            "text": "もらう"
+          },
+          {
+            "id": "c",
+            "text": "もらい"
+          },
+          {
+            "id": "d",
+            "text": "もらった"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "收到礼物而感动。原因用て形连接感情表达。もらう→もらって。",
+        "grammarId": 3701
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "emotion",
+      "cause",
+      "te-form"
+    ]
+  },
+  {
+    "grammarId": 3702,
+    "lessonId": 37,
+    "name": "～ので",
+    "coreRule": "表示客观原因、理由，语气比から柔和、礼貌，常用于正式场合",
+    "structure": "V/A(普通形) + ので；ナA + な + ので；N + な + ので",
+    "mnemonic": "ので=温柔版的から",
+    "examples": [
+      {
+        "jp": "電車が遅れたので、遅刻しました。",
+        "zhHint": "因为电车晚点了，所以迟到了。"
+      },
+      {
+        "jp": "お腹が痛いので、早退してもいいですか。",
+        "zhHint": "因为肚子疼，可以早退吗？"
+      },
+      {
+        "jp": "明日は休みなので、どこかへ行きませんか。",
+        "zhHint": "因为明天休息，要不要去哪里？"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× 明日は休みだので、出かけます。",
+        "zhHint": "名词/ナ形容词后用な，不用だ：休みなので"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g3702_q1",
+        "type": "choice",
+        "stem": "道が＿＿ので、タクシーで行きましょう。",
+        "options": [
+          {
+            "id": "a",
+            "text": "複雑な"
+          },
+          {
+            "id": "b",
+            "text": "複雑だ"
+          },
+          {
+            "id": "c",
+            "text": "複雑"
+          },
+          {
+            "id": "d",
+            "text": "複雑の"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "ナ形容词接ので时用「な」连接：複雑なので。",
+        "grammarId": 3702
+      },
+      {
+        "drillId": "g3702_q2",
+        "type": "choice",
+        "stem": "熱が＿＿ので、学校を休みました。",
+        "options": [
+          {
+            "id": "a",
+            "text": "あった"
+          },
+          {
+            "id": "b",
+            "text": "あります"
+          },
+          {
+            "id": "c",
+            "text": "あるの"
+          },
+          {
+            "id": "d",
+            "text": "あって"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "ので前面用普通形。过去式：あった+ので。",
+        "grammarId": 3702
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "cause",
+      "reason",
+      "conjunction"
+    ]
+  },
+  {
+    "grammarId": 3703,
+    "lessonId": 37,
+    "name": "～のに",
+    "coreRule": "表示转折，\"明明…却…\"，含有不满、意外、遗憾等情绪",
+    "structure": "V/A(普通形) + のに；ナA + な + のに；N + な + のに",
+    "mnemonic": "のに=明明...偏偏...(不甘心)",
+    "examples": [
+      {
+        "jp": "薬を飲んだのに、まだ熱があります。",
+        "zhHint": "明明吃了药，还在发烧。"
+      },
+      {
+        "jp": "日曜日なのに、仕事があります。",
+        "zhHint": "明明是周日，却有工作。"
+      },
+      {
+        "jp": "約束したのに、彼は来ませんでした。",
+        "zhHint": "明明约好了，他却没来。"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× 日曜日だのに、仕事があります。",
+        "zhHint": "名词/ナ形容词后用な，不用だ：日曜日なのに"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g3703_q1",
+        "type": "choice",
+        "stem": "たくさん勉強した＿＿、テストに落ちました。",
+        "options": [
+          {
+            "id": "a",
+            "text": "のに"
+          },
+          {
+            "id": "b",
+            "text": "ので"
+          },
+          {
+            "id": "c",
+            "text": "から"
+          },
+          {
+            "id": "d",
+            "text": "けど"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "明明学了很多却没考过。表示意外、遗憾的转折用のに。",
+        "grammarId": 3703
+      },
+      {
+        "drillId": "g3703_q2",
+        "type": "choice",
+        "stem": "この店は有名＿＿のに、お客さんが少ないです。",
+        "options": [
+          {
+            "id": "a",
+            "text": "な"
+          },
+          {
+            "id": "b",
+            "text": "だ"
+          },
+          {
+            "id": "c",
+            "text": "の"
+          },
+          {
+            "id": "d",
+            "text": "で"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "ナ形容词接のに时，用「な」连接：有名なのに。",
+        "grammarId": 3703
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "contrast",
+      "unexpected",
+      "conjunction"
+    ]
+  },
+  {
+    "grammarId": 3801,
+    "lessonId": 38,
+    "name": "～たまま",
+    "coreRule": "保持某种状态不变地做另一件事，\"…着（不变地）\"",
+    "structure": "V(た形) + まま + 別の動作",
+    "mnemonic": "まま=保持原样不变",
+    "examples": [
+      {
+        "jp": "靴を履いたまま、家に入らないでください。",
+        "zhHint": "请不要穿着鞋进屋。"
+      },
+      {
+        "jp": "テレビをつけたまま、寝てしまいました。",
+        "zhHint": "开着电视就睡着了。"
+      },
+      {
+        "jp": "眼鏡をかけたまま、お風呂に入ってしまった。",
+        "zhHint": "戴着眼镜就进浴室了。"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× 靴を履くまま、家に入った。",
+        "zhHint": "まま前面用た形，不用辞书形：履いたまま"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g3801_q1",
+        "type": "choice",
+        "stem": "エアコンを＿＿まま、出かけてしまいました。",
+        "options": [
+          {
+            "id": "a",
+            "text": "つけた"
+          },
+          {
+            "id": "b",
+            "text": "つける"
+          },
+          {
+            "id": "c",
+            "text": "つけて"
+          },
+          {
+            "id": "d",
+            "text": "つけ"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "まま前面用动词た形。つける→つけた+まま。表示空调开着就出门了。",
+        "grammarId": 3801
+      },
+      {
+        "drillId": "g3801_q2",
+        "type": "choice",
+        "stem": "窓を＿＿まま寝ると、風邪を引きますよ。",
+        "options": [
+          {
+            "id": "a",
+            "text": "開けた"
+          },
+          {
+            "id": "b",
+            "text": "開ける"
+          },
+          {
+            "id": "c",
+            "text": "開けて"
+          },
+          {
+            "id": "d",
+            "text": "開いた"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "开着窗户睡觉的话会感冒。まま前用他動詞た形：開けたまま。",
+        "grammarId": 3801
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "state",
+      "manner",
+      "mama"
+    ]
+  },
+  {
+    "grammarId": 3802,
+    "lessonId": 38,
+    "name": "～て/～で (方式・手段)",
+    "coreRule": "用て形表示做某事的方式、手段或附带状况",
+    "structure": "V(て形) + V；N + で + V",
+    "mnemonic": "穿着...、用...、坐...去",
+    "examples": [
+      {
+        "jp": "帽子をかぶって出かけました。",
+        "zhHint": "戴着帽子出门了。"
+      },
+      {
+        "jp": "歩いて学校に行きます。",
+        "zhHint": "走路去学校。"
+      },
+      {
+        "jp": "箸を使って食べます。",
+        "zhHint": "用筷子吃。"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× 帽子をかぶるで出かけました。",
+        "zhHint": "动词表示方式时用て形，不用辞书形+で"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g3802_q1",
+        "type": "choice",
+        "stem": "コートを＿＿、出かけましょう。",
+        "options": [
+          {
+            "id": "a",
+            "text": "着て"
+          },
+          {
+            "id": "b",
+            "text": "着る"
+          },
+          {
+            "id": "c",
+            "text": "着た"
+          },
+          {
+            "id": "d",
+            "text": "着"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "穿上外套出门。表示附带状态用て形：着て。",
+        "grammarId": 3802
+      },
+      {
+        "drillId": "g3802_q2",
+        "type": "choice",
+        "stem": "自転車＿＿会社に通っています。",
+        "options": [
+          {
+            "id": "a",
+            "text": "で"
+          },
+          {
+            "id": "b",
+            "text": "を"
+          },
+          {
+            "id": "c",
+            "text": "に"
+          },
+          {
+            "id": "d",
+            "text": "が"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "名词表示手段用で。骑自行车上班：自転車で通う。",
+        "grammarId": 3802
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "manner",
+      "means",
+      "te-form"
+    ]
+  },
+  {
+    "grammarId": 3803,
+    "lessonId": 38,
+    "name": "～ないで",
+    "coreRule": "不做A而做B，表示在不进行某动作的状态下进行另一动作",
+    "structure": "V(ない形) + で + 別の動作",
+    "mnemonic": "不...而...",
+    "examples": [
+      {
+        "jp": "朝ご飯を食べないで、学校に行きました。",
+        "zhHint": "没吃早饭就去学校了。"
+      },
+      {
+        "jp": "傘を持たないで出かけました。",
+        "zhHint": "没带伞就出门了。"
+      },
+      {
+        "jp": "辞書を使わないで、作文を書きました。",
+        "zhHint": "没用字典就写了作文。"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× 朝ご飯を食べなくて、学校に行きました。",
+        "zhHint": "表示\"不做A而做B\"用ないで，不用なくて。なくて主要表示原因"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g3803_q1",
+        "type": "choice",
+        "stem": "何も＿＿で、会議に出ました。",
+        "options": [
+          {
+            "id": "a",
+            "text": "準備しない"
+          },
+          {
+            "id": "b",
+            "text": "準備しなくて"
+          },
+          {
+            "id": "c",
+            "text": "準備する"
+          },
+          {
+            "id": "d",
+            "text": "準備した"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "什么都没准备就参加了会议。V(ない形)+で。準備する→準備しないで。",
+        "grammarId": 3803
+      },
+      {
+        "drillId": "g3803_q2",
+        "type": "choice",
+        "stem": "エアコンを＿＿で寝ました。",
+        "options": [
+          {
+            "id": "a",
+            "text": "つけない"
+          },
+          {
+            "id": "b",
+            "text": "つけなくて"
+          },
+          {
+            "id": "c",
+            "text": "つけた"
+          },
+          {
+            "id": "d",
+            "text": "つけて"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "没开空调就睡了。V(ない形)+で：つけないで。",
+        "grammarId": 3803
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "negation",
+      "manner",
+      "naide"
+    ]
+  },
+  {
+    "grammarId": 3901,
+    "lessonId": 39,
+    "name": "自動詞 + ている (状態描写)",
+    "coreRule": "自动词+ている表示变化后的结果状态持续，\"...着（状态）\"",
+    "structure": "自動詞(て形) + いる/います",
+    "mnemonic": "自动发生，状态留存",
+    "examples": [
+      {
+        "jp": "窓が開いています。",
+        "zhHint": "窗户开着。（自然状态）"
+      },
+      {
+        "jp": "電気が消えています。",
+        "zhHint": "灯灭着。（不知道谁关的）"
+      },
+      {
+        "jp": "道が曲がっています。",
+        "zhHint": "路是弯的。"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× 窓が開けています。",
+        "zhHint": "開ける是他动词。描述窗户的状态用自动词開く→開いています"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g3901_q1",
+        "type": "choice",
+        "stem": "あ、電気が＿＿いますよ。消しましょうか。",
+        "options": [
+          {
+            "id": "a",
+            "text": "ついて"
+          },
+          {
+            "id": "b",
+            "text": "つけて"
+          },
+          {
+            "id": "c",
+            "text": "つく"
+          },
+          {
+            "id": "d",
+            "text": "つけ"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "灯亮着。描述状态用自动词つく→ついている。つける是他动词。",
+        "grammarId": 3901
+      },
+      {
+        "drillId": "g3901_q2",
+        "type": "choice",
+        "stem": "ドアが＿＿います。誰か入ったのかもしれません。",
+        "options": [
+          {
+            "id": "a",
+            "text": "開いて"
+          },
+          {
+            "id": "b",
+            "text": "開けて"
+          },
+          {
+            "id": "c",
+            "text": "開く"
+          },
+          {
+            "id": "d",
+            "text": "開き"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "门开着的状态。自动词開く→開いている。不涉及谁开的，只描述状态。",
+        "grammarId": 3901
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "intransitive",
+      "state",
+      "teiru"
+    ]
+  },
+  {
+    "grammarId": 3902,
+    "lessonId": 39,
+    "name": "他動詞 + てある (結果存続)",
+    "coreRule": "他动词+てある表示某人有意做了某动作，其结果状态持续存在",
+    "structure": "N + が + 他動詞(て形) + ある/あります",
+    "mnemonic": "有人做了 → 结果还在",
+    "examples": [
+      {
+        "jp": "壁にポスターが貼ってあります。",
+        "zhHint": "墙上贴着海报。（有人贴的）"
+      },
+      {
+        "jp": "テーブルの上にお皿が並べてあります。",
+        "zhHint": "桌上摆放着盘子。（有人摆的）"
+      },
+      {
+        "jp": "もう会議室が予約してあります。",
+        "zhHint": "会议室已经预约好了。（有人预约的）"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× 壁にポスターが貼っています。",
+        "zhHint": "他动词不能用ている表示状态。有人贴了→结果在→用てある"
+      },
+      {
+        "jp": "× 壁にポスターを貼ってあります。",
+        "zhHint": "てある句型中，对象用が标记，不用を"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g3902_q1",
+        "type": "choice",
+        "stem": "冷蔵庫にビール＿＿冷やしてあります。",
+        "options": [
+          {
+            "id": "a",
+            "text": "が"
+          },
+          {
+            "id": "b",
+            "text": "を"
+          },
+          {
+            "id": "c",
+            "text": "で"
+          },
+          {
+            "id": "d",
+            "text": "に"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "てある句型中，对象物用が标记。ビールが冷やしてある。",
+        "grammarId": 3902
+      },
+      {
+        "drillId": "g3902_q2",
+        "type": "choice",
+        "stem": "黒板に明日の予定が＿＿あります。",
+        "options": [
+          {
+            "id": "a",
+            "text": "書いて"
+          },
+          {
+            "id": "b",
+            "text": "書く"
+          },
+          {
+            "id": "c",
+            "text": "書き"
+          },
+          {
+            "id": "d",
+            "text": "書かれて"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "黑板上写着明天的安排。他動詞て形+ある：書いてある。",
+        "grammarId": 3902
+      }
+    ],
+    "level": 3,
+    "tags": [
+      "transitive",
+      "resultative",
+      "tearu"
+    ]
+  },
+  {
+    "grammarId": 4001,
+    "lessonId": 40,
+    "name": "～てくれる/くださる",
+    "coreRule": "别人为我（或我方的人）做某事，带有感谢的语气。くださる是くれる的敬语",
+    "structure": "(人)が 私に V(て形) + くれる/くださる",
+    "mnemonic": "别人 → 我，感恩的心",
+    "examples": [
+      {
+        "jp": "友達が駅まで送ってくれました。",
+        "zhHint": "朋友送我到了车站。"
+      },
+      {
+        "jp": "母が毎朝お弁当を作ってくれます。",
+        "zhHint": "妈妈每天早上给我做便当。"
+      },
+      {
+        "jp": "先生が推薦状を書いてくださいました。",
+        "zhHint": "老师帮我写了推荐信。（敬语）"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× 私が友達に本を貸してくれました。",
+        "zhHint": "くれる的动作主体不能是\"我\"。我为别人做事用あげる"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g4001_q1",
+        "type": "choice",
+        "stem": "田中さんが日本語を＿＿くれました。",
+        "options": [
+          {
+            "id": "a",
+            "text": "教えて"
+          },
+          {
+            "id": "b",
+            "text": "教える"
+          },
+          {
+            "id": "c",
+            "text": "教えた"
+          },
+          {
+            "id": "d",
+            "text": "教え"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "田中教了我日语。V(て形)+くれる：教えてくれる。",
+        "grammarId": 4001
+      },
+      {
+        "drillId": "g4001_q2",
+        "type": "choice",
+        "stem": "部長が推薦状を書いて＿＿。(敬語)",
+        "options": [
+          {
+            "id": "a",
+            "text": "くださいました"
+          },
+          {
+            "id": "b",
+            "text": "くれました"
+          },
+          {
+            "id": "c",
+            "text": "もらいました"
+          },
+          {
+            "id": "d",
+            "text": "あげました"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "对部长用敬语。くれる的尊敬语是くださる。过去式：くださいました。",
+        "grammarId": 4001
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "giving-receiving",
+      "kureru",
+      "kudasaru"
+    ]
+  },
+  {
+    "grammarId": 4002,
+    "lessonId": 40,
+    "name": "～てもらう/いただく",
+    "coreRule": "请求或得到别人为我做某事，\"请别人做…\"。いただく是もらう的谦让语",
+    "structure": "私が (人)に V(て形) + もらう/いただく",
+    "mnemonic": "我 ← 求别人做，领受恩惠",
+    "examples": [
+      {
+        "jp": "友達に引っ越しを手伝ってもらいました。",
+        "zhHint": "请朋友帮忙搬家了。"
+      },
+      {
+        "jp": "先生に作文を直していただきました。",
+        "zhHint": "请老师帮忙修改了作文。（谦让语）"
+      },
+      {
+        "jp": "同僚に車で送ってもらいました。",
+        "zhHint": "让同事开车送了我。"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× 友達が引っ越しを手伝ってもらいました。",
+        "zhHint": "もらう的主体是\"我\"（受益者），对方用に标记：友達に"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g4002_q1",
+        "type": "choice",
+        "stem": "先輩＿＿レポートを見てもらいました。",
+        "options": [
+          {
+            "id": "a",
+            "text": "に"
+          },
+          {
+            "id": "b",
+            "text": "が"
+          },
+          {
+            "id": "c",
+            "text": "を"
+          },
+          {
+            "id": "d",
+            "text": "で"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "もらう句型中，帮忙的人用に标记。先輩にもらう。",
+        "grammarId": 4002
+      },
+      {
+        "drillId": "g4002_q2",
+        "type": "choice",
+        "stem": "先生に漢字の読み方を教えて＿＿。(丁寧)",
+        "options": [
+          {
+            "id": "a",
+            "text": "いただきました"
+          },
+          {
+            "id": "b",
+            "text": "もらいました"
+          },
+          {
+            "id": "c",
+            "text": "くれました"
+          },
+          {
+            "id": "d",
+            "text": "あげました"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "对老师用谦让语。もらう的谦让语是いただく。过去式：いただきました。",
+        "grammarId": 4002
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "giving-receiving",
+      "morau",
+      "itadaku"
+    ]
+  },
+  {
+    "grammarId": 4003,
+    "lessonId": 40,
+    "name": "～てあげる/さしあげる",
+    "coreRule": "我为别人做某事。さしあげる是あげる的谦让语（对上级用）",
+    "structure": "私が (人)に V(て形) + あげる/さしあげる",
+    "mnemonic": "我 → 别人，施予帮助",
+    "examples": [
+      {
+        "jp": "妹に数学を教えてあげました。",
+        "zhHint": "教了妹妹数学。"
+      },
+      {
+        "jp": "おばあさんの荷物を持ってあげました。",
+        "zhHint": "帮老奶奶拿了行李。"
+      },
+      {
+        "jp": "お客様を駅まで送ってさしあげました。",
+        "zhHint": "送客人到了车站。（谦让语）"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× 友達が私に本を貸してあげました。",
+        "zhHint": "あげる的主语应该是\"我\"或\"我方\"。别人为我做事用くれる"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g4003_q1",
+        "type": "choice",
+        "stem": "弟に自転車の乗り方を＿＿あげました。",
+        "options": [
+          {
+            "id": "a",
+            "text": "教えて"
+          },
+          {
+            "id": "b",
+            "text": "教える"
+          },
+          {
+            "id": "c",
+            "text": "教えた"
+          },
+          {
+            "id": "d",
+            "text": "教え"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "教弟弟骑自行车。V(て形)+あげる：教えてあげる。",
+        "grammarId": 4003
+      },
+      {
+        "drillId": "g4003_q2",
+        "type": "choice",
+        "stem": "道がわからない人に道を教えて＿＿。",
+        "options": [
+          {
+            "id": "a",
+            "text": "あげました"
+          },
+          {
+            "id": "b",
+            "text": "もらいました"
+          },
+          {
+            "id": "c",
+            "text": "くれました"
+          },
+          {
+            "id": "d",
+            "text": "いただきました"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "我为不认识路的人指了路。我为别人做事用てあげる。",
+        "grammarId": 4003
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "giving-receiving",
+      "ageru",
+      "sashiageru"
+    ]
+  },
+  {
+    "grammarId": 4101,
+    "lessonId": 41,
+    "name": "お/ご～になります (尊他語)",
+    "coreRule": "尊他语公式，抬高对方动作的敬意。和語用お、漢語用ご",
+    "structure": "お + V(ます形去掉ます) + になります",
+    "mnemonic": "お+动词+になる=给对方戴高帽",
+    "examples": [
+      {
+        "jp": "先生はもうお帰りになりました。",
+        "zhHint": "老师已经回去了。（尊敬）"
+      },
+      {
+        "jp": "社長はこの本をお読みになりましたか。",
+        "zhHint": "社长读了这本书吗？（尊敬）"
+      },
+      {
+        "jp": "部長はもうお出かけになりました。",
+        "zhHint": "部长已经出门了。（尊敬）"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× 私はお読みになりました。",
+        "zhHint": "尊他语用于抬高别人，不能用在自己身上"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g4101_q1",
+        "type": "choice",
+        "stem": "先生はもう＿＿になりましたか。",
+        "options": [
+          {
+            "id": "a",
+            "text": "お帰り"
+          },
+          {
+            "id": "b",
+            "text": "お帰る"
+          },
+          {
+            "id": "c",
+            "text": "お帰って"
+          },
+          {
+            "id": "d",
+            "text": "ご帰り"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "お+ます形(去ます)+になる。帰ります→帰り→お帰りになる。和語用お。",
+        "grammarId": 4101
+      },
+      {
+        "drillId": "g4101_q2",
+        "type": "choice",
+        "stem": "社長は何時にお＿＿になりますか。",
+        "options": [
+          {
+            "id": "a",
+            "text": "着き"
+          },
+          {
+            "id": "b",
+            "text": "着く"
+          },
+          {
+            "id": "c",
+            "text": "着いて"
+          },
+          {
+            "id": "d",
+            "text": "着きます"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "お+ます形(去ます)+になる。着きます→着き→お着きになる。",
+        "grammarId": 4101
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "honorific",
+      "sonkeigo"
+    ]
+  },
+  {
+    "grammarId": 4102,
+    "lessonId": 41,
+    "name": "お/ご～ください",
+    "coreRule": "请求对方做某事的敬语表达，\"请您...\"",
+    "structure": "お + V(ます形去掉ます) + ください；ご + 漢語名詞 + ください",
+    "mnemonic": "おV+ください=请您...(恭恭敬敬)",
+    "examples": [
+      {
+        "jp": "どうぞお座りください。",
+        "zhHint": "请坐。（尊敬）"
+      },
+      {
+        "jp": "少々お待ちください。",
+        "zhHint": "请稍等。（尊敬）"
+      },
+      {
+        "jp": "こちらにご記入ください。",
+        "zhHint": "请在这里填写。（汉语词用ご）"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× お待ってください。",
+        "zhHint": "不是て形+ください，而是お+ます形+ください：お待ちください"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g4102_q1",
+        "type": "choice",
+        "stem": "こちらで少々＿＿ください。",
+        "options": [
+          {
+            "id": "a",
+            "text": "お待ち"
+          },
+          {
+            "id": "b",
+            "text": "お待って"
+          },
+          {
+            "id": "c",
+            "text": "お待つ"
+          },
+          {
+            "id": "d",
+            "text": "ご待ち"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "お+ます形(去ます)+ください。待ちます→待ち→お待ちください。",
+        "grammarId": 4102
+      },
+      {
+        "drillId": "g4102_q2",
+        "type": "choice",
+        "stem": "こちらの書類に＿＿ください。",
+        "options": [
+          {
+            "id": "a",
+            "text": "ご記入"
+          },
+          {
+            "id": "b",
+            "text": "お記入"
+          },
+          {
+            "id": "c",
+            "text": "ご記入し"
+          },
+          {
+            "id": "d",
+            "text": "お書き"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "記入是汉语词（漢語），所以用ご。ご記入ください。",
+        "grammarId": 4102
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "honorific",
+      "request",
+      "sonkeigo"
+    ]
+  },
+  {
+    "grammarId": 4103,
+    "lessonId": 41,
+    "name": "特殊尊他動詞",
+    "coreRule": "某些常用动词有专门的尊敬语形式，不能用お～になる公式替代",
+    "structure": "いる/行く/来る → いらっしゃる；言う → おっしゃる；見る → ご覧になる；食べる/飲む → 召し上がる；知っている → ご存じです",
+    "mnemonic": "VIP动词有VIP专用词",
+    "examples": [
+      {
+        "jp": "先生は今どこにいらっしゃいますか。",
+        "zhHint": "老师现在在哪里？（いる的尊敬语）"
+      },
+      {
+        "jp": "部長は何とおっしゃいましたか。",
+        "zhHint": "部长说了什么？（言う的尊敬语）"
+      },
+      {
+        "jp": "こちらの資料をご覧ください。",
+        "zhHint": "请看这份资料。（見る的尊敬语）"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× 先生はお言いになりました。",
+        "zhHint": "言う有专门的尊敬语おっしゃる，不能用お～になる公式"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g4103_q1",
+        "type": "choice",
+        "stem": "社長は会議室に＿＿。",
+        "options": [
+          {
+            "id": "a",
+            "text": "いらっしゃいます"
+          },
+          {
+            "id": "b",
+            "text": "おります"
+          },
+          {
+            "id": "c",
+            "text": "います"
+          },
+          {
+            "id": "d",
+            "text": "おいでます"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "いる的尊敬语是いらっしゃる。おります是谦让语，不能用于社长。",
+        "grammarId": 4103
+      },
+      {
+        "drillId": "g4103_q2",
+        "type": "choice",
+        "stem": "先生、こちらの写真を＿＿ください。",
+        "options": [
+          {
+            "id": "a",
+            "text": "ご覧"
+          },
+          {
+            "id": "b",
+            "text": "お見"
+          },
+          {
+            "id": "c",
+            "text": "お見え"
+          },
+          {
+            "id": "d",
+            "text": "ご見"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "見る的尊敬语是ご覧になる。请看=ご覧ください。",
+        "grammarId": 4103
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "honorific",
+      "special-verbs",
+      "sonkeigo"
+    ]
+  },
+  {
+    "grammarId": 4201,
+    "lessonId": 42,
+    "name": "～ために (为了，目的明确)",
+    "coreRule": "表示明确的目的，主语意志可控",
+    "structure": "V(辞書形) / Nの + ために",
+    "mnemonic": "目标明确，为了它而行动",
+    "examples": [
+      {
+        "jp": "家を買うために、貯金しています",
+        "zhHint": "为了买房，正在存钱"
+      },
+      {
+        "jp": "健康のために、毎朝走っています",
+        "zhHint": "为了健康，每天早上跑步"
+      },
+      {
+        "jp": "日本語が上手になるために、毎日練習します",
+        "zhHint": "为了日语变好，每天练习"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× 雨が降るために、傘を持っていきます",
+        "zhHint": "下雨不是人能控制的目的，不能用ために表目的（此处应为原因用法或用ように）"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g4201_q1",
+        "type": "choice",
+        "stem": "大学に＿＿ために、一生懸命勉強しています。",
+        "options": [
+          {
+            "id": "a",
+            "text": "入る"
+          },
+          {
+            "id": "b",
+            "text": "入って"
+          },
+          {
+            "id": "c",
+            "text": "入った"
+          },
+          {
+            "id": "d",
+            "text": "入り"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "ために前面接动词辞书形，表示目的。「入る」+ ために = 为了考上大学。",
+        "grammarId": 4201
+      },
+      {
+        "drillId": "g4201_q2",
+        "type": "choice",
+        "stem": "＿＿のために、新しいパソコンを買いました。",
+        "options": [
+          {
+            "id": "a",
+            "text": "仕事"
+          },
+          {
+            "id": "b",
+            "text": "仕事する"
+          },
+          {
+            "id": "c",
+            "text": "仕事だ"
+          },
+          {
+            "id": "d",
+            "text": "仕事な"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "名词接ために时用「Nの + ために」。「仕事のために」= 为了工作。",
+        "grammarId": 4201
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "purpose",
+      "intention"
+    ]
+  },
+  {
+    "grammarId": 4202,
+    "lessonId": 42,
+    "name": "～ように (以便，间接目的)",
+    "coreRule": "表示间接目的或无意志动词的目的，期望某状态实现",
+    "structure": "V(辞書形/ない形) + ように",
+    "mnemonic": "希望变成那样，间接努力",
+    "examples": [
+      {
+        "jp": "忘れないように、メモしておきます",
+        "zhHint": "为了不忘记，先记下来"
+      },
+      {
+        "jp": "日本語が話せるように、毎日勉強しています",
+        "zhHint": "为了能说日语，每天在学习"
+      },
+      {
+        "jp": "よく聞こえるように、大きい声で話してください",
+        "zhHint": "为了能听清楚，请大声说"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× 日本語を話すように、毎日勉強しています",
+        "zhHint": "「話す」是意志动词，直接目的应用ために；用ように时应搭配可能形「話せる」"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g4202_q1",
+        "type": "choice",
+        "stem": "遅刻＿＿ように、早く起きました。",
+        "options": [
+          {
+            "id": "a",
+            "text": "しない"
+          },
+          {
+            "id": "b",
+            "text": "する"
+          },
+          {
+            "id": "c",
+            "text": "した"
+          },
+          {
+            "id": "d",
+            "text": "しなかった"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "为了不迟到，用ない形+ように。「遅刻しないように」= 为了不迟到。",
+        "grammarId": 4202
+      },
+      {
+        "drillId": "g4202_q2",
+        "type": "choice",
+        "stem": "漢字が＿＿、毎日練習しています。",
+        "options": [
+          {
+            "id": "a",
+            "text": "読めるように"
+          },
+          {
+            "id": "b",
+            "text": "読むために"
+          },
+          {
+            "id": "c",
+            "text": "読んだように"
+          },
+          {
+            "id": "d",
+            "text": "読むように"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "「読める」是可能形（非意志），表示期望能读汉字这种状态，用ように。",
+        "grammarId": 4202
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "purpose",
+      "indirect"
+    ]
+  },
+  {
+    "grammarId": 4203,
+    "lessonId": 42,
+    "name": "～のに (表用途，\"用来...\")",
+    "coreRule": "表示某物品/时间/金钱的用途或所需",
+    "structure": "V(辞書形) + のに + 必要/便利/使う/かかる 等",
+    "mnemonic": "这东西用来干嘛",
+    "examples": [
+      {
+        "jp": "この辞書は日本語を調べるのに便利です",
+        "zhHint": "这本词典用来查日语很方便"
+      },
+      {
+        "jp": "駅まで歩くのに20分かかります",
+        "zhHint": "走到车站要花20分钟"
+      },
+      {
+        "jp": "このかばんは旅行に行くのに使います",
+        "zhHint": "这个包用来去旅行"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× この辞書は日本語を調べるのに調べました",
+        "zhHint": "のに表用途时后面接「便利/必要/使う/かかる」等，不能接任意动词"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g4203_q1",
+        "type": "choice",
+        "stem": "この道具は料理を＿＿のに便利です。",
+        "options": [
+          {
+            "id": "a",
+            "text": "作る"
+          },
+          {
+            "id": "b",
+            "text": "作った"
+          },
+          {
+            "id": "c",
+            "text": "作って"
+          },
+          {
+            "id": "d",
+            "text": "作ります"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "のに（用途）前面接动词辞书形。「作るのに便利」= 用来做菜很方便。",
+        "grammarId": 4203
+      },
+      {
+        "drillId": "g4203_q2",
+        "type": "choice",
+        "stem": "空港まで行く＿＿1時間かかります。",
+        "options": [
+          {
+            "id": "a",
+            "text": "のに"
+          },
+          {
+            "id": "b",
+            "text": "ために"
+          },
+          {
+            "id": "c",
+            "text": "ように"
+          },
+          {
+            "id": "d",
+            "text": "ことに"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "表示做某事所需的时间/金钱时用のに。「行くのに1時間かかる」= 去要花1小时。",
+        "grammarId": 4203
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "purpose",
+      "usage"
+    ]
+  },
+  {
+    "grammarId": 4301,
+    "lessonId": 43,
+    "name": "V(ます形去ます) + そうです (看起来要...)",
+    "coreRule": "根据眼前观察，判断即将发生某动作/变化",
+    "structure": "V(ます形去ます) + そうです",
+    "mnemonic": "眼看就要发生了",
+    "examples": [
+      {
+        "jp": "雨が降りそうです",
+        "zhHint": "好像要下雨了"
+      },
+      {
+        "jp": "荷物が落ちそうです",
+        "zhHint": "行李好像要掉下来了"
+      },
+      {
+        "jp": "このボタンは取れそうです",
+        "zhHint": "这个扣子好像要掉了"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× 雨が降るそうです",
+        "zhHint": "「降るそうです」是传闻（听说要下雨），不是样态（看起来要下雨）"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g4301_q1",
+        "type": "choice",
+        "stem": "空が暗いです。雨が＿＿そうです。",
+        "options": [
+          {
+            "id": "a",
+            "text": "降り"
+          },
+          {
+            "id": "b",
+            "text": "降る"
+          },
+          {
+            "id": "c",
+            "text": "降って"
+          },
+          {
+            "id": "d",
+            "text": "降った"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "样态そうだ前面接动词ます形去ます。「降ります」→「降り」+ そうです。",
+        "grammarId": 4301
+      },
+      {
+        "drillId": "g4301_q2",
+        "type": "choice",
+        "stem": "木の枝が＿＿そうです。気をつけてください。",
+        "options": [
+          {
+            "id": "a",
+            "text": "折れ"
+          },
+          {
+            "id": "b",
+            "text": "折れる"
+          },
+          {
+            "id": "c",
+            "text": "折れた"
+          },
+          {
+            "id": "d",
+            "text": "折って"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "样态そうだ：「折れます」→「折れ」+ そうです = 看起来要折断了。",
+        "grammarId": 4301
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "appearance",
+      "prediction"
+    ]
+  },
+  {
+    "grammarId": 4302,
+    "lessonId": 43,
+    "name": "A(い去い/な去な) + そうです (看起来...)",
+    "coreRule": "根据外观推测性质/状态",
+    "structure": "い形(去い) / な形(去な) + そうです  ※いい→よさそう",
+    "mnemonic": "看上去就是那个样子",
+    "examples": [
+      {
+        "jp": "このケーキはおいしそうです",
+        "zhHint": "这个蛋糕看起来很好吃"
+      },
+      {
+        "jp": "李さんは元気そうです",
+        "zhHint": "小李看起来很精神"
+      },
+      {
+        "jp": "この問題は簡単そうです",
+        "zhHint": "这道题看起来很简单"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× このケーキはおいしいそうです",
+        "zhHint": "保留い的话变成传闻（听说好吃），不是样态（看起来好吃）"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g4302_q1",
+        "type": "choice",
+        "stem": "あの人は＿＿そうです。",
+        "options": [
+          {
+            "id": "a",
+            "text": "優し"
+          },
+          {
+            "id": "b",
+            "text": "優しい"
+          },
+          {
+            "id": "c",
+            "text": "優しく"
+          },
+          {
+            "id": "d",
+            "text": "優しくて"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "い形容词去い加そう。「優しい」→「優し」+ そうです = 看起来很温柔。",
+        "grammarId": 4302
+      },
+      {
+        "drillId": "g4302_q2",
+        "type": "choice",
+        "stem": "天気が＿＿そうです。出かけましょう。",
+        "options": [
+          {
+            "id": "a",
+            "text": "よさ"
+          },
+          {
+            "id": "b",
+            "text": "いい"
+          },
+          {
+            "id": "c",
+            "text": "よく"
+          },
+          {
+            "id": "d",
+            "text": "よい"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "「いい」是特殊变化：いい→よさそう。不能说「いいそう」。",
+        "grammarId": 4302
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "appearance",
+      "adjective"
+    ]
+  },
+  {
+    "grammarId": 4401,
+    "lessonId": 44,
+    "name": "普通形 + そうです (听说/据说)",
+    "coreRule": "传达从别处听来的信息（传闻）",
+    "structure": "V/A/N(普通形) + そうです  ※な形容词/名词：だそうです",
+    "mnemonic": "别人说的，我转述",
+    "examples": [
+      {
+        "jp": "天気予報によると、明日は雨だそうです",
+        "zhHint": "据天气预报说，明天下雨"
+      },
+      {
+        "jp": "田中さんは来月結婚するそうです",
+        "zhHint": "听说田中下个月要结婚"
+      },
+      {
+        "jp": "あの映画はとても面白いそうです",
+        "zhHint": "听说那部电影很有趣"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× 田中さんは来月結婚しそうです",
+        "zhHint": "去掉ます加そう变成样态（看起来要结婚），而非传闻（听说要结婚）"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g4401_q1",
+        "type": "choice",
+        "stem": "ニュースによると、来年から電車の料金が＿＿そうです。",
+        "options": [
+          {
+            "id": "a",
+            "text": "上がる"
+          },
+          {
+            "id": "b",
+            "text": "上がり"
+          },
+          {
+            "id": "c",
+            "text": "上がって"
+          },
+          {
+            "id": "d",
+            "text": "上がった"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "传闻そうだ前面接动词普通形。「上がる」+ そうです = 听说要涨价。",
+        "grammarId": 4401
+      },
+      {
+        "drillId": "g4401_q2",
+        "type": "choice",
+        "stem": "あのレストランは＿＿そうです。",
+        "options": [
+          {
+            "id": "a",
+            "text": "おいしい"
+          },
+          {
+            "id": "b",
+            "text": "おいし"
+          },
+          {
+            "id": "c",
+            "text": "おいしく"
+          },
+          {
+            "id": "d",
+            "text": "おいしくて"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "传闻そうだ接い形容词原形（保留い）。「おいしい」+ そうです = 听说好吃。注意与样态「おいしそう」的区别。",
+        "grammarId": 4401
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "hearsay",
+      "reported"
+    ]
+  },
+  {
+    "grammarId": 4402,
+    "lessonId": 44,
+    "name": "～ということです (意思是说/据说是)",
+    "coreRule": "传达信息或解释含义，比そうです更正式",
+    "structure": "普通形 + ということです",
+    "mnemonic": "总结或转述要点",
+    "examples": [
+      {
+        "jp": "先生の話では、来週テストがあるということです",
+        "zhHint": "老师说的是，下周有考试"
+      },
+      {
+        "jp": "「立入禁止」というのは、入ってはいけないということです",
+        "zhHint": "\"禁止入内\"的意思是不可以进去"
+      },
+      {
+        "jp": "社長は今日は来ないということです",
+        "zhHint": "据说社长今天不来"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× 明日テストがあるのことです",
+        "zhHint": "应该用ということです，不能用のことです"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g4402_q1",
+        "type": "choice",
+        "stem": "連絡によると、会議は中止になった＿＿。",
+        "options": [
+          {
+            "id": "a",
+            "text": "ということです"
+          },
+          {
+            "id": "b",
+            "text": "そうです"
+          },
+          {
+            "id": "c",
+            "text": "のことです"
+          },
+          {
+            "id": "d",
+            "text": "ようです"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "正式传达消息用ということです。「会議は中止になったということです」= 据说会议取消了。",
+        "grammarId": 4402
+      },
+      {
+        "drillId": "g4402_q2",
+        "type": "choice",
+        "stem": "「禁煙」は、たばこを＿＿ということです。",
+        "options": [
+          {
+            "id": "a",
+            "text": "吸ってはいけない"
+          },
+          {
+            "id": "b",
+            "text": "吸わない"
+          },
+          {
+            "id": "c",
+            "text": "吸います"
+          },
+          {
+            "id": "d",
+            "text": "吸ってはいけません"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "解释含义时，ということです前面用普通形。「吸ってはいけない」是普通形。",
+        "grammarId": 4402
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "hearsay",
+      "explanation"
+    ]
+  },
+  {
+    "grammarId": 4501,
+    "lessonId": 45,
+    "name": "～ば (假定条件ば形)",
+    "coreRule": "如果...的话就...",
+    "structure": "V: う段→え段+ば; い形: い→ければ; な形/N: なら(ば)",
+    "mnemonic": "假设前提，满足了就成立",
+    "examples": [
+      {
+        "jp": "天気がよければ、散歩に行きます",
+        "zhHint": "天气好的话，就去散步"
+      },
+      {
+        "jp": "薬を飲めば、元気になります",
+        "zhHint": "吃了药的话，就会好起来"
+      },
+      {
+        "jp": "安ければ、買います",
+        "zhHint": "便宜的话就买"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× 東京に行けば、友達に会いました",
+        "zhHint": "ば形不能用于已发生的过去事实，过去的事用たら"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g4501_q1",
+        "type": "choice",
+        "stem": "時間が＿＿、旅行に行きたいです。",
+        "options": [
+          {
+            "id": "a",
+            "text": "あれば"
+          },
+          {
+            "id": "b",
+            "text": "あったら"
+          },
+          {
+            "id": "c",
+            "text": "あるなら"
+          },
+          {
+            "id": "d",
+            "text": "あると"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "「ある」的ば形是「あれば」。う段「る」→え段「れ」+ ば。",
+        "grammarId": 4501
+      },
+      {
+        "drillId": "g4501_q2",
+        "type": "choice",
+        "stem": "値段が＿＿、買いません。",
+        "options": [
+          {
+            "id": "a",
+            "text": "高ければ"
+          },
+          {
+            "id": "b",
+            "text": "高いなら"
+          },
+          {
+            "id": "c",
+            "text": "高くば"
+          },
+          {
+            "id": "d",
+            "text": "高いば"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "い形容词的ば形：い→ければ。「高い」→「高ければ」= 如果贵的话。",
+        "grammarId": 4501
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "conditional",
+      "ba-form"
+    ]
+  },
+  {
+    "grammarId": 4502,
+    "lessonId": 45,
+    "name": "～なら (话题条件)",
+    "coreRule": "如果说是...的话，（基于对方话题提建议）",
+    "structure": "普通形 / N + なら",
+    "mnemonic": "接着对方的话题给建议",
+    "examples": [
+      {
+        "jp": "日本語を勉強するなら、この教科書がいいですよ",
+        "zhHint": "如果要学日语的话，这本教材不错哦"
+      },
+      {
+        "jp": "北海道なら、夏がいいですよ",
+        "zhHint": "如果是去北海道的话，夏天好哦"
+      },
+      {
+        "jp": "車を買うなら、日本車がおすすめです",
+        "zhHint": "如果要买车的话，推荐日本车"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× 雨が降るなら、傘を持っていきます",
+        "zhHint": "なら主要用于基于话题的建议/判断，一般性假定条件宜用ば/たら"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g4502_q1",
+        "type": "choice",
+        "stem": "A:「旅行に行きたいです。」B:「＿＿なら、沖縄がいいですよ。」",
+        "options": [
+          {
+            "id": "a",
+            "text": "旅行に行く"
+          },
+          {
+            "id": "b",
+            "text": "旅行に行けば"
+          },
+          {
+            "id": "c",
+            "text": "旅行に行って"
+          },
+          {
+            "id": "d",
+            "text": "旅行に行ったら"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "なら用于接着对方的话题进行建议。「旅行に行くなら」= 如果要去旅行的话。",
+        "grammarId": 4502
+      },
+      {
+        "drillId": "g4502_q2",
+        "type": "choice",
+        "stem": "パソコン＿＿、あの店が安いですよ。",
+        "options": [
+          {
+            "id": "a",
+            "text": "なら"
+          },
+          {
+            "id": "b",
+            "text": "ならば"
+          },
+          {
+            "id": "c",
+            "text": "であれば"
+          },
+          {
+            "id": "d",
+            "text": "だと"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "名词直接接なら，提出话题条件。「パソコンなら」= 如果是电脑的话。",
+        "grammarId": 4502
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "conditional",
+      "topic"
+    ]
+  },
+  {
+    "grammarId": 4503,
+    "lessonId": 45,
+    "name": "～ば...ほど (越...越...)",
+    "coreRule": "程度递进，越做越怎样",
+    "structure": "V(ば形) + V(辞書形) + ほど / い形(ければ) + い形(い) + ほど",
+    "mnemonic": "越A越B，正比关系",
+    "examples": [
+      {
+        "jp": "日本語は勉強すればするほど面白くなります",
+        "zhHint": "日语越学越有趣"
+      },
+      {
+        "jp": "このゲームはやればやるほど楽しいです",
+        "zhHint": "这个游戏越玩越有趣"
+      },
+      {
+        "jp": "安ければ安いほどいいです",
+        "zhHint": "越便宜越好"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× 日本語は勉強したら勉強するほど面白い",
+        "zhHint": "「～ば～ほど」是固定搭配，不能用たら替换ば"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g4503_q1",
+        "type": "choice",
+        "stem": "練習＿＿するほど上手になります。",
+        "options": [
+          {
+            "id": "a",
+            "text": "すれば"
+          },
+          {
+            "id": "b",
+            "text": "したら"
+          },
+          {
+            "id": "c",
+            "text": "すると"
+          },
+          {
+            "id": "d",
+            "text": "して"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "「～ば～ほど」固定搭配。「すれば」是「する」的ば形。",
+        "grammarId": 4503
+      },
+      {
+        "drillId": "g4503_q2",
+        "type": "choice",
+        "stem": "この本は＿＿読むほど面白いです。",
+        "options": [
+          {
+            "id": "a",
+            "text": "読めば"
+          },
+          {
+            "id": "b",
+            "text": "読んだら"
+          },
+          {
+            "id": "c",
+            "text": "読むなら"
+          },
+          {
+            "id": "d",
+            "text": "読んで"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "「読む」的ば形是「読めば」。「読めば読むほど」= 越读越有趣。",
+        "grammarId": 4503
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "conditional",
+      "degree"
+    ]
+  },
+  {
+    "grammarId": 4601,
+    "lessonId": 46,
+    "name": "～てから (做完...之后)",
+    "coreRule": "强调先完成前一个动作，再做后一个",
+    "structure": "V(て形) + から",
+    "mnemonic": "做完了再说",
+    "examples": [
+      {
+        "jp": "手を洗ってから、ご飯を食べます",
+        "zhHint": "洗完手之后吃饭"
+      },
+      {
+        "jp": "よく考えてから、返事します",
+        "zhHint": "好好想过之后再回复"
+      },
+      {
+        "jp": "日本に来てから、3年になります",
+        "zhHint": "来日本之后已经3年了"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× 手を洗うてから、食べます",
+        "zhHint": "てから前面必须是て形，不是辞书形+てから"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g4601_q1",
+        "type": "choice",
+        "stem": "シャワーを＿＿から、寝ます。",
+        "options": [
+          {
+            "id": "a",
+            "text": "浴びて"
+          },
+          {
+            "id": "b",
+            "text": "浴びた"
+          },
+          {
+            "id": "c",
+            "text": "浴びる"
+          },
+          {
+            "id": "d",
+            "text": "浴び"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "てから前面接て形。「浴びます」→「浴びて」+ から = 洗完澡之后。",
+        "grammarId": 4601
+      },
+      {
+        "drillId": "g4601_q2",
+        "type": "choice",
+        "stem": "卒業して＿＿、何をしますか。",
+        "options": [
+          {
+            "id": "a",
+            "text": "から"
+          },
+          {
+            "id": "b",
+            "text": "あとで"
+          },
+          {
+            "id": "c",
+            "text": "後に"
+          },
+          {
+            "id": "d",
+            "text": "ために"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "「Vてから」表示做完前一件事之后。「卒業してから」= 毕业之后。",
+        "grammarId": 4601
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "sequence",
+      "time"
+    ]
+  },
+  {
+    "grammarId": 4602,
+    "lessonId": 46,
+    "name": "～た後で (之后)",
+    "coreRule": "做了某事之后（时间先后关系，不强调紧密连接）",
+    "structure": "V(た形) + 後で / Nの + 後で",
+    "mnemonic": "做了A，然后做B",
+    "examples": [
+      {
+        "jp": "仕事が終わった後で、飲みに行きましょう",
+        "zhHint": "工作结束之后去喝一杯吧"
+      },
+      {
+        "jp": "映画を見た後で、感想を書きました",
+        "zhHint": "看完电影之后写了感想"
+      },
+      {
+        "jp": "授業の後で、図書館に行きます",
+        "zhHint": "上完课之后去图书馆"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× 仕事が終わる後で、飲みに行きましょう",
+        "zhHint": "後で前面用动词た形，不是辞书形"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g4602_q1",
+        "type": "choice",
+        "stem": "ご飯を＿＿後で、散歩します。",
+        "options": [
+          {
+            "id": "a",
+            "text": "食べた"
+          },
+          {
+            "id": "b",
+            "text": "食べる"
+          },
+          {
+            "id": "c",
+            "text": "食べて"
+          },
+          {
+            "id": "d",
+            "text": "食べ"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "「た後で」前面接动词た形。「食べた後で」= 吃了之后。",
+        "grammarId": 4602
+      },
+      {
+        "drillId": "g4602_q2",
+        "type": "choice",
+        "stem": "会議＿＿後で、報告書を書きます。",
+        "options": [
+          {
+            "id": "a",
+            "text": "の"
+          },
+          {
+            "id": "b",
+            "text": "が"
+          },
+          {
+            "id": "c",
+            "text": "を"
+          },
+          {
+            "id": "d",
+            "text": "に"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "名词接後で用「Nの後で」。「会議の後で」= 会议之后。",
+        "grammarId": 4602
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "sequence",
+      "time"
+    ]
+  },
+  {
+    "grammarId": 4603,
+    "lessonId": 46,
+    "name": "～までに (在...之前/期限)",
+    "coreRule": "表示最后期限，在某时间点之前完成",
+    "structure": "V(辞書形) / 時間名詞 + までに",
+    "mnemonic": "Deadline！期限前搞定",
+    "examples": [
+      {
+        "jp": "金曜日までにレポートを出してください",
+        "zhHint": "请在星期五之前交报告"
+      },
+      {
+        "jp": "会議が始まるまでに資料を準備します",
+        "zhHint": "在会议开始之前准备好资料"
+      },
+      {
+        "jp": "来月までにこの本を読みます",
+        "zhHint": "在下个月之前读完这本书"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× 金曜日まにレポートを出す",
+        "zhHint": "までに不能省略に。另外「まで」表示持续到某时间，而「までに」表示期限"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g4603_q1",
+        "type": "choice",
+        "stem": "飛行機が＿＿までに、空港に着きたいです。",
+        "options": [
+          {
+            "id": "a",
+            "text": "出発する"
+          },
+          {
+            "id": "b",
+            "text": "出発した"
+          },
+          {
+            "id": "c",
+            "text": "出発して"
+          },
+          {
+            "id": "d",
+            "text": "出発し"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "までに前面接动词辞书形。「出発するまでに」= 在飞机起飞之前。",
+        "grammarId": 4603
+      },
+      {
+        "drillId": "g4603_q2",
+        "type": "choice",
+        "stem": "来週の月曜日＿＿、申込書を出してください。",
+        "options": [
+          {
+            "id": "a",
+            "text": "までに"
+          },
+          {
+            "id": "b",
+            "text": "まで"
+          },
+          {
+            "id": "c",
+            "text": "までは"
+          },
+          {
+            "id": "d",
+            "text": "までで"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "「までに」表示期限。「月曜日までに出す」= 在周一之前提交。",
+        "grammarId": 4603
+      }
+    ],
+    "level": 2,
+    "tags": [
+      "deadline",
+      "time"
+    ]
+  },
+  {
+    "grammarId": 4701,
+    "lessonId": 47,
+    "name": "尊他動詞 (いらっしゃる/おっしゃる/召し上がる)",
+    "coreRule": "使用特殊尊他动词抬高对方动作",
+    "structure": "行く/来る/いる→いらっしゃる; 言う→おっしゃる; 食べる/飲む→召し上がる; 見る→ご覧になる; くれる→くださる",
+    "mnemonic": "换个高级词，尊敬对方",
+    "examples": [
+      {
+        "jp": "社長はもうお帰りになりました",
+        "zhHint": "社长已经回去了（尊他语）"
+      },
+      {
+        "jp": "先生は何とおっしゃいましたか",
+        "zhHint": "老师说了什么？（尊他语）"
+      },
+      {
+        "jp": "どうぞ召し上がってください",
+        "zhHint": "请用餐（尊他语）"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× 私はいらっしゃいます",
+        "zhHint": "尊他语只用于描述对方或上级的行为，不能用于自己"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g4701_q1",
+        "type": "choice",
+        "stem": "部長はもう＿＿。",
+        "options": [
+          {
+            "id": "a",
+            "text": "いらっしゃいました"
+          },
+          {
+            "id": "b",
+            "text": "参りました"
+          },
+          {
+            "id": "c",
+            "text": "来ました"
+          },
+          {
+            "id": "d",
+            "text": "おりました"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "对部长用尊他语。「来る/いる」的尊他语是「いらっしゃる」。",
+        "grammarId": 4701
+      },
+      {
+        "drillId": "g4701_q2",
+        "type": "choice",
+        "stem": "先生、こちらのお菓子を＿＿ください。",
+        "options": [
+          {
+            "id": "a",
+            "text": "召し上がって"
+          },
+          {
+            "id": "b",
+            "text": "いただいて"
+          },
+          {
+            "id": "c",
+            "text": "食べて"
+          },
+          {
+            "id": "d",
+            "text": "頂戴して"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "请老师吃，用尊他语。「食べる」的尊他语是「召し上がる」。",
+        "grammarId": 4701
+      }
+    ],
+    "level": 3,
+    "tags": [
+      "honorific",
+      "sonkei"
+    ]
+  },
+  {
+    "grammarId": 4702,
+    "lessonId": 47,
+    "name": "自謙動詞 (参る/申す/いただく/拝見する)",
+    "coreRule": "使用特殊自谦动词压低自己的动作",
+    "structure": "行く/来る→参る; 言う→申す; もらう/食べる/飲む→いただく; 見る→拝見する; する→いたす; いる→おる",
+    "mnemonic": "压低自己，显得谦虚",
+    "examples": [
+      {
+        "jp": "私が参ります",
+        "zhHint": "我去（自谦语）"
+      },
+      {
+        "jp": "田中と申します。よろしくお願いいたします",
+        "zhHint": "我叫田中，请多关照（自谦语）"
+      },
+      {
+        "jp": "お手紙を拝見しました",
+        "zhHint": "拜读了您的信（自谦语）"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× 社長が申しました",
+        "zhHint": "自谦语只用于自己或己方的人，不能用于上级/外人"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g4702_q1",
+        "type": "choice",
+        "stem": "私は山田と＿＿。",
+        "options": [
+          {
+            "id": "a",
+            "text": "申します"
+          },
+          {
+            "id": "b",
+            "text": "おっしゃいます"
+          },
+          {
+            "id": "c",
+            "text": "言います"
+          },
+          {
+            "id": "d",
+            "text": "申されます"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "介绍自己时用自谦语。「言う」的自谦语是「申す」。",
+        "grammarId": 4702
+      },
+      {
+        "drillId": "g4702_q2",
+        "type": "choice",
+        "stem": "先生の論文を＿＿しました。",
+        "options": [
+          {
+            "id": "a",
+            "text": "拝見"
+          },
+          {
+            "id": "b",
+            "text": "ご覧に"
+          },
+          {
+            "id": "c",
+            "text": "見"
+          },
+          {
+            "id": "d",
+            "text": "お見"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "看老师的论文，自己的动作用自谦语。「見る」的自谦语是「拝見する」。",
+        "grammarId": 4702
+      }
+    ],
+    "level": 3,
+    "tags": [
+      "honorific",
+      "kenjou"
+    ]
+  },
+  {
+    "grammarId": 4703,
+    "lessonId": 47,
+    "name": "～ていただけませんか (委婉请求)",
+    "coreRule": "非常礼貌地请求对方做某事",
+    "structure": "V(て形) + いただけませんか",
+    "mnemonic": "能否请您帮忙...",
+    "examples": [
+      {
+        "jp": "すみません、写真を撮っていただけませんか",
+        "zhHint": "不好意思，能否请您帮我拍张照？"
+      },
+      {
+        "jp": "もう少しゆっくり話していただけませんか",
+        "zhHint": "能否请您说慢一点？"
+      },
+      {
+        "jp": "この書類を確認していただけませんか",
+        "zhHint": "能否请您确认一下这份文件？"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× 写真を撮っていただきませんか",
+        "zhHint": "请求对方做某事用「いただけませんか」（可能形），不是「いただきませんか」"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g4703_q1",
+        "type": "choice",
+        "stem": "窓を＿＿いただけませんか。",
+        "options": [
+          {
+            "id": "a",
+            "text": "開けて"
+          },
+          {
+            "id": "b",
+            "text": "開ける"
+          },
+          {
+            "id": "c",
+            "text": "開けた"
+          },
+          {
+            "id": "d",
+            "text": "開け"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "いただけませんか前面接て形。「開けていただけませんか」= 能否请您打开窗户？",
+        "grammarId": 4703
+      },
+      {
+        "drillId": "g4703_q2",
+        "type": "choice",
+        "stem": "すみません、道を教えて＿＿。",
+        "options": [
+          {
+            "id": "a",
+            "text": "いただけませんか"
+          },
+          {
+            "id": "b",
+            "text": "もらいませんか"
+          },
+          {
+            "id": "c",
+            "text": "くれませんか"
+          },
+          {
+            "id": "d",
+            "text": "あげませんか"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "最礼貌的请求方式是「ていただけませんか」，比「てくれませんか」更正式。",
+        "grammarId": 4703
+      }
+    ],
+    "level": 3,
+    "tags": [
+      "honorific",
+      "request"
     ]
   },
   {
@@ -442,7 +5565,60 @@
       }
     ],
     "counterExamples": [],
-    "drills": [],
+    "drills": [
+      {
+        "drillId": "g4801_q1",
+        "type": "choice",
+        "stem": "先生は学生に作文を＿＿。",
+        "options": [
+          {
+            "id": "a",
+            "text": "書かせました"
+          },
+          {
+            "id": "b",
+            "text": "書かれました"
+          },
+          {
+            "id": "c",
+            "text": "書きました"
+          },
+          {
+            "id": "d",
+            "text": "書けました"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "老师让学生写作文，用使役态。「書く」→「書かせる」(一类动词：く→かせる)。",
+        "grammarId": 4801
+      },
+      {
+        "drillId": "g4801_q2",
+        "type": "choice",
+        "stem": "母は弟＿＿部屋を掃除させました。",
+        "options": [
+          {
+            "id": "a",
+            "text": "に"
+          },
+          {
+            "id": "b",
+            "text": "を"
+          },
+          {
+            "id": "c",
+            "text": "が"
+          },
+          {
+            "id": "d",
+            "text": "は"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "他动词的使役句中，被使役者用に标记。「弟に掃除させる」= 让弟弟打扫。",
+        "grammarId": 4801
+      }
+    ],
     "level": 3,
     "tags": [
       "causative",
@@ -467,11 +5643,151 @@
       }
     ],
     "counterExamples": [],
-    "drills": [],
+    "drills": [
+      {
+        "drillId": "g4802_q1",
+        "type": "choice",
+        "stem": "子供のとき、毎日ピアノを＿＿。",
+        "options": [
+          {
+            "id": "a",
+            "text": "練習させられました"
+          },
+          {
+            "id": "b",
+            "text": "練習させました"
+          },
+          {
+            "id": "c",
+            "text": "練習されました"
+          },
+          {
+            "id": "d",
+            "text": "練習しました"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "小时候被迫练钢琴，用使役被动。「練習する」→「練習させられる」。",
+        "grammarId": 4802
+      },
+      {
+        "drillId": "g4802_q2",
+        "type": "choice",
+        "stem": "先輩に重い荷物を＿＿。",
+        "options": [
+          {
+            "id": "a",
+            "text": "持たされました"
+          },
+          {
+            "id": "b",
+            "text": "持たせました"
+          },
+          {
+            "id": "c",
+            "text": "持たれました"
+          },
+          {
+            "id": "d",
+            "text": "持ちました"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "被前辈强迫拿重行李。「持つ」→ 使役被动缩约形「持たされる」。",
+        "grammarId": 4802
+      }
+    ],
     "level": 3,
     "tags": [
       "causative-passive",
       "voice"
+    ]
+  },
+  {
+    "grammarId": 4803,
+    "lessonId": 48,
+    "name": "～(さ)せてください (请允许我做)",
+    "coreRule": "请求允许自己做某事",
+    "structure": "V(使役て形) + ください → V(さ)せてください",
+    "mnemonic": "请让我来！",
+    "examples": [
+      {
+        "jp": "私にやらせてください",
+        "zhHint": "请让我来做"
+      },
+      {
+        "jp": "少し考えさせてください",
+        "zhHint": "请让我想一想"
+      },
+      {
+        "jp": "この仕事を手伝わせてください",
+        "zhHint": "请让我帮忙做这个工作"
+      }
+    ],
+    "counterExamples": [
+      {
+        "jp": "× 私にやってください",
+        "zhHint": "「やってください」是请你做，「やらせてください」才是请让我做"
+      }
+    ],
+    "drills": [
+      {
+        "drillId": "g4803_q1",
+        "type": "choice",
+        "stem": "すみません、ちょっと＿＿ください。",
+        "options": [
+          {
+            "id": "a",
+            "text": "休ませて"
+          },
+          {
+            "id": "b",
+            "text": "休んで"
+          },
+          {
+            "id": "c",
+            "text": "休まれて"
+          },
+          {
+            "id": "d",
+            "text": "休めて"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "请让我休息一下。「休む」→ 使役形「休ませる」→ て形「休ませて」+ ください。",
+        "grammarId": 4803
+      },
+      {
+        "drillId": "g4803_q2",
+        "type": "choice",
+        "stem": "私に自己紹介＿＿ください。",
+        "options": [
+          {
+            "id": "a",
+            "text": "させて"
+          },
+          {
+            "id": "b",
+            "text": "して"
+          },
+          {
+            "id": "c",
+            "text": "されて"
+          },
+          {
+            "id": "d",
+            "text": "しまって"
+          }
+        ],
+        "correctId": "a",
+        "explanation": "请让我自我介绍。「する」→ 使役形「させる」→ て形「させて」+ ください。",
+        "grammarId": 4803
+      }
+    ],
+    "level": 3,
+    "tags": [
+      "causative",
+      "request"
     ]
   }
 ]
