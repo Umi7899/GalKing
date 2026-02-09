@@ -15,7 +15,7 @@ import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import type { HomeStackParamList } from '../navigation/RootNavigator';
 
 import { initDatabase, importDataset, needsImport } from '../db/database';
-import { getUserProgress } from '../db/queries/progress';
+import { getUserProgress, getReviewCounts } from '../db/queries/progress';
 import { getLesson, getGrammarPoint } from '../db/queries/content';
 import { getTodaySession, getTodayCompletedSession, parseResult } from '../db/queries/sessions';
 import { getSessionStats } from '../db/queries/sessions';
@@ -35,6 +35,7 @@ export default function HomeScreen() {
     const [hasIncomplete, setHasIncomplete] = useState(false);
     const [todayCompleted, setTodayCompleted] = useState(false);
     const [todayStars, setTodayStars] = useState(0);
+    const [reviewCount, setReviewCount] = useState(0);
 
     const loadData = useCallback(async () => {
         try {
@@ -92,6 +93,10 @@ export default function HomeScreen() {
                     setTodayStars(result.stars);
                 }
             }
+
+            // Load SRS review counts
+            const { grammar: gCount, vocab: vCount } = await getReviewCounts(Date.now());
+            setReviewCount(gCount + vCount);
 
         } catch (e) {
             console.error('[Home] Load error:', e);
@@ -199,10 +204,27 @@ export default function HomeScreen() {
                     </TouchableOpacity>
                 )}
 
+                {/* Review Entry Card */}
+                {reviewCount > 0 && (
+                    <TouchableOpacity
+                        style={styles.reviewEntryCard}
+                        onPress={() => navigation.navigate('ReviewQueue')}
+                    >
+                        <View style={styles.reviewEntryLeft}>
+                            <Text style={styles.reviewEntryEmoji}>🔄</Text>
+                            <View>
+                                <Text style={styles.reviewEntryTitle}>待复习</Text>
+                                <Text style={styles.reviewEntryCount}>{reviewCount} 个项目到期</Text>
+                            </View>
+                        </View>
+                        <Text style={styles.reviewEntryArrow}>→</Text>
+                    </TouchableOpacity>
+                )}
+
                 {/* Quick Actions */}
                 <View style={styles.quickActions}>
                     <Text style={styles.quickActionsTitle}>快速入口</Text>
-                    <View style={styles.quickActionsRow}>
+                    <View style={styles.quickActionsGrid}>
                         <TouchableOpacity
                             style={styles.quickActionButton}
                             onPress={() => navigation.navigate('GrammarCard')}
@@ -223,6 +245,27 @@ export default function HomeScreen() {
                         >
                             <Text style={styles.quickActionEmoji}>💬</Text>
                             <Text style={styles.quickActionText}>句子练习</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            style={styles.quickActionButton}
+                            onPress={() => navigation.navigate('ListeningQuiz')}
+                        >
+                            <Text style={styles.quickActionEmoji}>👂</Text>
+                            <Text style={styles.quickActionText}>听力选择</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            style={styles.quickActionButton}
+                            onPress={() => navigation.navigate('Dictation')}
+                        >
+                            <Text style={styles.quickActionEmoji}>✍️</Text>
+                            <Text style={styles.quickActionText}>听写练习</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            style={styles.quickActionButton}
+                            onPress={() => navigation.navigate('ReviewQueue')}
+                        >
+                            <Text style={styles.quickActionEmoji}>🔄</Text>
+                            <Text style={styles.quickActionText}>复习队列</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -413,17 +456,19 @@ const styles = StyleSheet.create({
         color: '#888',
         marginBottom: 12,
     },
-    quickActionsRow: {
+    quickActionsGrid: {
         flexDirection: 'row',
+        flexWrap: 'wrap',
         justifyContent: 'space-between',
+        gap: 8,
     },
     quickActionButton: {
-        flex: 1,
+        width: '31%',
         backgroundColor: '#1A1A2E',
         borderRadius: 16,
         padding: 16,
         alignItems: 'center',
-        marginHorizontal: 4,
+        marginBottom: 4,
     },
     quickActionEmoji: {
         fontSize: 24,
@@ -432,5 +477,38 @@ const styles = StyleSheet.create({
     quickActionText: {
         fontSize: 12,
         color: '#888',
+    },
+    reviewEntryCard: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        backgroundColor: '#1A1A2E',
+        borderRadius: 16,
+        padding: 16,
+        marginBottom: 24,
+        borderWidth: 1,
+        borderColor: '#00BCD4',
+    },
+    reviewEntryLeft: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: 12,
+    },
+    reviewEntryEmoji: {
+        fontSize: 24,
+    },
+    reviewEntryTitle: {
+        fontSize: 16,
+        fontWeight: '600',
+        color: '#00BCD4',
+    },
+    reviewEntryCount: {
+        fontSize: 12,
+        color: '#888',
+        marginTop: 2,
+    },
+    reviewEntryArrow: {
+        fontSize: 20,
+        color: '#00BCD4',
     },
 });

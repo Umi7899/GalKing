@@ -193,6 +193,36 @@ export async function getBlockingVocab(): Promise<DbUserVocabState[]> {
     );
 }
 
+// ============ SRS Review Queries ============
+
+export async function getReviewCounts(today: number): Promise<{ grammar: number; vocab: number }> {
+    const db = await getDatabase();
+
+    const grammarCount = await db.getFirstAsync<{ count: number }>(
+        'SELECT COUNT(*) as count FROM user_grammar_state WHERE nextReviewAt IS NOT NULL AND nextReviewAt <= ?',
+        [today]
+    );
+
+    const vocabCount = await db.getFirstAsync<{ count: number }>(
+        'SELECT COUNT(*) as count FROM user_vocab_state WHERE nextReviewAt IS NOT NULL AND nextReviewAt <= ?',
+        [today]
+    );
+
+    return {
+        grammar: grammarCount?.count ?? 0,
+        vocab: vocabCount?.count ?? 0,
+    };
+}
+
+export async function getAllReviewItems(today: number): Promise<{
+    grammarItems: DbUserGrammarState[];
+    vocabItems: DbUserVocabState[];
+}> {
+    const grammarItems = await getGrammarStatesForReview(today, 50);
+    const vocabItems = await getVocabForReview(today, 50);
+    return { grammarItems, vocabItems };
+}
+
 // ============ Mastery Overview ============
 
 export interface MasteryOverview {

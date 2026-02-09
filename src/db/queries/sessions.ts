@@ -146,7 +146,7 @@ export async function getSessionStats(): Promise<{
 
     for (const session of sessions) {
         const result = parseResult(session);
-        if (result && result.grammar.total > 0) {
+        if (result && result.grammar && result.grammar.total > 0) {
             totalAccuracy += result.grammar.correct / result.grammar.total;
             accuracyCount++;
         }
@@ -268,12 +268,12 @@ export async function getAccuracyTrend(days: number = 14): Promise<AccuracyTrend
         if (!r) continue;
 
         const existing = dateMap.get(s.date) ?? { gC: 0, gT: 0, vAcc: 0, vN: 0, sP: 0, sT: 0 };
-        existing.gC += r.grammar.correct + r.transfer.correct;
-        existing.gT += r.grammar.total + r.transfer.total;
-        existing.vAcc += r.vocab.accuracy;
+        existing.gC += (r.grammar?.correct ?? 0) + (r.transfer?.correct ?? 0);
+        existing.gT += (r.grammar?.total ?? 0) + (r.transfer?.total ?? 0);
+        existing.vAcc += r.vocab?.accuracy ?? 0;
         existing.vN += 1;
-        existing.sP += r.sentence.pass;
-        existing.sT += r.sentence.total;
+        existing.sP += r.sentence?.pass ?? 0;
+        existing.sT += r.sentence?.total ?? 0;
         dateMap.set(s.date, existing);
     }
 
@@ -325,6 +325,27 @@ export async function getTotalLearningTime(): Promise<number> {
     }
 
     return total;
+}
+
+// ============ Drill History ============
+
+export async function getCompletedDrillIds(grammarId: number): Promise<Set<string>> {
+    const db = getDatabase();
+    const sessions = await db.getAllAsync<{ stepStateJson: string }>(
+        `SELECT stepStateJson FROM sessions WHERE status = 'completed' AND plannedGrammarId = ?`,
+        [grammarId]
+    );
+
+    const drillIds = new Set<string>();
+    for (const s of sessions) {
+        try {
+            const state = JSON.parse(s.stepStateJson) as StepStateJson;
+            for (const answer of [...state.plan.step1.answers, ...state.plan.step2.answers]) {
+                drillIds.add(answer.questionId);
+            }
+        } catch {}
+    }
+    return drillIds;
 }
 
 // ============ Helpers ============
