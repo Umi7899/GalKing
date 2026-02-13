@@ -1,9 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView, ActivityIndicator, Alert, KeyboardAvoidingView, Platform } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { generateScenario, evaluateScenario, checkLLMAvailable } from '../../llm/client';
 import type { ScenarioGenResponse, ScenarioEvalResponse } from '../../schemas/llm';
 import { getUserProgress } from '../../db/queries/progress';
+import { useTheme } from '../../theme';
+import type { ColorTokens } from '../../theme';
 
 type Stage = 'intro' | 'gen' | 'input' | 'eval';
 
@@ -22,6 +24,9 @@ interface Evaluation {
 
 export default function SentenceDojoScreen() {
     const navigation = useNavigation();
+    const { colors } = useTheme();
+    const styles = useMemo(() => createStyles(colors), [colors]);
+
     const [stage, setStage] = useState<Stage>('intro');
     const [scenario, setScenario] = useState<Scenario | null>(null);
     const [userInput, setUserInput] = useState('');
@@ -108,7 +113,7 @@ export default function SentenceDojoScreen() {
         if (loading) {
             return (
                 <View style={styles.centerContainer}>
-                    <ActivityIndicator size="large" color="#FF6B9D" />
+                    <ActivityIndicator size="large" color={colors.primary} />
                     <Text style={styles.loadingText}>{loadingText}</Text>
                 </View>
             );
@@ -157,7 +162,7 @@ export default function SentenceDojoScreen() {
                         style={styles.input}
                         multiline
                         placeholder="请输入日语..."
-                        placeholderTextColor="#666"
+                        placeholderTextColor={colors.textSubtle}
                         value={userInput}
                         onChangeText={setUserInput}
                     />
@@ -174,7 +179,7 @@ export default function SentenceDojoScreen() {
                 <ScrollView contentContainerStyle={styles.scrollContent}>
                     <View style={styles.scoreCard}>
                         <Text style={styles.scoreLabel}>自然度评分</Text>
-                        <Text style={[styles.scoreValue, { color: evaluation.score >= 80 ? '#4CAF50' : '#FFC107' }]}>
+                        <Text style={[styles.scoreValue, { color: evaluation.score >= 80 ? colors.success : '#FFC107' }]}>
                             {evaluation.score}
                         </Text>
                     </View>
@@ -218,10 +223,10 @@ export default function SentenceDojoScreen() {
     );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (c: ColorTokens) => StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#0F0F1A',
+        backgroundColor: c.bg,
     },
     header: {
         paddingTop: 50,
@@ -232,7 +237,7 @@ const styles = StyleSheet.create({
         padding: 8,
     },
     backText: {
-        color: '#888',
+        color: c.textMuted,
         fontSize: 16,
     },
     centerContainer: {
@@ -252,18 +257,18 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 28,
         fontWeight: 'bold',
-        color: '#FFF',
+        color: c.textPrimary,
         marginBottom: 16,
     },
     desc: {
         fontSize: 16,
-        color: '#AAA',
+        color: c.textSecondary,
         textAlign: 'center',
         lineHeight: 24,
         marginBottom: 40,
     },
     btnPrimary: {
-        backgroundColor: '#FF6B9D',
+        backgroundColor: c.primary,
         paddingHorizontal: 32,
         paddingVertical: 16,
         borderRadius: 30,
@@ -272,7 +277,7 @@ const styles = StyleSheet.create({
         marginBottom: 16,
     },
     btnText: {
-        color: '#FFF',
+        color: c.textPrimary,
         fontSize: 18,
         fontWeight: 'bold',
     },
@@ -284,14 +289,14 @@ const styles = StyleSheet.create({
         width: '100%',
         alignItems: 'center',
         borderWidth: 1,
-        borderColor: '#666',
+        borderColor: c.textSubtle,
     },
     btnSecondaryText: {
-        color: '#CCC',
+        color: c.textSecondary,
         fontSize: 16,
     },
     loadingText: {
-        color: '#FFF',
+        color: c.textPrimary,
         marginTop: 16,
         fontSize: 16,
     },
@@ -302,24 +307,24 @@ const styles = StyleSheet.create({
         marginBottom: 24,
     },
     label: {
-        color: '#888',
+        color: c.textMuted,
         fontSize: 12,
         marginBottom: 8,
         fontWeight: 'bold',
     },
     sceneText: {
-        color: '#FFF',
+        color: c.textPrimary,
         fontSize: 18,
         lineHeight: 26,
     },
     goalText: {
-        color: '#FFD700',
+        color: c.gold,
         fontSize: 18,
         fontWeight: 'bold',
     },
     divider: {
         height: 1,
-        backgroundColor: '#333',
+        backgroundColor: c.border,
         marginVertical: 16,
     },
     hintContainer: {
@@ -329,12 +334,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     hintLabel: {
-        color: '#666',
+        color: c.textSubtle,
         marginRight: 8,
     },
     hintTag: {
-        backgroundColor: '#333',
-        color: '#CCC',
+        backgroundColor: c.border,
+        color: c.textSecondary,
         paddingHorizontal: 8,
         paddingVertical: 4,
         borderRadius: 8,
@@ -343,29 +348,29 @@ const styles = StyleSheet.create({
         marginBottom: 6,
     },
     inputLabel: {
-        color: '#FFF',
+        color: c.textPrimary,
         fontSize: 16,
         marginBottom: 12,
         marginLeft: 4,
     },
     input: {
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
         borderRadius: 12,
         padding: 16,
-        color: '#FFF',
+        color: c.textPrimary,
         fontSize: 18,
         minHeight: 120,
         marginBottom: 24,
         textAlignVertical: 'top',
         borderWidth: 1,
-        borderColor: '#333',
+        borderColor: c.border,
     },
     scoreCard: {
         alignItems: 'center',
         marginBottom: 24,
     },
     scoreLabel: {
-        color: '#888',
+        color: c.textMuted,
         fontSize: 14,
         marginBottom: 4,
     },
@@ -374,7 +379,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     commentText: {
-        color: '#FFF',
+        color: c.textPrimary,
         fontSize: 16,
         lineHeight: 24,
     },

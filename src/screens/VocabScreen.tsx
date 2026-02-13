@@ -16,6 +16,8 @@ import { getAllLessons, getVocabPack, getVocabByIds, getAllVocab } from '../db/q
 import { getVocabStates, type DbUserVocabState } from '../db/queries/progress';
 import type { Lesson, Vocab } from '../schemas/content';
 import { speak } from '../utils/tts';
+import { useTheme } from '../theme';
+import type { ColorTokens } from '../theme';
 
 type FilterMode = 'all' | 'weak' | 'mastered' | 'unseen';
 
@@ -25,6 +27,9 @@ interface VocabWithState extends Vocab {
 }
 
 export default function VocabScreen() {
+    const { colors } = useTheme();
+    const styles = useMemo(() => createStyles(colors), [colors]);
+
     const [lessons, setLessons] = useState<Lesson[]>([]);
     const [loading, setLoading] = useState(true);
     const [selectedPackId, setSelectedPackId] = useState<number | null>(null);
@@ -131,10 +136,10 @@ export default function VocabScreen() {
     };
 
     const getStrengthColor = (strength: number) => {
-        if (strength >= 80) return '#4CAF50';
-        if (strength >= 50) return '#FF9800';
-        if (strength > 0) return '#FF6B9D';
-        return '#333';
+        if (strength >= 80) return colors.success;
+        if (strength >= 50) return colors.warning;
+        if (strength > 0) return colors.primary;
+        return colors.border;
     };
 
     const getStrengthLabel = (strength: number) => {
@@ -189,7 +194,7 @@ export default function VocabScreen() {
         return (
             <View style={styles.container}>
                 <View style={styles.loadingContainer}>
-                    <ActivityIndicator size="large" color="#FF6B9D" />
+                    <ActivityIndicator size="large" color={colors.primary} />
                 </View>
             </View>
         );
@@ -209,19 +214,19 @@ export default function VocabScreen() {
                 {/* Stats bar */}
                 <View style={styles.vocabStatsBar}>
                     <View style={styles.vocabStatItem}>
-                        <Text style={[styles.vocabStatValue, { color: '#fff' }]}>{vocabStats.total}</Text>
+                        <Text style={[styles.vocabStatValue, { color: colors.textPrimary }]}>{vocabStats.total}</Text>
                         <Text style={styles.vocabStatLabel}>总计</Text>
                     </View>
                     <View style={styles.vocabStatItem}>
-                        <Text style={[styles.vocabStatValue, { color: '#4CAF50' }]}>{vocabStats.mastered}</Text>
+                        <Text style={[styles.vocabStatValue, { color: colors.success }]}>{vocabStats.mastered}</Text>
                         <Text style={styles.vocabStatLabel}>已掌握</Text>
                     </View>
                     <View style={styles.vocabStatItem}>
-                        <Text style={[styles.vocabStatValue, { color: '#FF6B9D' }]}>{vocabStats.weak}</Text>
+                        <Text style={[styles.vocabStatValue, { color: colors.primary }]}>{vocabStats.weak}</Text>
                         <Text style={styles.vocabStatLabel}>薄弱</Text>
                     </View>
                     <View style={styles.vocabStatItem}>
-                        <Text style={[styles.vocabStatValue, { color: '#888' }]}>{vocabStats.unseen}</Text>
+                        <Text style={[styles.vocabStatValue, { color: colors.textMuted }]}>{vocabStats.unseen}</Text>
                         <Text style={styles.vocabStatLabel}>未学习</Text>
                     </View>
                 </View>
@@ -231,7 +236,7 @@ export default function VocabScreen() {
                     <TextInput
                         style={styles.searchInput}
                         placeholder="搜索词汇..."
-                        placeholderTextColor="#555"
+                        placeholderTextColor={colors.textDim}
                         value={searchText}
                         onChangeText={setSearchText}
                         autoCapitalize="none"
@@ -377,10 +382,10 @@ export default function VocabScreen() {
     );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (c: ColorTokens) => StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#0F0F1A',
+        backgroundColor: c.bg,
     },
     loadingContainer: {
         flex: 1,
@@ -395,18 +400,18 @@ const styles = StyleSheet.create({
     headerTitle: {
         fontSize: 28,
         fontWeight: 'bold',
-        color: '#fff',
+        color: c.textPrimary,
         marginBottom: 4,
     },
     headerSubtitle: {
         fontSize: 14,
-        color: '#888',
+        color: c.textMuted,
     },
     backButton: {
         marginBottom: 8,
     },
     backButtonText: {
-        color: '#FF6B9D',
+        color: c.primary,
         fontSize: 16,
     },
     listContent: {
@@ -424,7 +429,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 16,
         marginBottom: 12,
         borderWidth: 1,
-        borderColor: 'rgba(255, 107, 157, 0.2)',
+        borderColor: c.primaryAlpha20,
     },
     showAllIcon: {
         fontSize: 28,
@@ -436,21 +441,21 @@ const styles = StyleSheet.create({
     showAllTitle: {
         fontSize: 15,
         fontWeight: '600',
-        color: '#fff',
+        color: c.textPrimary,
     },
     showAllSubtitle: {
         fontSize: 12,
-        color: '#888',
+        color: c.textMuted,
         marginTop: 2,
     },
     showAllArrow: {
         fontSize: 20,
-        color: '#FF6B9D',
+        color: c.primary,
     },
     packCard: {
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
         borderRadius: 14,
         padding: 16,
         marginBottom: 8,
@@ -459,13 +464,13 @@ const styles = StyleSheet.create({
         width: 36,
         height: 36,
         borderRadius: 18,
-        backgroundColor: '#333',
+        backgroundColor: c.border,
         justifyContent: 'center',
         alignItems: 'center',
         marginRight: 14,
     },
     packBadgeText: {
-        color: '#FF6B9D',
+        color: c.primary,
         fontSize: 14,
         fontWeight: 'bold',
     },
@@ -475,23 +480,23 @@ const styles = StyleSheet.create({
     packTitle: {
         fontSize: 15,
         fontWeight: '600',
-        color: '#fff',
+        color: c.textPrimary,
         marginBottom: 3,
     },
     packCount: {
         fontSize: 12,
-        color: '#888',
+        color: c.textMuted,
     },
     packArrow: {
         fontSize: 22,
-        color: '#555',
+        color: c.textDim,
     },
 
     // ============ Vocab stats bar ============
     vocabStatsBar: {
         flexDirection: 'row',
         marginHorizontal: 16,
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
         borderRadius: 12,
         padding: 12,
         marginBottom: 10,
@@ -506,7 +511,7 @@ const styles = StyleSheet.create({
     },
     vocabStatLabel: {
         fontSize: 10,
-        color: '#888',
+        color: c.textMuted,
         marginTop: 2,
     },
 
@@ -517,14 +522,14 @@ const styles = StyleSheet.create({
         position: 'relative',
     },
     searchInput: {
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
         borderRadius: 12,
         paddingHorizontal: 16,
         paddingVertical: 10,
         fontSize: 14,
-        color: '#fff',
+        color: c.textPrimary,
         borderWidth: 1,
-        borderColor: '#2A2A3E',
+        borderColor: c.divider,
     },
     clearSearch: {
         position: 'absolute',
@@ -533,7 +538,7 @@ const styles = StyleSheet.create({
         padding: 4,
     },
     clearSearchText: {
-        color: '#888',
+        color: c.textMuted,
         fontSize: 16,
     },
     filterRow: {
@@ -546,24 +551,24 @@ const styles = StyleSheet.create({
         paddingHorizontal: 14,
         paddingVertical: 6,
         borderRadius: 16,
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
     },
     filterChipActive: {
-        backgroundColor: '#FF6B9D',
+        backgroundColor: c.primary,
     },
     filterChipText: {
         fontSize: 12,
-        color: '#888',
+        color: c.textMuted,
     },
     filterChipTextActive: {
-        color: '#fff',
+        color: c.textPrimary,
         fontWeight: '600',
     },
 
     // ============ Vocab card ============
     vocabCard: {
         flexDirection: 'row',
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
         borderRadius: 12,
         marginBottom: 6,
         overflow: 'hidden',
@@ -583,29 +588,29 @@ const styles = StyleSheet.create({
     vocabSurface: {
         fontSize: 22,
         fontWeight: 'bold',
-        color: '#fff',
+        color: c.textPrimary,
     },
     blockingBadge: {
         width: 18,
         height: 18,
         borderRadius: 9,
-        backgroundColor: '#F44336',
+        backgroundColor: c.error,
         justifyContent: 'center',
         alignItems: 'center',
     },
     blockingText: {
-        color: '#fff',
+        color: c.textPrimary,
         fontSize: 10,
         fontWeight: 'bold',
     },
     vocabReading: {
         fontSize: 13,
-        color: '#888',
+        color: c.textMuted,
         marginTop: 2,
     },
     vocabMeaning: {
         fontSize: 14,
-        color: '#4CAF50',
+        color: c.success,
         marginTop: 4,
     },
     vocabBottomRow: {
@@ -621,7 +626,7 @@ const styles = StyleSheet.create({
     strengthBarSmall: {
         flex: 1,
         height: 3,
-        backgroundColor: '#333',
+        backgroundColor: c.border,
         borderRadius: 2,
     },
     strengthBarSmallFill: {
@@ -636,6 +641,6 @@ const styles = StyleSheet.create({
     },
     emptyText: {
         fontSize: 14,
-        color: '#888',
+        color: c.textMuted,
     },
 });

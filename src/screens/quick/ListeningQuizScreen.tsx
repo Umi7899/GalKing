@@ -1,13 +1,15 @@
 // src/screens/quick/ListeningQuizScreen.tsx
 // Quick Access: Listening Comprehension Quiz (听句选意)
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Animated, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { getUserProgress } from '../../db/queries/progress';
 import { getSentencesByLesson, getAllLessons } from '../../db/queries/content';
 import type { Sentence } from '../../schemas/content';
 import { speak, stop } from '../../utils/tts';
+import { useTheme } from '../../theme';
+import type { ColorTokens } from '../../theme';
 
 const QUIZ_COUNT = 10;
 
@@ -20,6 +22,8 @@ interface QuizQuestion {
 
 export default function ListeningQuizScreen() {
     const navigation = useNavigation();
+    const { colors } = useTheme();
+    const styles = useMemo(() => createStyles(colors), [colors]);
 
     const [loading, setLoading] = useState(true);
     const [stage, setStage] = useState<'intro' | 'playing' | 'result'>('intro');
@@ -224,7 +228,7 @@ export default function ListeningQuizScreen() {
                         </View>
                         <View style={styles.resultStatDivider} />
                         <View style={styles.resultStatItem}>
-                            <Text style={[styles.resultStatNumber, { color: '#F44336' }]}>{wrong}</Text>
+                            <Text style={[styles.resultStatNumber, { color: colors.error }]}>{wrong}</Text>
                             <Text style={styles.resultStatLabel}>错误</Text>
                         </View>
                     </View>
@@ -322,20 +326,20 @@ export default function ListeningQuizScreen() {
     );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (c: ColorTokens) => StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#0F0F1A',
+        backgroundColor: c.bg,
         paddingHorizontal: 20,
         paddingTop: 60,
     },
     loadingText: {
-        color: '#888',
+        color: c.textMuted,
         textAlign: 'center',
         marginTop: 100,
     },
     emptyText: {
-        color: '#888',
+        color: c.textMuted,
         textAlign: 'center',
         marginTop: 100,
         fontSize: 16,
@@ -346,11 +350,11 @@ const styles = StyleSheet.create({
         marginTop: 20,
         paddingHorizontal: 24,
         paddingVertical: 12,
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
         borderRadius: 12,
     },
     backButtonText: {
-        color: '#00BCD4',
+        color: c.cyan,
         fontSize: 16,
     },
     closeButton: {
@@ -360,7 +364,7 @@ const styles = StyleSheet.create({
         zIndex: 10,
     },
     closeButtonText: {
-        color: '#888',
+        color: c.textMuted,
         fontSize: 24,
         fontWeight: '300',
     },
@@ -377,17 +381,17 @@ const styles = StyleSheet.create({
     introTitle: {
         fontSize: 28,
         fontWeight: 'bold',
-        color: '#fff',
+        color: c.textPrimary,
         marginBottom: 4,
     },
     introSubtitle: {
         fontSize: 16,
-        color: '#00BCD4',
+        color: c.cyan,
         marginBottom: 24,
     },
     introDesc: {
         fontSize: 14,
-        color: '#888',
+        color: c.textMuted,
         textAlign: 'center',
         lineHeight: 22,
         marginBottom: 16,
@@ -395,17 +399,17 @@ const styles = StyleSheet.create({
     },
     introCount: {
         fontSize: 14,
-        color: '#666',
+        color: c.textSubtle,
         marginBottom: 40,
     },
     startButton: {
-        backgroundColor: '#00BCD4',
+        backgroundColor: c.cyan,
         paddingHorizontal: 48,
         paddingVertical: 16,
         borderRadius: 24,
     },
     startButtonText: {
-        color: '#fff',
+        color: c.textPrimary,
         fontSize: 20,
         fontWeight: 'bold',
     },
@@ -418,7 +422,7 @@ const styles = StyleSheet.create({
     },
     headerTitle: {
         fontSize: 14,
-        color: '#00BCD4',
+        color: c.cyan,
         fontWeight: '600',
     },
     scoreContainer: {
@@ -426,7 +430,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     scoreCorrect: {
-        color: '#4CAF50',
+        color: c.success,
         fontSize: 16,
         fontWeight: 'bold',
     },
@@ -436,19 +440,19 @@ const styles = StyleSheet.create({
         marginHorizontal: 4,
     },
     scoreWrong: {
-        color: '#F44336',
+        color: c.error,
         fontSize: 16,
         fontWeight: 'bold',
     },
     progressBar: {
         height: 4,
-        backgroundColor: '#333',
+        backgroundColor: c.border,
         borderRadius: 2,
         marginBottom: 24,
     },
     progressFill: {
         height: '100%',
-        backgroundColor: '#00BCD4',
+        backgroundColor: c.cyan,
         borderRadius: 2,
     },
     // Playing
@@ -456,7 +460,7 @@ const styles = StyleSheet.create({
         paddingBottom: 40,
     },
     audioCard: {
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
         borderRadius: 24,
         padding: 32,
         alignItems: 'center',
@@ -471,36 +475,36 @@ const styles = StyleSheet.create({
         marginBottom: 8,
     },
     playButtonText: {
-        color: '#00BCD4',
+        color: c.cyan,
         fontSize: 16,
         fontWeight: '600',
     },
     slowButton: {
         paddingHorizontal: 20,
         paddingVertical: 8,
-        backgroundColor: '#333',
+        backgroundColor: c.border,
         borderRadius: 16,
     },
     slowButtonText: {
-        color: '#aaa',
+        color: c.textSecondary,
         fontSize: 14,
     },
     revealCard: {
-        backgroundColor: 'rgba(0, 188, 212, 0.1)',
+        backgroundColor: c.cyanAlpha10,
         borderRadius: 12,
         padding: 16,
         marginBottom: 16,
         borderLeftWidth: 3,
-        borderLeftColor: '#00BCD4',
+        borderLeftColor: c.cyan,
     },
     revealText: {
-        color: '#fff',
+        color: c.textPrimary,
         fontSize: 18,
         lineHeight: 28,
         marginBottom: 8,
     },
     revealTranslation: {
-        color: '#00BCD4',
+        color: c.cyan,
         fontSize: 14,
     },
     optionsContainer: {
@@ -509,26 +513,26 @@ const styles = StyleSheet.create({
     option: {
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
         borderRadius: 12,
         padding: 16,
         borderWidth: 2,
         borderColor: 'transparent',
     },
     optionCorrect: {
-        borderColor: '#4CAF50',
-        backgroundColor: 'rgba(76, 175, 80, 0.15)',
+        borderColor: c.success,
+        backgroundColor: c.successAlpha15,
     },
     optionWrong: {
-        borderColor: '#F44336',
-        backgroundColor: 'rgba(244, 67, 54, 0.15)',
+        borderColor: c.error,
+        backgroundColor: c.errorAlpha15,
     },
     optionLabel: {
         width: 28,
         height: 28,
         borderRadius: 14,
-        backgroundColor: '#333',
-        color: '#fff',
+        backgroundColor: c.border,
+        color: c.textPrimary,
         textAlign: 'center',
         lineHeight: 28,
         fontSize: 12,
@@ -538,18 +542,18 @@ const styles = StyleSheet.create({
     optionText: {
         flex: 1,
         fontSize: 15,
-        color: '#fff',
+        color: c.textPrimary,
         lineHeight: 22,
     },
     continueButton: {
-        backgroundColor: '#00BCD4',
+        backgroundColor: c.cyan,
         paddingVertical: 14,
         borderRadius: 20,
         alignItems: 'center',
         marginTop: 24,
     },
     continueButtonText: {
-        color: '#fff',
+        color: c.textPrimary,
         fontSize: 18,
         fontWeight: 'bold',
     },
@@ -566,23 +570,23 @@ const styles = StyleSheet.create({
     resultTitle: {
         fontSize: 24,
         fontWeight: 'bold',
-        color: '#fff',
+        color: c.textPrimary,
         marginBottom: 16,
     },
     resultAccuracy: {
         fontSize: 64,
         fontWeight: 'bold',
-        color: '#00BCD4',
+        color: c.cyan,
     },
     resultLabel: {
         fontSize: 14,
-        color: '#888',
+        color: c.textMuted,
         marginBottom: 32,
     },
     resultStats: {
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
         borderRadius: 16,
         padding: 24,
         width: '100%',
@@ -595,26 +599,26 @@ const styles = StyleSheet.create({
     resultStatNumber: {
         fontSize: 32,
         fontWeight: 'bold',
-        color: '#4CAF50',
+        color: c.success,
     },
     resultStatLabel: {
         fontSize: 12,
-        color: '#888',
+        color: c.textMuted,
         marginTop: 4,
     },
     resultStatDivider: {
         width: 1,
         height: 40,
-        backgroundColor: '#333',
+        backgroundColor: c.border,
     },
     finishButton: {
-        backgroundColor: '#00BCD4',
+        backgroundColor: c.cyan,
         paddingHorizontal: 48,
         paddingVertical: 16,
         borderRadius: 24,
     },
     finishButtonText: {
-        color: '#fff',
+        color: c.textPrimary,
         fontSize: 18,
         fontWeight: 'bold',
     },

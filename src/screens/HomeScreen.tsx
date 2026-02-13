@@ -1,7 +1,7 @@
 // src/screens/HomeScreen.tsx
 // Home/Today screen with training entry point
 
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, useMemo } from 'react';
 import {
     View,
     Text,
@@ -13,6 +13,8 @@ import {
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import type { HomeStackParamList } from '../navigation/RootNavigator';
+import { useTheme } from '../theme';
+import type { ColorTokens } from '../theme';
 
 import { initDatabase, importDataset, needsImport } from '../db/database';
 import { getUserProgress, getReviewCounts } from '../db/queries/progress';
@@ -22,8 +24,249 @@ import { getSessionStats } from '../db/queries/sessions';
 
 type NavigationProp = NativeStackNavigationProp<HomeStackParamList, 'HomeMain'>;
 
+const createStyles = (c: ColorTokens) => StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: c.bg,
+    },
+    scrollContent: {
+        padding: 20,
+        paddingTop: 60,
+    },
+    loadingContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    loadingText: {
+        marginTop: 16,
+        color: c.textMuted,
+        fontSize: 16,
+    },
+    errorContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 40,
+    },
+    errorEmoji: {
+        fontSize: 64,
+        marginBottom: 16,
+    },
+    errorTitle: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: c.textPrimary,
+        marginBottom: 8,
+    },
+    errorText: {
+        fontSize: 14,
+        color: c.textMuted,
+        textAlign: 'center',
+        marginBottom: 24,
+    },
+    retryButton: {
+        backgroundColor: c.primary,
+        paddingHorizontal: 32,
+        paddingVertical: 12,
+        borderRadius: 24,
+    },
+    retryButtonText: {
+        color: c.textPrimary,
+        fontWeight: '600',
+    },
+    header: {
+        marginBottom: 24,
+    },
+    greeting: {
+        fontSize: 28,
+        fontWeight: 'bold',
+        color: c.textPrimary,
+        marginBottom: 4,
+    },
+    date: {
+        fontSize: 14,
+        color: c.textMuted,
+    },
+    statsCard: {
+        flexDirection: 'row',
+        backgroundColor: c.bgCard,
+        borderRadius: 16,
+        padding: 20,
+        marginBottom: 16,
+    },
+    statItem: {
+        flex: 1,
+        alignItems: 'center',
+    },
+    statValue: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        color: c.primary,
+    },
+    statLabel: {
+        fontSize: 12,
+        color: c.textMuted,
+        marginTop: 4,
+    },
+    statDivider: {
+        width: 1,
+        backgroundColor: c.border,
+        marginHorizontal: 20,
+    },
+    focusCard: {
+        backgroundColor: c.bgCard,
+        borderRadius: 16,
+        padding: 20,
+        marginBottom: 24,
+        borderLeftWidth: 4,
+        borderLeftColor: c.primary,
+    },
+    focusLabel: {
+        fontSize: 12,
+        color: c.textMuted,
+        marginBottom: 8,
+    },
+    focusLesson: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: c.textPrimary,
+        marginBottom: 4,
+    },
+    focusGrammar: {
+        fontSize: 14,
+        color: c.primary,
+    },
+    startButton: {
+        backgroundColor: c.primary,
+        borderRadius: 20,
+        padding: 24,
+        alignItems: 'center',
+        marginBottom: 24,
+        shadowColor: c.primary,
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.3,
+        shadowRadius: 12,
+        elevation: 8,
+    },
+    startButtonEmoji: {
+        fontSize: 36,
+        marginBottom: 8,
+    },
+    startButtonText: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: c.textPrimary,
+    },
+    resumeHint: {
+        fontSize: 12,
+        color: c.textWhiteAlpha70,
+        marginTop: 4,
+    },
+    completedCard: {
+        backgroundColor: c.bgCard,
+        borderRadius: 20,
+        padding: 24,
+        alignItems: 'center',
+        marginBottom: 24,
+        borderWidth: 2,
+        borderColor: c.success,
+    },
+    completedEmoji: {
+        fontSize: 32,
+        marginBottom: 8,
+    },
+    completedTitle: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: c.success,
+        marginBottom: 4,
+    },
+    completedText: {
+        fontSize: 14,
+        color: c.textMuted,
+        marginBottom: 16,
+    },
+    reviewButton: {
+        backgroundColor: c.border,
+        paddingHorizontal: 24,
+        paddingVertical: 10,
+        borderRadius: 16,
+    },
+    reviewButtonText: {
+        color: c.textPrimary,
+        fontWeight: '600',
+    },
+    quickActions: {
+        marginTop: 8,
+    },
+    quickActionsTitle: {
+        fontSize: 16,
+        fontWeight: '600',
+        color: c.textMuted,
+        marginBottom: 12,
+    },
+    quickActionsGrid: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'space-between',
+        gap: 8,
+    },
+    quickActionButton: {
+        width: '31%',
+        backgroundColor: c.bgCard,
+        borderRadius: 16,
+        padding: 16,
+        alignItems: 'center',
+        marginBottom: 4,
+    },
+    quickActionEmoji: {
+        fontSize: 24,
+        marginBottom: 8,
+    },
+    quickActionText: {
+        fontSize: 12,
+        color: c.textMuted,
+    },
+    reviewEntryCard: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        backgroundColor: c.bgCard,
+        borderRadius: 16,
+        padding: 16,
+        marginBottom: 24,
+        borderWidth: 1,
+        borderColor: c.cyan,
+    },
+    reviewEntryLeft: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: 12,
+    },
+    reviewEntryEmoji: {
+        fontSize: 24,
+    },
+    reviewEntryTitle: {
+        fontSize: 16,
+        fontWeight: '600',
+        color: c.cyan,
+    },
+    reviewEntryCount: {
+        fontSize: 12,
+        color: c.textMuted,
+        marginTop: 2,
+    },
+    reviewEntryArrow: {
+        fontSize: 20,
+        color: c.cyan,
+    },
+});
+
 export default function HomeScreen() {
     const navigation = useNavigation<NavigationProp>();
+    const { colors } = useTheme();
+    const styles = useMemo(() => createStyles(colors), [colors]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
@@ -120,7 +363,7 @@ export default function HomeScreen() {
         return (
             <View style={styles.container}>
                 <View style={styles.loadingContainer}>
-                    <ActivityIndicator size="large" color="#FF6B9D" />
+                    <ActivityIndicator size="large" color={colors.primary} />
                     <Text style={styles.loadingText}>正在加载...</Text>
                 </View>
             </View>
@@ -273,242 +516,3 @@ export default function HomeScreen() {
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#0F0F1A',
-    },
-    scrollContent: {
-        padding: 20,
-        paddingTop: 60,
-    },
-    loadingContainer: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    loadingText: {
-        marginTop: 16,
-        color: '#888',
-        fontSize: 16,
-    },
-    errorContainer: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: 40,
-    },
-    errorEmoji: {
-        fontSize: 64,
-        marginBottom: 16,
-    },
-    errorTitle: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        color: '#fff',
-        marginBottom: 8,
-    },
-    errorText: {
-        fontSize: 14,
-        color: '#888',
-        textAlign: 'center',
-        marginBottom: 24,
-    },
-    retryButton: {
-        backgroundColor: '#FF6B9D',
-        paddingHorizontal: 32,
-        paddingVertical: 12,
-        borderRadius: 24,
-    },
-    retryButtonText: {
-        color: '#fff',
-        fontWeight: '600',
-    },
-    header: {
-        marginBottom: 24,
-    },
-    greeting: {
-        fontSize: 28,
-        fontWeight: 'bold',
-        color: '#fff',
-        marginBottom: 4,
-    },
-    date: {
-        fontSize: 14,
-        color: '#888',
-    },
-    statsCard: {
-        flexDirection: 'row',
-        backgroundColor: '#1A1A2E',
-        borderRadius: 16,
-        padding: 20,
-        marginBottom: 16,
-    },
-    statItem: {
-        flex: 1,
-        alignItems: 'center',
-    },
-    statValue: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        color: '#FF6B9D',
-    },
-    statLabel: {
-        fontSize: 12,
-        color: '#888',
-        marginTop: 4,
-    },
-    statDivider: {
-        width: 1,
-        backgroundColor: '#333',
-        marginHorizontal: 20,
-    },
-    focusCard: {
-        backgroundColor: '#1A1A2E',
-        borderRadius: 16,
-        padding: 20,
-        marginBottom: 24,
-        borderLeftWidth: 4,
-        borderLeftColor: '#FF6B9D',
-    },
-    focusLabel: {
-        fontSize: 12,
-        color: '#888',
-        marginBottom: 8,
-    },
-    focusLesson: {
-        fontSize: 18,
-        fontWeight: 'bold',
-        color: '#fff',
-        marginBottom: 4,
-    },
-    focusGrammar: {
-        fontSize: 14,
-        color: '#FF6B9D',
-    },
-    startButton: {
-        backgroundColor: '#FF6B9D',
-        borderRadius: 20,
-        padding: 24,
-        alignItems: 'center',
-        marginBottom: 24,
-        shadowColor: '#FF6B9D',
-        shadowOffset: { width: 0, height: 4 },
-        shadowOpacity: 0.3,
-        shadowRadius: 12,
-        elevation: 8,
-    },
-    startButtonEmoji: {
-        fontSize: 36,
-        marginBottom: 8,
-    },
-    startButtonText: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        color: '#fff',
-    },
-    resumeHint: {
-        fontSize: 12,
-        color: 'rgba(255,255,255,0.7)',
-        marginTop: 4,
-    },
-    completedCard: {
-        backgroundColor: '#1A1A2E',
-        borderRadius: 20,
-        padding: 24,
-        alignItems: 'center',
-        marginBottom: 24,
-        borderWidth: 2,
-        borderColor: '#4CAF50',
-    },
-    completedEmoji: {
-        fontSize: 32,
-        marginBottom: 8,
-    },
-    completedTitle: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        color: '#4CAF50',
-        marginBottom: 4,
-    },
-    completedText: {
-        fontSize: 14,
-        color: '#888',
-        marginBottom: 16,
-    },
-    reviewButton: {
-        backgroundColor: '#333',
-        paddingHorizontal: 24,
-        paddingVertical: 10,
-        borderRadius: 16,
-    },
-    reviewButtonText: {
-        color: '#fff',
-        fontWeight: '600',
-    },
-    quickActions: {
-        marginTop: 8,
-    },
-    quickActionsTitle: {
-        fontSize: 16,
-        fontWeight: '600',
-        color: '#888',
-        marginBottom: 12,
-    },
-    quickActionsGrid: {
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        justifyContent: 'space-between',
-        gap: 8,
-    },
-    quickActionButton: {
-        width: '31%',
-        backgroundColor: '#1A1A2E',
-        borderRadius: 16,
-        padding: 16,
-        alignItems: 'center',
-        marginBottom: 4,
-    },
-    quickActionEmoji: {
-        fontSize: 24,
-        marginBottom: 8,
-    },
-    quickActionText: {
-        fontSize: 12,
-        color: '#888',
-    },
-    reviewEntryCard: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        backgroundColor: '#1A1A2E',
-        borderRadius: 16,
-        padding: 16,
-        marginBottom: 24,
-        borderWidth: 1,
-        borderColor: '#00BCD4',
-    },
-    reviewEntryLeft: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        gap: 12,
-    },
-    reviewEntryEmoji: {
-        fontSize: 24,
-    },
-    reviewEntryTitle: {
-        fontSize: 16,
-        fontWeight: '600',
-        color: '#00BCD4',
-    },
-    reviewEntryCount: {
-        fontSize: 12,
-        color: '#888',
-        marginTop: 2,
-    },
-    reviewEntryArrow: {
-        fontSize: 20,
-        color: '#00BCD4',
-    },
-});

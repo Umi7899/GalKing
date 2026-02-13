@@ -19,11 +19,17 @@ import {
     type VocabScoreUpdate,
 } from './scorer';
 import { applySessionResults, getRecentAccuracies } from './progressManager';
+import type { AchievementDef } from './achievements';
 import { getGrammarState, getVocabState } from '../db/queries/progress';
 import { getSentence } from '../db/queries/content';
 import type { StepStateJson, AnswerRecord, SentenceSubmission, ResultJson } from '../schemas/session';
 
 // ============ Session Manager ============
+
+export interface FinishSessionResult {
+    result: ResultJson;
+    newAchievements: AchievementDef[];
+}
 
 export interface SessionManager {
     sessionId: number;
@@ -39,7 +45,7 @@ export interface SessionManager {
     submitSentence(checkedKeyPointIds: string[]): Promise<SentenceResult>;
     updateVocabStats(correct: number, wrong: number, avgRtMs: number): Promise<void>;
     nextStep(): Promise<boolean>;
-    finishSession(): Promise<ResultJson>;
+    finishSession(): Promise<FinishSessionResult>;
 
     // Persistence
     save(): Promise<void>;
@@ -156,7 +162,7 @@ function createSessionManager(sessionId: number, initialState: StepStateJson): S
             return true;
         },
 
-        async finishSession(): Promise<ResultJson> {
+        async finishSession(): Promise<FinishSessionResult> {
             // Save final timing before calculating result
             state.timing.elapsedMs = Date.now() - state.timing.startedAt;
             await manager.save();
@@ -223,12 +229,12 @@ function createSessionManager(sessionId: number, initialState: StepStateJson): S
             }
 
             // Apply all updates
-            await applySessionResults(result, grammarUpdates, vocabUpdates);
+            const { newAchievements } = await applySessionResults(result, grammarUpdates, vocabUpdates);
 
             // Mark session complete
             await completeSession(sessionId, result);
 
-            return result;
+            return { result, newAchievements };
         },
 
         async save(): Promise<void> {

@@ -1,7 +1,7 @@
 // src/screens/SettingsScreen.tsx
 // Settings screen for LLM configuration
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import {
     View,
     Text,
@@ -11,20 +11,270 @@ import {
     ScrollView,
     ActivityIndicator,
     Alert,
+    Switch,
 } from 'react-native';
+import { useTheme } from '../theme';
+import type { ColorTokens } from '../theme';
 import {
     getLLMSettings,
     saveLLMSettings,
+    getNotificationSettings,
     PROVIDER_CONFIGS,
     type LLMProvider,
     type LLMSettings,
+    type NotificationSettings,
 } from '../settings/storage';
 import { testLLMConnection, clearSettingsCache } from '../llm/client';
+import { toggleDailyReminder, updateReminderTime } from '../services/notifications';
 import { resetAllProgress, seedTestData } from '../db/queries/admin';
 
 const PROVIDERS: LLMProvider[] = ['deepseek', 'openai', 'custom'];
 
+const createStyles = (c: ColorTokens) => StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: c.bg,
+    },
+    loadingContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    content: {
+        padding: 20,
+        paddingBottom: 40,
+    },
+    header: {
+        marginBottom: 32,
+        paddingTop: 40,
+    },
+    headerTitle: {
+        fontSize: 28,
+        fontWeight: 'bold',
+        color: c.textPrimary,
+        marginBottom: 4,
+    },
+    headerSubtitle: {
+        fontSize: 14,
+        color: c.textMuted,
+    },
+    section: {
+        marginBottom: 24,
+    },
+    sectionTitle: {
+        fontSize: 14,
+        fontWeight: '600',
+        color: c.textSecondary,
+        marginBottom: 12,
+    },
+    providerButtons: {
+        flexDirection: 'row',
+        gap: 10,
+    },
+    providerButton: {
+        flex: 1,
+        backgroundColor: c.bgCard,
+        borderRadius: 12,
+        padding: 14,
+        alignItems: 'center',
+        borderWidth: 2,
+        borderColor: 'transparent',
+    },
+    providerButtonActive: {
+        borderColor: c.primary,
+        backgroundColor: c.primaryAlpha10,
+    },
+    providerButtonText: {
+        color: c.textMuted,
+        fontSize: 14,
+        fontWeight: '600',
+    },
+    providerButtonTextActive: {
+        color: c.primary,
+    },
+    input: {
+        backgroundColor: c.bgCard,
+        borderRadius: 12,
+        padding: 16,
+        fontSize: 16,
+        color: c.textPrimary,
+        borderWidth: 1,
+        borderColor: c.border,
+    },
+    hint: {
+        fontSize: 12,
+        color: c.textSubtle,
+        marginTop: 8,
+    },
+    testResult: {
+        padding: 16,
+        borderRadius: 12,
+        marginBottom: 24,
+    },
+    testResultOk: {
+        backgroundColor: c.successAlpha20,
+    },
+    testResultError: {
+        backgroundColor: c.errorAlpha20,
+    },
+    testResultText: {
+        color: c.textPrimary,
+        fontSize: 14,
+        textAlign: 'center',
+    },
+    buttons: {
+        flexDirection: 'row',
+        gap: 12,
+        marginBottom: 32,
+    },
+    testButton: {
+        flex: 1,
+        backgroundColor: c.border,
+        borderRadius: 12,
+        padding: 16,
+        alignItems: 'center',
+    },
+    testButtonText: {
+        color: c.textPrimary,
+        fontSize: 16,
+        fontWeight: '600',
+    },
+    saveButton: {
+        flex: 1,
+        backgroundColor: c.primary,
+        borderRadius: 12,
+        padding: 16,
+        alignItems: 'center',
+    },
+    saveButtonDisabled: {
+        opacity: 0.6,
+    },
+    saveButtonText: {
+        color: c.textPrimary,
+        fontSize: 16,
+        fontWeight: 'bold',
+    },
+    infoCard: {
+        backgroundColor: c.bgCard,
+        borderRadius: 16,
+        padding: 20,
+        borderLeftWidth: 4,
+        borderLeftColor: c.success,
+    },
+    infoTitle: {
+        fontSize: 16,
+        fontWeight: '600',
+        color: c.textPrimary,
+        marginBottom: 12,
+    },
+    infoText: {
+        fontSize: 14,
+        color: c.textSecondary,
+        lineHeight: 24,
+    },
+    infoNote: {
+        fontSize: 12,
+        color: c.textSubtle,
+        marginTop: 12,
+        fontStyle: 'italic',
+    },
+    dangerButton: {
+        backgroundColor: c.errorAlpha10,
+        borderWidth: 1,
+        borderColor: c.errorLight,
+        borderRadius: 12,
+        padding: 16,
+        alignItems: 'center',
+    },
+    dangerButtonText: {
+        color: c.errorLight,
+        fontSize: 16,
+        fontWeight: 'bold',
+    },
+    seedButton: {
+        backgroundColor: c.cyanAlpha10,
+        borderWidth: 1,
+        borderColor: c.cyan,
+        borderRadius: 12,
+        padding: 16,
+        alignItems: 'center',
+    },
+    seedButtonText: {
+        color: c.cyan,
+        fontSize: 16,
+        fontWeight: 'bold',
+    },
+    notifCard: {
+        backgroundColor: c.bgCard,
+        borderRadius: 16,
+        padding: 20,
+        marginBottom: 24,
+    },
+    notifRow: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    },
+    notifLabel: {
+        fontSize: 16,
+        color: c.textPrimary,
+        fontWeight: '500',
+    },
+    notifSub: {
+        fontSize: 12,
+        color: c.textMuted,
+        marginTop: 4,
+    },
+    timeRow: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginTop: 16,
+        gap: 8,
+    },
+    timeLabel: {
+        fontSize: 14,
+        color: c.textSecondary,
+    },
+    timePicker: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: 4,
+    },
+    timeBtn: {
+        backgroundColor: c.bgInput,
+        borderRadius: 8,
+        paddingHorizontal: 12,
+        paddingVertical: 8,
+        minWidth: 44,
+        alignItems: 'center',
+    },
+    timeBtnText: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: c.textPrimary,
+    },
+    timeColon: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: c.textMuted,
+    },
+    timeArrow: {
+        backgroundColor: c.border,
+        borderRadius: 6,
+        width: 28,
+        height: 28,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    timeArrowText: {
+        fontSize: 14,
+        color: c.textPrimary,
+    },
+});
+
 export default function SettingsScreen() {
+    const { colors } = useTheme();
+    const styles = useMemo(() => createStyles(colors), [colors]);
     const [loading, setLoading] = useState(true);
     const [saving, setSaving] = useState(false);
     const [testing, setTesting] = useState(false);
@@ -35,6 +285,11 @@ export default function SettingsScreen() {
     const [modelName, setModelName] = useState('');
 
     const [testResult, setTestResult] = useState<{ ok: boolean; message: string } | null>(null);
+
+    // Notification state
+    const [notifEnabled, setNotifEnabled] = useState(false);
+    const [notifHour, setNotifHour] = useState(20);
+    const [notifMinute, setNotifMinute] = useState(0);
 
     useEffect(() => {
         loadSettings();
@@ -49,6 +304,11 @@ export default function SettingsScreen() {
                 setCustomEndpoint(settings.customEndpoint || '');
                 setModelName(settings.modelName || '');
             }
+            // Load notification settings
+            const notifSettings = await getNotificationSettings();
+            setNotifEnabled(notifSettings.enabled);
+            setNotifHour(notifSettings.hour);
+            setNotifMinute(notifSettings.minute);
         } catch (e) {
             console.error('[Settings] Load error:', e);
         } finally {
@@ -178,7 +438,7 @@ export default function SettingsScreen() {
         return (
             <View style={styles.container}>
                 <View style={styles.loadingContainer}>
-                    <ActivityIndicator size="large" color="#FF6B9D" />
+                    <ActivityIndicator size="large" color={colors.primary} />
                 </View>
             </View>
         );
@@ -227,7 +487,7 @@ export default function SettingsScreen() {
                 <TextInput
                     style={styles.input}
                     placeholder={providerConfig.placeholder}
-                    placeholderTextColor="#666"
+                    placeholderTextColor={colors.textSubtle}
                     value={apiKey}
                     onChangeText={setApiKey}
                     secureTextEntry
@@ -248,7 +508,7 @@ export default function SettingsScreen() {
                     <TextInput
                         style={styles.input}
                         placeholder="https://your-api.com/v1/chat/completions"
-                        placeholderTextColor="#666"
+                        placeholderTextColor={colors.textSubtle}
                         value={customEndpoint}
                         onChangeText={setCustomEndpoint}
                         autoCapitalize="none"
@@ -263,7 +523,7 @@ export default function SettingsScreen() {
                 <TextInput
                     style={styles.input}
                     placeholder={providerConfig.defaultModel || '使用默认模型'}
-                    placeholderTextColor="#666"
+                    placeholderTextColor={colors.textSubtle}
                     value={modelName}
                     onChangeText={setModelName}
                     autoCapitalize="none"
@@ -294,7 +554,7 @@ export default function SettingsScreen() {
                     disabled={testing || !apiKey}
                 >
                     {testing ? (
-                        <ActivityIndicator size="small" color="#fff" />
+                        <ActivityIndicator size="small" color={colors.textPrimary} />
                     ) : (
                         <Text style={styles.testButtonText}>测试连接</Text>
                     )}
@@ -306,7 +566,7 @@ export default function SettingsScreen() {
                     disabled={saving}
                 >
                     {saving ? (
-                        <ActivityIndicator size="small" color="#fff" />
+                        <ActivityIndicator size="small" color={colors.textPrimary} />
                     ) : (
                         <Text style={styles.saveButtonText}>保存配置</Text>
                     )}
@@ -327,9 +587,81 @@ export default function SettingsScreen() {
                 </Text>
             </View>
 
+            {/* Notification Settings */}
+            <View style={[styles.section, { marginTop: 24 }]}>
+                <Text style={styles.sectionTitle}>通知设置</Text>
+                <View style={styles.notifCard}>
+                    <View style={styles.notifRow}>
+                        <View>
+                            <Text style={styles.notifLabel}>每日学习提醒</Text>
+                            <Text style={styles.notifSub}>
+                                {notifEnabled ? '已开启' : '关闭中'}
+                            </Text>
+                        </View>
+                        <Switch
+                            value={notifEnabled}
+                            onValueChange={async (val) => {
+                                try {
+                                    await toggleDailyReminder(val);
+                                    setNotifEnabled(val);
+                                } catch (e: any) {
+                                    if (e?.message === 'PERMISSION_DENIED') {
+                                        Alert.alert('权限不足', '请在系统设置中允许通知权限');
+                                    } else {
+                                        Alert.alert('错误', '设置通知失败');
+                                    }
+                                }
+                            }}
+                            trackColor={{ false: colors.border, true: colors.primaryAlpha20 }}
+                            thumbColor={notifEnabled ? colors.primary : colors.textMuted}
+                        />
+                    </View>
+
+                    {notifEnabled && (
+                        <View style={styles.timeRow}>
+                            <Text style={styles.timeLabel}>提醒时间</Text>
+                            <View style={{ flex: 1 }} />
+                            <View style={styles.timePicker}>
+                                <TouchableOpacity
+                                    style={styles.timeArrow}
+                                    onPress={async () => {
+                                        const h = (notifHour + 23) % 24;
+                                        setNotifHour(h);
+                                        await updateReminderTime(h, notifMinute);
+                                    }}
+                                >
+                                    <Text style={styles.timeArrowText}>-</Text>
+                                </TouchableOpacity>
+                                <View style={styles.timeBtn}>
+                                    <Text style={styles.timeBtnText}>
+                                        {notifHour.toString().padStart(2, '0')}
+                                    </Text>
+                                </View>
+                                <Text style={styles.timeColon}>:</Text>
+                                <View style={styles.timeBtn}>
+                                    <Text style={styles.timeBtnText}>
+                                        {notifMinute.toString().padStart(2, '0')}
+                                    </Text>
+                                </View>
+                                <TouchableOpacity
+                                    style={styles.timeArrow}
+                                    onPress={async () => {
+                                        const h = (notifHour + 1) % 24;
+                                        setNotifHour(h);
+                                        await updateReminderTime(h, notifMinute);
+                                    }}
+                                >
+                                    <Text style={styles.timeArrowText}>+</Text>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                    )}
+                </View>
+            </View>
+
             {/* Danger Zone */}
             <View style={[styles.section, { marginTop: 40 }]}>
-                <Text style={[styles.sectionTitle, { color: '#FF5252' }]}>⚠️ 数据管理</Text>
+                <Text style={[styles.sectionTitle, { color: colors.errorLight }]}>⚠️ 数据管理</Text>
 
                 <TouchableOpacity
                     style={styles.seedButton}
@@ -354,179 +686,3 @@ export default function SettingsScreen() {
         </ScrollView>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#0D0D1A',
-    },
-    loadingContainer: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    content: {
-        padding: 20,
-        paddingBottom: 40,
-    },
-    header: {
-        marginBottom: 32,
-        paddingTop: 40,
-    },
-    headerTitle: {
-        fontSize: 28,
-        fontWeight: 'bold',
-        color: '#fff',
-        marginBottom: 4,
-    },
-    headerSubtitle: {
-        fontSize: 14,
-        color: '#888',
-    },
-    section: {
-        marginBottom: 24,
-    },
-    sectionTitle: {
-        fontSize: 14,
-        fontWeight: '600',
-        color: '#aaa',
-        marginBottom: 12,
-    },
-    providerButtons: {
-        flexDirection: 'row',
-        gap: 10,
-    },
-    providerButton: {
-        flex: 1,
-        backgroundColor: '#1A1A2E',
-        borderRadius: 12,
-        padding: 14,
-        alignItems: 'center',
-        borderWidth: 2,
-        borderColor: 'transparent',
-    },
-    providerButtonActive: {
-        borderColor: '#FF6B9D',
-        backgroundColor: 'rgba(255, 107, 157, 0.1)',
-    },
-    providerButtonText: {
-        color: '#888',
-        fontSize: 14,
-        fontWeight: '600',
-    },
-    providerButtonTextActive: {
-        color: '#FF6B9D',
-    },
-    input: {
-        backgroundColor: '#1A1A2E',
-        borderRadius: 12,
-        padding: 16,
-        fontSize: 16,
-        color: '#fff',
-        borderWidth: 1,
-        borderColor: '#333',
-    },
-    hint: {
-        fontSize: 12,
-        color: '#666',
-        marginTop: 8,
-    },
-    testResult: {
-        padding: 16,
-        borderRadius: 12,
-        marginBottom: 24,
-    },
-    testResultOk: {
-        backgroundColor: 'rgba(76, 175, 80, 0.2)',
-    },
-    testResultError: {
-        backgroundColor: 'rgba(244, 67, 54, 0.2)',
-    },
-    testResultText: {
-        color: '#fff',
-        fontSize: 14,
-        textAlign: 'center',
-    },
-    buttons: {
-        flexDirection: 'row',
-        gap: 12,
-        marginBottom: 32,
-    },
-    testButton: {
-        flex: 1,
-        backgroundColor: '#333',
-        borderRadius: 12,
-        padding: 16,
-        alignItems: 'center',
-    },
-    testButtonText: {
-        color: '#fff',
-        fontSize: 16,
-        fontWeight: '600',
-    },
-    saveButton: {
-        flex: 1,
-        backgroundColor: '#FF6B9D',
-        borderRadius: 12,
-        padding: 16,
-        alignItems: 'center',
-    },
-    saveButtonDisabled: {
-        opacity: 0.6,
-    },
-    saveButtonText: {
-        color: '#fff',
-        fontSize: 16,
-        fontWeight: 'bold',
-    },
-    infoCard: {
-        backgroundColor: '#1A1A2E',
-        borderRadius: 16,
-        padding: 20,
-        borderLeftWidth: 4,
-        borderLeftColor: '#4CAF50',
-    },
-    infoTitle: {
-        fontSize: 16,
-        fontWeight: '600',
-        color: '#fff',
-        marginBottom: 12,
-    },
-    infoText: {
-        fontSize: 14,
-        color: '#aaa',
-        lineHeight: 24,
-    },
-    infoNote: {
-        fontSize: 12,
-        color: '#666',
-        marginTop: 12,
-        fontStyle: 'italic',
-    },
-    dangerButton: {
-        backgroundColor: 'rgba(255, 82, 82, 0.1)',
-        borderWidth: 1,
-        borderColor: '#FF5252',
-        borderRadius: 12,
-        padding: 16,
-        alignItems: 'center',
-    },
-    dangerButtonText: {
-        color: '#FF5252',
-        fontSize: 16,
-        fontWeight: 'bold',
-    },
-    seedButton: {
-        backgroundColor: 'rgba(0, 188, 212, 0.1)',
-        borderWidth: 1,
-        borderColor: '#00BCD4',
-        borderRadius: 12,
-        padding: 16,
-        alignItems: 'center',
-    },
-    seedButtonText: {
-        color: '#00BCD4',
-        fontSize: 16,
-        fontWeight: 'bold',
-    },
-});

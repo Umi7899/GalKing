@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Alert, Animated, Dimensions, ActivityIndicator } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { getAllVocab, getVocab } from '../../db/queries/content';
@@ -6,12 +6,16 @@ import { getVocabStates, upsertVocabState, type DbUserVocabState } from '../../d
 import { getBlitzSummary } from '../../llm/client';
 import type { Vocab } from '../../schemas/content';
 import { speak } from '../../utils/tts';
+import { useTheme } from '../../theme';
+import type { ColorTokens } from '../../theme';
 
 const GAME_DURATION = 60;
 const VICTORY_COUNT = 30; // 30 correct answers to win
 
 export default function VocabChallengeScreen() {
     const navigation = useNavigation();
+    const { colors } = useTheme();
+    const styles = useMemo(() => createStyles(colors), [colors]);
 
     // Game Data
     const [allVocab, setAllVocab] = useState<Vocab[]>([]);
@@ -271,7 +275,7 @@ export default function VocabChallengeScreen() {
 
                 {loadingSummary ? (
                     <View style={styles.summaryContainer}>
-                        <ActivityIndicator color="#FF6B9D" />
+                        <ActivityIndicator color={colors.primary} />
                         <Text style={styles.summaryText}>樱花老师正在思考点评...</Text>
                     </View>
                 ) : (
@@ -309,7 +313,7 @@ export default function VocabChallengeScreen() {
                                     inputRange: [0, 1],
                                     outputRange: ['0%', '100%']
                                 }),
-                                backgroundColor: timeLeft < 10 ? '#FF5252' : '#4CAF50'
+                                backgroundColor: timeLeft < 10 ? colors.errorLight : colors.success
                             }
                         ]}
                     />
@@ -360,15 +364,15 @@ export default function VocabChallengeScreen() {
     );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (c: ColorTokens) => StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#0F0F1A',
+        backgroundColor: c.bg,
         padding: 20,
     },
     containerCenter: {
         flex: 1,
-        backgroundColor: '#0F0F1A',
+        backgroundColor: c.bg,
         justifyContent: 'center',
         alignItems: 'center',
         padding: 20,
@@ -379,13 +383,13 @@ const styles = StyleSheet.create({
     },
     gameTitle: {
         fontSize: 32,
-        color: '#FFF',
+        color: c.textPrimary,
         fontWeight: 'bold',
         marginBottom: 10,
     },
     gameDesc: {
         fontSize: 16,
-        color: '#888',
+        color: c.textMuted,
         marginBottom: 5,
     },
     resultStats: {
@@ -397,13 +401,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     statText: {
-        color: '#FFF',
+        color: c.textPrimary,
         fontSize: 18,
         marginBottom: 8,
     },
     summaryContainer: {
         width: '100%',
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
         padding: 20,
         borderRadius: 16,
         marginBottom: 30,
@@ -411,10 +415,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderWidth: 1,
-        borderColor: '#FF6B9D',
+        borderColor: c.primary,
     },
     summaryLabel: {
-        color: '#FF6B9D',
+        color: c.primary,
         fontWeight: 'bold',
         marginBottom: 10,
         alignSelf: 'flex-start',
@@ -427,14 +431,14 @@ const styles = StyleSheet.create({
         width: '100%',
     },
     startButton: {
-        backgroundColor: '#FF6B9D',
+        backgroundColor: c.primary,
         paddingHorizontal: 40,
         paddingVertical: 16,
         borderRadius: 30,
         marginTop: 10,
     },
     startButtonText: {
-        color: '#FFF',
+        color: c.textPrimary,
         fontSize: 20,
         fontWeight: 'bold',
     },
@@ -442,7 +446,7 @@ const styles = StyleSheet.create({
         marginTop: 20,
     },
     backButtonText: {
-        color: '#666',
+        color: c.textSubtle,
         fontSize: 16,
     },
     hud: {
@@ -456,12 +460,12 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
     },
     scoreLabel: {
-        color: '#888',
+        color: c.textMuted,
         fontSize: 12,
         fontWeight: 'bold',
     },
     scoreValue: {
-        color: '#FFD700',
+        color: c.gold,
         fontSize: 24,
         fontWeight: 'bold',
     },
@@ -469,7 +473,7 @@ const styles = StyleSheet.create({
         flex: 1,
         marginLeft: 20,
         height: 10,
-        backgroundColor: '#333',
+        backgroundColor: c.border,
         borderRadius: 5,
         justifyContent: 'center',
     },
@@ -481,7 +485,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: -20,
         right: 0,
-        color: '#FFF',
+        color: c.textPrimary,
         fontWeight: 'bold',
     },
     streakContainer: {
@@ -507,7 +511,7 @@ const styles = StyleSheet.create({
         marginBottom: 40,
     },
     questionWord: {
-        color: '#FFF',
+        color: c.textPrimary,
         fontSize: 48,
         fontWeight: 'bold',
         textAlign: 'center',
@@ -518,18 +522,18 @@ const styles = StyleSheet.create({
         marginTop: 10,
     },
     questionReading: {
-        color: '#AAA',
+        color: c.textSecondary,
         fontSize: 24,
         marginRight: 10,
     },
     masteryBadge: {
-        backgroundColor: '#333',
+        backgroundColor: c.border,
         paddingHorizontal: 6,
         paddingVertical: 2,
         borderRadius: 4,
     },
     masteryText: {
-        color: '#4CAF50',
+        color: c.success,
         fontSize: 12,
         fontWeight: 'bold',
     },
@@ -547,7 +551,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         borderWidth: 1,
-        borderColor: '#333',
+        borderColor: c.border,
         marginBottom: 16,
     },
     optionText: {

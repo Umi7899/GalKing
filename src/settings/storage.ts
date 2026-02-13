@@ -14,10 +14,18 @@ export interface LLMSettings {
     modelName?: string;       // Override default model
 }
 
+export interface NotificationSettings {
+    enabled: boolean;
+    hour: number;
+    minute: number;
+}
+
 // ============ Storage Keys ============
 
 const KEYS = {
     LLM_SETTINGS: '@galking/llm_settings',
+    NOTIFICATION_SETTINGS: '@galking/notification_settings',
+    ONBOARDING_COMPLETE: '@galking/onboarding_complete',
 };
 
 // ============ Provider Configs ============
@@ -92,4 +100,47 @@ export function getModelForProvider(settings: LLMSettings): string {
         return settings.modelName;
     }
     return PROVIDER_CONFIGS[settings.provider].defaultModel;
+}
+
+// ============ Notification Settings ============
+
+const DEFAULT_NOTIFICATION_SETTINGS: NotificationSettings = {
+    enabled: false,
+    hour: 20,
+    minute: 0,
+};
+
+export async function getNotificationSettings(): Promise<NotificationSettings> {
+    try {
+        const json = await AsyncStorage.getItem(KEYS.NOTIFICATION_SETTINGS);
+        if (!json) return DEFAULT_NOTIFICATION_SETTINGS;
+        return { ...DEFAULT_NOTIFICATION_SETTINGS, ...JSON.parse(json) };
+    } catch (e) {
+        console.error('[Settings] Notification load error:', e);
+        return DEFAULT_NOTIFICATION_SETTINGS;
+    }
+}
+
+export async function saveNotificationSettings(settings: NotificationSettings): Promise<void> {
+    try {
+        await AsyncStorage.setItem(KEYS.NOTIFICATION_SETTINGS, JSON.stringify(settings));
+    } catch (e) {
+        console.error('[Settings] Notification save error:', e);
+        throw e;
+    }
+}
+
+// ============ Onboarding ============
+
+export async function isOnboardingComplete(): Promise<boolean> {
+    try {
+        const value = await AsyncStorage.getItem(KEYS.ONBOARDING_COMPLETE);
+        return value === 'true';
+    } catch {
+        return false;
+    }
+}
+
+export async function setOnboardingComplete(): Promise<void> {
+    await AsyncStorage.setItem(KEYS.ONBOARDING_COMPLETE, 'true');
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useMemo } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Dimensions, Modal, ScrollView, Animated, FlatList } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -7,6 +7,8 @@ import { getAllGrammarPoints } from '../../db/queries/content';
 import { getUserProgress } from '../../db/queries/progress';
 import type { GrammarPoint } from '../../schemas/content';
 import { speak } from '../../utils/tts';
+import { useTheme } from '../../theme';
+import type { ColorTokens } from '../../theme';
 
 const { width, height } = Dimensions.get('window');
 const CARD_HEIGHT = 280;
@@ -14,6 +16,9 @@ const SPACING = 20;
 const SNAP_SIZE = CARD_HEIGHT + SPACING;
 
 const GrammarCard = ({ item, index, scrollY, onExpand }: { item: GrammarPoint; index: number; scrollY: Animated.Value; onExpand: (item: GrammarPoint) => void }) => {
+    const { colors } = useTheme();
+    const styles = useMemo(() => createStyles(colors), [colors]);
+
     const [isFlipped, setIsFlipped] = useState(false);
     const flipAnim = useRef(new Animated.Value(0)).current;
 
@@ -77,7 +82,7 @@ const GrammarCard = ({ item, index, scrollY, onExpand }: { item: GrammarPoint; i
 
     // Z-Index emulation via elevation for Android
     // Center item needs higher elevation.
-    // Note: zIndex/elevation interpolation is tricky in RN. 
+    // Note: zIndex/elevation interpolation is tricky in RN.
     // We use a step function approximation or just rely on Opacity to hide overlap mess.
     // Ideally we want Center > Top/Bottom.
     // Standard FlatList renders 0,1,2. 2 covers 1.
@@ -171,6 +176,9 @@ export default function GrammarCardScreen() {
     const navigation = useNavigation();
     const [items, setItems] = useState<GrammarPoint[]>([]);
     const [expandedItem, setExpandedItem] = useState<GrammarPoint | null>(null);
+
+    const { colors } = useTheme();
+    const styles = useMemo(() => createStyles(colors), [colors]);
 
     const scrollY = useRef(new Animated.Value(0)).current;
 
@@ -286,10 +294,10 @@ export default function GrammarCardScreen() {
     );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (c: ColorTokens) => StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#0F0F1A',
+        backgroundColor: c.bg,
     },
     header: {
         flexDirection: 'row',
@@ -298,12 +306,12 @@ const styles = StyleSheet.create({
         paddingTop: 50,
         paddingHorizontal: 20,
         paddingBottom: 20,
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
         zIndex: 200,
     },
     backButton: { padding: 8 },
     backText: { color: '#DDD', fontSize: 16 },
-    title: { color: '#FFF', fontSize: 18, fontWeight: 'bold' },
+    title: { color: c.textPrimary, fontSize: 18, fontWeight: 'bold' },
     cardContainer: {
         height: CARD_HEIGHT,
         width: width * 0.9,
@@ -337,16 +345,16 @@ const styles = StyleSheet.create({
     },
     contentContainer: {
         padding: 24,
-        paddingBottom: 120, // Increased bottom padding to prevent overlap text 
+        paddingBottom: 120, // Increased bottom padding to prevent overlap text
     },
-    lessonLabel: { color: '#888', fontSize: 14, marginBottom: 12, letterSpacing: 2 },
-    grammarName: { color: '#FFF', fontSize: 28, fontWeight: 'bold', marginBottom: 20 },
-    pillContainer: { backgroundColor: '#333', paddingHorizontal: 16, paddingVertical: 6, borderRadius: 20, marginBottom: 30 },
-    pillText: { color: '#FFD700', fontWeight: 'bold' },
-    tapHint: { color: '#FF6B9D', fontSize: 12, position: 'absolute', bottom: 30, opacity: 0.8 },
+    lessonLabel: { color: c.textMuted, fontSize: 14, marginBottom: 12, letterSpacing: 2 },
+    grammarName: { color: c.textPrimary, fontSize: 28, fontWeight: 'bold', marginBottom: 20 },
+    pillContainer: { backgroundColor: c.border, paddingHorizontal: 16, paddingVertical: 6, borderRadius: 20, marginBottom: 30 },
+    pillText: { color: c.gold, fontWeight: 'bold' },
+    tapHint: { color: c.primary, fontSize: 12, position: 'absolute', bottom: 30, opacity: 0.8 },
     cardTitle: { color: '#81D4FA', fontSize: 12, fontWeight: 'bold', marginTop: 12, marginBottom: 4 },
     cardContent: { color: '#EEE', fontSize: 16, lineHeight: 24, marginBottom: 8 },
-    exampleJp: { color: '#FFF', fontSize: 15, fontStyle: 'italic', opacity: 0.9 },
+    exampleJp: { color: c.textPrimary, fontSize: 15, fontStyle: 'italic', opacity: 0.9 },
     gradientOverlay: {
         position: 'absolute',
         bottom: 0,
@@ -358,29 +366,29 @@ const styles = StyleSheet.create({
         paddingBottom: 20,
     },
     expandButton: {
-        backgroundColor: 'rgba(255, 107, 157, 0.2)',
+        backgroundColor: c.primaryAlpha20,
         paddingHorizontal: 20,
         paddingVertical: 8,
         borderRadius: 20,
         borderWidth: 1,
-        borderColor: '#FF6B9D',
+        borderColor: c.primary,
     },
-    expandText: { color: '#FF6B9D', fontSize: 14, fontWeight: 'bold' },
+    expandText: { color: c.primary, fontSize: 14, fontWeight: 'bold' },
     // Modal
     modalOverlay: { flex: 1, backgroundColor: 'rgba(0,0,0,0.9)', justifyContent: 'center' },
     modalCloseArea: { position: 'absolute', top: 0, bottom: 0, left: 0, right: 0 },
     modalContent: { margin: 20, backgroundColor: '#181825', borderRadius: 20, maxHeight: '80%', overflow: 'hidden' },
-    modalHeader: { padding: 20, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', borderBottomWidth: 1, borderBottomColor: '#333', backgroundColor: '#202030' },
-    modalTitle: { color: '#FFF', fontSize: 20, fontWeight: 'bold' },
+    modalHeader: { padding: 20, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', borderBottomWidth: 1, borderBottomColor: c.border, backgroundColor: '#202030' },
+    modalTitle: { color: c.textPrimary, fontSize: 20, fontWeight: 'bold' },
     closeBtn: { padding: 8 },
-    closeBtnText: { color: '#888', fontSize: 20 },
+    closeBtnText: { color: c.textMuted, fontSize: 20 },
     modalScroll: { padding: 20 },
     modalSectionTitle: { color: '#81D4FA', fontSize: 16, fontWeight: 'bold', marginTop: 10, marginBottom: 8 },
     modalText: { color: '#EEE', fontSize: 16, lineHeight: 26 },
     exampleBlock: { backgroundColor: '#252535', padding: 12, borderRadius: 8, marginBottom: 12 },
-    modalExampleJp: { color: '#FF6B9D', fontSize: 16, marginBottom: 4, fontWeight: '500' },
-    modalExampleZh: { color: '#AAA', fontSize: 14 },
-    divider: { height: 1, backgroundColor: '#333', marginVertical: 12 },
+    modalExampleJp: { color: c.primary, fontSize: 16, marginBottom: 4, fontWeight: '500' },
+    modalExampleZh: { color: c.textSecondary, fontSize: 14 },
+    divider: { height: 1, backgroundColor: c.border, marginVertical: 12 },
     frontSpeaker: {
         marginBottom: 20,
         backgroundColor: 'rgba(255,255,255,0.1)',

@@ -1,7 +1,7 @@
 // src/screens/quick/DictationScreen.tsx
 // Quick Access: Dictation Practice (听写练习)
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import {
     View, Text, StyleSheet, TouchableOpacity, TextInput,
     KeyboardAvoidingView, Platform, ScrollView, Animated,
@@ -12,6 +12,8 @@ import { getVocabByIds, getSentencesByLesson } from '../../db/queries/content';
 import type { Vocab, Sentence } from '../../schemas/content';
 import { speak, stop } from '../../utils/tts';
 import { computeVocabSM2Interval } from '../../engine/scorer';
+import { useTheme } from '../../theme';
+import type { ColorTokens } from '../../theme';
 
 interface DictationItem {
     type: 'vocab' | 'sentence';
@@ -30,6 +32,8 @@ interface DictationResult {
 
 export default function DictationScreen() {
     const navigation = useNavigation();
+    const { colors } = useTheme();
+    const styles = useMemo(() => createStyles(colors), [colors]);
 
     const [loading, setLoading] = useState(true);
     const [stage, setStage] = useState<'intro' | 'playing' | 'result'>('intro');
@@ -319,7 +323,7 @@ export default function DictationScreen() {
                     value={userInput}
                     onChangeText={setUserInput}
                     placeholder="输入你听到的内容..."
-                    placeholderTextColor="#555"
+                    placeholderTextColor={colors.textDim}
                     editable={!submitted}
                     autoFocus
                     returnKeyType="done"
@@ -413,20 +417,20 @@ function levenshtein(a: string, b: string): number {
     return dp[m][n];
 }
 
-const styles = StyleSheet.create({
+const createStyles = (c: ColorTokens) => StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#0F0F1A',
+        backgroundColor: c.bg,
         paddingHorizontal: 20,
         paddingTop: 60,
     },
     loadingText: {
-        color: '#888',
+        color: c.textMuted,
         textAlign: 'center',
         marginTop: 100,
     },
     emptyText: {
-        color: '#888',
+        color: c.textMuted,
         textAlign: 'center',
         marginTop: 100,
         fontSize: 16,
@@ -436,11 +440,11 @@ const styles = StyleSheet.create({
         marginTop: 20,
         paddingHorizontal: 24,
         paddingVertical: 12,
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
         borderRadius: 12,
     },
     backButtonText: {
-        color: '#9C27B0',
+        color: c.accent,
         fontSize: 16,
     },
     closeButton: {
@@ -450,7 +454,7 @@ const styles = StyleSheet.create({
         zIndex: 10,
     },
     closeButtonText: {
-        color: '#888',
+        color: c.textMuted,
         fontSize: 24,
         fontWeight: '300',
     },
@@ -467,17 +471,17 @@ const styles = StyleSheet.create({
     introTitle: {
         fontSize: 28,
         fontWeight: 'bold',
-        color: '#fff',
+        color: c.textPrimary,
         marginBottom: 4,
     },
     introSubtitle: {
         fontSize: 16,
-        color: '#9C27B0',
+        color: c.accent,
         marginBottom: 24,
     },
     introDesc: {
         fontSize: 14,
-        color: '#888',
+        color: c.textMuted,
         textAlign: 'center',
         lineHeight: 22,
         marginBottom: 16,
@@ -485,17 +489,17 @@ const styles = StyleSheet.create({
     },
     introCount: {
         fontSize: 14,
-        color: '#666',
+        color: c.textSubtle,
         marginBottom: 40,
     },
     startButton: {
-        backgroundColor: '#9C27B0',
+        backgroundColor: c.accent,
         paddingHorizontal: 48,
         paddingVertical: 16,
         borderRadius: 24,
     },
     startButtonText: {
-        color: '#fff',
+        color: c.textPrimary,
         fontSize: 20,
         fontWeight: 'bold',
     },
@@ -508,22 +512,22 @@ const styles = StyleSheet.create({
     },
     headerTitle: {
         fontSize: 14,
-        color: '#9C27B0',
+        color: c.accent,
         fontWeight: '600',
     },
     headerScore: {
         fontSize: 14,
-        color: '#888',
+        color: c.textMuted,
     },
     progressBar: {
         height: 4,
-        backgroundColor: '#333',
+        backgroundColor: c.border,
         borderRadius: 2,
         marginBottom: 24,
     },
     progressFill: {
         height: '100%',
-        backgroundColor: '#9C27B0',
+        backgroundColor: c.accent,
         borderRadius: 2,
     },
     // Playing
@@ -531,7 +535,7 @@ const styles = StyleSheet.create({
         paddingBottom: 40,
     },
     audioCard: {
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
         borderRadius: 20,
         padding: 24,
         alignItems: 'center',
@@ -546,38 +550,38 @@ const styles = StyleSheet.create({
     slowButton: {
         paddingHorizontal: 20,
         paddingVertical: 8,
-        backgroundColor: '#333',
+        backgroundColor: c.border,
         borderRadius: 16,
         marginBottom: 12,
     },
     slowButtonText: {
-        color: '#aaa',
+        color: c.textSecondary,
         fontSize: 14,
     },
     hintText: {
-        color: '#666',
+        color: c.textSubtle,
         fontSize: 13,
         fontStyle: 'italic',
     },
     textInput: {
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
         borderRadius: 16,
         padding: 20,
         fontSize: 20,
-        color: '#fff',
+        color: c.textPrimary,
         textAlign: 'center',
         borderWidth: 2,
-        borderColor: '#333',
+        borderColor: c.border,
         marginBottom: 16,
     },
     textInputCorrect: {
-        borderColor: '#4CAF50',
+        borderColor: c.success,
     },
     textInputWrong: {
-        borderColor: '#F44336',
+        borderColor: c.error,
     },
     feedbackCard: {
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
         borderRadius: 16,
         padding: 20,
         alignItems: 'center',
@@ -590,7 +594,7 @@ const styles = StyleSheet.create({
     feedbackTitle: {
         fontSize: 20,
         fontWeight: 'bold',
-        color: '#fff',
+        color: c.textPrimary,
         marginBottom: 12,
     },
     comparisonContainer: {
@@ -599,25 +603,25 @@ const styles = StyleSheet.create({
     },
     comparisonLabel: {
         fontSize: 12,
-        color: '#666',
+        color: c.textSubtle,
         marginTop: 8,
     },
     comparisonAnswer: {
         fontSize: 18,
-        color: '#4CAF50',
+        color: c.success,
         fontWeight: '600',
     },
     comparisonUser: {
         fontSize: 18,
-        color: '#F44336',
+        color: c.error,
     },
     similarityText: {
         fontSize: 12,
-        color: '#888',
+        color: c.textMuted,
         marginTop: 8,
     },
     submitButton: {
-        backgroundColor: '#9C27B0',
+        backgroundColor: c.accent,
         paddingVertical: 16,
         borderRadius: 20,
         alignItems: 'center',
@@ -626,18 +630,18 @@ const styles = StyleSheet.create({
         opacity: 0.5,
     },
     submitButtonText: {
-        color: '#fff',
+        color: c.textPrimary,
         fontSize: 18,
         fontWeight: 'bold',
     },
     nextButton: {
-        backgroundColor: '#9C27B0',
+        backgroundColor: c.accent,
         paddingVertical: 16,
         borderRadius: 20,
         alignItems: 'center',
     },
     nextButtonText: {
-        color: '#fff',
+        color: c.textPrimary,
         fontSize: 18,
         fontWeight: 'bold',
     },
@@ -654,17 +658,17 @@ const styles = StyleSheet.create({
     resultTitle: {
         fontSize: 24,
         fontWeight: 'bold',
-        color: '#fff',
+        color: c.textPrimary,
         marginBottom: 8,
     },
     resultAccuracy: {
         fontSize: 64,
         fontWeight: 'bold',
-        color: '#9C27B0',
+        color: c.accent,
     },
     resultLabel: {
         fontSize: 14,
-        color: '#888',
+        color: c.textMuted,
         marginBottom: 24,
     },
     resultList: {
@@ -675,42 +679,42 @@ const styles = StyleSheet.create({
     resultItem: {
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
         borderRadius: 12,
         padding: 14,
         borderLeftWidth: 4,
     },
     resultItemCorrect: {
-        borderLeftColor: '#4CAF50',
+        borderLeftColor: c.success,
     },
     resultItemWrong: {
-        borderLeftColor: '#F44336',
+        borderLeftColor: c.error,
     },
     resultItemEmoji: {
         fontSize: 18,
         marginRight: 12,
-        color: '#fff',
+        color: c.textPrimary,
     },
     resultItemContent: {
         flex: 1,
     },
     resultItemAnswer: {
         fontSize: 16,
-        color: '#fff',
+        color: c.textPrimary,
     },
     resultItemUser: {
         fontSize: 13,
-        color: '#F44336',
+        color: c.error,
         marginTop: 2,
     },
     finishButton: {
-        backgroundColor: '#9C27B0',
+        backgroundColor: c.accent,
         paddingHorizontal: 48,
         paddingVertical: 16,
         borderRadius: 24,
     },
     finishButtonText: {
-        color: '#fff',
+        color: c.textPrimary,
         fontSize: 18,
         fontWeight: 'bold',
     },
