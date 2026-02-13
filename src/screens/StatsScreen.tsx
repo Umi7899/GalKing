@@ -1,7 +1,7 @@
 // src/screens/StatsScreen.tsx
 // Enhanced Statistics screen with heatmap, mastery rings, and accuracy trend
 
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import {
     View,
     Text,
@@ -16,6 +16,8 @@ import {
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import type { StatsStackParamList } from '../navigation/RootNavigator';
+import { useTheme } from '../theme';
+import type { ColorTokens } from '../theme';
 import {
     getSessionStats,
     getRecentSessions,
@@ -27,6 +29,8 @@ import {
     type AccuracyTrend,
 } from '../db/queries/sessions';
 import { getMasteryOverview, type MasteryOverview } from '../db/queries/progress';
+import { getUnlockedCount } from '../engine/achievementChecker';
+import { ACHIEVEMENTS } from '../engine/achievements';
 import { resetAllProgress } from '../db/queries/admin';
 import type { DbSession } from '../db/database';
 import type { ResultJson } from '../schemas/session';
@@ -38,9 +42,464 @@ interface SessionItem {
     result: ResultJson | null;
 }
 
+// ============ Heatmap Styles ============
+
+const createHeatStyles = (c: ColorTokens) => StyleSheet.create({
+    container: {
+        backgroundColor: c.bgCard,
+        borderRadius: 16,
+        padding: 16,
+        marginBottom: 16,
+    },
+    title: {
+        fontSize: 16,
+        fontWeight: '600',
+        color: c.textPrimary,
+        marginBottom: 2,
+    },
+    subtitle: {
+        fontSize: 12,
+        color: c.textSubtle,
+        marginBottom: 12,
+    },
+    monthRow: {
+        height: 16,
+        position: 'relative',
+        marginBottom: 4,
+        marginLeft: 20,
+    },
+    monthLabel: {
+        position: 'absolute',
+        fontSize: 10,
+        color: c.textSubtle,
+    },
+    grid: {
+        flexDirection: 'row',
+    },
+    dayLabels: {
+        marginRight: 4,
+    },
+    dayLabel: {
+        fontSize: 9,
+        color: c.textDim,
+        height: 11,
+        lineHeight: 11,
+        textAlign: 'right',
+        width: 14,
+    },
+    weekColumn: {
+        marginRight: 2,
+    },
+    cell: {
+        width: 11,
+        height: 11,
+        borderRadius: 2,
+        marginBottom: 2,
+    },
+    cellToday: {
+        borderWidth: 1,
+        borderColor: c.primary,
+    },
+    legend: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'flex-end',
+        marginTop: 8,
+        gap: 3,
+    },
+    legendCell: {
+        width: 10,
+        height: 10,
+        borderRadius: 2,
+    },
+    legendText: {
+        fontSize: 10,
+        color: c.textDim,
+        marginHorizontal: 2,
+    },
+});
+
+// ============ Ring Styles ============
+
+const createRingStyles = (c: ColorTokens) => StyleSheet.create({
+    container: {
+        alignItems: 'center',
+        flex: 1,
+    },
+    ringOuter: {
+        position: 'relative',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    centerLabel: {
+        position: 'absolute',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%',
+        height: '100%',
+    },
+    ringValue: {
+        fontSize: 18,
+        fontWeight: 'bold',
+    },
+    label: {
+        fontSize: 14,
+        color: c.textPrimary,
+        marginTop: 8,
+        fontWeight: '500',
+    },
+    detail: {
+        fontSize: 11,
+        color: c.textSubtle,
+        marginTop: 2,
+    },
+});
+
+// ============ Trend Styles ============
+
+const createTrendStyles = (c: ColorTokens) => StyleSheet.create({
+    container: {
+        backgroundColor: c.bgCard,
+        borderRadius: 16,
+        padding: 16,
+        marginBottom: 16,
+    },
+    title: {
+        fontSize: 16,
+        fontWeight: '600',
+        color: c.textPrimary,
+        marginBottom: 2,
+    },
+    subtitle: {
+        fontSize: 12,
+        color: c.textSubtle,
+        marginBottom: 12,
+    },
+    empty: {
+        color: c.textDim,
+        fontSize: 14,
+        textAlign: 'center',
+        paddingVertical: 20,
+    },
+    legendRow: {
+        flexDirection: 'row',
+        gap: 16,
+        marginBottom: 12,
+    },
+    legendItem: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: 4,
+    },
+    legendDot: {
+        width: 8,
+        height: 8,
+        borderRadius: 4,
+    },
+    legendText: {
+        fontSize: 11,
+        color: c.textMuted,
+    },
+    chartArea: {
+        flexDirection: 'row',
+        height: 120,
+    },
+    yAxis: {
+        width: 36,
+        justifyContent: 'space-between',
+        paddingBottom: 16,
+    },
+    yLabel: {
+        fontSize: 9,
+        color: c.textDim,
+        textAlign: 'right',
+    },
+    barsContainer: {
+        flex: 1,
+        flexDirection: 'row',
+        alignItems: 'flex-end',
+        position: 'relative',
+        paddingBottom: 16,
+    },
+    gridLine: {
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        height: 1,
+        backgroundColor: c.divider,
+    },
+    barGroup: {
+        flexDirection: 'row',
+        alignItems: 'flex-end',
+        justifyContent: 'center',
+        gap: 1,
+        paddingHorizontal: 1,
+    },
+    bar: {
+        width: 5,
+        borderRadius: 2,
+        minHeight: 2,
+    },
+    dateLabel: {
+        position: 'absolute',
+        bottom: -14,
+        fontSize: 7,
+        color: c.textDim,
+        textAlign: 'center',
+    },
+});
+
+// ============ Main Styles ============
+
+const createStyles = (c: ColorTokens) => StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: c.bg,
+    },
+    scrollContent: {
+        paddingHorizontal: 16,
+    },
+    loadingContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    header: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        paddingTop: 60,
+        paddingHorizontal: 4,
+        paddingBottom: 20,
+    },
+    headerTitle: {
+        fontSize: 28,
+        fontWeight: 'bold',
+        color: c.textPrimary,
+    },
+    settingsButton: {
+        backgroundColor: c.bgCard,
+        paddingHorizontal: 14,
+        paddingVertical: 8,
+        borderRadius: 16,
+    },
+    settingsButtonText: {
+        color: c.primary,
+        fontSize: 14,
+        fontWeight: '600',
+    },
+    summaryContainer: {
+        flexDirection: 'row',
+        gap: 8,
+        marginBottom: 16,
+    },
+    summaryCard: {
+        flex: 1,
+        backgroundColor: c.bgCard,
+        borderRadius: 12,
+        paddingVertical: 14,
+        alignItems: 'center',
+    },
+    summaryValue: {
+        fontSize: 22,
+        fontWeight: 'bold',
+        color: c.primary,
+        marginBottom: 2,
+    },
+    summaryLabel: {
+        fontSize: 11,
+        color: c.textMuted,
+    },
+    timeCard: {
+        backgroundColor: c.bgCard,
+        borderRadius: 12,
+        padding: 14,
+        marginBottom: 16,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    },
+    timeLabel: {
+        fontSize: 14,
+        color: c.textMuted,
+    },
+    timeValue: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: c.blue,
+    },
+    masterySection: {
+        backgroundColor: c.bgCard,
+        borderRadius: 16,
+        padding: 16,
+        marginBottom: 16,
+    },
+    sectionTitle: {
+        fontSize: 16,
+        fontWeight: '600',
+        color: c.textPrimary,
+        marginBottom: 16,
+    },
+    masteryRow: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+    },
+    historySection: {
+        marginTop: 4,
+    },
+    sessionCard: {
+        backgroundColor: c.bgCard,
+        borderRadius: 12,
+        padding: 14,
+        marginBottom: 8,
+    },
+    sessionHeader: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginBottom: 8,
+    },
+    sessionDate: {
+        fontSize: 14,
+        color: c.textPrimary,
+        fontWeight: '500',
+    },
+    starsRow: {
+        flexDirection: 'row',
+        gap: 2,
+    },
+    starIcon: {
+        fontSize: 14,
+    },
+    starFilled: {
+        color: c.gold,
+    },
+    starEmpty: {
+        color: c.border,
+    },
+    sessionStats: {
+        flexDirection: 'row',
+        gap: 12,
+    },
+    sessionStatItem: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: 4,
+    },
+    statDot: {
+        width: 6,
+        height: 6,
+        borderRadius: 3,
+    },
+    sessionStat: {
+        fontSize: 12,
+        color: c.textMuted,
+    },
+    coachSection: {
+        marginTop: 8,
+        paddingTop: 8,
+        borderTopWidth: 1,
+        borderTopColor: c.divider,
+    },
+    coachLabel: {
+        color: c.primary,
+        fontSize: 12,
+        marginBottom: 4,
+    },
+    coachText: {
+        color: c.textSecondary,
+        fontSize: 12,
+        lineHeight: 18,
+    },
+    exportBtn: {
+        marginTop: 6,
+        alignSelf: 'flex-end',
+        paddingVertical: 4,
+        paddingHorizontal: 10,
+        borderRadius: 8,
+        backgroundColor: c.successAlpha15,
+    },
+    exportBtnText: {
+        color: c.success,
+        fontSize: 12,
+    },
+    showMoreBtn: {
+        paddingVertical: 12,
+        alignItems: 'center',
+    },
+    showMoreText: {
+        color: c.primary,
+        fontSize: 14,
+    },
+    emptyContainer: {
+        alignItems: 'center',
+        paddingVertical: 30,
+    },
+    emptyText: {
+        fontSize: 16,
+        color: c.textPrimary,
+        marginBottom: 4,
+    },
+    emptySubtext: {
+        fontSize: 13,
+        color: c.textMuted,
+    },
+    resetButton: {
+        marginTop: 20,
+        paddingVertical: 12,
+        paddingHorizontal: 20,
+        borderRadius: 12,
+        borderWidth: 1,
+        borderColor: c.errorBright,
+        alignSelf: 'center',
+        backgroundColor: c.errorAlpha10,
+    },
+    resetButtonText: {
+        color: c.errorBright,
+        fontSize: 14,
+        fontWeight: '600',
+    },
+    achievementCard: {
+        backgroundColor: c.bgCard,
+        borderRadius: 12,
+        padding: 16,
+        marginBottom: 16,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        borderWidth: 1,
+        borderColor: c.gold,
+    },
+    achievementLeft: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: 12,
+    },
+    achievementIcon: {
+        fontSize: 28,
+    },
+    achievementTitle: {
+        fontSize: 16,
+        fontWeight: '600',
+        color: c.textPrimary,
+    },
+    achievementSub: {
+        fontSize: 12,
+        color: c.gold,
+        marginTop: 2,
+    },
+    achievementArrow: {
+        fontSize: 18,
+        color: c.textMuted,
+    },
+});
+
 // ============ Heatmap Component ============
 
 function ActivityHeatmap({ data }: { data: DailyActivity[] }) {
+    const { colors } = useTheme();
+    const heatStyles = useMemo(() => createHeatStyles(colors), [colors]);
+
     // Show last 12 weeks (84 days), 7 rows (Mon-Sun)
     const weeks: DailyActivity[][] = [];
     for (let i = 0; i < data.length; i += 7) {
@@ -48,13 +507,23 @@ function ActivityHeatmap({ data }: { data: DailyActivity[] }) {
     }
 
     const getColor = (item: DailyActivity) => {
-        if (!item.completed && item.stars === 0) return '#1A1A2E';
-        if (item.stars >= 5) return '#4CAF50';
-        if (item.stars >= 4) return '#66BB6A';
-        if (item.stars >= 3) return '#81C784';
-        if (item.stars >= 2) return '#A5D6A7';
-        return '#C8E6C9';
+        if (!item.completed && item.stars === 0) return colors.heatmap0;
+        if (item.stars >= 5) return colors.heatmap5;
+        if (item.stars >= 4) return colors.heatmap4;
+        if (item.stars >= 3) return colors.heatmap3;
+        if (item.stars >= 2) return colors.heatmap2;
+        return colors.heatmap1;
     };
+
+    // Legend colors array using theme tokens
+    const legendColors = [
+        colors.heatmap0,
+        colors.heatmap1,
+        colors.heatmap2,
+        colors.heatmap3,
+        colors.heatmap4,
+        colors.heatmap5,
+    ];
 
     // Month labels
     const monthLabels: { label: string; weekIdx: number }[] = [];
@@ -119,8 +588,8 @@ function ActivityHeatmap({ data }: { data: DailyActivity[] }) {
             {/* Legend */}
             <View style={heatStyles.legend}>
                 <Text style={heatStyles.legendText}>少</Text>
-                {['#1A1A2E', '#C8E6C9', '#A5D6A7', '#81C784', '#66BB6A', '#4CAF50'].map((c, i) => (
-                    <View key={i} style={[heatStyles.legendCell, { backgroundColor: c }]} />
+                {legendColors.map((clr, i) => (
+                    <View key={i} style={[heatStyles.legendCell, { backgroundColor: clr }]} />
                 ))}
                 <Text style={heatStyles.legendText}>多</Text>
             </View>
@@ -147,6 +616,9 @@ function MasteryRing({
     mastered: number;
     color: string;
 }) {
+    const { colors } = useTheme();
+    const ringStyles = useMemo(() => createRingStyles(colors), [colors]);
+
     const percentage = Math.round(value);
     const size = 84;
     const sw = 7;
@@ -159,7 +631,7 @@ function MasteryRing({
                 {/* Track */}
                 <View style={{
                     position: 'absolute', width: size, height: size,
-                    borderRadius: half, borderWidth: sw, borderColor: '#333',
+                    borderRadius: half, borderWidth: sw, borderColor: colors.border,
                 }} />
 
                 {/* Right half (0-50%) */}
@@ -210,6 +682,9 @@ function MasteryRing({
 // ============ Accuracy Trend Component ============
 
 function AccuracyTrendChart({ data }: { data: AccuracyTrend[] }) {
+    const { colors } = useTheme();
+    const trendStyles = useMemo(() => createTrendStyles(colors), [colors]);
+
     if (data.length === 0) {
         return (
             <View style={trendStyles.container}>
@@ -230,15 +705,15 @@ function AccuracyTrendChart({ data }: { data: AccuracyTrend[] }) {
             {/* Legend */}
             <View style={trendStyles.legendRow}>
                 <View style={trendStyles.legendItem}>
-                    <View style={[trendStyles.legendDot, { backgroundColor: '#FF6B9D' }]} />
+                    <View style={[trendStyles.legendDot, { backgroundColor: colors.primary }]} />
                     <Text style={trendStyles.legendText}>语法</Text>
                 </View>
                 <View style={trendStyles.legendItem}>
-                    <View style={[trendStyles.legendDot, { backgroundColor: '#4CAF50' }]} />
+                    <View style={[trendStyles.legendDot, { backgroundColor: colors.success }]} />
                     <Text style={trendStyles.legendText}>词汇</Text>
                 </View>
                 <View style={trendStyles.legendItem}>
-                    <View style={[trendStyles.legendDot, { backgroundColor: '#9C27B0' }]} />
+                    <View style={[trendStyles.legendDot, { backgroundColor: colors.accent }]} />
                     <Text style={trendStyles.legendText}>句子</Text>
                 </View>
             </View>
@@ -266,7 +741,7 @@ function AccuracyTrendChart({ data }: { data: AccuracyTrend[] }) {
                                     trendStyles.bar,
                                     {
                                         height: Math.max(item.grammarAcc * maxBarPx, 2),
-                                        backgroundColor: '#FF6B9D',
+                                        backgroundColor: colors.primary,
                                     },
                                 ]}
                             />
@@ -276,7 +751,7 @@ function AccuracyTrendChart({ data }: { data: AccuracyTrend[] }) {
                                     trendStyles.bar,
                                     {
                                         height: Math.max(item.vocabAcc * maxBarPx, 2),
-                                        backgroundColor: '#4CAF50',
+                                        backgroundColor: colors.success,
                                     },
                                 ]}
                             />
@@ -286,7 +761,7 @@ function AccuracyTrendChart({ data }: { data: AccuracyTrend[] }) {
                                     trendStyles.bar,
                                     {
                                         height: Math.max(item.sentenceAcc * maxBarPx, 2),
-                                        backgroundColor: '#9C27B0',
+                                        backgroundColor: colors.accent,
                                     },
                                 ]}
                             />
@@ -305,6 +780,8 @@ function AccuracyTrendChart({ data }: { data: AccuracyTrend[] }) {
 
 export default function StatsScreen() {
     const navigation = useNavigation<NavigationProp>();
+    const { colors } = useTheme();
+    const styles = useMemo(() => createStyles(colors), [colors]);
     const [loading, setLoading] = useState(true);
     const [stats, setStats] = useState({
         totalSessions: 0,
@@ -317,13 +794,14 @@ export default function StatsScreen() {
     const [mastery, setMastery] = useState<MasteryOverview | null>(null);
     const [trend, setTrend] = useState<AccuracyTrend[]>([]);
     const [totalTime, setTotalTime] = useState(0);
+    const [achievementCount, setAchievementCount] = useState(0);
     const [showAllSessions, setShowAllSessions] = useState(false);
 
     const loadData = useCallback(async () => {
         try {
             setLoading(true);
 
-            const [statsData, recentSessions, heatmapData, masteryData, trendData, timeData] =
+            const [statsData, recentSessions, heatmapData, masteryData, trendData, timeData, achCount] =
                 await Promise.all([
                     getSessionStats(),
                     getRecentSessions(20),
@@ -331,6 +809,7 @@ export default function StatsScreen() {
                     getMasteryOverview(),
                     getAccuracyTrend(14),
                     getTotalLearningTime(),
+                    getUnlockedCount(),
                 ]);
 
             setStats(statsData);
@@ -342,6 +821,7 @@ export default function StatsScreen() {
             setMastery(masteryData);
             setTrend(trendData);
             setTotalTime(timeData);
+            setAchievementCount(achCount);
         } catch (e) {
             console.error('[Stats] Load error:', e);
         } finally {
@@ -404,7 +884,7 @@ export default function StatsScreen() {
         return (
             <View style={styles.container}>
                 <View style={styles.loadingContainer}>
-                    <ActivityIndicator size="large" color="#FF6B9D" />
+                    <ActivityIndicator size="large" color={colors.primary} />
                 </View>
             </View>
         );
@@ -432,17 +912,17 @@ export default function StatsScreen() {
                     <Text style={styles.summaryLabel}>总训练</Text>
                 </View>
                 <View style={styles.summaryCard}>
-                    <Text style={[styles.summaryValue, { color: '#FFD700' }]}>{stats.totalStars}</Text>
+                    <Text style={[styles.summaryValue, { color: colors.gold }]}>{stats.totalStars}</Text>
                     <Text style={styles.summaryLabel}>总星星</Text>
                 </View>
                 <View style={styles.summaryCard}>
-                    <Text style={[styles.summaryValue, { color: '#4CAF50' }]}>
+                    <Text style={[styles.summaryValue, { color: colors.success }]}>
                         {(stats.avgAccuracy * 100).toFixed(0)}%
                     </Text>
                     <Text style={styles.summaryLabel}>正确率</Text>
                 </View>
                 <View style={styles.summaryCard}>
-                    <Text style={[styles.summaryValue, { color: '#FF9800' }]}>{stats.streakDays}</Text>
+                    <Text style={[styles.summaryValue, { color: colors.warning }]}>{stats.streakDays}</Text>
                     <Text style={styles.summaryLabel}>连击天</Text>
                 </View>
             </View>
@@ -454,6 +934,23 @@ export default function StatsScreen() {
                     <Text style={styles.timeValue}>{formatTime(totalTime)}</Text>
                 </View>
             )}
+
+            {/* Achievement Entry */}
+            <TouchableOpacity
+                style={styles.achievementCard}
+                onPress={() => navigation.navigate('Achievements')}
+            >
+                <View style={styles.achievementLeft}>
+                    <Text style={styles.achievementIcon}>🏆</Text>
+                    <View>
+                        <Text style={styles.achievementTitle}>成就徽章</Text>
+                        <Text style={styles.achievementSub}>
+                            已解锁 {achievementCount}/{ACHIEVEMENTS.length}
+                        </Text>
+                    </View>
+                </View>
+                <Text style={styles.achievementArrow}>→</Text>
+            </TouchableOpacity>
 
             {/* Activity Heatmap */}
             <ActivityHeatmap data={heatmap} />
@@ -468,14 +965,14 @@ export default function StatsScreen() {
                             value={mastery.grammarAvg}
                             total={mastery.grammarTotal}
                             mastered={mastery.grammarMastered}
-                            color="#FF6B9D"
+                            color={colors.primary}
                         />
                         <MasteryRing
                             label="词汇"
                             value={mastery.vocabAvg}
                             total={mastery.vocabTotal}
                             mastered={mastery.vocabMastered}
-                            color="#4CAF50"
+                            color={colors.success}
                         />
                     </View>
                 </View>
@@ -520,7 +1017,7 @@ export default function StatsScreen() {
                                         <View style={styles.sessionStats}>
                                             {item.result.grammar && (
                                             <View style={styles.sessionStatItem}>
-                                                <View style={[styles.statDot, { backgroundColor: '#FF6B9D' }]} />
+                                                <View style={[styles.statDot, { backgroundColor: colors.primary }]} />
                                                 <Text style={styles.sessionStat}>
                                                     语法 {item.result.grammar.correct}/{item.result.grammar.total}
                                                 </Text>
@@ -528,7 +1025,7 @@ export default function StatsScreen() {
                                             )}
                                             {item.result.vocab && (
                                             <View style={styles.sessionStatItem}>
-                                                <View style={[styles.statDot, { backgroundColor: '#4CAF50' }]} />
+                                                <View style={[styles.statDot, { backgroundColor: colors.success }]} />
                                                 <Text style={styles.sessionStat}>
                                                     词汇 {(item.result.vocab.accuracy * 100).toFixed(0)}%
                                                 </Text>
@@ -536,7 +1033,7 @@ export default function StatsScreen() {
                                             )}
                                             {item.result.sentence && (
                                             <View style={styles.sessionStatItem}>
-                                                <View style={[styles.statDot, { backgroundColor: '#9C27B0' }]} />
+                                                <View style={[styles.statDot, { backgroundColor: colors.accent }]} />
                                                 <Text style={styles.sessionStat}>
                                                     句子 {item.result.sentence.pass}/{item.result.sentence.total}
                                                 </Text>
@@ -585,422 +1082,3 @@ export default function StatsScreen() {
         </ScrollView>
     );
 }
-
-// ============ Heatmap Styles ============
-
-const heatStyles = StyleSheet.create({
-    container: {
-        backgroundColor: '#1A1A2E',
-        borderRadius: 16,
-        padding: 16,
-        marginBottom: 16,
-    },
-    title: {
-        fontSize: 16,
-        fontWeight: '600',
-        color: '#fff',
-        marginBottom: 2,
-    },
-    subtitle: {
-        fontSize: 12,
-        color: '#666',
-        marginBottom: 12,
-    },
-    monthRow: {
-        height: 16,
-        position: 'relative',
-        marginBottom: 4,
-        marginLeft: 20,
-    },
-    monthLabel: {
-        position: 'absolute',
-        fontSize: 10,
-        color: '#666',
-    },
-    grid: {
-        flexDirection: 'row',
-    },
-    dayLabels: {
-        marginRight: 4,
-    },
-    dayLabel: {
-        fontSize: 9,
-        color: '#555',
-        height: 11,
-        lineHeight: 11,
-        textAlign: 'right',
-        width: 14,
-    },
-    weekColumn: {
-        marginRight: 2,
-    },
-    cell: {
-        width: 11,
-        height: 11,
-        borderRadius: 2,
-        marginBottom: 2,
-    },
-    cellToday: {
-        borderWidth: 1,
-        borderColor: '#FF6B9D',
-    },
-    legend: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'flex-end',
-        marginTop: 8,
-        gap: 3,
-    },
-    legendCell: {
-        width: 10,
-        height: 10,
-        borderRadius: 2,
-    },
-    legendText: {
-        fontSize: 10,
-        color: '#555',
-        marginHorizontal: 2,
-    },
-});
-
-// ============ Ring Styles ============
-
-const ringStyles = StyleSheet.create({
-    container: {
-        alignItems: 'center',
-        flex: 1,
-    },
-    ringOuter: {
-        position: 'relative',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    centerLabel: {
-        position: 'absolute',
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: '100%',
-        height: '100%',
-    },
-    ringValue: {
-        fontSize: 18,
-        fontWeight: 'bold',
-    },
-    label: {
-        fontSize: 14,
-        color: '#fff',
-        marginTop: 8,
-        fontWeight: '500',
-    },
-    detail: {
-        fontSize: 11,
-        color: '#666',
-        marginTop: 2,
-    },
-});
-
-// ============ Trend Styles ============
-
-const trendStyles = StyleSheet.create({
-    container: {
-        backgroundColor: '#1A1A2E',
-        borderRadius: 16,
-        padding: 16,
-        marginBottom: 16,
-    },
-    title: {
-        fontSize: 16,
-        fontWeight: '600',
-        color: '#fff',
-        marginBottom: 2,
-    },
-    subtitle: {
-        fontSize: 12,
-        color: '#666',
-        marginBottom: 12,
-    },
-    empty: {
-        color: '#555',
-        fontSize: 14,
-        textAlign: 'center',
-        paddingVertical: 20,
-    },
-    legendRow: {
-        flexDirection: 'row',
-        gap: 16,
-        marginBottom: 12,
-    },
-    legendItem: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        gap: 4,
-    },
-    legendDot: {
-        width: 8,
-        height: 8,
-        borderRadius: 4,
-    },
-    legendText: {
-        fontSize: 11,
-        color: '#888',
-    },
-    chartArea: {
-        flexDirection: 'row',
-        height: 120,
-    },
-    yAxis: {
-        width: 36,
-        justifyContent: 'space-between',
-        paddingBottom: 16,
-    },
-    yLabel: {
-        fontSize: 9,
-        color: '#555',
-        textAlign: 'right',
-    },
-    barsContainer: {
-        flex: 1,
-        flexDirection: 'row',
-        alignItems: 'flex-end',
-        position: 'relative',
-        paddingBottom: 16,
-    },
-    gridLine: {
-        position: 'absolute',
-        left: 0,
-        right: 0,
-        height: 1,
-        backgroundColor: '#2A2A3E',
-    },
-    barGroup: {
-        flexDirection: 'row',
-        alignItems: 'flex-end',
-        justifyContent: 'center',
-        gap: 1,
-        paddingHorizontal: 1,
-    },
-    bar: {
-        width: 5,
-        borderRadius: 2,
-        minHeight: 2,
-    },
-    dateLabel: {
-        position: 'absolute',
-        bottom: -14,
-        fontSize: 7,
-        color: '#555',
-        textAlign: 'center',
-    },
-});
-
-// ============ Main Styles ============
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#0F0F1A',
-    },
-    scrollContent: {
-        paddingHorizontal: 16,
-    },
-    loadingContainer: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    header: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        paddingTop: 60,
-        paddingHorizontal: 4,
-        paddingBottom: 20,
-    },
-    headerTitle: {
-        fontSize: 28,
-        fontWeight: 'bold',
-        color: '#fff',
-    },
-    settingsButton: {
-        backgroundColor: '#1A1A2E',
-        paddingHorizontal: 14,
-        paddingVertical: 8,
-        borderRadius: 16,
-    },
-    settingsButtonText: {
-        color: '#FF6B9D',
-        fontSize: 14,
-        fontWeight: '600',
-    },
-    summaryContainer: {
-        flexDirection: 'row',
-        gap: 8,
-        marginBottom: 16,
-    },
-    summaryCard: {
-        flex: 1,
-        backgroundColor: '#1A1A2E',
-        borderRadius: 12,
-        paddingVertical: 14,
-        alignItems: 'center',
-    },
-    summaryValue: {
-        fontSize: 22,
-        fontWeight: 'bold',
-        color: '#FF6B9D',
-        marginBottom: 2,
-    },
-    summaryLabel: {
-        fontSize: 11,
-        color: '#888',
-    },
-    timeCard: {
-        backgroundColor: '#1A1A2E',
-        borderRadius: 12,
-        padding: 14,
-        marginBottom: 16,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-    },
-    timeLabel: {
-        fontSize: 14,
-        color: '#888',
-    },
-    timeValue: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        color: '#64B5F6',
-    },
-    masterySection: {
-        backgroundColor: '#1A1A2E',
-        borderRadius: 16,
-        padding: 16,
-        marginBottom: 16,
-    },
-    sectionTitle: {
-        fontSize: 16,
-        fontWeight: '600',
-        color: '#fff',
-        marginBottom: 16,
-    },
-    masteryRow: {
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-    },
-    historySection: {
-        marginTop: 4,
-    },
-    sessionCard: {
-        backgroundColor: '#1A1A2E',
-        borderRadius: 12,
-        padding: 14,
-        marginBottom: 8,
-    },
-    sessionHeader: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        marginBottom: 8,
-    },
-    sessionDate: {
-        fontSize: 14,
-        color: '#fff',
-        fontWeight: '500',
-    },
-    starsRow: {
-        flexDirection: 'row',
-        gap: 2,
-    },
-    starIcon: {
-        fontSize: 14,
-    },
-    starFilled: {
-        color: '#FFD700',
-    },
-    starEmpty: {
-        color: '#333',
-    },
-    sessionStats: {
-        flexDirection: 'row',
-        gap: 12,
-    },
-    sessionStatItem: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        gap: 4,
-    },
-    statDot: {
-        width: 6,
-        height: 6,
-        borderRadius: 3,
-    },
-    sessionStat: {
-        fontSize: 12,
-        color: '#888',
-    },
-    coachSection: {
-        marginTop: 8,
-        paddingTop: 8,
-        borderTopWidth: 1,
-        borderTopColor: '#2A2A3E',
-    },
-    coachLabel: {
-        color: '#FF6B9D',
-        fontSize: 12,
-        marginBottom: 4,
-    },
-    coachText: {
-        color: '#CCC',
-        fontSize: 12,
-        lineHeight: 18,
-    },
-    exportBtn: {
-        marginTop: 6,
-        alignSelf: 'flex-end',
-        paddingVertical: 4,
-        paddingHorizontal: 10,
-        borderRadius: 8,
-        backgroundColor: 'rgba(76, 175, 80, 0.15)',
-    },
-    exportBtnText: {
-        color: '#4CAF50',
-        fontSize: 12,
-    },
-    showMoreBtn: {
-        paddingVertical: 12,
-        alignItems: 'center',
-    },
-    showMoreText: {
-        color: '#FF6B9D',
-        fontSize: 14,
-    },
-    emptyContainer: {
-        alignItems: 'center',
-        paddingVertical: 30,
-    },
-    emptyText: {
-        fontSize: 16,
-        color: '#fff',
-        marginBottom: 4,
-    },
-    emptySubtext: {
-        fontSize: 13,
-        color: '#888',
-    },
-    resetButton: {
-        marginTop: 20,
-        paddingVertical: 12,
-        paddingHorizontal: 20,
-        borderRadius: 12,
-        borderWidth: 1,
-        borderColor: '#FF4444',
-        alignSelf: 'center',
-        backgroundColor: 'rgba(255, 68, 68, 0.08)',
-    },
-    resetButtonText: {
-        color: '#FF4444',
-        fontSize: 14,
-        fontWeight: '600',
-    },
-});

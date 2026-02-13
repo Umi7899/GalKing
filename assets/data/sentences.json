@@ -60,15 +60,128 @@
     ]
   },
   {
+    "sentenceId": 2503,
+    "text": "手紙を送るのを忘れました。",
+    "styleTag": "textbook",
+    "lessonId": 25,
+    "level": 2,
+    "grammarIds": [
+      2502
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_2503_1",
+        "labelZh": "名词化（宾语）",
+        "hint": "动词＋のを表示把做某事作为宾语"
+      }
+    ],
+    "blockingVocabIds": [],
+    "tokens": [
+      "手紙",
+      "を",
+      "送る",
+      "の",
+      "を",
+      "忘れました"
+    ]
+  },
+  {
+    "sentenceId": 2504,
+    "text": "会議が何時に終わるか知っていますか。",
+    "styleTag": "textbook",
+    "lessonId": 25,
+    "level": 2,
+    "grammarIds": [
+      2503
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_2504_1",
+        "labelZh": "间接疑问句",
+        "hint": "疑问词小句＋か表示不确定内容"
+      }
+    ],
+    "blockingVocabIds": [
+      25002
+    ],
+    "tokens": [
+      "会議",
+      "が",
+      "何時",
+      "に",
+      "終わる",
+      "か",
+      "知って",
+      "います",
+      "か"
+    ]
+  },
+  {
+    "sentenceId": 2505,
+    "text": "空港へ迎えに来てくれた人は専門の案内人です。",
+    "styleTag": "textbook",
+    "lessonId": 25,
+    "level": 2,
+    "grammarIds": [
+      2501
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_2505_1",
+        "labelZh": "定语从句",
+        "hint": "长定语从句修饰名词"
+      }
+    ],
+    "blockingVocabIds": [
+      25004,
+      25005
+    ],
+    "tokens": [
+      "空港",
+      "へ",
+      "迎え",
+      "に",
+      "来て",
+      "くれた",
+      "人",
+      "は",
+      "専門",
+      "の",
+      "案内人",
+      "です"
+    ]
+  },
+  {
     "sentenceId": 2601,
     "text": "自転車に二人で乗るのは危ないです。",
     "styleTag": "textbook",
     "lessonId": 26,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
-    "blockingVocabIds": [],
-    "tokens": []
+    "grammarIds": [
+      2601
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_2601_1",
+        "labelZh": "名词化主语",
+        "hint": "动词＋のは表示做某事"
+      }
+    ],
+    "blockingVocabIds": [
+      26001,
+      26002
+    ],
+    "tokens": [
+      "自転車",
+      "に",
+      "二人",
+      "で",
+      "乗る",
+      "の",
+      "は",
+      "危ない",
+      "です"
+    ]
   },
   {
     "sentenceId": 2602,
@@ -76,10 +189,116 @@
     "styleTag": "textbook",
     "lessonId": 26,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
+    "grammarIds": [
+      2603
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_2602_1",
+        "labelZh": "名词化好恶",
+        "hint": "动词＋のが＋好き表示喜欢做某事"
+      }
+    ],
     "blockingVocabIds": [],
-    "tokens": []
+    "tokens": [
+      "私",
+      "は",
+      "絵",
+      "を",
+      "描く",
+      "の",
+      "が",
+      "好き",
+      "です"
+    ]
+  },
+  {
+    "sentenceId": 2603,
+    "text": "電気を消すのを忘れました。",
+    "styleTag": "textbook",
+    "lessonId": 26,
+    "level": 2,
+    "grammarIds": [
+      2602
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_2603_1",
+        "labelZh": "名词化宾语",
+        "hint": "动词＋のを＋忘れる表示忘了做某事"
+      }
+    ],
+    "blockingVocabIds": [],
+    "tokens": [
+      "電気",
+      "を",
+      "消す",
+      "の",
+      "を",
+      "忘れました"
+    ]
+  },
+  {
+    "sentenceId": 2604,
+    "text": "この道を通るのは危ないです。",
+    "styleTag": "textbook",
+    "lessonId": 26,
+    "level": 2,
+    "grammarIds": [
+      2601
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_2604_1",
+        "labelZh": "名词化主语",
+        "hint": "动词＋のは＋形容词表示对动作的评价"
+      }
+    ],
+    "blockingVocabIds": [
+      26002,
+      26005
+    ],
+    "tokens": [
+      "この",
+      "道",
+      "を",
+      "通る",
+      "の",
+      "は",
+      "危ない",
+      "です"
+    ]
+  },
+  {
+    "sentenceId": 2605,
+    "text": "趣味は写真を撮るのが好きです。",
+    "styleTag": "textbook",
+    "lessonId": 26,
+    "level": 2,
+    "grammarIds": [
+      2603
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_2605_1",
+        "labelZh": "名词化好恶",
+        "hint": "动词＋のが＋好き表示喜欢做某事"
+      }
+    ],
+    "blockingVocabIds": [
+      26007
+    ],
+    "tokens": [
+      "趣味",
+      "は",
+      "写真",
+      "を",
+      "撮る",
+      "の",
+      "が",
+      "好き",
+      "です"
+    ]
   },
   {
     "sentenceId": 2701,
@@ -87,10 +306,28 @@
     "styleTag": "textbook",
     "lessonId": 27,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
-    "blockingVocabIds": [],
-    "tokens": []
+    "grammarIds": [
+      2701
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_2701_1",
+        "labelZh": "时间状语从句",
+        "hint": "动词辞书形＋とき表示动作未完成时"
+      }
+    ],
+    "blockingVocabIds": [
+      27001
+    ],
+    "tokens": [
+      "日本",
+      "へ",
+      "行く",
+      "とき",
+      "船",
+      "で",
+      "行きました"
+    ]
   },
   {
     "sentenceId": 2702,
@@ -98,10 +335,108 @@
     "styleTag": "textbook",
     "lessonId": 27,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
+    "grammarIds": [
+      2702
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_2702_1",
+        "labelZh": "同时进行",
+        "hint": "ます形词干＋ながら表示一边…一边…"
+      }
+    ],
     "blockingVocabIds": [],
-    "tokens": []
+    "tokens": [
+      "お茶",
+      "を",
+      "飲み",
+      "ながら",
+      "話します"
+    ]
+  },
+  {
+    "sentenceId": 2703,
+    "text": "出かけるとき、鍵を忘れないでください。",
+    "styleTag": "textbook",
+    "lessonId": 27,
+    "level": 2,
+    "grammarIds": [
+      2701
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_2703_1",
+        "labelZh": "时间状语从句",
+        "hint": "动词辞书形＋とき表示做某事的时候"
+      }
+    ],
+    "blockingVocabIds": [
+      27001,
+      27003,
+      27004
+    ],
+    "tokens": [
+      "出かける",
+      "とき",
+      "鍵",
+      "を",
+      "忘れないで",
+      "ください"
+    ]
+  },
+  {
+    "sentenceId": 2704,
+    "text": "テレビを見ながらご飯を食べないでください。",
+    "styleTag": "textbook",
+    "lessonId": 27,
+    "level": 2,
+    "grammarIds": [
+      2702
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_2704_1",
+        "labelZh": "同时进行",
+        "hint": "ます形词干＋ながら表示一边…一边…"
+      }
+    ],
+    "blockingVocabIds": [],
+    "tokens": [
+      "テレビ",
+      "を",
+      "見",
+      "ながら",
+      "ご飯",
+      "を",
+      "食べないで",
+      "ください"
+    ]
+  },
+  {
+    "sentenceId": 2705,
+    "text": "明日の天気は暖かいでしょう。",
+    "styleTag": "textbook",
+    "lessonId": 27,
+    "level": 2,
+    "grammarIds": [
+      2703
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_2705_1",
+        "labelZh": "推测确认",
+        "hint": "い形容词＋でしょう表示大概…吧"
+      }
+    ],
+    "blockingVocabIds": [],
+    "tokens": [
+      "明日",
+      "の",
+      "天気",
+      "は",
+      "暖かい",
+      "でしょう"
+    ]
   },
   {
     "sentenceId": 2801,
@@ -109,10 +444,29 @@
     "styleTag": "textbook",
     "lessonId": 28,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
+    "grammarIds": [
+      2801
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_2801_1",
+        "labelZh": "列举理由",
+        "hint": "～し、～し列举多个原因"
+      }
+    ],
     "blockingVocabIds": [],
-    "tokens": []
+    "tokens": [
+      "今日",
+      "は",
+      "忙しい",
+      "し",
+      "頭",
+      "も",
+      "痛い",
+      "し",
+      "帰りたく",
+      "ありません"
+    ]
   },
   {
     "sentenceId": 2802,
@@ -120,10 +474,128 @@
     "styleTag": "textbook",
     "lessonId": 28,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
+    "grammarIds": [
+      2801
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_2802_1",
+        "labelZh": "列举理由",
+        "hint": "～し、～し列举多个优点"
+      }
+    ],
+    "blockingVocabIds": [
+      28005
+    ],
+    "tokens": [
+      "この",
+      "店",
+      "は",
+      "値段",
+      "も",
+      "安い",
+      "し",
+      "味",
+      "も",
+      "いい",
+      "です"
+    ]
+  },
+  {
+    "sentenceId": 2803,
+    "text": "疲れたし、もう帰ります。",
+    "styleTag": "textbook",
+    "lessonId": 28,
+    "level": 2,
+    "grammarIds": [
+      2802
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_2803_1",
+        "labelZh": "原因理由的一端",
+        "hint": "し暗示还有其他理由，只说其中一个"
+      }
+    ],
     "blockingVocabIds": [],
-    "tokens": []
+    "tokens": [
+      "疲れた",
+      "し",
+      "もう",
+      "帰ります"
+    ]
+  },
+  {
+    "sentenceId": 2804,
+    "text": "あの店は料理がおいしいです。それに、サービスもいいです。",
+    "styleTag": "textbook",
+    "lessonId": 28,
+    "level": 2,
+    "grammarIds": [
+      2803
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_2804_1",
+        "labelZh": "递进补充",
+        "hint": "それに表示而且、再加上"
+      }
+    ],
+    "blockingVocabIds": [
+      28005
+    ],
+    "tokens": [
+      "あの",
+      "店",
+      "は",
+      "料理",
+      "が",
+      "おいしい",
+      "です",
+      "。",
+      "それに",
+      "、",
+      "サービス",
+      "も",
+      "いい",
+      "です"
+    ]
+  },
+  {
+    "sentenceId": 2805,
+    "text": "秋葉原は買い物もできるし、観光もできるし、楽しい所です。",
+    "styleTag": "textbook",
+    "lessonId": 28,
+    "level": 2,
+    "grammarIds": [
+      2801
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_2805_1",
+        "labelZh": "列举理由",
+        "hint": "～し、～し列举多个特点"
+      }
+    ],
+    "blockingVocabIds": [
+      28001,
+      28002
+    ],
+    "tokens": [
+      "秋葉原",
+      "は",
+      "買い物",
+      "も",
+      "できる",
+      "し",
+      "観光",
+      "も",
+      "できる",
+      "し",
+      "楽しい",
+      "所",
+      "です"
+    ]
   },
   {
     "sentenceId": 2901,
@@ -131,10 +603,26 @@
     "styleTag": "textbook",
     "lessonId": 29,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
-    "blockingVocabIds": [],
-    "tokens": []
+    "grammarIds": [
+      2901
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_2901_1",
+        "labelZh": "结果状态持续",
+        "hint": "自动词て形＋います表示状态持续"
+      }
+    ],
+    "blockingVocabIds": [
+      29004,
+      29005
+    ],
+    "tokens": [
+      "窓",
+      "が",
+      "開いて",
+      "います"
+    ]
   },
   {
     "sentenceId": 2902,
@@ -142,10 +630,108 @@
     "styleTag": "textbook",
     "lessonId": 29,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
+    "grammarIds": [
+      2901
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_2902_1",
+        "labelZh": "结果状态持续",
+        "hint": "自动词て形＋います表示灯亮着的状态"
+      }
+    ],
+    "blockingVocabIds": [
+      29001
+    ],
+    "tokens": [
+      "電気",
+      "が",
+      "ついて",
+      "います"
+    ]
+  },
+  {
+    "sentenceId": 2903,
+    "text": "テーブルの上にメモが置いてあります。",
+    "styleTag": "textbook",
+    "lessonId": 29,
+    "level": 2,
+    "grammarIds": [
+      2902
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_2903_1",
+        "labelZh": "有意行为结果存续",
+        "hint": "他动词て形＋あります表示有人做了且结果还在"
+      }
+    ],
     "blockingVocabIds": [],
-    "tokens": []
+    "tokens": [
+      "テーブル",
+      "の",
+      "上",
+      "に",
+      "メモ",
+      "が",
+      "置いて",
+      "あります"
+    ]
+  },
+  {
+    "sentenceId": 2904,
+    "text": "旅行の前にホテルを予約しておきます。",
+    "styleTag": "textbook",
+    "lessonId": 29,
+    "level": 2,
+    "grammarIds": [
+      2903
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_2904_1",
+        "labelZh": "事先准备",
+        "hint": "て形＋おきます表示为将来做准备"
+      }
+    ],
+    "blockingVocabIds": [],
+    "tokens": [
+      "旅行",
+      "の",
+      "前",
+      "に",
+      "ホテル",
+      "を",
+      "予約して",
+      "おきます"
+    ]
+  },
+  {
+    "sentenceId": 2905,
+    "text": "このコップは壊れています。",
+    "styleTag": "textbook",
+    "lessonId": 29,
+    "level": 2,
+    "grammarIds": [
+      2901
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_2905_1",
+        "labelZh": "结果状态持续",
+        "hint": "自动词て形＋います表示坏了的状态持续"
+      }
+    ],
+    "blockingVocabIds": [
+      29003
+    ],
+    "tokens": [
+      "この",
+      "コップ",
+      "は",
+      "壊れて",
+      "います"
+    ]
   },
   {
     "sentenceId": 3001,
@@ -153,10 +739,25 @@
     "styleTag": "textbook",
     "lessonId": 30,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
+    "grammarIds": [
+      3001
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3001_1",
+        "labelZh": "让步条件",
+        "hint": "い形容词＋くても表示即使…也"
+      }
+    ],
     "blockingVocabIds": [],
-    "tokens": []
+    "tokens": [
+      "忙しくて",
+      "も",
+      "毎日",
+      "日本語",
+      "を",
+      "勉強します"
+    ]
   },
   {
     "sentenceId": 3002,
@@ -164,10 +765,106 @@
     "styleTag": "textbook",
     "lessonId": 30,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
+    "grammarIds": [
+      2902
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3002_1",
+        "labelZh": "有意行为结果存续",
+        "hint": "他动词て形＋あります表示有人做了且结果还在"
+      }
+    ],
+    "blockingVocabIds": [
+      30002
+    ],
+    "tokens": [
+      "壁",
+      "に",
+      "カレンダー",
+      "が",
+      "掛けて",
+      "あります"
+    ]
+  },
+  {
+    "sentenceId": 3003,
+    "text": "新しいパソコンを買おうと思っています。",
+    "styleTag": "textbook",
+    "lessonId": 30,
+    "level": 2,
+    "grammarIds": [
+      3002
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3003_1",
+        "labelZh": "意向形＋と思っています",
+        "hint": "意向形＋と思っています表示打算做某事"
+      }
+    ],
     "blockingVocabIds": [],
-    "tokens": []
+    "tokens": [
+      "新しい",
+      "パソコン",
+      "を",
+      "買おう",
+      "と",
+      "思って",
+      "います"
+    ]
+  },
+  {
+    "sentenceId": 3004,
+    "text": "レポートはまだ書いていません。",
+    "styleTag": "textbook",
+    "lessonId": 30,
+    "level": 2,
+    "grammarIds": [
+      3003
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3004_1",
+        "labelZh": "尚未完成",
+        "hint": "まだ＋て形＋いません表示还没做"
+      }
+    ],
+    "blockingVocabIds": [],
+    "tokens": [
+      "レポート",
+      "は",
+      "まだ",
+      "書いて",
+      "いません"
+    ]
+  },
+  {
+    "sentenceId": 3005,
+    "text": "雨が降っても、サッカーをします。",
+    "styleTag": "textbook",
+    "lessonId": 30,
+    "level": 2,
+    "grammarIds": [
+      3001
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3005_1",
+        "labelZh": "让步条件",
+        "hint": "動詞て形＋も表示即使…也…"
+      }
+    ],
+    "blockingVocabIds": [],
+    "tokens": [
+      "雨",
+      "が",
+      "降って",
+      "も",
+      "サッカー",
+      "を",
+      "します"
+    ]
   },
   {
     "sentenceId": 3101,
@@ -175,10 +872,31 @@
     "styleTag": "textbook",
     "lessonId": 31,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
-    "blockingVocabIds": [],
-    "tokens": []
+    "grammarIds": [
+      3101
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3101_1",
+        "labelZh": "自然必然条件",
+        "hint": "动词辞书形＋と表示一…就…"
+      }
+    ],
+    "blockingVocabIds": [
+      31001,
+      31002,
+      31003
+    ],
+    "tokens": [
+      "この",
+      "ボタン",
+      "を",
+      "押す",
+      "と",
+      "電源",
+      "が",
+      "入ります"
+    ]
   },
   {
     "sentenceId": 3102,
@@ -186,10 +904,110 @@
     "styleTag": "textbook",
     "lessonId": 31,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
+    "grammarIds": [
+      3101
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3102_1",
+        "labelZh": "自然必然条件",
+        "hint": "名词＋になると表示一到…就…"
+      }
+    ],
     "blockingVocabIds": [],
-    "tokens": []
+    "tokens": [
+      "春",
+      "に",
+      "なる",
+      "と",
+      "桜",
+      "が",
+      "咲きます"
+    ]
+  },
+  {
+    "sentenceId": 3103,
+    "text": "窓を開けると、富士山が見えました。",
+    "styleTag": "textbook",
+    "lessonId": 31,
+    "level": 2,
+    "grammarIds": [
+      3102
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3103_1",
+        "labelZh": "と（发现）",
+        "hint": "辞書形＋と＋過去形表示一做就发现了"
+      }
+    ],
+    "blockingVocabIds": [],
+    "tokens": [
+      "窓",
+      "を",
+      "開ける",
+      "と",
+      "富士山",
+      "が",
+      "見えました"
+    ]
+  },
+  {
+    "sentenceId": 3104,
+    "text": "時間があれば、映画を見に行きます。",
+    "styleTag": "textbook",
+    "lessonId": 31,
+    "level": 2,
+    "grammarIds": [
+      3103
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3104_1",
+        "labelZh": "ば形假定条件",
+        "hint": "動詞ば形表示如果…就…"
+      }
+    ],
+    "blockingVocabIds": [],
+    "tokens": [
+      "時間",
+      "が",
+      "あれば",
+      "映画",
+      "を",
+      "見",
+      "に",
+      "行きます"
+    ]
+  },
+  {
+    "sentenceId": 3105,
+    "text": "この薬を飲むと、すぐ元気になります。",
+    "styleTag": "textbook",
+    "lessonId": 31,
+    "level": 2,
+    "grammarIds": [
+      3101
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3105_1",
+        "labelZh": "自然必然条件",
+        "hint": "辞書形＋と表示一…就必然…"
+      }
+    ],
+    "blockingVocabIds": [],
+    "tokens": [
+      "この",
+      "薬",
+      "を",
+      "飲む",
+      "と",
+      "すぐ",
+      "元気",
+      "に",
+      "なります"
+    ]
   },
   {
     "sentenceId": 3201,
@@ -197,10 +1015,25 @@
     "styleTag": "textbook",
     "lessonId": 32,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
+    "grammarIds": [
+      3201
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3201_1",
+        "labelZh": "推测",
+        "hint": "い形容词＋でしょう表示大概…吧"
+      }
+    ],
     "blockingVocabIds": [],
-    "tokens": []
+    "tokens": [
+      "今度",
+      "の",
+      "旅行",
+      "は",
+      "楽しい",
+      "でしょう"
+    ]
   },
   {
     "sentenceId": 3202,
@@ -208,10 +1041,114 @@
     "styleTag": "textbook",
     "lessonId": 32,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
+    "grammarIds": [
+      3201
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3202_1",
+        "labelZh": "推测",
+        "hint": "动词辞书形＋でしょう表示大概…吧"
+      }
+    ],
     "blockingVocabIds": [],
-    "tokens": []
+    "tokens": [
+      "李さん",
+      "も",
+      "行く",
+      "でしょう"
+    ]
+  },
+  {
+    "sentenceId": 3203,
+    "text": "薬を飲んだほうがいいですよ。",
+    "styleTag": "textbook",
+    "lessonId": 32,
+    "level": 2,
+    "grammarIds": [
+      3202
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3203_1",
+        "labelZh": "建议",
+        "hint": "た形＋ほうがいい表示做…比较好"
+      }
+    ],
+    "blockingVocabIds": [],
+    "tokens": [
+      "薬",
+      "を",
+      "飲んだ",
+      "ほう",
+      "が",
+      "いい",
+      "です",
+      "よ"
+    ]
+  },
+  {
+    "sentenceId": 3204,
+    "text": "すみません、この近くに名所はあるでしょうか。",
+    "styleTag": "textbook",
+    "lessonId": 32,
+    "level": 2,
+    "grammarIds": [
+      3203
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3204_1",
+        "labelZh": "委婉疑问",
+        "hint": "普通形＋でしょうか表示委婉地提问"
+      }
+    ],
+    "blockingVocabIds": [
+      32001
+    ],
+    "tokens": [
+      "すみません",
+      "、",
+      "この",
+      "近く",
+      "に",
+      "名所",
+      "は",
+      "ある",
+      "でしょう",
+      "か"
+    ]
+  },
+  {
+    "sentenceId": 3205,
+    "text": "お祭りの日は街が賑やかでしょう。",
+    "styleTag": "textbook",
+    "lessonId": 32,
+    "level": 2,
+    "grammarIds": [
+      3201
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3205_1",
+        "labelZh": "推测",
+        "hint": "な形容词語幹＋でしょう表示大概…吧"
+      }
+    ],
+    "blockingVocabIds": [
+      32003,
+      32004
+    ],
+    "tokens": [
+      "お祭り",
+      "の",
+      "日",
+      "は",
+      "街",
+      "が",
+      "賑やか",
+      "でしょう"
+    ]
   },
   {
     "sentenceId": 3301,
@@ -219,10 +1156,26 @@
     "styleTag": "textbook",
     "lessonId": 33,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
-    "blockingVocabIds": [],
-    "tokens": []
+    "grammarIds": [
+      3301
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3301_1",
+        "labelZh": "被动语态",
+        "hint": "动词被动形表示被…做了某事"
+      }
+    ],
+    "blockingVocabIds": [
+      33006
+    ],
+    "tokens": [
+      "森さん",
+      "は",
+      "部長",
+      "に",
+      "褒められました"
+    ]
   },
   {
     "sentenceId": 3302,
@@ -230,10 +1183,114 @@
     "styleTag": "textbook",
     "lessonId": 33,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
+    "grammarIds": [
+      3302
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3302_1",
+        "labelZh": "物主被动",
+        "hint": "持有物被他人损坏，含受害感"
+      }
+    ],
     "blockingVocabIds": [],
-    "tokens": []
+    "tokens": [
+      "私",
+      "は",
+      "弟",
+      "に",
+      "カメラ",
+      "を",
+      "壊されました"
+    ]
+  },
+  {
+    "sentenceId": 3303,
+    "text": "この展覧会は多くの人に見られています。",
+    "styleTag": "textbook",
+    "lessonId": 33,
+    "level": 2,
+    "grammarIds": [
+      3301
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3303_1",
+        "labelZh": "被动语态",
+        "hint": "见る的被动形：见られる，表示被很多人看"
+      }
+    ],
+    "blockingVocabIds": [],
+    "tokens": [
+      "この",
+      "展覧会",
+      "は",
+      "多く",
+      "の",
+      "人",
+      "に",
+      "見られて",
+      "います"
+    ]
+  },
+  {
+    "sentenceId": 3304,
+    "text": "私は電車の中で足を踏まれました。",
+    "styleTag": "textbook",
+    "lessonId": 33,
+    "level": 2,
+    "grammarIds": [
+      3302
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3304_1",
+        "labelZh": "物主被动",
+        "hint": "身体部位被踩，含受害感"
+      }
+    ],
+    "blockingVocabIds": [
+      33004
+    ],
+    "tokens": [
+      "私",
+      "は",
+      "電車",
+      "の",
+      "中",
+      "で",
+      "足",
+      "を",
+      "踏まれました"
+    ]
+  },
+  {
+    "sentenceId": 3305,
+    "text": "泥棒に財布を盗まれました。",
+    "styleTag": "textbook",
+    "lessonId": 33,
+    "level": 2,
+    "grammarIds": [
+      3302
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3305_1",
+        "labelZh": "物主被动",
+        "hint": "持有物被小偷偷走，含受害感"
+      }
+    ],
+    "blockingVocabIds": [
+      33001,
+      33002
+    ],
+    "tokens": [
+      "泥棒",
+      "に",
+      "財布",
+      "を",
+      "盗まれました"
+    ]
   },
   {
     "sentenceId": 3401,
@@ -241,10 +1298,21 @@
     "styleTag": "textbook",
     "lessonId": 34,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
+    "grammarIds": [
+      3401
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3401_1",
+        "labelZh": "命令形",
+        "hint": "来る的命令形为来い"
+      }
+    ],
     "blockingVocabIds": [],
-    "tokens": []
+    "tokens": [
+      "早く",
+      "来い"
+    ]
   },
   {
     "sentenceId": 3402,
@@ -252,10 +1320,105 @@
     "styleTag": "textbook",
     "lessonId": 34,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
+    "grammarIds": [
+      3402
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3402_1",
+        "labelZh": "禁止形",
+        "hint": "动词辞书形＋な表示不许做"
+      }
+    ],
     "blockingVocabIds": [],
-    "tokens": []
+    "tokens": [
+      "ここ",
+      "で",
+      "タバコ",
+      "を",
+      "吸う",
+      "な"
+    ]
+  },
+  {
+    "sentenceId": 3403,
+    "text": "もっと野菜を食べなさい。",
+    "styleTag": "textbook",
+    "lessonId": 34,
+    "level": 2,
+    "grammarIds": [
+      3403
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3403_1",
+        "labelZh": "なさい温和指示",
+        "hint": "ます形去ます＋なさい，长辈对晚辈的温和命令"
+      }
+    ],
+    "blockingVocabIds": [],
+    "tokens": [
+      "もっと",
+      "野菜",
+      "を",
+      "食べ",
+      "なさい"
+    ]
+  },
+  {
+    "sentenceId": 3404,
+    "text": "頑張れ！絶対に勝てるぞ！",
+    "styleTag": "textbook",
+    "lessonId": 34,
+    "level": 2,
+    "grammarIds": [
+      3401
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3404_1",
+        "labelZh": "命令形",
+        "hint": "頑張る的命令形：頑張れ，用于加油鼓劲"
+      }
+    ],
+    "blockingVocabIds": [
+      34006
+    ],
+    "tokens": [
+      "頑張れ",
+      "絶対",
+      "に",
+      "勝てる",
+      "ぞ"
+    ]
+  },
+  {
+    "sentenceId": 3405,
+    "text": "試合中に逃げるな！",
+    "styleTag": "textbook",
+    "lessonId": 34,
+    "level": 2,
+    "grammarIds": [
+      3402
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3405_1",
+        "labelZh": "禁止形",
+        "hint": "动词辞书形＋な，比赛中不许逃跑"
+      }
+    ],
+    "blockingVocabIds": [
+      34002,
+      34004
+    ],
+    "tokens": [
+      "試合",
+      "中",
+      "に",
+      "逃げる",
+      "な"
+    ]
   },
   {
     "sentenceId": 3501,
@@ -263,10 +1426,27 @@
     "styleTag": "textbook",
     "lessonId": 35,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
-    "blockingVocabIds": [],
-    "tokens": []
+    "grammarIds": [
+      3501
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3501_1",
+        "labelZh": "不确定推测",
+        "hint": "动词普通形＋かもしれません表示也许"
+      }
+    ],
+    "blockingVocabIds": [
+      35003
+    ],
+    "tokens": [
+      "明日",
+      "は",
+      "雨",
+      "が",
+      "降る",
+      "かもしれません"
+    ]
   },
   {
     "sentenceId": 3502,
@@ -274,10 +1454,121 @@
     "styleTag": "textbook",
     "lessonId": 35,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
+    "grammarIds": [
+      3502
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3502_1",
+        "labelZh": "合理推断",
+        "hint": "动词普通形＋はずです表示应该是"
+      }
+    ],
     "blockingVocabIds": [],
-    "tokens": []
+    "tokens": [
+      "森さん",
+      "は",
+      "今日",
+      "会社",
+      "を",
+      "休む",
+      "はず",
+      "です"
+    ]
+  },
+  {
+    "sentenceId": 3503,
+    "text": "あの事故は台風のせいに違いない。",
+    "styleTag": "textbook",
+    "lessonId": 35,
+    "level": 2,
+    "grammarIds": [
+      3503
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3503_1",
+        "labelZh": "确信推测",
+        "hint": "名词＋に違いない表示一定是"
+      }
+    ],
+    "blockingVocabIds": [
+      35001,
+      35005
+    ],
+    "tokens": [
+      "あの",
+      "事故",
+      "は",
+      "台風",
+      "の",
+      "せい",
+      "に",
+      "違いない"
+    ]
+  },
+  {
+    "sentenceId": 3504,
+    "text": "地震が起きるかもしれないから、準備しておきましょう。",
+    "styleTag": "textbook",
+    "lessonId": 35,
+    "level": 2,
+    "grammarIds": [
+      3501
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3504_1",
+        "labelZh": "不确定推测",
+        "hint": "动词普通形＋かもしれない表示也许会发生"
+      }
+    ],
+    "blockingVocabIds": [
+      35002,
+      35006
+    ],
+    "tokens": [
+      "地震",
+      "が",
+      "起きる",
+      "かもしれない",
+      "から",
+      "準備",
+      "して",
+      "おきましょう"
+    ]
+  },
+  {
+    "sentenceId": 3505,
+    "text": "明日は曇りのはずです。天気予報で言っていました。",
+    "styleTag": "textbook",
+    "lessonId": 35,
+    "level": 2,
+    "grammarIds": [
+      3502
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3505_1",
+        "labelZh": "合理推断",
+        "hint": "名词＋の＋はずです表示根据情报推断"
+      }
+    ],
+    "blockingVocabIds": [
+      35004
+    ],
+    "tokens": [
+      "明日",
+      "は",
+      "曇り",
+      "の",
+      "はず",
+      "です",
+      "天気予報",
+      "で",
+      "言って",
+      "いました"
+    ]
   },
   {
     "sentenceId": 3601,
@@ -285,10 +1576,24 @@
     "styleTag": "textbook",
     "lessonId": 36,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
+    "grammarIds": [
+      3602
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3601_1",
+        "labelZh": "彻底完成",
+        "hint": "て形＋しまいました表示全部做完"
+      }
+    ],
     "blockingVocabIds": [],
-    "tokens": []
+    "tokens": [
+      "この",
+      "ケーキ",
+      "は",
+      "食べて",
+      "しまいました"
+    ]
   },
   {
     "sentenceId": 3602,
@@ -296,10 +1601,112 @@
     "styleTag": "textbook",
     "lessonId": 36,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
+    "grammarIds": [
+      3601
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3602_1",
+        "labelZh": "遗憾",
+        "hint": "て形＋しまいました表示不小心做了不好的事"
+      }
+    ],
     "blockingVocabIds": [],
-    "tokens": []
+    "tokens": [
+      "電車",
+      "に",
+      "カバン",
+      "を",
+      "忘れて",
+      "しまいました"
+    ]
+  },
+  {
+    "sentenceId": 3603,
+    "text": "また遅刻しちゃった。先生に怒られるよ。",
+    "styleTag": "textbook",
+    "lessonId": 36,
+    "level": 2,
+    "grammarIds": [
+      3603
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3603_1",
+        "labelZh": "口语缩约形",
+        "hint": "してしまった→しちゃった，口语中的遗憾表达"
+      }
+    ],
+    "blockingVocabIds": [
+      36001
+    ],
+    "tokens": [
+      "また",
+      "遅刻",
+      "しちゃった",
+      "先生",
+      "に",
+      "怒られる",
+      "よ"
+    ]
+  },
+  {
+    "sentenceId": 3604,
+    "text": "急がないと、電車に間に合わないかもしれません。",
+    "styleTag": "textbook",
+    "lessonId": 36,
+    "level": 2,
+    "grammarIds": [
+      3601
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3604_1",
+        "labelZh": "遗憾的可能性",
+        "hint": "间に合わない表示可能赶不上，含遗憾语气"
+      }
+    ],
+    "blockingVocabIds": [
+      36002
+    ],
+    "tokens": [
+      "急がない",
+      "と",
+      "電車",
+      "に",
+      "間に合わない",
+      "かもしれません"
+    ]
+  },
+  {
+    "sentenceId": 3605,
+    "text": "先に連絡してくれれば困らなかったのに。",
+    "styleTag": "textbook",
+    "lessonId": 36,
+    "level": 2,
+    "grammarIds": [
+      3602
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3605_1",
+        "labelZh": "彻底完成与假设",
+        "hint": "先に連絡してくれれば表示如果提前联系的话"
+      }
+    ],
+    "blockingVocabIds": [
+      36003,
+      36005
+    ],
+    "tokens": [
+      "先",
+      "に",
+      "連絡",
+      "して",
+      "くれれば",
+      "困らなかった",
+      "のに"
+    ]
   },
   {
     "sentenceId": 3701,
@@ -307,10 +1714,26 @@
     "styleTag": "textbook",
     "lessonId": 37,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
-    "blockingVocabIds": [],
-    "tokens": []
+    "grammarIds": [
+      3701
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3701_1",
+        "labelZh": "て形＋感情形容词",
+        "hint": "て形表示引起感情的原因"
+      }
+    ],
+    "blockingVocabIds": [
+      37001
+    ],
+    "tokens": [
+      "優勝",
+      "し",
+      "て",
+      "うれしい",
+      "です"
+    ]
   },
   {
     "sentenceId": 3702,
@@ -318,10 +1741,111 @@
     "styleTag": "textbook",
     "lessonId": 37,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
+    "grammarIds": [
+      3701
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3702_1",
+        "labelZh": "て形＋感情形容词",
+        "hint": "听到消息后产生吃惊的感情"
+      }
+    ],
     "blockingVocabIds": [],
-    "tokens": []
+    "tokens": [
+      "ニュース",
+      "を",
+      "聞い",
+      "て",
+      "びっくり",
+      "しました"
+    ]
+  },
+  {
+    "sentenceId": 3703,
+    "text": "電車が遅れたので、会議に遅刻しました。",
+    "styleTag": "textbook",
+    "lessonId": 37,
+    "level": 2,
+    "grammarIds": [
+      3702
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3703_1",
+        "labelZh": "ので原因理由",
+        "hint": "动词た形＋ので表示客观原因"
+      }
+    ],
+    "blockingVocabIds": [],
+    "tokens": [
+      "電車",
+      "が",
+      "遅れた",
+      "ので",
+      "会議",
+      "に",
+      "遅刻",
+      "しました"
+    ]
+  },
+  {
+    "sentenceId": 3704,
+    "text": "一生懸命練習したのに、試合に負けて残念です。",
+    "styleTag": "textbook",
+    "lessonId": 37,
+    "level": 2,
+    "grammarIds": [
+      3703
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3704_1",
+        "labelZh": "のに转折不满",
+        "hint": "动词た形＋のに表示明明努力了却输了"
+      }
+    ],
+    "blockingVocabIds": [],
+    "tokens": [
+      "一生懸命",
+      "練習",
+      "した",
+      "のに",
+      "試合",
+      "に",
+      "負けて",
+      "残念",
+      "です"
+    ]
+  },
+  {
+    "sentenceId": 3705,
+    "text": "嘘をついて、叱られて悲しいです。",
+    "styleTag": "textbook",
+    "lessonId": 37,
+    "level": 2,
+    "grammarIds": [
+      3701
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3705_1",
+        "labelZh": "て形＋感情形容词",
+        "hint": "被批评后产生悲伤的感情"
+      }
+    ],
+    "blockingVocabIds": [
+      37003,
+      37004
+    ],
+    "tokens": [
+      "嘘",
+      "を",
+      "ついて",
+      "叱られて",
+      "悲しい",
+      "です"
+    ]
   },
   {
     "sentenceId": 3801,
@@ -329,10 +1853,29 @@
     "styleTag": "textbook",
     "lessonId": 38,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
-    "blockingVocabIds": [],
-    "tokens": []
+    "grammarIds": [
+      3802
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3801_1",
+        "labelZh": "て形表附带状态",
+        "hint": "戴着眼镜做另一件事"
+      }
+    ],
+    "blockingVocabIds": [
+      38003,
+      38004
+    ],
+    "tokens": [
+      "眼鏡",
+      "を",
+      "かけ",
+      "て",
+      "本",
+      "を",
+      "読みます"
+    ]
   },
   {
     "sentenceId": 3802,
@@ -340,10 +1883,116 @@
     "styleTag": "textbook",
     "lessonId": 38,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
+    "grammarIds": [
+      3802
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3802_1",
+        "labelZh": "て形表附带状态",
+        "hint": "带着伞出门，て形表方式"
+      }
+    ],
     "blockingVocabIds": [],
-    "tokens": []
+    "tokens": [
+      "傘",
+      "を",
+      "持っ",
+      "て",
+      "出かけます"
+    ]
+  },
+  {
+    "sentenceId": 3803,
+    "text": "靴を履いたまま部屋に入らないでください。",
+    "styleTag": "textbook",
+    "lessonId": 38,
+    "level": 2,
+    "grammarIds": [
+      3801
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3803_1",
+        "labelZh": "たまま保持状态",
+        "hint": "た形＋まま表示穿着鞋的状态不变"
+      }
+    ],
+    "blockingVocabIds": [
+      38006
+    ],
+    "tokens": [
+      "靴",
+      "を",
+      "履いた",
+      "まま",
+      "部屋",
+      "に",
+      "入らないで",
+      "ください"
+    ]
+  },
+  {
+    "sentenceId": 3804,
+    "text": "朝ご飯を食べないで学校に行きました。",
+    "styleTag": "textbook",
+    "lessonId": 38,
+    "level": 2,
+    "grammarIds": [
+      3803
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3804_1",
+        "labelZh": "ないで不做A做B",
+        "hint": "ない形＋で表示不吃早饭就去学校"
+      }
+    ],
+    "blockingVocabIds": [],
+    "tokens": [
+      "朝ご飯",
+      "を",
+      "食べないで",
+      "学校",
+      "に",
+      "行きました"
+    ]
+  },
+  {
+    "sentenceId": 3805,
+    "text": "帽子を被って、眼鏡をかけている人は誰ですか。",
+    "styleTag": "textbook",
+    "lessonId": 38,
+    "level": 2,
+    "grammarIds": [
+      3802
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3805_1",
+        "labelZh": "て形表附带状态",
+        "hint": "帽子を被って表示戴着帽子的样子"
+      }
+    ],
+    "blockingVocabIds": [
+      38001,
+      38002,
+      38003,
+      38004
+    ],
+    "tokens": [
+      "帽子",
+      "を",
+      "被って",
+      "眼鏡",
+      "を",
+      "かけて",
+      "いる",
+      "人",
+      "は",
+      "誰",
+      "ですか"
+    ]
   },
   {
     "sentenceId": 3901,
@@ -351,10 +2000,30 @@
     "styleTag": "textbook",
     "lessonId": 39,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
-    "blockingVocabIds": [],
-    "tokens": []
+    "grammarIds": [
+      3901
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3901_1",
+        "labelZh": "传闻表达",
+        "hint": "～によると…そうです表示据消息源说"
+      }
+    ],
+    "blockingVocabIds": [
+      39001,
+      39005
+    ],
+    "tokens": [
+      "ニュース",
+      "に",
+      "よる",
+      "と",
+      "火事",
+      "が",
+      "あった",
+      "そうです"
+    ]
   },
   {
     "sentenceId": 3902,
@@ -362,10 +2031,112 @@
     "styleTag": "textbook",
     "lessonId": 39,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
+    "grammarIds": [
+      3901
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3902_1",
+        "labelZh": "自动词＋ている状态描写",
+        "hint": "自动词て形＋いる表示变化后的结果状态"
+      }
+    ],
     "blockingVocabIds": [],
-    "tokens": []
+    "tokens": [
+      "窓ガラス",
+      "が",
+      "割れ",
+      "て",
+      "います"
+    ]
+  },
+  {
+    "sentenceId": 3903,
+    "text": "テーブルの上にお皿が並べてあります。",
+    "styleTag": "textbook",
+    "lessonId": 39,
+    "level": 2,
+    "grammarIds": [
+      3902
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3903_1",
+        "labelZh": "他动词+てある结果存续",
+        "hint": "他动词て形＋ある表示有人摆放的结果状态"
+      }
+    ],
+    "blockingVocabIds": [],
+    "tokens": [
+      "テーブル",
+      "の",
+      "上",
+      "に",
+      "お皿",
+      "が",
+      "並べて",
+      "あります"
+    ]
+  },
+  {
+    "sentenceId": 3904,
+    "text": "火事で建物が変わってしまいました。",
+    "styleTag": "textbook",
+    "lessonId": 39,
+    "level": 2,
+    "grammarIds": [
+      3901
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3904_1",
+        "labelZh": "自动词状态描写",
+        "hint": "変わる是自动词，表示发生了变化"
+      }
+    ],
+    "blockingVocabIds": [
+      39004,
+      39005
+    ],
+    "tokens": [
+      "火事",
+      "で",
+      "建物",
+      "が",
+      "変わって",
+      "しまいました"
+    ]
+  },
+  {
+    "sentenceId": 3905,
+    "text": "このニュースは複雑で、びっくりしました。",
+    "styleTag": "textbook",
+    "lessonId": 39,
+    "level": 2,
+    "grammarIds": [
+      3901
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_3905_1",
+        "labelZh": "な形容词＋で原因",
+        "hint": "な形容词＋で表示因为复杂所以吃惊"
+      }
+    ],
+    "blockingVocabIds": [
+      39001,
+      39002,
+      39003
+    ],
+    "tokens": [
+      "この",
+      "ニュース",
+      "は",
+      "複雑",
+      "で",
+      "びっくり",
+      "しました"
+    ]
   },
   {
     "sentenceId": 4001,
@@ -373,10 +2144,26 @@
     "styleTag": "textbook",
     "lessonId": 40,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
+    "grammarIds": [
+      4001
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_4001_1",
+        "labelZh": "授受表达くれる",
+        "hint": "别人给我东西用くれる"
+      }
+    ],
     "blockingVocabIds": [],
-    "tokens": []
+    "tokens": [
+      "友達",
+      "は",
+      "私",
+      "に",
+      "本",
+      "を",
+      "くれました"
+    ]
   },
   {
     "sentenceId": 4002,
@@ -384,10 +2171,116 @@
     "styleTag": "textbook",
     "lessonId": 40,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
+    "grammarIds": [
+      4002
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_4002_1",
+        "labelZh": "てもらう／いただく",
+        "hint": "请别人帮忙做事，いただく是谦让语"
+      }
+    ],
+    "blockingVocabIds": [
+      40002
+    ],
+    "tokens": [
+      "私",
+      "は",
+      "先生",
+      "に",
+      "荷物",
+      "を",
+      "持っ",
+      "て",
+      "いただきました"
+    ]
+  },
+  {
+    "sentenceId": 4003,
+    "text": "私は妹に日本語を教えてあげました。",
+    "styleTag": "textbook",
+    "lessonId": 40,
+    "level": 2,
+    "grammarIds": [
+      4003
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_4003_1",
+        "labelZh": "てあげる施予帮助",
+        "hint": "て形＋あげる表示我为别人做某事"
+      }
+    ],
     "blockingVocabIds": [],
-    "tokens": []
+    "tokens": [
+      "私",
+      "は",
+      "妹",
+      "に",
+      "日本語",
+      "を",
+      "教えて",
+      "あげました"
+    ]
+  },
+  {
+    "sentenceId": 4004,
+    "text": "先生がお祝いの品を下さいました。",
+    "styleTag": "textbook",
+    "lessonId": 40,
+    "level": 2,
+    "grammarIds": [
+      4001
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_4004_1",
+        "labelZh": "てくれる/くださる",
+        "hint": "くださる是くれる的敬语，老师给我祝贺的礼物"
+      }
+    ],
+    "blockingVocabIds": [
+      40001,
+      40004
+    ],
+    "tokens": [
+      "先生",
+      "が",
+      "お祝い",
+      "の",
+      "品",
+      "を",
+      "下さいました"
+    ]
+  },
+  {
+    "sentenceId": 4005,
+    "text": "子供にお年玉をやりました。",
+    "styleTag": "textbook",
+    "lessonId": 40,
+    "level": 2,
+    "grammarIds": [
+      4003
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_4005_1",
+        "labelZh": "やる（给/卑）",
+        "hint": "やる是对下级或动植物用的给予表达"
+      }
+    ],
+    "blockingVocabIds": [
+      40003,
+      40005
+    ],
+    "tokens": [
+      "子供",
+      "に",
+      "お年玉",
+      "を",
+      "やりました"
+    ]
   },
   {
     "sentenceId": 4101,
@@ -395,10 +2288,27 @@
     "styleTag": "textbook",
     "lessonId": 41,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
-    "blockingVocabIds": [],
-    "tokens": []
+    "grammarIds": [
+      4101
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_4101_1",
+        "labelZh": "尊他语（被动形式）",
+        "hint": "动词被动形表尊敬：行く→行かれる"
+      }
+    ],
+    "blockingVocabIds": [
+      41002
+    ],
+    "tokens": [
+      "先生",
+      "は",
+      "明日",
+      "日本",
+      "へ",
+      "行かれます"
+    ]
   },
   {
     "sentenceId": 4102,
@@ -406,10 +2316,105 @@
     "styleTag": "textbook",
     "lessonId": 41,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
+    "grammarIds": [
+      4102
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_4102_1",
+        "labelZh": "お＋ます形＋ください",
+        "hint": "敬语请求：请您坐下"
+      }
+    ],
     "blockingVocabIds": [],
-    "tokens": []
+    "tokens": [
+      "どうぞ",
+      "お座り",
+      "ください"
+    ]
+  },
+  {
+    "sentenceId": 4103,
+    "text": "部長は何とおっしゃいましたか。",
+    "styleTag": "textbook",
+    "lessonId": 41,
+    "level": 2,
+    "grammarIds": [
+      4103
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_4103_1",
+        "labelZh": "特殊尊他動詞",
+        "hint": "おっしゃる是言う的尊敬语"
+      }
+    ],
+    "blockingVocabIds": [
+      41005
+    ],
+    "tokens": [
+      "部長",
+      "は",
+      "何",
+      "と",
+      "おっしゃいました",
+      "か"
+    ]
+  },
+  {
+    "sentenceId": 4104,
+    "text": "先生はお帰りになりましたか。",
+    "styleTag": "textbook",
+    "lessonId": 41,
+    "level": 2,
+    "grammarIds": [
+      4101
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_4104_1",
+        "labelZh": "尊他语（お～になる）",
+        "hint": "お＋ます形＋になる表示尊敬"
+      }
+    ],
+    "blockingVocabIds": [
+      41002
+    ],
+    "tokens": [
+      "先生",
+      "は",
+      "お帰り",
+      "に",
+      "なりました",
+      "か"
+    ]
+  },
+  {
+    "sentenceId": 4105,
+    "text": "私は田中と申します。",
+    "styleTag": "textbook",
+    "lessonId": 41,
+    "level": 2,
+    "grammarIds": [
+      4103
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_4105_1",
+        "labelZh": "特殊自谦動詞",
+        "hint": "申す是言う的自谦语"
+      }
+    ],
+    "blockingVocabIds": [
+      41003
+    ],
+    "tokens": [
+      "私",
+      "は",
+      "田中",
+      "と",
+      "申します"
+    ]
   },
   {
     "sentenceId": 4201,
@@ -417,10 +2422,30 @@
     "styleTag": "textbook",
     "lessonId": 42,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
-    "blockingVocabIds": [],
-    "tokens": []
+    "grammarIds": [
+      4201
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_4201_1",
+        "labelZh": "～ために目的",
+        "hint": "V辞書形＋ために表示明确目的"
+      }
+    ],
+    "blockingVocabIds": [
+      42001
+    ],
+    "tokens": [
+      "家",
+      "を",
+      "買う",
+      "ため",
+      "に",
+      "貯金",
+      "し",
+      "て",
+      "います"
+    ]
   },
   {
     "sentenceId": 4202,
@@ -428,10 +2453,110 @@
     "styleTag": "textbook",
     "lessonId": 42,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
+    "grammarIds": [
+      4202
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_4202_1",
+        "labelZh": "～ように间接目的",
+        "hint": "可能形＋ように表示期望达到某状态"
+      }
+    ],
     "blockingVocabIds": [],
-    "tokens": []
+    "tokens": [
+      "よく",
+      "見える",
+      "ように",
+      "大きく",
+      "書きました"
+    ]
+  },
+  {
+    "sentenceId": 4203,
+    "text": "この辞書は日本語を調べるのに便利です。",
+    "styleTag": "textbook",
+    "lessonId": 42,
+    "level": 2,
+    "grammarIds": [
+      4203
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_4203_1",
+        "labelZh": "～のに表用途",
+        "hint": "V辞書形＋のに＋便利表示用来做某事很方便"
+      }
+    ],
+    "blockingVocabIds": [],
+    "tokens": [
+      "この",
+      "辞書",
+      "は",
+      "日本語",
+      "を",
+      "調べる",
+      "の",
+      "に",
+      "便利",
+      "です"
+    ]
+  },
+  {
+    "sentenceId": 4204,
+    "text": "駅まで歩くのに20分かかります。",
+    "styleTag": "textbook",
+    "lessonId": 42,
+    "level": 2,
+    "grammarIds": [
+      4203
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_4204_1",
+        "labelZh": "～のに表所需",
+        "hint": "V辞書形＋のに＋かかる表示做某事需要"
+      }
+    ],
+    "blockingVocabIds": [],
+    "tokens": [
+      "駅",
+      "まで",
+      "歩く",
+      "の",
+      "に",
+      "20分",
+      "かかります"
+    ]
+  },
+  {
+    "sentenceId": 4205,
+    "text": "健康のために、毎朝走っています。",
+    "styleTag": "textbook",
+    "lessonId": 42,
+    "level": 2,
+    "grammarIds": [
+      4201
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_4205_1",
+        "labelZh": "Nの＋ために目的",
+        "hint": "名词＋のために表示为了某目标"
+      }
+    ],
+    "blockingVocabIds": [
+      42005
+    ],
+    "tokens": [
+      "健康",
+      "の",
+      "ため",
+      "に",
+      "毎朝",
+      "走って",
+      "います"
+    ]
   },
   {
     "sentenceId": 4301,
@@ -439,10 +2564,23 @@
     "styleTag": "textbook",
     "lessonId": 43,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
+    "grammarIds": [
+      4301
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_4301_1",
+        "labelZh": "样态そうだ（动词）",
+        "hint": "Vます形去ます＋そう表示看起来要发生"
+      }
+    ],
     "blockingVocabIds": [],
-    "tokens": []
+    "tokens": [
+      "雨",
+      "が",
+      "降り",
+      "そうです"
+    ]
   },
   {
     "sentenceId": 4302,
@@ -450,10 +2588,109 @@
     "styleTag": "textbook",
     "lessonId": 43,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
+    "grammarIds": [
+      4302
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_4302_1",
+        "labelZh": "样态そうだ（形容词）",
+        "hint": "い形去い＋そう表示看起来的样子"
+      }
+    ],
     "blockingVocabIds": [],
-    "tokens": []
+    "tokens": [
+      "この",
+      "ケーキ",
+      "は",
+      "とても",
+      "おいし",
+      "そうです"
+    ]
+  },
+  {
+    "sentenceId": 4303,
+    "text": "この荷物は重くて、落ちそうです。",
+    "styleTag": "textbook",
+    "lessonId": 43,
+    "level": 2,
+    "grammarIds": [
+      4301
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_4303_1",
+        "labelZh": "样态そうだ（动词）",
+        "hint": "V ます形去ます＋そう表示看起来快要发生"
+      }
+    ],
+    "blockingVocabIds": [],
+    "tokens": [
+      "この",
+      "荷物",
+      "は",
+      "重くて",
+      "落ち",
+      "そうです"
+    ]
+  },
+  {
+    "sentenceId": 4304,
+    "text": "空が暗くなって、雷が鳴りそうです。",
+    "styleTag": "textbook",
+    "lessonId": 43,
+    "level": 2,
+    "grammarIds": [
+      4301
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_4304_1",
+        "labelZh": "样态そうだ（动词）",
+        "hint": "V ます形去ます＋そう表示根据观察即将发生"
+      }
+    ],
+    "blockingVocabIds": [
+      43002
+    ],
+    "tokens": [
+      "空",
+      "が",
+      "暗く",
+      "なって",
+      "雷",
+      "が",
+      "鳴り",
+      "そうです"
+    ]
+  },
+  {
+    "sentenceId": 4305,
+    "text": "この問題は難しそうですが、やってみます。",
+    "styleTag": "textbook",
+    "lessonId": 43,
+    "level": 2,
+    "grammarIds": [
+      4302
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_4305_1",
+        "labelZh": "样态そうだ（形容词）",
+        "hint": "い形去い＋そう表示看起来的样子"
+      }
+    ],
+    "blockingVocabIds": [],
+    "tokens": [
+      "この",
+      "問題",
+      "は",
+      "難し",
+      "そうです",
+      "が",
+      "やって",
+      "みます"
+    ]
   },
   {
     "sentenceId": 4401,
@@ -461,10 +2698,29 @@
     "styleTag": "textbook",
     "lessonId": 44,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
-    "blockingVocabIds": [],
-    "tokens": []
+    "grammarIds": [
+      4401
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_4401_1",
+        "labelZh": "传闻そうだ",
+        "hint": "普通形＋そうです表示听说、据说"
+      }
+    ],
+    "blockingVocabIds": [
+      44004
+    ],
+    "tokens": [
+      "天気予報",
+      "に",
+      "よる",
+      "と",
+      "明日",
+      "は",
+      "晴れる",
+      "そうです"
+    ]
   },
   {
     "sentenceId": 4402,
@@ -472,10 +2728,125 @@
     "styleTag": "textbook",
     "lessonId": 44,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
+    "grammarIds": [
+      4401
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_4402_1",
+        "labelZh": "传闻そうだ",
+        "hint": "な形容词＋だそうです表示听说"
+      }
+    ],
     "blockingVocabIds": [],
-    "tokens": []
+    "tokens": [
+      "田中さん",
+      "は",
+      "元気",
+      "だ",
+      "そうです"
+    ]
+  },
+  {
+    "sentenceId": 4403,
+    "text": "新聞の記事によると、来月から電気代が上がるということです。",
+    "styleTag": "textbook",
+    "lessonId": 44,
+    "level": 2,
+    "grammarIds": [
+      4402
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_4403_1",
+        "labelZh": "～ということです",
+        "hint": "普通形＋ということです表示据说、意思是"
+      }
+    ],
+    "blockingVocabIds": [
+      44002
+    ],
+    "tokens": [
+      "新聞",
+      "の",
+      "記事",
+      "に",
+      "よる",
+      "と",
+      "来月",
+      "から",
+      "電気代",
+      "が",
+      "上がる",
+      "ということです"
+    ]
+  },
+  {
+    "sentenceId": 4404,
+    "text": "噂によると、あの店は来週閉まるそうです。",
+    "styleTag": "textbook",
+    "lessonId": 44,
+    "level": 2,
+    "grammarIds": [
+      4401
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_4404_1",
+        "labelZh": "传闻そうだ",
+        "hint": "普通形＋そうです表示听说"
+      }
+    ],
+    "blockingVocabIds": [
+      44001
+    ],
+    "tokens": [
+      "噂",
+      "に",
+      "よる",
+      "と",
+      "あの",
+      "店",
+      "は",
+      "来週",
+      "閉まる",
+      "そうです"
+    ]
+  },
+  {
+    "sentenceId": 4405,
+    "text": "先生の話では、実験のデータが必要だということです。",
+    "styleTag": "textbook",
+    "lessonId": 44,
+    "level": 2,
+    "grammarIds": [
+      4402
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_4405_1",
+        "labelZh": "～ということです",
+        "hint": "普通形＋ということです表示转述要点"
+      }
+    ],
+    "blockingVocabIds": [
+      44005,
+      44006
+    ],
+    "tokens": [
+      "先生",
+      "の",
+      "話",
+      "で",
+      "は",
+      "実験",
+      "の",
+      "データ",
+      "が",
+      "必要",
+      "だ",
+      "ということです"
+    ]
   },
   {
     "sentenceId": 4501,
@@ -483,10 +2854,23 @@
     "styleTag": "textbook",
     "lessonId": 45,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
+    "grammarIds": [
+      4501
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_4501_1",
+        "labelZh": "ば形假定条件",
+        "hint": "动词ば形表示如果…就…"
+      }
+    ],
     "blockingVocabIds": [],
-    "tokens": []
+    "tokens": [
+      "雨",
+      "が",
+      "降れば",
+      "行きません"
+    ]
   },
   {
     "sentenceId": 4502,
@@ -494,10 +2878,109 @@
     "styleTag": "textbook",
     "lessonId": 45,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
+    "grammarIds": [
+      4501
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_4502_1",
+        "labelZh": "ば形假定条件",
+        "hint": "い形容词い→ければ表示如果…的话"
+      }
+    ],
     "blockingVocabIds": [],
-    "tokens": []
+    "tokens": [
+      "安ければ",
+      "買います"
+    ]
+  },
+  {
+    "sentenceId": 4503,
+    "text": "日本語を勉強するなら、この教科書がいいですよ。",
+    "styleTag": "textbook",
+    "lessonId": 45,
+    "level": 2,
+    "grammarIds": [
+      4502
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_4503_1",
+        "labelZh": "～なら话题条件",
+        "hint": "普通形＋なら表示如果是那样的话"
+      }
+    ],
+    "blockingVocabIds": [],
+    "tokens": [
+      "日本語",
+      "を",
+      "勉強する",
+      "なら",
+      "この",
+      "教科書",
+      "が",
+      "いい",
+      "です",
+      "よ"
+    ]
+  },
+  {
+    "sentenceId": 4504,
+    "text": "日本語は勉強すればするほど面白くなります。",
+    "styleTag": "textbook",
+    "lessonId": 45,
+    "level": 2,
+    "grammarIds": [
+      4503
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_4504_1",
+        "labelZh": "～ば…ほど越…越…",
+        "hint": "Vば形＋V辞書形＋ほど表示越做越怎样"
+      }
+    ],
+    "blockingVocabIds": [],
+    "tokens": [
+      "日本語",
+      "は",
+      "勉強すれば",
+      "する",
+      "ほど",
+      "面白く",
+      "なります"
+    ]
+  },
+  {
+    "sentenceId": 4505,
+    "text": "もし一生懸命練習すれば、きっと成功しますよ。",
+    "styleTag": "textbook",
+    "lessonId": 45,
+    "level": 2,
+    "grammarIds": [
+      4501
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_4505_1",
+        "labelZh": "ば形假定条件",
+        "hint": "もし＋Vば形表示如果…就…"
+      }
+    ],
+    "blockingVocabIds": [
+      45001,
+      45005,
+      45006
+    ],
+    "tokens": [
+      "もし",
+      "一生懸命",
+      "練習すれば",
+      "きっと",
+      "成功",
+      "します",
+      "よ"
+    ]
   },
   {
     "sentenceId": 4601,
@@ -505,10 +2988,28 @@
     "styleTag": "textbook",
     "lessonId": 46,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
-    "blockingVocabIds": [],
-    "tokens": []
+    "grammarIds": [
+      4601
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_4601_1",
+        "labelZh": "てから先后顺序",
+        "hint": "Vて形＋から表示做完之后再做"
+      }
+    ],
+    "blockingVocabIds": [
+      46001
+    ],
+    "tokens": [
+      "卒業",
+      "し",
+      "て",
+      "から",
+      "会社",
+      "で",
+      "働きます"
+    ]
   },
   {
     "sentenceId": 4602,
@@ -516,10 +3017,115 @@
     "styleTag": "textbook",
     "lessonId": 46,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
+    "grammarIds": [
+      4602
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_4602_1",
+        "labelZh": "た後で时间先后",
+        "hint": "Vた形＋後で表示做了之后"
+      }
+    ],
     "blockingVocabIds": [],
-    "tokens": []
+    "tokens": [
+      "会議",
+      "が",
+      "終わった",
+      "後",
+      "で",
+      "食事",
+      "に",
+      "行きましょう"
+    ]
+  },
+  {
+    "sentenceId": 4603,
+    "text": "金曜日までにレポートを出してください。",
+    "styleTag": "textbook",
+    "lessonId": 46,
+    "level": 2,
+    "grammarIds": [
+      4603
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_4603_1",
+        "labelZh": "～までに期限",
+        "hint": "時間名詞＋までに表示在…之前完成"
+      }
+    ],
+    "blockingVocabIds": [],
+    "tokens": [
+      "金曜日",
+      "までに",
+      "レポート",
+      "を",
+      "出して",
+      "ください"
+    ]
+  },
+  {
+    "sentenceId": 4604,
+    "text": "留学の準備が終わってから、出発します。",
+    "styleTag": "textbook",
+    "lessonId": 46,
+    "level": 2,
+    "grammarIds": [
+      4601
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_4604_1",
+        "labelZh": "てから先后顺序",
+        "hint": "Vて形＋から表示做完之后再做"
+      }
+    ],
+    "blockingVocabIds": [
+      46002,
+      46003
+    ],
+    "tokens": [
+      "留学",
+      "の",
+      "準備",
+      "が",
+      "終わって",
+      "から",
+      "出発",
+      "します"
+    ]
+  },
+  {
+    "sentenceId": 4605,
+    "text": "会議が始まるまでに、資料を準備しておきます。",
+    "styleTag": "textbook",
+    "lessonId": 46,
+    "level": 2,
+    "grammarIds": [
+      4603
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_4605_1",
+        "labelZh": "～までに期限",
+        "hint": "V辞書形＋までに表示在某事发生前完成"
+      }
+    ],
+    "blockingVocabIds": [
+      46003
+    ],
+    "tokens": [
+      "会議",
+      "が",
+      "始まる",
+      "までに",
+      "資料",
+      "を",
+      "準備",
+      "して",
+      "おきます"
+    ]
   },
   {
     "sentenceId": 4701,
@@ -527,10 +3133,26 @@
     "styleTag": "textbook",
     "lessonId": 47,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
-    "blockingVocabIds": [],
-    "tokens": []
+    "grammarIds": [
+      4701
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_4701_1",
+        "labelZh": "特殊尊他动词",
+        "hint": "いらっしゃる是来/去/在的尊敬语"
+      }
+    ],
+    "blockingVocabIds": [
+      47001
+    ],
+    "tokens": [
+      "社長",
+      "は",
+      "いつ",
+      "いらっしゃいます",
+      "か"
+    ]
   },
   {
     "sentenceId": 4702,
@@ -538,10 +3160,104 @@
     "styleTag": "textbook",
     "lessonId": 47,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
+    "grammarIds": [
+      4702
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_4702_1",
+        "labelZh": "特殊自谦动词",
+        "hint": "参る是行く/来る的自谦语"
+      }
+    ],
     "blockingVocabIds": [],
-    "tokens": []
+    "tokens": [
+      "私",
+      "は",
+      "来週",
+      "アメリカ",
+      "へ",
+      "参ります"
+    ]
+  },
+  {
+    "sentenceId": 4703,
+    "text": "すみません、写真を撮っていただけませんか。",
+    "styleTag": "textbook",
+    "lessonId": 47,
+    "level": 2,
+    "grammarIds": [
+      4703
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_4703_1",
+        "labelZh": "委婉请求",
+        "hint": "Vて形＋いただけませんか表示能否请您…"
+      }
+    ],
+    "blockingVocabIds": [],
+    "tokens": [
+      "すみません",
+      "写真",
+      "を",
+      "撮って",
+      "いただけません",
+      "か"
+    ]
+  },
+  {
+    "sentenceId": 4704,
+    "text": "先生のお手紙を拝見しました。",
+    "styleTag": "textbook",
+    "lessonId": 47,
+    "level": 2,
+    "grammarIds": [
+      4702
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_4704_1",
+        "labelZh": "特殊自谦動詞",
+        "hint": "拝見する是見る的自谦语"
+      }
+    ],
+    "blockingVocabIds": [
+      47004
+    ],
+    "tokens": [
+      "先生",
+      "の",
+      "お手紙",
+      "を",
+      "拝見",
+      "しました"
+    ]
+  },
+  {
+    "sentenceId": 4705,
+    "text": "もう少しゆっくり話していただけませんか。",
+    "styleTag": "textbook",
+    "lessonId": 47,
+    "level": 2,
+    "grammarIds": [
+      4703
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_4705_1",
+        "labelZh": "委婉请求",
+        "hint": "Vて形＋いただけませんか表示请求对方帮忙"
+      }
+    ],
+    "blockingVocabIds": [],
+    "tokens": [
+      "もう少し",
+      "ゆっくり",
+      "話して",
+      "いただけません",
+      "か"
+    ]
   },
   {
     "sentenceId": 4801,
@@ -549,10 +3265,26 @@
     "styleTag": "textbook",
     "lessonId": 48,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
+    "grammarIds": [
+      4801
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_4801_1",
+        "labelZh": "使役语态",
+        "hint": "让某人做某事：行く→行かせる"
+      }
+    ],
     "blockingVocabIds": [],
-    "tokens": []
+    "tokens": [
+      "部長",
+      "は",
+      "森さん",
+      "を",
+      "中国",
+      "へ",
+      "行かせます"
+    ]
   },
   {
     "sentenceId": 4802,
@@ -560,9 +3292,104 @@
     "styleTag": "textbook",
     "lessonId": 48,
     "level": 2,
-    "grammarIds": [],
-    "keyPoints": [],
+    "grammarIds": [
+      4801
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_4802_1",
+        "labelZh": "使役语态",
+        "hint": "让某人做某事：食べる→食べさせる"
+      }
+    ],
     "blockingVocabIds": [],
-    "tokens": []
+    "tokens": [
+      "私",
+      "は",
+      "子供",
+      "に",
+      "野菜",
+      "を",
+      "食べさせます"
+    ]
+  },
+  {
+    "sentenceId": 4803,
+    "text": "昨日は先輩にお酒を飲まされました。",
+    "styleTag": "textbook",
+    "lessonId": 48,
+    "level": 2,
+    "grammarIds": [
+      4802
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_4803_1",
+        "labelZh": "使役被动",
+        "hint": "使役形＋られる表示被迫做某事"
+      }
+    ],
+    "blockingVocabIds": [],
+    "tokens": [
+      "昨日",
+      "は",
+      "先輩",
+      "に",
+      "お酒",
+      "を",
+      "飲まされました"
+    ]
+  },
+  {
+    "sentenceId": 4804,
+    "text": "私にこの翻訳をやらせてください。",
+    "styleTag": "textbook",
+    "lessonId": 48,
+    "level": 2,
+    "grammarIds": [
+      4803
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_4804_1",
+        "labelZh": "～させてください",
+        "hint": "使役て形＋ください表示请允许我做"
+      }
+    ],
+    "blockingVocabIds": [
+      48001
+    ],
+    "tokens": [
+      "私",
+      "に",
+      "この",
+      "翻訳",
+      "を",
+      "やらせて",
+      "ください"
+    ]
+  },
+  {
+    "sentenceId": 4805,
+    "text": "少し考えさせてください。",
+    "styleTag": "textbook",
+    "lessonId": 48,
+    "level": 2,
+    "grammarIds": [
+      4803
+    ],
+    "keyPoints": [
+      {
+        "id": "kp_4805_1",
+        "labelZh": "～させてください",
+        "hint": "使役て形＋ください表示请让我做"
+      }
+    ],
+    "blockingVocabIds": [],
+    "tokens": [
+      "少し",
+      "考えさせて",
+      "ください"
+    ]
   }
 ]

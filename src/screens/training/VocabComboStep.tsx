@@ -1,10 +1,12 @@
 // src/screens/training/VocabComboStep.tsx
 // Step 3: Vocab Combo (词汇连击)
 
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import React, { useState, useRef, useEffect, useCallback, useMemo } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Animated } from 'react-native';
 import type { Vocab } from '../../schemas/content';
 import { speak } from '../../utils/tts';
+import { useTheme } from '../../theme';
+import type { ColorTokens } from '../../theme';
 
 export interface VocabAnswer {
     vocabId: number;
@@ -25,6 +27,8 @@ interface QuizItem {
 }
 
 export default function VocabComboStep({ vocabItems, onComplete, stepProgress }: Props) {
+    const { colors } = useTheme();
+    const styles = useMemo(() => createStyles(colors), [colors]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [quizItems, setQuizItems] = useState<QuizItem[]>([]);
     const [correct, setCorrect] = useState(0);
@@ -50,6 +54,11 @@ export default function VocabComboStep({ vocabItems, onComplete, stepProgress }:
 
             return { vocab, options, correctIndex };
         });
+        // Shuffle question order
+        for (let i = items.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [items[i], items[j]] = [items[j], items[i]];
+        }
         setQuizItems(items);
     }, [vocabItems]);
 
@@ -166,6 +175,14 @@ export default function VocabComboStep({ vocabItems, onComplete, stepProgress }:
 
             {/* Word card */}
             <Animated.View style={[styles.wordCard, { transform: [{ scale: scaleAnim }] }]}>
+                {currentItem.vocab.tags.includes('fun') && (
+                    <Text style={styles.funTag}>
+                        {currentItem.vocab.tags.includes('game') ? '🎮 游戏' :
+                         currentItem.vocab.tags.includes('anime') ? '🎬 动漫' :
+                         currentItem.vocab.tags.includes('song') ? '🎵 歌词' :
+                         currentItem.vocab.tags.includes('novel') ? '📖 小说' : '✨ 趣味'}
+                    </Text>
+                )}
                 <Text style={styles.wordSurface}>{currentItem.vocab.surface}</Text>
                 <Text style={styles.wordReading}>{currentItem.vocab.reading}</Text>
             </Animated.View>
@@ -195,12 +212,12 @@ export default function VocabComboStep({ vocabItems, onComplete, stepProgress }:
     );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (c: ColorTokens) => StyleSheet.create({
     container: {
         flex: 1,
     },
     loadingText: {
-        color: '#888',
+        color: c.textMuted,
         textAlign: 'center',
         marginTop: 40,
     },
@@ -212,7 +229,7 @@ const styles = StyleSheet.create({
     },
     stepLabel: {
         fontSize: 14,
-        color: '#00BCD4',
+        color: c.cyan,
         fontWeight: '600',
     },
     scoreContainer: {
@@ -221,61 +238,71 @@ const styles = StyleSheet.create({
     },
     score: {
         fontSize: 16,
-        color: '#4CAF50',
+        color: c.success,
         fontWeight: 'bold',
     },
     scoreWrong: {
-        color: '#F44336',
+        color: c.error,
     },
     progressBar: {
         height: 6,
-        backgroundColor: '#333',
+        backgroundColor: c.border,
         borderRadius: 3,
         marginBottom: 20,
     },
     progressFill: {
         height: '100%',
-        backgroundColor: '#00BCD4',
+        backgroundColor: c.cyan,
         borderRadius: 3,
     },
     comboIndicator: {
         position: 'absolute',
         top: 60,
         alignSelf: 'center',
-        backgroundColor: '#FF6B9D',
+        backgroundColor: c.primary,
         paddingHorizontal: 20,
         paddingVertical: 8,
         borderRadius: 20,
         zIndex: 10,
     },
     comboText: {
-        color: '#fff',
+        color: c.textPrimary,
         fontWeight: 'bold',
         fontSize: 16,
     },
     wordCard: {
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
         borderRadius: 24,
         padding: 40,
         alignItems: 'center',
         marginBottom: 40,
         marginTop: 20,
     },
+    funTag: {
+        fontSize: 12,
+        color: c.accent,
+        backgroundColor: c.bgCardAlt,
+        paddingHorizontal: 10,
+        paddingVertical: 3,
+        borderRadius: 10,
+        overflow: 'hidden',
+        marginBottom: 12,
+    },
     wordSurface: {
         fontSize: 48,
-        color: '#fff',
+        color: c.textPrimary,
         fontWeight: 'bold',
         marginBottom: 8,
     },
     wordReading: {
         fontSize: 18,
-        color: '#888',
+        color: c.textMuted,
     },
     optionsContainer: {
         gap: 12,
     },
     option: {
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
         borderRadius: 16,
         padding: 20,
         alignItems: 'center',
@@ -283,20 +310,20 @@ const styles = StyleSheet.create({
         borderColor: 'transparent',
     },
     optionCorrect: {
-        borderColor: '#4CAF50',
-        backgroundColor: 'rgba(76, 175, 80, 0.15)',
+        borderColor: c.success,
+        backgroundColor: c.successAlpha15,
     },
     optionWrong: {
-        borderColor: '#F44336',
-        backgroundColor: 'rgba(244, 67, 54, 0.15)',
+        borderColor: c.error,
+        backgroundColor: c.errorAlpha15,
     },
     optionText: {
         fontSize: 18,
-        color: '#fff',
+        color: c.textPrimary,
     },
     counter: {
         textAlign: 'center',
-        color: '#666',
+        color: c.textSubtle,
         marginTop: 24,
         fontSize: 14,
     },

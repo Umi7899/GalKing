@@ -1,7 +1,7 @@
 // src/screens/CourseScreen.tsx
 // Enhanced course catalog with detailed progress, vocab/sentence counts
 
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import {
     View,
     Text,
@@ -20,8 +20,11 @@ import {
 } from '../db/queries/content';
 import { getUserProgress, getGrammarState } from '../db/queries/progress';
 import { jumpToLesson, getLessonProgress } from '../engine/progressManager';
+import { MASTERY_THRESHOLD } from '../engine/constants';
 import type { Lesson, GrammarPoint, Sentence } from '../schemas/content';
 import { speak } from '../utils/tts';
+import { useTheme } from '../theme';
+import type { ColorTokens } from '../theme';
 
 interface LessonWithProgress extends Lesson {
     grammarCount: number;
@@ -39,6 +42,9 @@ interface ExpandedData {
 }
 
 export default function CourseScreen() {
+    const { colors } = useTheme();
+    const styles = useMemo(() => createStyles(colors), [colors]);
+
     const [lessons, setLessons] = useState<LessonWithProgress[]>([]);
     const [loading, setLoading] = useState(true);
     const [expandedId, setExpandedId] = useState<number | null>(null);
@@ -127,17 +133,17 @@ export default function CourseScreen() {
     };
 
     const getMasteryColor = (mastery: number) => {
-        if (mastery >= 80) return '#4CAF50';
-        if (mastery >= 50) return '#FF9800';
-        if (mastery > 0) return '#FF6B9D';
-        return '#333';
+        if (mastery >= MASTERY_THRESHOLD) return colors.success;
+        if (mastery >= MASTERY_THRESHOLD * 0.5) return colors.warning;
+        if (mastery > 0) return colors.primary;
+        return colors.border;
     };
 
     const getProgressBarColor = (percent: number) => {
-        if (percent >= 100) return '#4CAF50';
-        if (percent >= 60) return '#66BB6A';
-        if (percent >= 30) return '#FF9800';
-        return '#FF6B9D';
+        if (percent >= 100) return colors.success;
+        if (percent >= 60) return colors.successLight;
+        if (percent >= 30) return colors.warning;
+        return colors.primary;
     };
 
     const renderLesson = ({ item, index }: { item: LessonWithProgress; index: number }) => {
@@ -154,7 +160,7 @@ export default function CourseScreen() {
                 {index > 0 && (
                     <View style={[
                         styles.connectorLine,
-                        { backgroundColor: item.isPast || item.isCurrent ? '#FF6B9D' : '#2A2A3E' },
+                        { backgroundColor: item.isPast || item.isCurrent ? colors.primary : colors.divider },
                     ]} />
                 )}
 
@@ -174,10 +180,10 @@ export default function CourseScreen() {
                         <View style={[
                             styles.lessonBadge,
                             {
-                                backgroundColor: isComplete ? '#4CAF50'
-                                    : item.isCurrent ? '#FF6B9D'
-                                    : item.isPast ? '#66BB6A'
-                                    : '#333',
+                                backgroundColor: isComplete ? colors.success
+                                    : item.isCurrent ? colors.primary
+                                    : item.isPast ? colors.successLight
+                                    : colors.border,
                             },
                         ]}>
                             <Text style={styles.lessonBadgeText}>
@@ -239,25 +245,25 @@ export default function CourseScreen() {
                 {isExpanded && (
                     <View style={styles.expandedPanel}>
                         {expandLoading ? (
-                            <ActivityIndicator size="small" color="#FF6B9D" style={{ padding: 20 }} />
+                            <ActivityIndicator size="small" color={colors.primary} style={{ padding: 20 }} />
                         ) : expandedData ? (
                             <>
                                 {/* Stats row */}
                                 <View style={styles.statsRow}>
                                     <View style={styles.statBox}>
-                                        <Text style={[styles.statBoxValue, { color: '#FF6B9D' }]}>
+                                        <Text style={[styles.statBoxValue, { color: colors.primary }]}>
                                             {expandedData.grammarPoints.length}
                                         </Text>
                                         <Text style={styles.statBoxLabel}>语法点</Text>
                                     </View>
                                     <View style={styles.statBox}>
-                                        <Text style={[styles.statBoxValue, { color: '#4CAF50' }]}>
+                                        <Text style={[styles.statBoxValue, { color: colors.success }]}>
                                             {expandedData.vocabCount}
                                         </Text>
                                         <Text style={styles.statBoxLabel}>词汇</Text>
                                     </View>
                                     <View style={styles.statBox}>
-                                        <Text style={[styles.statBoxValue, { color: '#9C27B0' }]}>
+                                        <Text style={[styles.statBoxValue, { color: colors.accent }]}>
                                             {expandedData.sentenceCount}
                                         </Text>
                                         <Text style={styles.statBoxLabel}>例句</Text>
@@ -282,7 +288,7 @@ export default function CourseScreen() {
                                             <View style={styles.grammarNameRow}>
                                                 <Text style={styles.grammarName}>{gp.name}</Text>
                                                 <Text style={[styles.grammarMasteryText, { color: getMasteryColor(gp.mastery) }]}>
-                                                    {gp.mastery}%
+                                                    {Math.round(gp.mastery)}%
                                                 </Text>
                                             </View>
                                             <Text style={styles.grammarRule} numberOfLines={1}>{gp.coreRule}</Text>
@@ -333,7 +339,7 @@ export default function CourseScreen() {
         return (
             <View style={styles.container}>
                 <View style={styles.loadingContainer}>
-                    <ActivityIndicator size="large" color="#FF6B9D" />
+                    <ActivityIndicator size="large" color={colors.primary} />
                 </View>
             </View>
         );
@@ -374,10 +380,10 @@ export default function CourseScreen() {
     );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (c: ColorTokens) => StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#0F0F1A',
+        backgroundColor: c.bg,
     },
     loadingContainer: {
         flex: 1,
@@ -392,16 +398,16 @@ const styles = StyleSheet.create({
     headerTitle: {
         fontSize: 28,
         fontWeight: 'bold',
-        color: '#fff',
+        color: c.textPrimary,
         marginBottom: 4,
     },
     headerSubtitle: {
         fontSize: 14,
-        color: '#888',
+        color: c.textMuted,
     },
     overallCard: {
         marginHorizontal: 16,
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
         borderRadius: 12,
         padding: 14,
         marginBottom: 12,
@@ -413,27 +419,27 @@ const styles = StyleSheet.create({
     },
     overallLabel: {
         fontSize: 14,
-        color: '#fff',
+        color: c.textPrimary,
         fontWeight: '500',
     },
     overallValue: {
         fontSize: 12,
-        color: '#888',
+        color: c.textMuted,
     },
     overallBar: {
         height: 6,
-        backgroundColor: '#333',
+        backgroundColor: c.border,
         borderRadius: 3,
         marginBottom: 6,
     },
     overallFill: {
         height: '100%',
-        backgroundColor: '#FF6B9D',
+        backgroundColor: c.primary,
         borderRadius: 3,
     },
     overallPercent: {
         fontSize: 11,
-        color: '#FF6B9D',
+        color: c.primary,
         textAlign: 'right',
     },
     listContent: {
@@ -452,17 +458,17 @@ const styles = StyleSheet.create({
         height: 8,
     },
     lessonCard: {
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
         borderRadius: 14,
         padding: 14,
     },
     lessonCardCurrent: {
         borderWidth: 1.5,
-        borderColor: '#FF6B9D',
+        borderColor: c.primary,
     },
     lessonCardComplete: {
         borderWidth: 1,
-        borderColor: 'rgba(76, 175, 80, 0.3)',
+        borderColor: c.successAlpha30,
     },
     lessonCardLocked: {
         opacity: 0.45,
@@ -481,7 +487,7 @@ const styles = StyleSheet.create({
         marginTop: 2,
     },
     lessonBadgeText: {
-        color: '#fff',
+        color: c.textPrimary,
         fontSize: 12,
         fontWeight: 'bold',
     },
@@ -496,23 +502,23 @@ const styles = StyleSheet.create({
     lessonTitle: {
         fontSize: 15,
         fontWeight: '600',
-        color: '#fff',
+        color: c.textPrimary,
         flexShrink: 1,
     },
     currentBadge: {
-        backgroundColor: '#FF6B9D',
+        backgroundColor: c.primary,
         paddingHorizontal: 8,
         paddingVertical: 2,
         borderRadius: 8,
     },
     currentBadgeText: {
-        color: '#fff',
+        color: c.textPrimary,
         fontSize: 10,
         fontWeight: 'bold',
     },
     lessonGoal: {
         fontSize: 12,
-        color: '#888',
+        color: c.textMuted,
         marginTop: 3,
     },
     progressRow: {
@@ -524,7 +530,7 @@ const styles = StyleSheet.create({
     progressBar: {
         flex: 1,
         height: 4,
-        backgroundColor: '#333',
+        backgroundColor: c.border,
         borderRadius: 2,
     },
     progressFill: {
@@ -533,7 +539,7 @@ const styles = StyleSheet.create({
     },
     progressText: {
         fontSize: 11,
-        color: '#888',
+        color: c.textMuted,
         width: 32,
         textAlign: 'right',
     },
@@ -550,10 +556,10 @@ const styles = StyleSheet.create({
     },
     tagText: {
         fontSize: 10,
-        color: '#FF6B9D',
+        color: c.primary,
     },
     expandArrow: {
-        color: '#555',
+        color: c.textDim,
         fontSize: 10,
         marginTop: 6,
         marginLeft: 8,
@@ -562,10 +568,10 @@ const styles = StyleSheet.create({
         marginTop: 8,
         marginLeft: 40,
         fontSize: 12,
-        color: '#555',
+        color: c.textDim,
     },
     expandedPanel: {
-        backgroundColor: '#151525',
+        backgroundColor: c.bgCardAlt,
         borderRadius: 12,
         marginTop: 4,
         padding: 14,
@@ -577,7 +583,7 @@ const styles = StyleSheet.create({
     },
     statBox: {
         flex: 1,
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
         borderRadius: 10,
         padding: 10,
         alignItems: 'center',
@@ -588,13 +594,13 @@ const styles = StyleSheet.create({
     },
     statBoxLabel: {
         fontSize: 11,
-        color: '#888',
+        color: c.textMuted,
         marginTop: 2,
     },
     subSectionTitle: {
         fontSize: 13,
         fontWeight: '600',
-        color: '#888',
+        color: c.textMuted,
         marginBottom: 8,
     },
     grammarItem: {
@@ -607,7 +613,7 @@ const styles = StyleSheet.create({
     grammarMasteryBar: {
         width: 4,
         borderRadius: 2,
-        backgroundColor: '#333',
+        backgroundColor: c.border,
         marginRight: 10,
         overflow: 'hidden',
         justifyContent: 'flex-end',
@@ -626,7 +632,7 @@ const styles = StyleSheet.create({
     },
     grammarName: {
         fontSize: 14,
-        color: '#fff',
+        color: c.textPrimary,
         fontWeight: '500',
     },
     grammarMasteryText: {
@@ -635,40 +641,40 @@ const styles = StyleSheet.create({
     },
     grammarRule: {
         fontSize: 12,
-        color: '#888',
+        color: c.textMuted,
         marginTop: 2,
     },
     grammarStructure: {
         fontSize: 11,
-        color: '#666',
+        color: c.textSubtle,
         marginTop: 2,
         fontStyle: 'italic',
     },
     sentenceItem: {
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
         borderRadius: 8,
         padding: 10,
         marginBottom: 6,
     },
     sentenceText: {
         fontSize: 14,
-        color: '#fff',
+        color: c.textPrimary,
         lineHeight: 20,
     },
     sentenceStyle: {
         fontSize: 10,
-        color: '#9C27B0',
+        color: c.accent,
         marginTop: 4,
     },
     startButton: {
         marginTop: 14,
-        backgroundColor: '#FF6B9D',
+        backgroundColor: c.primary,
         borderRadius: 12,
         padding: 13,
         alignItems: 'center',
     },
     startButtonText: {
-        color: '#fff',
+        color: c.textPrimary,
         fontWeight: '600',
         fontSize: 14,
     },

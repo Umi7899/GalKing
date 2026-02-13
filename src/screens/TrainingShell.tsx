@@ -1,7 +1,7 @@
 // src/screens/TrainingShell.tsx
 // Training flow container for 5-step daily training
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
     View,
     Text,
@@ -14,7 +14,8 @@ import { useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import type { HomeStackParamList } from '../navigation/RootNavigator';
 
-import { getOrCreateSession, type SessionManager } from '../engine/sessionStateMachine';
+import { getOrCreateSession, type SessionManager, type FinishSessionResult } from '../engine/sessionStateMachine';
+import type { AchievementDef } from '../engine/achievements';
 import { getDrillById } from '../engine/planGenerator';
 import { getGrammarPoint, getSentence, getVocabByIds } from '../db/queries/content';
 import { explainMistake, parseSentence, isLLMAvailable } from '../llm/client';
@@ -22,6 +23,8 @@ import type { Drill, GrammarPoint, Sentence, Vocab } from '../schemas/content';
 import type { ResultJson } from '../schemas/session';
 import type { SentenceParseResponse, MistakeExplainResponse } from '../schemas/llm';
 import type { VocabAnswer } from './training/VocabComboStep';
+import { useTheme } from '../theme';
+import type { ColorTokens } from '../theme';
 
 // Step components
 import GrammarDrillStep from './training/GrammarDrillStep';
@@ -36,10 +39,13 @@ const STEP_LABELS = ['语法速通', '举一反三', '词汇连击', '句子应�
 
 export default function TrainingShell() {
     const navigation = useNavigation<NavigationProp>();
+    const { colors } = useTheme();
+    const styles = useMemo(() => createStyles(colors), [colors]);
     const [loading, setLoading] = useState(true);
     const [session, setSession] = useState<SessionManager | null>(null);
     const [currentStep, setCurrentStep] = useState(1);
     const [result, setResult] = useState<ResultJson | null>(null);
+    const [newAchievements, setNewAchievements] = useState<AchievementDef[]>([]);
 
     // Step-specific data
     const [currentDrill, setCurrentDrill] = useState<Drill | null>(null);
@@ -198,7 +204,8 @@ export default function TrainingShell() {
                 // Step 5 is Summary - finish session and show results
                 console.log('[Training] Finishing session, moving to step 5');
                 const sessionResult = await session.finishSession();
-                setResult(sessionResult);
+                setResult(sessionResult.result);
+                setNewAchievements(sessionResult.newAchievements);
                 setCurrentStep(5);
             } else {
                 await session.nextStep();
@@ -347,7 +354,7 @@ export default function TrainingShell() {
         return (
             <View style={styles.container}>
                 <View style={styles.loadingContainer}>
-                    <ActivityIndicator size="large" color="#FF6B9D" />
+                    <ActivityIndicator size="large" color={colors.primary} />
                     <Text style={styles.loadingText}>准备训练中...</Text>
                 </View>
             </View>
@@ -448,13 +455,14 @@ export default function TrainingShell() {
                         result={result}
                         onFinish={handleFinish}
                         sessionId={session?.sessionId || 0}
+                        newAchievements={newAchievements}
                     />
                 )}
 
                 {/* Loading state between questions */}
                 {!currentDrill && currentStep <= 2 && !loading && (
                     <View style={styles.loadingContainer}>
-                        <ActivityIndicator size="small" color="#FF6B9D" />
+                        <ActivityIndicator size="small" color={colors.primary} />
                     </View>
                 )}
             </View>
@@ -462,10 +470,10 @@ export default function TrainingShell() {
     );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (c: ColorTokens) => StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#0F0F1A',
+        backgroundColor: c.bg,
     },
     loadingContainer: {
         flex: 1,
@@ -474,18 +482,18 @@ const styles = StyleSheet.create({
     },
     loadingText: {
         marginTop: 16,
-        color: '#888',
+        color: c.textMuted,
         fontSize: 16,
     },
     fallbackContinueButton: {
         marginTop: 16,
-        backgroundColor: '#9C27B0',
+        backgroundColor: c.accent,
         paddingHorizontal: 24,
         paddingVertical: 12,
         borderRadius: 20,
     },
     fallbackContinueButtonText: {
-        color: '#fff',
+        color: c.textPrimary,
         fontSize: 16,
         fontWeight: '600',
     },
@@ -494,7 +502,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
         paddingBottom: 16,
         borderBottomWidth: 1,
-        borderBottomColor: '#222',
+        borderBottomColor: c.borderSubtle,
     },
     backButton: {
         position: 'absolute',
@@ -504,13 +512,13 @@ const styles = StyleSheet.create({
         width: 40,
         height: 40,
         borderRadius: 20,
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
         justifyContent: 'center',
         alignItems: 'center',
     },
     backButtonText: {
         fontSize: 18,
-        color: '#888',
+        color: c.textMuted,
     },
     progressContainer: {
         flexDirection: 'row',
@@ -526,28 +534,28 @@ const styles = StyleSheet.create({
         width: 24,
         height: 24,
         borderRadius: 12,
-        backgroundColor: '#333',
+        backgroundColor: c.border,
         justifyContent: 'center',
         alignItems: 'center',
     },
     progressDotActive: {
-        backgroundColor: '#FF6B9D',
+        backgroundColor: c.primary,
     },
     progressDotComplete: {
-        backgroundColor: '#4CAF50',
+        backgroundColor: c.success,
     },
     checkMark: {
-        color: '#fff',
+        color: c.textPrimary,
         fontSize: 12,
         fontWeight: 'bold',
     },
     progressLabel: {
         fontSize: 10,
-        color: '#666',
+        color: c.textSubtle,
         marginTop: 4,
     },
     progressLabelActive: {
-        color: '#FF6B9D',
+        color: c.primary,
         fontWeight: '600',
     },
     content: {

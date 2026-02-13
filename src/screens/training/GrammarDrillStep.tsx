@@ -1,7 +1,7 @@
 // src/screens/training/GrammarDrillStep.tsx
 // Step 1: Grammar Speed Drill
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Animated, ActivityIndicator, ScrollView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -9,6 +9,8 @@ import type { Drill, GrammarPoint } from '../../schemas/content';
 import MistakeExplainModal from '../../components/MistakeExplainModal';
 import type { MistakeExplainResponse } from '../../schemas/llm';
 import { speak } from '../../utils/tts';
+import { useTheme } from '../../theme';
+import type { ColorTokens } from '../../theme';
 
 interface Props {
     drill: Drill;
@@ -38,6 +40,8 @@ export default function GrammarDrillStep({
     stepProgress,
 }: Props) {
     const insets = useSafeAreaInsets();
+    const { colors } = useTheme();
+    const styles = useMemo(() => createStyles(colors), [colors]);
     const [selectedId, setSelectedId] = useState<string | null>(null);
     const startTimeRef = useRef(Date.now());
     const feedbackAnim = useRef(new Animated.Value(0)).current;
@@ -126,7 +130,7 @@ export default function GrammarDrillStep({
                             style={styles.speakerButton}
                             onPress={() => speak(drill.stem)}
                         >
-                            <Ionicons name="volume-high" size={24} color="#FF6B9D" />
+                            <Ionicons name="volume-high" size={24} color={colors.primary} />
                         </TouchableOpacity>
                     )}
                 </View>
@@ -191,9 +195,9 @@ export default function GrammarDrillStep({
                             <TouchableOpacity
                                 style={[styles.aiButton, aiLoading && styles.aiButtonDisabled]}
                                 onPress={() => {
-                                    // With absolute view, we don't need separate modal visibility state for this, 
+                                    // With absolute view, we don't need separate modal visibility state for this,
                                     // but we do need to make sure tapping this doesn't trigger the background dismiss.
-                                    // The pointerEvents="box-none" on parent and structure handles this naturally 
+                                    // The pointerEvents="box-none" on parent and structure handles this naturally
                                     // as this button is inside the content view which is above the background touchable.
                                     setModalVisible(true);
                                     if (onAIExplain && !aiExplainResult && !aiLoading) {
@@ -204,7 +208,7 @@ export default function GrammarDrillStep({
                             >
                                 {aiLoading ? (
                                     <View style={styles.aiLoadingContainer}>
-                                        <ActivityIndicator size="small" color="#fff" />
+                                        <ActivityIndicator size="small" color={colors.textPrimary} />
                                         <Text style={styles.aiButtonText}> 解析中...</Text>
                                     </View>
                                 ) : (
@@ -239,7 +243,7 @@ export default function GrammarDrillStep({
     );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (c: ColorTokens) => StyleSheet.create({
     container: {
         flex: 1,
     },
@@ -251,13 +255,13 @@ const styles = StyleSheet.create({
     },
     progressBar: {
         height: 4,
-        backgroundColor: '#333',
+        backgroundColor: c.border,
         borderRadius: 2,
         marginBottom: 20,
     },
     progressFill: {
         height: '100%',
-        backgroundColor: '#FF6B9D',
+        backgroundColor: c.primary,
         borderRadius: 2,
     },
     grammarHint: {
@@ -265,11 +269,11 @@ const styles = StyleSheet.create({
     },
     grammarName: {
         fontSize: 14,
-        color: '#FF6B9D',
+        color: c.primary,
         fontWeight: '600',
     },
     questionCard: {
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
         borderRadius: 16,
         padding: 24,
         marginBottom: 24,
@@ -280,26 +284,26 @@ const styles = StyleSheet.create({
         position: 'absolute' as const,
         top: 8,
         right: 8,
-        backgroundColor: '#00BCD4',
+        backgroundColor: c.cyan,
         paddingHorizontal: 8,
         paddingVertical: 2,
         borderRadius: 8,
     },
     aiBadgeText: {
-        color: '#fff',
+        color: c.textPrimary,
         fontSize: 10,
         fontWeight: 'bold' as const,
     },
     questionStem: {
         fontSize: 20,
-        color: '#fff',
+        color: c.textPrimary,
         lineHeight: 32,
         textAlign: 'center',
         marginBottom: 12,
     },
     speakerButton: {
         padding: 8,
-        backgroundColor: 'rgba(255, 107, 157, 0.1)',
+        backgroundColor: c.primaryAlpha10,
         borderRadius: 20,
     },
     optionsContainer: {
@@ -308,7 +312,7 @@ const styles = StyleSheet.create({
     option: {
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
         borderRadius: 12,
         padding: 16,
         borderWidth: 2,
@@ -317,26 +321,26 @@ const styles = StyleSheet.create({
     optionSelected: {
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
         borderRadius: 12,
         padding: 16,
         borderWidth: 2,
-        borderColor: '#FF6B9D',
+        borderColor: c.primary,
     },
     optionCorrect: {
-        borderColor: '#4CAF50',
-        backgroundColor: 'rgba(76, 175, 80, 0.1)',
+        borderColor: c.success,
+        backgroundColor: c.successAlpha10,
     },
     optionWrong: {
-        borderColor: '#F44336',
-        backgroundColor: 'rgba(244, 67, 54, 0.1)',
+        borderColor: c.error,
+        backgroundColor: c.errorAlpha10,
     },
     optionId: {
         width: 32,
         height: 32,
         borderRadius: 16,
-        backgroundColor: '#333',
-        color: '#fff',
+        backgroundColor: c.border,
+        color: c.textPrimary,
         textAlign: 'center',
         lineHeight: 32,
         marginRight: 12,
@@ -345,18 +349,18 @@ const styles = StyleSheet.create({
     optionText: {
         flex: 1,
         fontSize: 16,
-        color: '#fff',
+        color: c.textPrimary,
     },
     // Modal styles
     modalOverlay: {
         flex: 1,
-        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+        backgroundColor: c.bgOverlay,
         justifyContent: 'center',
         alignItems: 'center',
         padding: 20,
     },
     modalContent: {
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
         borderRadius: 24,
         padding: 32,
         alignItems: 'center',
@@ -365,11 +369,11 @@ const styles = StyleSheet.create({
     },
     modalCorrect: {
         borderWidth: 2,
-        borderColor: '#4CAF50',
+        borderColor: c.success,
     },
     modalWrong: {
         borderWidth: 2,
-        borderColor: '#F44336',
+        borderColor: c.error,
     },
     feedbackEmoji: {
         fontSize: 48,
@@ -378,44 +382,44 @@ const styles = StyleSheet.create({
     feedbackText: {
         fontSize: 24,
         fontWeight: 'bold',
-        color: '#fff',
+        color: c.textPrimary,
         marginBottom: 12,
     },
     explanationText: {
         fontSize: 16,
-        color: '#aaa',
+        color: c.textSecondary,
         textAlign: 'center',
         lineHeight: 24,
         marginBottom: 16,
     },
     aiButton: {
-        backgroundColor: '#333',
+        backgroundColor: c.border,
         paddingHorizontal: 24,
         paddingVertical: 12,
         borderRadius: 20,
         marginBottom: 16,
     },
     aiButtonText: {
-        color: '#fff',
+        color: c.textPrimary,
         fontWeight: '600',
         fontSize: 16,
     },
     aiButtonDisabled: {
         opacity: 0.7,
-        backgroundColor: '#444',
+        backgroundColor: c.divider,
     },
     aiLoadingContainer: {
         flexDirection: 'row',
         alignItems: 'center',
     },
     continueButton: {
-        backgroundColor: '#FF6B9D',
+        backgroundColor: c.primary,
         paddingHorizontal: 40,
         paddingVertical: 14,
         borderRadius: 24,
     },
     continueButtonText: {
-        color: '#fff',
+        color: c.textPrimary,
         fontSize: 18,
         fontWeight: 'bold',
     },
@@ -426,7 +430,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     dismissHint: {
-        color: '#666',
+        color: c.textSubtle,
         fontSize: 12,
         marginTop: 16,
     },
@@ -438,25 +442,25 @@ const styles = StyleSheet.create({
     },
     showResultButton: {
         flex: 1,
-        backgroundColor: '#333',
+        backgroundColor: c.border,
         paddingVertical: 16,
         borderRadius: 16,
         alignItems: 'center',
     },
     showResultButtonText: {
-        color: '#fff',
+        color: c.textPrimary,
         fontSize: 16,
         fontWeight: '600',
     },
     bottomContinueButton: {
         flex: 1,
-        backgroundColor: '#FF6B9D',
+        backgroundColor: c.primary,
         paddingVertical: 16,
         borderRadius: 16,
         alignItems: 'center',
     },
     bottomContinueButtonText: {
-        color: '#fff',
+        color: c.textPrimary,
         fontSize: 18,
         fontWeight: 'bold',
     },

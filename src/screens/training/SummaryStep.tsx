@@ -1,7 +1,7 @@
 // src/screens/training/SummaryStep.tsx
 // Step 5: Session Summary
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView, ActivityIndicator } from 'react-native';
 import { assessMastery, checkLLMAvailable } from '../../llm/client';
 import { getUserProgress, updateUserProgress, upsertGrammarState, getGrammarState, unlockNextLesson } from '../../db/queries/progress';
@@ -9,17 +9,33 @@ import { getRecentSessions, updateSessionCoach } from '../../db/queries/sessions
 import type { ResultJson } from '../../schemas/session';
 import type { DbSession } from '../../db/database';
 import type { MasteryAssessResponse } from '../../schemas/llm';
+import type { AchievementDef } from '../../engine/achievements';
+import AchievementToast from '../../components/AchievementToast';
+import { useTheme } from '../../theme';
+import type { ColorTokens } from '../../theme';
 
 interface Props {
     result: ResultJson;
     onFinish: () => void;
     sessionId: number;
+    newAchievements?: AchievementDef[];
 }
 
-export default function SummaryStep({ result, onFinish, sessionId }: Props) {
+export default function SummaryStep({ result, onFinish, sessionId, newAchievements }: Props) {
+    const { colors } = useTheme();
+    const styles = useMemo(() => createStyles(colors), [colors]);
     const [aiSummary, setAiSummary] = useState<string | null>(null);
     const [isAiLoading, setIsAiLoading] = useState(false);
     const [unlockMessage, setUnlockMessage] = useState<string | null>(null);
+    const [showingAchievementIdx, setShowingAchievementIdx] = useState(0);
+    const [showAchievementToast, setShowAchievementToast] = useState(false);
+
+    // Show achievement toasts sequentially
+    useEffect(() => {
+        if (newAchievements && newAchievements.length > 0 && showingAchievementIdx < newAchievements.length) {
+            setShowAchievementToast(true);
+        }
+    }, [showingAchievementIdx, newAchievements]);
 
     useEffect(() => {
         const loadAIAnalysis = async () => {
@@ -171,11 +187,11 @@ export default function SummaryStep({ result, onFinish, sessionId }: Props) {
     const getLevelChangeText = () => {
         switch (result.levelChange) {
             case 'up':
-                return { text: '难度提升 ↑', color: '#4CAF50' };
+                return { text: '难度提升 ↑', color: colors.success };
             case 'down':
-                return { text: '难度降低 ↓', color: '#FF9800' };
+                return { text: '难度降低 ↓', color: colors.warning };
             default:
-                return { text: '难度保持', color: '#888' };
+                return { text: '难度保持', color: colors.textMuted };
         }
     };
 
@@ -183,6 +199,19 @@ export default function SummaryStep({ result, onFinish, sessionId }: Props) {
 
     return (
         <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+            {/* Achievement Toast */}
+            {newAchievements && newAchievements.length > 0 && showingAchievementIdx < newAchievements.length && showAchievementToast && (
+                <AchievementToast
+                    achievement={newAchievements[showingAchievementIdx]}
+                    onDismiss={() => {
+                        setShowAchievementToast(false);
+                        setTimeout(() => {
+                            setShowingAchievementIdx(prev => prev + 1);
+                        }, 300);
+                    }}
+                />
+            )}
+
             {/* Stars */}
             <View style={styles.starsContainer}>
                 <Text style={styles.starsText}>{renderStars()}</Text>
@@ -250,7 +279,7 @@ export default function SummaryStep({ result, onFinish, sessionId }: Props) {
             {/* Unlock Notification */}
             {unlockMessage && (
                 <View style={[styles.levelChangeCard, { backgroundColor: '#2E7D32', marginTop: 8 }]}>
-                    <Text style={{ color: '#fff', fontSize: 16, fontWeight: 'bold', textAlign: 'center' }}>
+                    <Text style={{ color: colors.textPrimary, fontSize: 16, fontWeight: 'bold', textAlign: 'center' }}>
                         {unlockMessage}
                     </Text>
                 </View>
@@ -269,8 +298,8 @@ export default function SummaryStep({ result, onFinish, sessionId }: Props) {
                 </View>
                 {isAiLoading ? (
                     <View style={{ padding: 10 }}>
-                        <ActivityIndicator color="#FF6B9D" />
-                        <Text style={[styles.coachText, { textAlign: 'center', marginTop: 8, fontSize: 12, color: '#888' }]}>
+                        <ActivityIndicator color={colors.primary} />
+                        <Text style={[styles.coachText, { textAlign: 'center', marginTop: 8, fontSize: 12, color: colors.textMuted }]}>
                             正在分析你的表现喵...
                         </Text>
                     </View>
@@ -292,7 +321,7 @@ export default function SummaryStep({ result, onFinish, sessionId }: Props) {
     );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (c: ColorTokens) => StyleSheet.create({
     container: {
         flex: 1,
     },
@@ -309,7 +338,7 @@ const styles = StyleSheet.create({
     },
     starsLabel: {
         fontSize: 16,
-        color: '#888',
+        color: c.textMuted,
     },
     statsGrid: {
         flexDirection: 'row',
@@ -319,7 +348,7 @@ const styles = StyleSheet.create({
     },
     statCard: {
         width: '48%',
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
         borderRadius: 16,
         padding: 16,
         alignItems: 'center',
@@ -330,21 +359,21 @@ const styles = StyleSheet.create({
     },
     statTitle: {
         fontSize: 12,
-        color: '#888',
+        color: c.textMuted,
         marginBottom: 4,
     },
     statValue: {
         fontSize: 24,
-        color: '#fff',
+        color: c.textPrimary,
         fontWeight: 'bold',
     },
     statLabel: {
         fontSize: 12,
-        color: '#4CAF50',
+        color: c.success,
         marginTop: 4,
     },
     levelChangeCard: {
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
         borderRadius: 12,
         padding: 16,
         alignItems: 'center',
@@ -355,12 +384,12 @@ const styles = StyleSheet.create({
         fontWeight: '600',
     },
     coachCard: {
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
         borderRadius: 16,
         padding: 20,
         marginBottom: 32,
         borderLeftWidth: 4,
-        borderLeftColor: '#FF6B9D',
+        borderLeftColor: c.primary,
     },
     coachHeader: {
         flexDirection: 'row',
@@ -373,34 +402,34 @@ const styles = StyleSheet.create({
     },
     coachTitle: {
         fontSize: 16,
-        color: '#fff',
+        color: c.textPrimary,
         fontWeight: '600',
         flex: 1,
     },
     coachSource: {
         fontSize: 12,
-        color: '#888',
+        color: c.textMuted,
     },
     coachText: {
         fontSize: 15,
-        color: '#ccc',
+        color: c.textSecondary,
         lineHeight: 24,
     },
     finishButton: {
-        backgroundColor: '#4CAF50',
+        backgroundColor: c.success,
         borderRadius: 20,
         padding: 20,
         alignItems: 'center',
         marginBottom: 16,
     },
     finishButtonText: {
-        color: '#fff',
+        color: c.textPrimary,
         fontSize: 18,
         fontWeight: 'bold',
     },
     motivational: {
         textAlign: 'center',
-        color: '#666',
+        color: c.textSubtle,
         fontSize: 16,
     },
 });

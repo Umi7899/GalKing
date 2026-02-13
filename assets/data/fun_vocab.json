@@ -1,0 +1,802 @@
+[
+  {
+    "vocabId": 90001,
+    "surface": "攻撃",
+    "reading": "こうげき",
+    "meanings": ["攻击"],
+    "level": 3,
+    "tags": ["fun", "game"]
+  },
+  {
+    "vocabId": 90002,
+    "surface": "魔法",
+    "reading": "まほう",
+    "meanings": ["魔法"],
+    "level": 2,
+    "tags": ["fun", "game"]
+  },
+  {
+    "vocabId": 90003,
+    "surface": "冒険",
+    "reading": "ぼうけん",
+    "meanings": ["冒险"],
+    "level": 3,
+    "tags": ["fun", "game"]
+  },
+  {
+    "vocabId": 90004,
+    "surface": "仲間",
+    "reading": "なかま",
+    "meanings": ["伙伴"],
+    "level": 2,
+    "tags": ["fun", "game"]
+  },
+  {
+    "vocabId": 90005,
+    "surface": "宝物",
+    "reading": "たからもの",
+    "meanings": ["宝物"],
+    "level": 2,
+    "tags": ["fun", "game"]
+  },
+  {
+    "vocabId": 90006,
+    "surface": "武器",
+    "reading": "ぶき",
+    "meanings": ["武器"],
+    "level": 4,
+    "tags": ["fun", "game"]
+  },
+  {
+    "vocabId": 90007,
+    "surface": "防御",
+    "reading": "ぼうぎょ",
+    "meanings": ["防御"],
+    "level": 5,
+    "tags": ["fun", "game"]
+  },
+  {
+    "vocabId": 90008,
+    "surface": "経験値",
+    "reading": "けいけんち",
+    "meanings": ["经验值"],
+    "level": 4,
+    "tags": ["fun", "game"]
+  },
+  {
+    "vocabId": 90009,
+    "surface": "回復",
+    "reading": "かいふく",
+    "meanings": ["恢复"],
+    "level": 3,
+    "tags": ["fun", "game"]
+  },
+  {
+    "vocabId": 90010,
+    "surface": "勝利",
+    "reading": "しょうり",
+    "meanings": ["胜利"],
+    "level": 3,
+    "tags": ["fun", "game"]
+  },
+  {
+    "vocabId": 90011,
+    "surface": "敵",
+    "reading": "てき",
+    "meanings": ["敌人"],
+    "level": 2,
+    "tags": ["fun", "game"]
+  },
+  {
+    "vocabId": 90012,
+    "surface": "体力",
+    "reading": "たいりょく",
+    "meanings": ["体力"],
+    "level": 3,
+    "tags": ["fun", "game"]
+  },
+  {
+    "vocabId": 90013,
+    "surface": "呪文",
+    "reading": "じゅもん",
+    "meanings": ["咒语"],
+    "level": 5,
+    "tags": ["fun", "game"]
+  },
+  {
+    "vocabId": 90014,
+    "surface": "迷宮",
+    "reading": "めいきゅう",
+    "meanings": ["迷宫"],
+    "level": 5,
+    "tags": ["fun", "game"]
+  },
+  {
+    "vocabId": 90015,
+    "surface": "装備",
+    "reading": "そうび",
+    "meanings": ["装备"],
+    "level": 4,
+    "tags": ["fun", "game"]
+  },
+  {
+    "vocabId": 90016,
+    "surface": "戦闘",
+    "reading": "せんとう",
+    "meanings": ["战斗"],
+    "level": 4,
+    "tags": ["fun", "game"]
+  },
+  {
+    "vocabId": 90017,
+    "surface": "味方",
+    "reading": "みかた",
+    "meanings": ["我方"],
+    "level": 2,
+    "tags": ["fun", "game"]
+  },
+  {
+    "vocabId": 90018,
+    "surface": "作戦",
+    "reading": "さくせん",
+    "meanings": ["作战计划"],
+    "level": 4,
+    "tags": ["fun", "game"]
+  },
+  {
+    "vocabId": 90019,
+    "surface": "召喚",
+    "reading": "しょうかん",
+    "meanings": ["召唤"],
+    "level": 6,
+    "tags": ["fun", "game"]
+  },
+  {
+    "vocabId": 90020,
+    "surface": "最強",
+    "reading": "さいきょう",
+    "meanings": ["最强"],
+    "level": 3,
+    "tags": ["fun", "game"]
+  },
+  {
+    "vocabId": 90021,
+    "surface": "竜",
+    "reading": "りゅう",
+    "meanings": ["龙"],
+    "level": 1,
+    "tags": ["fun", "game"]
+  },
+  {
+    "vocabId": 90022,
+    "surface": "盾",
+    "reading": "たて",
+    "meanings": ["盾牌"],
+    "level": 2,
+    "tags": ["fun", "game"]
+  },
+  {
+    "vocabId": 90023,
+    "surface": "剣",
+    "reading": "けん",
+    "meanings": ["剑"],
+    "level": 1,
+    "tags": ["fun", "game"]
+  },
+  {
+    "vocabId": 90024,
+    "surface": "罠",
+    "reading": "わな",
+    "meanings": ["陷阱"],
+    "level": 5,
+    "tags": ["fun", "game"]
+  },
+  {
+    "vocabId": 90025,
+    "surface": "城",
+    "reading": "しろ",
+    "meanings": ["城堡"],
+    "level": 1,
+    "tags": ["fun", "game"]
+  },
+  {
+    "vocabId": 90026,
+    "surface": "先輩",
+    "reading": "せんぱい",
+    "meanings": ["前辈"],
+    "level": 2,
+    "tags": ["fun", "anime"]
+  },
+  {
+    "vocabId": 90027,
+    "surface": "変身",
+    "reading": "へんしん",
+    "meanings": ["变身"],
+    "level": 3,
+    "tags": ["fun", "anime"]
+  },
+  {
+    "vocabId": 90028,
+    "surface": "必殺技",
+    "reading": "ひっさつわざ",
+    "meanings": ["必杀技"],
+    "level": 5,
+    "tags": ["fun", "anime"]
+  },
+  {
+    "vocabId": 90029,
+    "surface": "友情",
+    "reading": "ゆうじょう",
+    "meanings": ["友情"],
+    "level": 3,
+    "tags": ["fun", "anime"]
+  },
+  {
+    "vocabId": 90030,
+    "surface": "正義",
+    "reading": "せいぎ",
+    "meanings": ["正义"],
+    "level": 4,
+    "tags": ["fun", "anime"]
+  },
+  {
+    "vocabId": 90031,
+    "surface": "悪",
+    "reading": "あく",
+    "meanings": ["恶"],
+    "level": 1,
+    "tags": ["fun", "anime"]
+  },
+  {
+    "vocabId": 90032,
+    "surface": "能力",
+    "reading": "のうりょく",
+    "meanings": ["能力"],
+    "level": 3,
+    "tags": ["fun", "anime"]
+  },
+  {
+    "vocabId": 90033,
+    "surface": "覚醒",
+    "reading": "かくせい",
+    "meanings": ["觉醒"],
+    "level": 6,
+    "tags": ["fun", "anime"]
+  },
+  {
+    "vocabId": 90034,
+    "surface": "修行",
+    "reading": "しゅぎょう",
+    "meanings": ["修行"],
+    "level": 4,
+    "tags": ["fun", "anime"]
+  },
+  {
+    "vocabId": 90035,
+    "surface": "師匠",
+    "reading": "ししょう",
+    "meanings": ["师父"],
+    "level": 5,
+    "tags": ["fun", "anime"]
+  },
+  {
+    "vocabId": 90036,
+    "surface": "弟子",
+    "reading": "でし",
+    "meanings": ["徒弟"],
+    "level": 3,
+    "tags": ["fun", "anime"]
+  },
+  {
+    "vocabId": 90037,
+    "surface": "絆",
+    "reading": "きずな",
+    "meanings": ["羁绊"],
+    "level": 4,
+    "tags": ["fun", "anime"]
+  },
+  {
+    "vocabId": 90038,
+    "surface": "復讐",
+    "reading": "ふくしゅう",
+    "meanings": ["复仇"],
+    "level": 6,
+    "tags": ["fun", "anime"]
+  },
+  {
+    "vocabId": 90039,
+    "surface": "熱血",
+    "reading": "ねっけつ",
+    "meanings": ["热血"],
+    "level": 4,
+    "tags": ["fun", "anime"]
+  },
+  {
+    "vocabId": 90040,
+    "surface": "天才",
+    "reading": "てんさい",
+    "meanings": ["天才"],
+    "level": 2,
+    "tags": ["fun", "anime"]
+  },
+  {
+    "vocabId": 90041,
+    "surface": "努力",
+    "reading": "どりょく",
+    "meanings": ["努力"],
+    "level": 2,
+    "tags": ["fun", "anime"]
+  },
+  {
+    "vocabId": 90042,
+    "surface": "青春",
+    "reading": "せいしゅん",
+    "meanings": ["青春"],
+    "level": 3,
+    "tags": ["fun", "anime"]
+  },
+  {
+    "vocabId": 90043,
+    "surface": "告白",
+    "reading": "こくはく",
+    "meanings": ["告白"],
+    "level": 3,
+    "tags": ["fun", "anime"]
+  },
+  {
+    "vocabId": 90044,
+    "surface": "暴走",
+    "reading": "ぼうそう",
+    "meanings": ["暴走"],
+    "level": 4,
+    "tags": ["fun", "anime"]
+  },
+  {
+    "vocabId": 90045,
+    "surface": "結界",
+    "reading": "けっかい",
+    "meanings": ["结界"],
+    "level": 6,
+    "tags": ["fun", "anime"]
+  },
+  {
+    "vocabId": 90046,
+    "surface": "使命",
+    "reading": "しめい",
+    "meanings": ["使命"],
+    "level": 4,
+    "tags": ["fun", "anime"]
+  },
+  {
+    "vocabId": 90047,
+    "surface": "根性",
+    "reading": "こんじょう",
+    "meanings": ["毅力"],
+    "level": 5,
+    "tags": ["fun", "anime"]
+  },
+  {
+    "vocabId": 90048,
+    "surface": "宿敵",
+    "reading": "しゅくてき",
+    "meanings": ["宿敌"],
+    "level": 6,
+    "tags": ["fun", "anime"]
+  },
+  {
+    "vocabId": 90049,
+    "surface": "約束",
+    "reading": "やくそく",
+    "meanings": ["约定"],
+    "level": 1,
+    "tags": ["fun", "anime"]
+  },
+  {
+    "vocabId": 90050,
+    "surface": "推し",
+    "reading": "おし",
+    "meanings": ["推（喜欢的角色）"],
+    "level": 2,
+    "tags": ["fun", "anime"]
+  },
+  {
+    "vocabId": 90051,
+    "surface": "夢",
+    "reading": "ゆめ",
+    "meanings": ["梦"],
+    "level": 1,
+    "tags": ["fun", "song"]
+  },
+  {
+    "vocabId": 90052,
+    "surface": "空",
+    "reading": "そら",
+    "meanings": ["天空"],
+    "level": 1,
+    "tags": ["fun", "song"]
+  },
+  {
+    "vocabId": 90053,
+    "surface": "光",
+    "reading": "ひかり",
+    "meanings": ["光"],
+    "level": 1,
+    "tags": ["fun", "song"]
+  },
+  {
+    "vocabId": 90054,
+    "surface": "涙",
+    "reading": "なみだ",
+    "meanings": ["眼泪"],
+    "level": 2,
+    "tags": ["fun", "song"]
+  },
+  {
+    "vocabId": 90055,
+    "surface": "永遠",
+    "reading": "えいえん",
+    "meanings": ["永远"],
+    "level": 3,
+    "tags": ["fun", "song"]
+  },
+  {
+    "vocabId": 90056,
+    "surface": "桜",
+    "reading": "さくら",
+    "meanings": ["樱花"],
+    "level": 1,
+    "tags": ["fun", "song"]
+  },
+  {
+    "vocabId": 90057,
+    "surface": "風",
+    "reading": "かぜ",
+    "meanings": ["风"],
+    "level": 1,
+    "tags": ["fun", "song"]
+  },
+  {
+    "vocabId": 90058,
+    "surface": "星",
+    "reading": "ほし",
+    "meanings": ["星星"],
+    "level": 1,
+    "tags": ["fun", "song"]
+  },
+  {
+    "vocabId": 90059,
+    "surface": "花",
+    "reading": "はな",
+    "meanings": ["花"],
+    "level": 1,
+    "tags": ["fun", "song"]
+  },
+  {
+    "vocabId": 90060,
+    "surface": "希望",
+    "reading": "きぼう",
+    "meanings": ["希望"],
+    "level": 2,
+    "tags": ["fun", "song"]
+  },
+  {
+    "vocabId": 90061,
+    "surface": "笑顔",
+    "reading": "えがお",
+    "meanings": ["笑容"],
+    "level": 2,
+    "tags": ["fun", "song"]
+  },
+  {
+    "vocabId": 90062,
+    "surface": "奇跡",
+    "reading": "きせき",
+    "meanings": ["奇迹"],
+    "level": 4,
+    "tags": ["fun", "song"]
+  },
+  {
+    "vocabId": 90063,
+    "surface": "未来",
+    "reading": "みらい",
+    "meanings": ["未来"],
+    "level": 2,
+    "tags": ["fun", "song"]
+  },
+  {
+    "vocabId": 90064,
+    "surface": "想い",
+    "reading": "おもい",
+    "meanings": ["心意"],
+    "level": 2,
+    "tags": ["fun", "song"]
+  },
+  {
+    "vocabId": 90065,
+    "surface": "願い",
+    "reading": "ねがい",
+    "meanings": ["愿望"],
+    "level": 2,
+    "tags": ["fun", "song"]
+  },
+  {
+    "vocabId": 90066,
+    "surface": "虹",
+    "reading": "にじ",
+    "meanings": ["彩虹"],
+    "level": 1,
+    "tags": ["fun", "song"]
+  },
+  {
+    "vocabId": 90067,
+    "surface": "旅",
+    "reading": "たび",
+    "meanings": ["旅途"],
+    "level": 1,
+    "tags": ["fun", "song"]
+  },
+  {
+    "vocabId": 90068,
+    "surface": "月",
+    "reading": "つき",
+    "meanings": ["月亮"],
+    "level": 1,
+    "tags": ["fun", "song"]
+  },
+  {
+    "vocabId": 90069,
+    "surface": "出会い",
+    "reading": "であい",
+    "meanings": ["相遇"],
+    "level": 2,
+    "tags": ["fun", "song"]
+  },
+  {
+    "vocabId": 90070,
+    "surface": "切ない",
+    "reading": "せつない",
+    "meanings": ["令人心痛的"],
+    "level": 4,
+    "tags": ["fun", "song"]
+  },
+  {
+    "vocabId": 90071,
+    "surface": "輝く",
+    "reading": "かがやく",
+    "meanings": ["闪耀"],
+    "level": 3,
+    "tags": ["fun", "song"]
+  },
+  {
+    "vocabId": 90072,
+    "surface": "届く",
+    "reading": "とどく",
+    "meanings": ["传达到"],
+    "level": 3,
+    "tags": ["fun", "song"]
+  },
+  {
+    "vocabId": 90073,
+    "surface": "追いかける",
+    "reading": "おいかける",
+    "meanings": ["追逐"],
+    "level": 4,
+    "tags": ["fun", "song"]
+  },
+  {
+    "vocabId": 90074,
+    "surface": "季節",
+    "reading": "きせつ",
+    "meanings": ["季节"],
+    "level": 3,
+    "tags": ["fun", "song"]
+  },
+  {
+    "vocabId": 90075,
+    "surface": "儚い",
+    "reading": "はかない",
+    "meanings": ["虚幻的"],
+    "level": 6,
+    "tags": ["fun", "song"]
+  },
+  {
+    "vocabId": 90076,
+    "surface": "物語",
+    "reading": "ものがたり",
+    "meanings": ["故事"],
+    "level": 3,
+    "tags": ["fun", "novel"]
+  },
+  {
+    "vocabId": 90077,
+    "surface": "運命",
+    "reading": "うんめい",
+    "meanings": ["命运"],
+    "level": 3,
+    "tags": ["fun", "novel"]
+  },
+  {
+    "vocabId": 90078,
+    "surface": "勇者",
+    "reading": "ゆうしゃ",
+    "meanings": ["勇者"],
+    "level": 3,
+    "tags": ["fun", "novel"]
+  },
+  {
+    "vocabId": 90079,
+    "surface": "魔王",
+    "reading": "まおう",
+    "meanings": ["魔王"],
+    "level": 2,
+    "tags": ["fun", "novel"]
+  },
+  {
+    "vocabId": 90080,
+    "surface": "異世界",
+    "reading": "いせかい",
+    "meanings": ["异世界"],
+    "level": 4,
+    "tags": ["fun", "novel"]
+  },
+  {
+    "vocabId": 90081,
+    "surface": "転生",
+    "reading": "てんせい",
+    "meanings": ["转生"],
+    "level": 5,
+    "tags": ["fun", "novel"]
+  },
+  {
+    "vocabId": 90082,
+    "surface": "王女",
+    "reading": "おうじょ",
+    "meanings": ["公主"],
+    "level": 2,
+    "tags": ["fun", "novel"]
+  },
+  {
+    "vocabId": 90083,
+    "surface": "騎士",
+    "reading": "きし",
+    "meanings": ["骑士"],
+    "level": 4,
+    "tags": ["fun", "novel"]
+  },
+  {
+    "vocabId": 90084,
+    "surface": "王国",
+    "reading": "おうこく",
+    "meanings": ["王国"],
+    "level": 3,
+    "tags": ["fun", "novel"]
+  },
+  {
+    "vocabId": 90085,
+    "surface": "秘密",
+    "reading": "ひみつ",
+    "meanings": ["秘密"],
+    "level": 2,
+    "tags": ["fun", "novel"]
+  },
+  {
+    "vocabId": 90086,
+    "surface": "冒頭",
+    "reading": "ぼうとう",
+    "meanings": ["开头"],
+    "level": 5,
+    "tags": ["fun", "novel"]
+  },
+  {
+    "vocabId": 90087,
+    "surface": "伏線",
+    "reading": "ふくせん",
+    "meanings": ["伏笔"],
+    "level": 6,
+    "tags": ["fun", "novel"]
+  },
+  {
+    "vocabId": 90088,
+    "surface": "結末",
+    "reading": "けつまつ",
+    "meanings": ["结局"],
+    "level": 5,
+    "tags": ["fun", "novel"]
+  },
+  {
+    "vocabId": 90089,
+    "surface": "主人公",
+    "reading": "しゅじんこう",
+    "meanings": ["主人公"],
+    "level": 3,
+    "tags": ["fun", "novel"]
+  },
+  {
+    "vocabId": 90090,
+    "surface": "悪役",
+    "reading": "あくやく",
+    "meanings": ["反派"],
+    "level": 4,
+    "tags": ["fun", "novel"]
+  },
+  {
+    "vocabId": 90091,
+    "surface": "旅立ち",
+    "reading": "たびだち",
+    "meanings": ["启程"],
+    "level": 3,
+    "tags": ["fun", "novel"]
+  },
+  {
+    "vocabId": 90092,
+    "surface": "裏切り",
+    "reading": "うらぎり",
+    "meanings": ["背叛"],
+    "level": 5,
+    "tags": ["fun", "novel"]
+  },
+  {
+    "vocabId": 90093,
+    "surface": "真実",
+    "reading": "しんじつ",
+    "meanings": ["真相"],
+    "level": 3,
+    "tags": ["fun", "novel"]
+  },
+  {
+    "vocabId": 90094,
+    "surface": "記憶",
+    "reading": "きおく",
+    "meanings": ["记忆"],
+    "level": 4,
+    "tags": ["fun", "novel"]
+  },
+  {
+    "vocabId": 90095,
+    "surface": "孤独",
+    "reading": "こどく",
+    "meanings": ["孤独"],
+    "level": 5,
+    "tags": ["fun", "novel"]
+  },
+  {
+    "vocabId": 90096,
+    "surface": "宿命",
+    "reading": "しゅくめい",
+    "meanings": ["宿命"],
+    "level": 6,
+    "tags": ["fun", "novel"]
+  },
+  {
+    "vocabId": 90097,
+    "surface": "王子",
+    "reading": "おうじ",
+    "meanings": ["王子"],
+    "level": 1,
+    "tags": ["fun", "novel"]
+  },
+  {
+    "vocabId": 90098,
+    "surface": "魔女",
+    "reading": "まじょ",
+    "meanings": ["魔女"],
+    "level": 2,
+    "tags": ["fun", "novel"]
+  },
+  {
+    "vocabId": 90099,
+    "surface": "英雄",
+    "reading": "えいゆう",
+    "meanings": ["英雄"],
+    "level": 3,
+    "tags": ["fun", "novel"]
+  },
+  {
+    "vocabId": 90100,
+    "surface": "禁断",
+    "reading": "きんだん",
+    "meanings": ["禁忌"],
+    "level": 6,
+    "tags": ["fun", "novel"]
+  }
+]

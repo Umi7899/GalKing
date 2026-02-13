@@ -40,6 +40,34 @@ export async function initDatabase(): Promise<void> {
         await db.execAsync(statement);
     }
 
+    // Migrations
+    try {
+        await db.execAsync('ALTER TABLE user_progress ADD COLUMN maxStreakDays INTEGER NOT NULL DEFAULT 0');
+    } catch (_) {
+        // Column already exists, ignore
+    }
+
+    // Migration: import fun vocab if not yet imported
+    try {
+        const funVocabCheck = await db.getFirstAsync<{ count: number }>(
+            "SELECT COUNT(*) as count FROM vocab WHERE vocabId >= 90001"
+        );
+        if ((funVocabCheck?.count ?? 0) === 0) {
+            const funVocabJson = require('../../assets/data/fun_vocab.json');
+            const funVocab = VocabDatasetSchema.parse(funVocabJson);
+            for (const v of funVocab) {
+                await db.runAsync(
+                    `INSERT OR IGNORE INTO vocab (vocabId, surface, reading, meaningsJson, level, tagsJson)
+                     VALUES (?, ?, ?, ?, ?, ?)`,
+                    [v.vocabId, v.surface, v.reading, JSON.stringify(v.meanings), v.level, JSON.stringify(v.tags)]
+                );
+            }
+            console.log(`[DB] Migration: imported ${funVocab.length} fun vocab items`);
+        }
+    } catch (e) {
+        console.warn('[DB] Fun vocab migration failed:', e);
+    }
+
     console.log('[DB] All tables created successfully');
 }
 
@@ -165,6 +193,25 @@ export async function importDataset(): Promise<{ success: boolean; error?: strin
         }
         console.log(`[DB] Imported ${vocab.length} vocab items`);
 
+        // Import fun vocab (separate file for easy editing)
+        const funVocabJson = require('../../assets/data/fun_vocab.json');
+        const funVocab = VocabDatasetSchema.parse(funVocabJson);
+        for (const v of funVocab) {
+            await database.runAsync(
+                `INSERT INTO vocab (vocabId, surface, reading, meaningsJson, level, tagsJson)
+         VALUES (?, ?, ?, ?, ?, ?)`,
+                [
+                    v.vocabId,
+                    v.surface,
+                    v.reading,
+                    JSON.stringify(v.meanings),
+                    v.level,
+                    JSON.stringify(v.tags),
+                ]
+            );
+        }
+        console.log(`[DB] Imported ${funVocab.length} fun vocab items`);
+
         // Import vocab packs
         for (const pack of vocabPacks) {
             await database.runAsync(
@@ -269,6 +316,7 @@ export interface DbUserProgress {
     currentLevel: number;
     streakDays: number;
     lastActiveDate: string | null;
+    maxStreakDays: number;
 }
 
 export interface DbUserGrammarState {

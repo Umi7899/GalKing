@@ -1,11 +1,13 @@
 // src/screens/training/SentenceAppStep.tsx
 // Step 4: Sentence Application (句子应用)
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Modal, Animated, ActivityIndicator } from 'react-native';
 import type { Sentence } from '../../schemas/content';
 import type { SentenceParseResponse } from '../../schemas/llm';
 import { speak } from '../../utils/tts';
+import { useTheme } from '../../theme';
+import type { ColorTokens } from '../../theme';
 
 interface Props {
     sentence: Sentence;
@@ -30,6 +32,8 @@ export default function SentenceAppStep({
     aiParsing = false,
     aiParseResult
 }: Props) {
+    const { colors } = useTheme();
+    const styles = useMemo(() => createStyles(colors), [colors]);
     const [checkedIds, setCheckedIds] = useState<Set<string>>(new Set());
     const [submitted, setSubmitted] = useState(false);
     const [submitResult, setSubmitResult] = useState<{ passed: boolean; hitRate: number } | null>(null);
@@ -225,7 +229,7 @@ export default function SentenceAppStep({
                             >
                                 {aiParsing ? (
                                     <View style={styles.aiLoadingContainer}>
-                                        <ActivityIndicator size="small" color="#fff" />
+                                        <ActivityIndicator size="small" color={colors.textPrimary} />
                                         <Text style={styles.aiButtonText}> 分析中...</Text>
                                     </View>
                                 ) : (
@@ -317,7 +321,7 @@ export default function SentenceAppStep({
     );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (c: ColorTokens) => StyleSheet.create({
     container: {
         flex: 1,
     },
@@ -335,46 +339,46 @@ const styles = StyleSheet.create({
     },
     stepLabel: {
         fontSize: 14,
-        color: '#9C27B0',
+        color: c.accent,
         fontWeight: '600',
     },
     stepProgress: {
         fontSize: 12,
-        color: '#888',
+        color: c.textMuted,
     },
     progressBar: {
         height: 4,
-        backgroundColor: '#333',
+        backgroundColor: c.border,
         borderRadius: 2,
         marginBottom: 20,
     },
     progressFill: {
         height: '100%',
-        backgroundColor: '#9C27B0',
+        backgroundColor: c.accent,
         borderRadius: 2,
     },
     styleTag: {
         alignSelf: 'flex-start',
-        backgroundColor: 'rgba(156, 39, 176, 0.2)',
+        backgroundColor: c.accentAlpha20,
         paddingHorizontal: 12,
         paddingVertical: 6,
         borderRadius: 12,
         marginBottom: 16,
     },
     styleTagText: {
-        color: '#9C27B0',
+        color: c.accent,
         fontSize: 12,
         fontWeight: '600',
     },
     sentenceCard: {
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
         borderRadius: 20,
         padding: 24,
         marginBottom: 24,
     },
     sentenceText: {
         fontSize: 22,
-        color: '#fff',
+        color: c.textPrimary,
         lineHeight: 36,
         textAlign: 'center',
     },
@@ -382,7 +386,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignSelf: 'center',
         alignItems: 'center',
-        backgroundColor: 'rgba(156, 39, 176, 0.15)',
+        backgroundColor: c.accentAlpha15,
         paddingHorizontal: 10,
         paddingVertical: 6,
         borderRadius: 14,
@@ -401,16 +405,16 @@ const styles = StyleSheet.create({
         gap: 4,
     },
     token: {
-        backgroundColor: '#333',
+        backgroundColor: c.border,
         paddingHorizontal: 8,
         paddingVertical: 4,
         borderRadius: 6,
-        color: '#aaa',
+        color: c.textSecondary,
         fontSize: 12,
     },
     instructions: {
         fontSize: 14,
-        color: '#888',
+        color: c.textMuted,
         marginBottom: 16,
     },
     keyPointsList: {
@@ -420,32 +424,32 @@ const styles = StyleSheet.create({
     keyPointItem: {
         flexDirection: 'row',
         alignItems: 'flex-start',
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
         borderRadius: 12,
         padding: 16,
         borderWidth: 2,
         borderColor: 'transparent',
     },
     keyPointItemChecked: {
-        borderColor: '#9C27B0',
-        backgroundColor: 'rgba(156, 39, 176, 0.1)',
+        borderColor: c.accent,
+        backgroundColor: c.accentAlpha10,
     },
     checkbox: {
         width: 24,
         height: 24,
         borderRadius: 6,
         borderWidth: 2,
-        borderColor: '#555',
+        borderColor: c.textDim,
         marginRight: 12,
         justifyContent: 'center',
         alignItems: 'center',
     },
     checkboxChecked: {
-        backgroundColor: '#9C27B0',
-        borderColor: '#9C27B0',
+        backgroundColor: c.accent,
+        borderColor: c.accent,
     },
     checkmark: {
-        color: '#fff',
+        color: c.textPrimary,
         fontWeight: 'bold',
         fontSize: 14,
     },
@@ -454,37 +458,37 @@ const styles = StyleSheet.create({
     },
     keyPointLabel: {
         fontSize: 16,
-        color: '#fff',
+        color: c.textPrimary,
         marginBottom: 4,
     },
     keyPointHint: {
         fontSize: 13,
-        color: '#888',
+        color: c.textMuted,
     },
     submitButton: {
-        backgroundColor: '#9C27B0',
+        backgroundColor: c.accent,
         borderRadius: 16,
         padding: 18,
         alignItems: 'center',
     },
     submitButtonDisabled: {
-        backgroundColor: '#333',
+        backgroundColor: c.border,
     },
     submitButtonText: {
-        color: '#fff',
+        color: c.textPrimary,
         fontSize: 18,
         fontWeight: 'bold',
     },
     // Modal styles
     modalOverlay: {
         flex: 1,
-        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+        backgroundColor: c.bgOverlay,
         justifyContent: 'center',
         alignItems: 'center',
         padding: 20,
     },
     modalContent: {
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
         borderRadius: 24,
         padding: 32,
         alignItems: 'center',
@@ -493,11 +497,11 @@ const styles = StyleSheet.create({
     },
     modalGood: {
         borderWidth: 2,
-        borderColor: '#4CAF50',
+        borderColor: c.success,
     },
     modalNormal: {
         borderWidth: 2,
-        borderColor: '#9C27B0',
+        borderColor: c.accent,
     },
     feedbackEmoji: {
         fontSize: 48,
@@ -506,23 +510,23 @@ const styles = StyleSheet.create({
     feedbackTitle: {
         fontSize: 24,
         fontWeight: 'bold',
-        color: '#fff',
+        color: c.textPrimary,
         marginBottom: 8,
     },
     feedbackText: {
         fontSize: 16,
-        color: '#aaa',
+        color: c.textSecondary,
         textAlign: 'center',
         lineHeight: 24,
         marginBottom: 8,
     },
     checkedCount: {
         fontSize: 14,
-        color: '#888',
+        color: c.textMuted,
         marginBottom: 24,
     },
     continueButton: {
-        backgroundColor: '#9C27B0',
+        backgroundColor: c.accent,
         paddingHorizontal: 40,
         paddingVertical: 14,
         borderRadius: 24,
@@ -531,13 +535,13 @@ const styles = StyleSheet.create({
         backgroundColor: '#5A3760',
     },
     continueButtonText: {
-        color: '#fff',
+        color: c.textPrimary,
         fontSize: 18,
         fontWeight: 'bold',
     },
     // AI Button styles
     aiButton: {
-        backgroundColor: '#333',
+        backgroundColor: c.border,
         paddingHorizontal: 24,
         paddingVertical: 12,
         borderRadius: 20,
@@ -545,21 +549,21 @@ const styles = StyleSheet.create({
     },
     aiButtonDisabled: {
         opacity: 0.7,
-        backgroundColor: '#444',
+        backgroundColor: c.divider,
     },
     aiLoadingContainer: {
         flexDirection: 'row',
         alignItems: 'center',
     },
     aiButtonText: {
-        color: '#fff',
+        color: c.textPrimary,
         fontWeight: '600',
         fontSize: 16,
     },
     // Parse Modal Styles
     parseModalContainer: {
         flex: 1,
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
     },
     parseHeader: {
         flexDirection: 'row',
@@ -567,19 +571,19 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         padding: 20,
         borderBottomWidth: 1,
-        borderBottomColor: '#333',
+        borderBottomColor: c.border,
         marginTop: 20,
     },
     parseTitle: {
         fontSize: 20,
         fontWeight: 'bold',
-        color: '#fff',
+        color: c.textPrimary,
     },
     closeButton: {
         padding: 8,
     },
     closeButtonText: {
-        color: '#FF6B9D',
+        color: c.primary,
         fontSize: 16,
         fontWeight: '600',
     },
@@ -589,20 +593,20 @@ const styles = StyleSheet.create({
     },
     parseSection: {
         marginBottom: 24,
-        backgroundColor: '#252538',
+        backgroundColor: c.bgInput,
         borderRadius: 16,
         padding: 16,
     },
     sectionLabel: {
         fontSize: 14,
-        color: '#888',
+        color: c.textMuted,
         fontWeight: '600',
         marginBottom: 12,
         textTransform: 'uppercase',
     },
     translationText: {
         fontSize: 18,
-        color: '#fff',
+        color: c.textPrimary,
         lineHeight: 28,
         fontStyle: 'italic',
     },
@@ -612,24 +616,24 @@ const styles = StyleSheet.create({
         gap: 8,
     },
     segmentItem: {
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
         borderRadius: 8,
         padding: 8,
         borderWidth: 1,
-        borderColor: '#444',
+        borderColor: c.divider,
     },
     segmentText: {
-        color: '#fff',
+        color: c.textPrimary,
         fontSize: 16,
         fontWeight: 'bold',
         marginBottom: 4,
     },
     segmentRole: {
-        color: '#FF6B9D',
+        color: c.primary,
         fontSize: 12,
     },
     segmentNote: {
-        color: '#aaa',
+        color: c.textSecondary,
         fontSize: 10,
         marginTop: 2,
     },
@@ -642,12 +646,12 @@ const styles = StyleSheet.create({
     kpLabel: {
         fontSize: 16,
         fontWeight: 'bold',
-        color: '#FF6B9D',
+        color: c.primary,
         marginBottom: 4,
     },
     kpExplanation: {
         fontSize: 15,
-        color: '#ccc',
+        color: c.textSecondary,
         lineHeight: 22,
     },
     regenBtn: {
@@ -655,13 +659,13 @@ const styles = StyleSheet.create({
         padding: 16,
         alignItems: 'center',
         borderWidth: 1,
-        borderColor: '#9C27B0',
+        borderColor: c.accent,
         borderRadius: 12,
         borderStyle: 'dashed',
-        backgroundColor: 'rgba(156, 39, 176, 0.1)',
+        backgroundColor: c.accentAlpha10,
     },
     regenBtnText: {
-        color: '#9C27B0',
+        color: c.accent,
         fontSize: 14,
         fontWeight: '600',
     },

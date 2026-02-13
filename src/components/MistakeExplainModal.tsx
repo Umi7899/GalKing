@@ -1,10 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import {
     View, Text, StyleSheet, Modal, ScrollView, TouchableOpacity,
     ActivityIndicator, TextInput, KeyboardAvoidingView, Platform, Alert
 } from 'react-native';
 import type { MistakeExplainResponse } from '../schemas/llm';
 import { chatWithAI, type ChatMessage } from '../llm/client';
+import { useTheme } from '../theme';
+import type { ColorTokens } from '../theme';
 
 interface Props {
     visible: boolean;
@@ -28,6 +30,9 @@ interface ChatItem {
 export default function MistakeExplainModal({
     visible, onClose, data, onRegenerate, isRegenerating, contextParams
 }: Props) {
+    const { colors } = useTheme();
+    const styles = useMemo(() => createStyles(colors), [colors]);
+
     const [activeTab, setActiveTab] = useState<'analysis' | 'chat'>('analysis');
     const [chatHistory, setChatHistory] = useState<ChatItem[]>([]);
     const [input, setInput] = useState('');
@@ -116,7 +121,7 @@ Previous Explanation: ${data?.why_wrong} / ${data?.key_rule}`;
                             <ScrollView style={styles.scrollView}>
                                 {isRegenerating ? (
                                     <View style={styles.loadingContainer}>
-                                        <ActivityIndicator size="large" color="#FF6B9D" />
+                                        <ActivityIndicator size="large" color={colors.primary} />
                                         <Text style={styles.loadingText}>正在重新分析...</Text>
                                     </View>
                                 ) : (data && (
@@ -181,7 +186,7 @@ Previous Explanation: ${data?.why_wrong} / ${data?.key_rule}`;
                                     ))}
                                     {isChatLoading && (
                                         <View style={styles.aiBubble}>
-                                            <ActivityIndicator size="small" color="#fff" />
+                                            <ActivityIndicator size="small" color={colors.textPrimary} />
                                         </View>
                                     )}
                                 </ScrollView>
@@ -191,7 +196,7 @@ Previous Explanation: ${data?.why_wrong} / ${data?.key_rule}`;
                                         value={input}
                                         onChangeText={setInput}
                                         placeholder="输入问题..."
-                                        placeholderTextColor="#666"
+                                        placeholderTextColor={colors.textSubtle}
                                         onSubmitEditing={handleSend}
                                     />
                                     <TouchableOpacity
@@ -211,43 +216,43 @@ Previous Explanation: ${data?.why_wrong} / ${data?.key_rule}`;
     );
 }
 
-const styles = StyleSheet.create({
-    modalContainer: { flex: 1, backgroundColor: 'rgba(0,0,0,0.6)', justifyContent: 'flex-end' },
-    modalContent: { backgroundColor: '#1A1A2E', borderTopLeftRadius: 24, borderTopRightRadius: 24, height: '85%', overflow: 'hidden' },
-    header: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 20, paddingVertical: 16, borderBottomWidth: 1, borderBottomColor: '#333' },
+const createStyles = (c: ColorTokens) => StyleSheet.create({
+    modalContainer: { flex: 1, backgroundColor: c.bgOverlay, justifyContent: 'flex-end' },
+    modalContent: { backgroundColor: c.bgCard, borderTopLeftRadius: 24, borderTopRightRadius: 24, height: '85%', overflow: 'hidden' },
+    header: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 20, paddingVertical: 16, borderBottomWidth: 1, borderBottomColor: c.border },
     tabs: { flexDirection: 'row', gap: 20 },
     tab: { paddingVertical: 8 },
-    activeTab: { borderBottomWidth: 2, borderBottomColor: '#FF6B9D' },
-    tabText: { color: '#888', fontSize: 16, fontWeight: '600' },
-    activeTabText: { color: '#FF6B9D' },
+    activeTab: { borderBottomWidth: 2, borderBottomColor: c.primary },
+    tabText: { color: c.textMuted, fontSize: 16, fontWeight: '600' },
+    activeTabText: { color: c.primary },
     closeBtn: { padding: 8 },
-    closeBtnText: { color: '#888', fontSize: 14 },
+    closeBtnText: { color: c.textMuted, fontSize: 14 },
     body: { flex: 1 },
     scrollView: { flex: 1, padding: 20 },
     loadingContainer: { marginTop: 100, alignItems: 'center' },
-    loadingText: { color: '#888', marginTop: 16 },
+    loadingText: { color: c.textMuted, marginTop: 16 },
     section: { marginBottom: 24 },
-    whyWrong: { fontSize: 18, color: '#fff', lineHeight: 28 },
-    card: { backgroundColor: '#252538', padding: 16, borderRadius: 12, marginBottom: 16 },
-    label: { fontSize: 13, color: '#888', fontWeight: 'bold', marginBottom: 8, textTransform: 'uppercase' },
+    whyWrong: { fontSize: 18, color: c.textPrimary, lineHeight: 28 },
+    card: { backgroundColor: c.bgInput, padding: 16, borderRadius: 12, marginBottom: 16 },
+    label: { fontSize: 13, color: c.textMuted, fontWeight: 'bold', marginBottom: 8, textTransform: 'uppercase' },
     value: { fontSize: 16, color: '#eee', lineHeight: 24 },
-    contrastItem: { backgroundColor: '#252538', padding: 12, borderRadius: 8, marginTop: 8 },
-    wrongEx: { color: '#FF5252', fontSize: 15, marginBottom: 4 },
-    correctEx: { color: '#4CAF50', fontSize: 15, marginBottom: 4, fontWeight: 'bold' },
-    explanation: { color: '#aaa', fontSize: 13 },
+    contrastItem: { backgroundColor: c.bgInput, padding: 12, borderRadius: 8, marginTop: 8 },
+    wrongEx: { color: c.errorLight, fontSize: 15, marginBottom: 4 },
+    correctEx: { color: c.success, fontSize: 15, marginBottom: 4, fontWeight: 'bold' },
+    explanation: { color: c.textSecondary, fontSize: 13 },
     regenBtn: { padding: 16, alignItems: 'center', marginTop: 20, marginBottom: 40, borderWidth: 1, borderColor: '#444', borderRadius: 12, borderStyle: 'dashed' },
-    regenBtnText: { color: '#888', fontSize: 14 },
+    regenBtnText: { color: c.textMuted, fontSize: 14 },
     chatContainer: { flex: 1 },
     chatList: { flex: 1 },
     chatContent: { padding: 20 },
-    inputBar: { flexDirection: 'row', padding: 16, borderTopWidth: 1, borderTopColor: '#333', backgroundColor: '#1E1E32', alignItems: 'center' },
-    input: { flex: 1, backgroundColor: '#2A2A40', borderRadius: 20, paddingHorizontal: 16, paddingVertical: 10, color: '#fff', marginRight: 12 },
-    sendBtn: { backgroundColor: '#FF6B9D', paddingHorizontal: 20, paddingVertical: 10, borderRadius: 20 },
+    inputBar: { flexDirection: 'row', padding: 16, borderTopWidth: 1, borderTopColor: c.border, backgroundColor: '#1E1E32', alignItems: 'center' },
+    input: { flex: 1, backgroundColor: '#2A2A40', borderRadius: 20, paddingHorizontal: 16, paddingVertical: 10, color: c.textPrimary, marginRight: 12 },
+    sendBtn: { backgroundColor: c.primary, paddingHorizontal: 20, paddingVertical: 10, borderRadius: 20 },
     sendBtnDisabled: { backgroundColor: '#444' },
-    sendBtnText: { color: '#fff', fontWeight: '600' },
+    sendBtnText: { color: c.textPrimary, fontWeight: '600' },
     bubble: { maxWidth: '80%', padding: 12, borderRadius: 16, marginBottom: 12 },
-    userBubble: { alignSelf: 'flex-end', backgroundColor: '#FF6B9D', borderBottomRightRadius: 4 },
-    aiBubble: { alignSelf: 'flex-start', backgroundColor: '#252538', borderBottomLeftRadius: 4 },
-    msgText: { color: '#fff', fontSize: 15, lineHeight: 22 },
-    emptyChat: { textAlign: 'center', color: '#666', marginTop: 100, fontSize: 14 },
+    userBubble: { alignSelf: 'flex-end', backgroundColor: c.primary, borderBottomRightRadius: 4 },
+    aiBubble: { alignSelf: 'flex-start', backgroundColor: c.bgInput, borderBottomLeftRadius: 4 },
+    msgText: { color: c.textPrimary, fontSize: 15, lineHeight: 22 },
+    emptyChat: { textAlign: 'center', color: c.textSubtle, marginTop: 100, fontSize: 14 },
 });

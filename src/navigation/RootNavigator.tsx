@@ -6,6 +6,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Text, View, StyleSheet } from 'react-native';
+import { useColors } from '../theme';
+import type { ColorTokens } from '../theme';
 
 // Import screens
 import HomeScreen from '../screens/HomeScreen';
@@ -15,6 +17,7 @@ import StatsScreen from '../screens/StatsScreen';
 import TrainingShell from '../screens/TrainingShell';
 import ReviewScreen from '../screens/ReviewScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import AchievementsScreen from '../screens/AchievementsScreen';
 import GrammarCardScreen from '../screens/quick/GrammarCardScreen';
 import VocabChallengeScreen from '../screens/quick/VocabChallengeScreen';
 import SentenceDojoScreen from '../screens/quick/SentenceDojoScreen';
@@ -46,6 +49,7 @@ export type HomeStackParamList = {
 export type StatsStackParamList = {
     StatsMain: undefined;
     Settings: undefined;
+    Achievements: undefined;
 };
 
 // ============ Navigators ============
@@ -57,8 +61,8 @@ const StatsStack = createNativeStackNavigator<StatsStackParamList>();
 // ============ Tab Icons ============
 
 const TabIcon = ({ name, focused }: { name: string; focused: boolean }) => (
-    <View style={styles.iconContainer}>
-        <Text style={[styles.icon, focused && styles.iconFocused]}>
+    <View style={iconStyles.container}>
+        <Text style={[iconStyles.icon, focused && iconStyles.iconFocused]}>
             {name === 'Home' && '🏠'}
             {name === 'Course' && '📚'}
             {name === 'Vocab' && '📝'}
@@ -128,6 +132,11 @@ function StatsStackNavigator() {
                 component={SettingsScreen}
                 options={{ gestureEnabled: true }}
             />
+            <StatsStack.Screen
+                name="Achievements"
+                component={AchievementsScreen}
+                options={{ animation: 'slide_from_right' }}
+            />
         </StatsStack.Navigator>
     );
 }
@@ -135,16 +144,29 @@ function StatsStackNavigator() {
 // ============ Root Tab Navigator ============
 
 export default function RootNavigator() {
+    const colors = useColors();
+
     return (
         <NavigationContainer>
             <Tab.Navigator
                 screenOptions={({ route }) => ({
                     tabBarIcon: ({ focused }) => <TabIcon name={route.name} focused={focused} />,
-                    tabBarActiveTintColor: '#FF6B9D',
-                    tabBarInactiveTintColor: '#888',
+                    tabBarActiveTintColor: colors.primary,
+                    tabBarInactiveTintColor: colors.textMuted,
                     headerShown: false,
-                    tabBarStyle: styles.tabBar,
-                    tabBarLabelStyle: styles.tabLabel,
+                    tabBarStyle: {
+                        backgroundColor: colors.bgCard,
+                        borderTopWidth: 0,
+                        elevation: 8,
+                        shadowColor: '#000',
+                        shadowOffset: { width: 0, height: -2 },
+                        shadowOpacity: 0.3,
+                        shadowRadius: 8,
+                        height: 60,
+                        paddingBottom: 8,
+                        paddingTop: 8,
+                    },
+                    tabBarLabelStyle: iconStyles.tabLabel,
                 })}
             >
                 <Tab.Screen
@@ -174,24 +196,8 @@ export default function RootNavigator() {
 
 // ============ Styles ============
 
-const styles = StyleSheet.create({
-    tabBar: {
-        backgroundColor: '#1A1A2E',
-        borderTopWidth: 0,
-        elevation: 8,
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: -2 },
-        shadowOpacity: 0.3,
-        shadowRadius: 8,
-        height: 60,
-        paddingBottom: 8,
-        paddingTop: 8,
-    },
-    tabLabel: {
-        fontSize: 11,
-        fontWeight: '600',
-    },
-    iconContainer: {
+const iconStyles = StyleSheet.create({
+    container: {
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -202,5 +208,9 @@ const styles = StyleSheet.create({
     iconFocused: {
         opacity: 1,
         transform: [{ scale: 1.1 }],
+    },
+    tabLabel: {
+        fontSize: 11,
+        fontWeight: '600',
     },
 });

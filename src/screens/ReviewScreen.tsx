@@ -1,7 +1,7 @@
 // src/screens/ReviewScreen.tsx
 // Review completed training session with preserved answers
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import {
     View,
     Text,
@@ -23,6 +23,8 @@ import { explainMistake, parseSentence } from '../llm/client';
 import MistakeExplainModal from '../components/MistakeExplainModal';
 import type { MistakeExplainResponse, SentenceParseResponse } from '../schemas/llm';
 import { Modal } from 'react-native';
+import { useTheme } from '../theme';
+import type { ColorTokens } from '../theme';
 
 type NavigationProp = NativeStackNavigationProp<HomeStackParamList, 'Training'>;
 
@@ -40,6 +42,8 @@ interface ReviewItem {
 
 export default function ReviewScreen() {
     const navigation = useNavigation<NavigationProp>();
+    const { colors } = useTheme();
+    const styles = useMemo(() => createStyles(colors), [colors]);
     const [loading, setLoading] = useState(true);
     const [items, setItems] = useState<ReviewItem[]>([]);
     const [result, setResult] = useState<ResultJson | null>(null);
@@ -223,7 +227,7 @@ export default function ReviewScreen() {
         return (
             <View style={styles.container}>
                 <View style={styles.loadingContainer}>
-                    <ActivityIndicator size="large" color="#FF6B9D" />
+                    <ActivityIndicator size="large" color={colors.primary} />
                     <Text style={styles.loadingText}>加载回顾数据...</Text>
                 </View>
             </View>
@@ -246,7 +250,7 @@ export default function ReviewScreen() {
     const renderCoachSummary = () => {
         if (!result?.coach?.summary) return null;
         return (
-            <View style={[styles.reviewCard, { borderLeftColor: '#FF6B9D', borderLeftWidth: 4 }]}>
+            <View style={[styles.reviewCard, { borderLeftColor: colors.primary, borderLeftWidth: 4 }]}>
                 <Text style={{ fontSize: 18, marginBottom: 8 }}>🌸 Sakura (JK)</Text>
                 <Text style={{ color: '#DDD', lineHeight: 22 }}>
                     {result.coach.summary}
@@ -268,29 +272,29 @@ export default function ReviewScreen() {
                 </View>
                 <ScrollView style={styles.content} contentContainerStyle={{ padding: 20, alignItems: 'center' }}>
                     <Text style={{ fontSize: 48, marginBottom: 20 }}>🌸</Text>
-                    <Text style={{ fontSize: 22, color: '#FF6B9D', marginBottom: 16, fontWeight: 'bold' }}>Sakura のメッセージ</Text>
-                    <View style={{ backgroundColor: '#1A1A2E', borderRadius: 16, padding: 20, width: '100%', marginBottom: 24 }}>
+                    <Text style={{ fontSize: 22, color: colors.primary, marginBottom: 16, fontWeight: 'bold' }}>Sakura のメッセージ</Text>
+                    <View style={{ backgroundColor: colors.bgCard, borderRadius: 16, padding: 20, width: '100%', marginBottom: 24 }}>
                         <Text style={{ color: '#EEE', fontSize: 16, lineHeight: 26 }}>
                             {result.coach.summary}
                         </Text>
                     </View>
                     <View style={{ flexDirection: 'row', marginBottom: 16 }}>
-                        <Text style={{ color: '#888' }}>⭐ {result.stars}/5   </Text>
-                        <Text style={{ color: '#888' }}>🎯 {(result.grammar.correct / result.grammar.total * 100).toFixed(0)}%   </Text>
+                        <Text style={{ color: colors.textMuted }}>⭐ {result.stars}/5   </Text>
+                        <Text style={{ color: colors.textMuted }}>🎯 {(result.grammar.correct / result.grammar.total * 100).toFixed(0)}%   </Text>
                     </View>
                 </ScrollView>
-                <View style={{ padding: 20, backgroundColor: '#0F0F1A' }}>
+                <View style={{ padding: 20, backgroundColor: colors.bg }}>
                     <TouchableOpacity
-                        style={{ backgroundColor: '#FF6B9D', padding: 16, borderRadius: 12, alignItems: 'center' }}
+                        style={{ backgroundColor: colors.primary, padding: 16, borderRadius: 12, alignItems: 'center' }}
                         onPress={() => setShowCoachIntro(false)}
                     >
-                        <Text style={{ color: '#fff', fontSize: 16, fontWeight: 'bold' }}>→ 詳細を確認する</Text>
+                        <Text style={{ color: colors.textPrimary, fontSize: 16, fontWeight: 'bold' }}>→ 詳細を確認する</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={{ marginTop: 12, alignItems: 'center' }}
                         onPress={handleBack}
                     >
-                        <Text style={{ color: '#888', fontSize: 14 }}>← ホームに戻る</Text>
+                        <Text style={{ color: colors.textMuted, fontSize: 14 }}>← ホームに戻る</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -303,7 +307,7 @@ export default function ReviewScreen() {
         if (!currentItem.drill) return null;
 
         const stepLabel = currentItem.type === 'grammar' ? '语法速通' : '举一反三';
-        const stepColor = currentItem.type === 'grammar' ? '#FF6B9D' : '#FFB800';
+        const stepColor = currentItem.type === 'grammar' ? colors.primary : colors.warningLight;
 
         return (
             <View style={styles.reviewCard}>
@@ -377,7 +381,7 @@ export default function ReviewScreen() {
                     disabled={aiLoading}
                 >
                     {aiLoading ? (
-                        <ActivityIndicator size="small" color="#fff" />
+                        <ActivityIndicator size="small" color={colors.textPrimary} />
                     ) : (
                         <Text style={styles.aiButtonText}>🤖 AI 详解</Text>
                     )}
@@ -392,7 +396,7 @@ export default function ReviewScreen() {
         return (
             <View style={styles.reviewCard}>
                 <View style={styles.stepHeader}>
-                    <Text style={[styles.stepLabel, { color: '#9C27B0' }]}>句子应用</Text>
+                    <Text style={[styles.stepLabel, { color: colors.accent }]}>句子应用</Text>
                     <Text style={styles.questionNum}>
                         第 {currentItem.questionNumber} 题
                     </Text>
@@ -438,7 +442,7 @@ export default function ReviewScreen() {
                     disabled={aiLoading}
                 >
                     {aiLoading ? (
-                        <ActivityIndicator size="small" color="#fff" />
+                        <ActivityIndicator size="small" color={colors.textPrimary} />
                     ) : (
                         <Text style={styles.aiButtonText}>🤖 AI 语法分析</Text>
                     )}
@@ -512,7 +516,7 @@ export default function ReviewScreen() {
 
                     <ScrollView style={styles.parseContent}>
                         {aiLoading && !aiParseResult ? (
-                            <ActivityIndicator size="large" color="#FF6B9D" style={{ marginTop: 50 }} />
+                            <ActivityIndicator size="large" color={colors.primary} style={{ marginTop: 50 }} />
                         ) : aiParseResult ? (
                             <>
                                 {/* Translation */}
@@ -584,10 +588,10 @@ export default function ReviewScreen() {
     );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (c: ColorTokens) => StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#0D0D1A',
+        backgroundColor: c.bg,
     },
     loadingContainer: {
         flex: 1,
@@ -596,7 +600,7 @@ const styles = StyleSheet.create({
     },
     loadingText: {
         marginTop: 12,
-        color: '#888',
+        color: c.textMuted,
         fontSize: 14,
     },
     emptyContainer: {
@@ -605,18 +609,18 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     emptyText: {
-        color: '#888',
+        color: c.textMuted,
         fontSize: 16,
         marginBottom: 24,
     },
     backButton: {
-        backgroundColor: '#333',
+        backgroundColor: c.border,
         paddingHorizontal: 24,
         paddingVertical: 12,
         borderRadius: 20,
     },
     backButtonText: {
-        color: '#fff',
+        color: c.textPrimary,
         fontSize: 16,
     },
     header: {
@@ -626,28 +630,28 @@ const styles = StyleSheet.create({
         paddingHorizontal: 16,
         paddingTop: 50,
         paddingBottom: 16,
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
     },
     headerBack: {
-        color: '#FF6B9D',
+        color: c.primary,
         fontSize: 16,
     },
     headerTitle: {
-        color: '#fff',
+        color: c.textPrimary,
         fontSize: 18,
         fontWeight: '600',
     },
     headerProgress: {
-        color: '#888',
+        color: c.textMuted,
         fontSize: 14,
     },
     progressBar: {
         height: 4,
-        backgroundColor: '#333',
+        backgroundColor: c.border,
     },
     progressFill: {
         height: '100%',
-        backgroundColor: '#FF6B9D',
+        backgroundColor: c.primary,
     },
     content: {
         flex: 1,
@@ -657,7 +661,7 @@ const styles = StyleSheet.create({
         paddingBottom: 100,
     },
     reviewCard: {
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
         borderRadius: 20,
         padding: 20,
     },
@@ -672,7 +676,7 @@ const styles = StyleSheet.create({
         fontWeight: '600',
     },
     questionNum: {
-        color: '#888',
+        color: c.textMuted,
         fontSize: 12,
     },
     grammarHint: {
@@ -685,13 +689,13 @@ const styles = StyleSheet.create({
         fontWeight: '600',
     },
     questionCard: {
-        backgroundColor: '#0D0D1A',
+        backgroundColor: c.bg,
         borderRadius: 12,
         padding: 20,
         marginBottom: 16,
     },
     questionStem: {
-        color: '#fff',
+        color: c.textPrimary,
         fontSize: 18,
         lineHeight: 28,
         textAlign: 'center',
@@ -703,46 +707,46 @@ const styles = StyleSheet.create({
     option: {
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: '#0D0D1A',
+        backgroundColor: c.bg,
         borderRadius: 12,
         padding: 14,
         borderWidth: 2,
         borderColor: 'transparent',
     },
     optionCorrect: {
-        borderColor: '#4CAF50',
-        backgroundColor: 'rgba(76, 175, 80, 0.1)',
+        borderColor: c.success,
+        backgroundColor: c.successAlpha10,
     },
     optionWrong: {
-        borderColor: '#F44336',
-        backgroundColor: 'rgba(244, 67, 54, 0.1)',
+        borderColor: c.error,
+        backgroundColor: c.errorAlpha10,
     },
     optionIdBadge: {
         width: 28,
         height: 28,
         borderRadius: 14,
-        backgroundColor: '#333',
+        backgroundColor: c.border,
         justifyContent: 'center',
         alignItems: 'center',
         marginRight: 12,
     },
     optionId: {
-        color: '#fff',
+        color: c.textPrimary,
         fontWeight: 'bold',
         fontSize: 12,
     },
     optionText: {
         flex: 1,
-        color: '#fff',
+        color: c.textPrimary,
         fontSize: 15,
     },
     userMark: {
-        color: '#FF6B9D',
+        color: c.primary,
         fontSize: 11,
         fontWeight: '600',
     },
     correctMark: {
-        color: '#4CAF50',
+        color: c.success,
         fontSize: 11,
         fontWeight: '600',
     },
@@ -754,58 +758,58 @@ const styles = StyleSheet.create({
         marginBottom: 16,
     },
     resultCorrect: {
-        backgroundColor: 'rgba(76, 175, 80, 0.2)',
+        backgroundColor: c.successAlpha20,
     },
     resultWrong: {
-        backgroundColor: 'rgba(244, 67, 54, 0.2)',
+        backgroundColor: c.errorAlpha20,
     },
     resultText: {
-        color: '#fff',
+        color: c.textPrimary,
         fontSize: 14,
         fontWeight: '600',
     },
     explanationCard: {
-        backgroundColor: '#0D0D1A',
+        backgroundColor: c.bg,
         borderRadius: 12,
         padding: 16,
     },
     explanationLabel: {
-        color: '#888',
+        color: c.textMuted,
         fontSize: 12,
         marginBottom: 8,
     },
     explanationText: {
-        color: '#aaa',
+        color: c.textSecondary,
         fontSize: 14,
         lineHeight: 22,
     },
     styleTag: {
         alignSelf: 'flex-start',
-        backgroundColor: 'rgba(156, 39, 176, 0.2)',
+        backgroundColor: c.accentAlpha20,
         paddingHorizontal: 12,
         paddingVertical: 6,
         borderRadius: 12,
         marginBottom: 16,
     },
     styleTagText: {
-        color: '#9C27B0',
+        color: c.accent,
         fontSize: 12,
         fontWeight: '600',
     },
     sentenceCard: {
-        backgroundColor: '#0D0D1A',
+        backgroundColor: c.bg,
         borderRadius: 12,
         padding: 20,
         marginBottom: 16,
     },
     sentenceText: {
-        color: '#fff',
+        color: c.textPrimary,
         fontSize: 20,
         lineHeight: 32,
         textAlign: 'center',
     },
     keyPointsTitle: {
-        color: '#888',
+        color: c.textMuted,
         fontSize: 14,
         marginBottom: 12,
     },
@@ -815,37 +819,37 @@ const styles = StyleSheet.create({
     keyPointItem: {
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: '#0D0D1A',
+        backgroundColor: c.bg,
         borderRadius: 12,
         padding: 14,
         borderWidth: 2,
         borderColor: 'transparent',
     },
     keyPointItemChecked: {
-        borderColor: '#9C27B0',
-        backgroundColor: 'rgba(156, 39, 176, 0.1)',
+        borderColor: c.accent,
+        backgroundColor: c.accentAlpha10,
     },
     checkbox: {
         width: 24,
         height: 24,
         borderRadius: 6,
         borderWidth: 2,
-        borderColor: '#555',
+        borderColor: c.textDim,
         marginRight: 12,
         justifyContent: 'center',
         alignItems: 'center',
     },
     checkboxChecked: {
-        backgroundColor: '#9C27B0',
-        borderColor: '#9C27B0',
+        backgroundColor: c.accent,
+        borderColor: c.accent,
     },
     checkmark: {
-        color: '#fff',
+        color: c.textPrimary,
         fontWeight: 'bold',
         fontSize: 14,
     },
     keyPointLabel: {
-        color: '#fff',
+        color: c.textPrimary,
         fontSize: 15,
         flex: 1,
     },
@@ -853,41 +857,41 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         padding: 16,
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
         borderTopWidth: 1,
-        borderTopColor: '#333',
+        borderTopColor: c.border,
     },
     navButton: {
-        backgroundColor: '#FF6B9D',
+        backgroundColor: c.primary,
         paddingHorizontal: 24,
         paddingVertical: 14,
         borderRadius: 20,
     },
     navButtonDisabled: {
-        backgroundColor: '#333',
+        backgroundColor: c.border,
     },
     navButtonText: {
-        color: '#fff',
+        color: c.textPrimary,
         fontSize: 16,
         fontWeight: '600',
     },
     aiButton: {
         marginTop: 16,
-        backgroundColor: '#333',
+        backgroundColor: c.border,
         paddingVertical: 12,
         borderRadius: 12,
         alignItems: 'center',
         borderWidth: 1,
-        borderColor: '#444',
+        borderColor: c.divider,
     },
     aiButtonText: {
-        color: '#fff',
+        color: c.textPrimary,
         fontWeight: '600',
     },
     // Parse Modal Styles
     parseModalContainer: {
         flex: 1,
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
     },
     parseHeader: {
         flexDirection: 'row',
@@ -895,19 +899,19 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         padding: 20,
         borderBottomWidth: 1,
-        borderBottomColor: '#333',
+        borderBottomColor: c.border,
         marginTop: 20,
     },
     parseTitle: {
         fontSize: 20,
         fontWeight: 'bold',
-        color: '#fff',
+        color: c.textPrimary,
     },
     closeButton: {
         padding: 8,
     },
     closeButtonText: {
-        color: '#FF6B9D',
+        color: c.primary,
         fontSize: 16,
         fontWeight: '600',
     },
@@ -917,20 +921,20 @@ const styles = StyleSheet.create({
     },
     parseSection: {
         marginBottom: 24,
-        backgroundColor: '#252538',
+        backgroundColor: c.bgInput,
         borderRadius: 16,
         padding: 16,
     },
     sectionLabel: {
         fontSize: 14,
-        color: '#888',
+        color: c.textMuted,
         fontWeight: '600',
         marginBottom: 12,
         textTransform: 'uppercase',
     },
     translationText: {
         fontSize: 18,
-        color: '#fff',
+        color: c.textPrimary,
         lineHeight: 28,
         fontStyle: 'italic',
     },
@@ -940,24 +944,24 @@ const styles = StyleSheet.create({
         gap: 8,
     },
     segmentItem: {
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
         borderRadius: 8,
         padding: 8,
         borderWidth: 1,
-        borderColor: '#444',
+        borderColor: c.divider,
     },
     segmentText: {
-        color: '#fff',
+        color: c.textPrimary,
         fontSize: 16,
         fontWeight: 'bold',
         marginBottom: 4,
     },
     segmentRole: {
-        color: '#FF6B9D',
+        color: c.primary,
         fontSize: 12,
     },
     segmentNote: {
-        color: '#aaa',
+        color: c.textSecondary,
         fontSize: 10,
         marginTop: 2,
     },
@@ -970,12 +974,12 @@ const styles = StyleSheet.create({
     kpLabel: {
         fontSize: 16,
         fontWeight: 'bold',
-        color: '#FF6B9D',
+        color: c.primary,
         marginBottom: 4,
     },
     kpExplanation: {
         fontSize: 15,
-        color: '#ccc',
+        color: c.textSecondary,
         lineHeight: 22,
     },
     regenBtn: {
@@ -983,13 +987,13 @@ const styles = StyleSheet.create({
         padding: 16,
         alignItems: 'center',
         borderWidth: 1,
-        borderColor: '#9C27B0',
+        borderColor: c.accent,
         borderRadius: 12,
         borderStyle: 'dashed',
-        backgroundColor: 'rgba(156, 39, 176, 0.1)',
+        backgroundColor: c.accentAlpha10,
     },
     regenBtnText: {
-        color: '#9C27B0',
+        color: c.accent,
         fontSize: 14,
         fontWeight: '600',
     },

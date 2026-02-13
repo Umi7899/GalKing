@@ -1,7 +1,7 @@
 // src/screens/quick/ReviewQueueScreen.tsx
 // Quick Access: SRS Review Queue (复习队列)
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Animated, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import {
@@ -15,6 +15,8 @@ import type { DbUserGrammarState } from '../../db/database';
 import type { GrammarPoint, Vocab } from '../../schemas/content';
 import { computeSM2Interval, computeVocabSM2Interval } from '../../engine/scorer';
 import { speak } from '../../utils/tts';
+import { useTheme } from '../../theme';
+import type { ColorTokens } from '../../theme';
 
 interface ReviewCard {
     type: 'grammar' | 'vocab';
@@ -24,13 +26,24 @@ interface ReviewCard {
     back: string;
     backSub?: string;
     ttsText?: string;
+    isFun?: boolean;
+    funCategory?: string;
 }
 
 type Stage = 'loading' | 'overview' | 'reviewing' | 'done';
 type Rating = 'again' | 'good' | 'easy';
 
+const FUN_CATEGORY_LABEL: Record<string, string> = {
+    game: '🎮 游戏',
+    anime: '🎬 动漫',
+    song: '🎵 歌词',
+    novel: '📖 小说',
+};
+
 export default function ReviewQueueScreen() {
     const navigation = useNavigation();
+    const { colors } = useTheme();
+    const styles = useMemo(() => createStyles(colors), [colors]);
 
     const [stage, setStage] = useState<Stage>('loading');
     const [grammarCount, setGrammarCount] = useState(0);
@@ -87,6 +100,10 @@ export default function ReviewQueueScreen() {
             for (const item of vocabItems) {
                 const vocab = vocabMap.get(item.vocabId);
                 if (vocab) {
+                    const isFun = vocab.tags.includes('fun');
+                    const funCategory = isFun
+                        ? vocab.tags.find(t => t !== 'fun') || ''
+                        : '';
                     reviewCards.push({
                         type: 'vocab',
                         id: item.vocabId,
@@ -94,6 +111,8 @@ export default function ReviewQueueScreen() {
                         frontSub: vocab.reading,
                         back: vocab.meanings.join(', '),
                         ttsText: vocab.reading,
+                        isFun,
+                        funCategory,
                     });
                 }
             }
@@ -272,17 +291,17 @@ export default function ReviewQueueScreen() {
 
                     <View style={styles.doneStats}>
                         <View style={styles.doneStatItem}>
-                            <Text style={[styles.doneStatNumber, { color: '#F44336' }]}>{stats.again}</Text>
+                            <Text style={[styles.doneStatNumber, { color: colors.error }]}>{stats.again}</Text>
                             <Text style={styles.doneStatLabel}>再来</Text>
                         </View>
                         <View style={styles.doneStatDivider} />
                         <View style={styles.doneStatItem}>
-                            <Text style={[styles.doneStatNumber, { color: '#4CAF50' }]}>{stats.good}</Text>
+                            <Text style={[styles.doneStatNumber, { color: colors.success }]}>{stats.good}</Text>
                             <Text style={styles.doneStatLabel}>记住了</Text>
                         </View>
                         <View style={styles.doneStatDivider} />
                         <View style={styles.doneStatItem}>
-                            <Text style={[styles.doneStatNumber, { color: '#00BCD4' }]}>{stats.easy}</Text>
+                            <Text style={[styles.doneStatNumber, { color: colors.cyan }]}>{stats.easy}</Text>
                             <Text style={styles.doneStatLabel}>很简单</Text>
                         </View>
                     </View>
@@ -309,7 +328,9 @@ export default function ReviewQueueScreen() {
                 <Text style={styles.headerTitle}>复习 {currentIndex + 1}/{cards.length}</Text>
                 <View style={styles.typeBadge}>
                     <Text style={styles.typeBadgeText}>
-                        {card.type === 'grammar' ? '语法' : '词汇'}
+                        {card.isFun
+                            ? (FUN_CATEGORY_LABEL[card.funCategory || ''] || '✨ 趣味')
+                            : card.type === 'grammar' ? '语法' : '词汇'}
                     </Text>
                 </View>
             </View>
@@ -326,7 +347,7 @@ export default function ReviewQueueScreen() {
                     activeOpacity={0.9}
                     disabled={flipped}
                 >
-                    {/* Front — 始终可见 */}
+                    {/* Front */}
                     <View style={styles.cardFace}>
                         <Text style={styles.cardFront}>{card.front}</Text>
                         {card.frontSub && (
@@ -337,7 +358,7 @@ export default function ReviewQueueScreen() {
                         )}
                     </View>
 
-                    {/* Back — 翻转后在下方展开 */}
+                    {/* Back */}
                     {flipped && (
                         <Animated.View style={[styles.answerSection, { opacity: revealAnim }]}>
                             <View style={styles.answerDivider} />
@@ -380,15 +401,15 @@ export default function ReviewQueueScreen() {
     );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (c: ColorTokens) => StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#0F0F1A',
+        backgroundColor: c.bg,
         paddingHorizontal: 20,
         paddingTop: 60,
     },
     loadingText: {
-        color: '#888',
+        color: c.textMuted,
         textAlign: 'center',
         marginTop: 100,
     },
@@ -399,7 +420,7 @@ const styles = StyleSheet.create({
         zIndex: 10,
     },
     closeButtonText: {
-        color: '#888',
+        color: c.textMuted,
         fontSize: 24,
         fontWeight: '300',
     },
@@ -416,23 +437,23 @@ const styles = StyleSheet.create({
     overviewTitle: {
         fontSize: 28,
         fontWeight: 'bold',
-        color: '#fff',
+        color: c.textPrimary,
         marginBottom: 4,
     },
     overviewSubtitle: {
         fontSize: 16,
-        color: '#00BCD4',
+        color: c.cyan,
         marginBottom: 32,
     },
     emptyMessage: {
         fontSize: 18,
-        color: '#4CAF50',
+        color: c.success,
         fontWeight: '600',
         marginBottom: 8,
     },
     emptySubMessage: {
         fontSize: 14,
-        color: '#888',
+        color: c.textMuted,
     },
     countsRow: {
         flexDirection: 'row',
@@ -440,7 +461,7 @@ const styles = StyleSheet.create({
         marginBottom: 40,
     },
     countCard: {
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
         borderRadius: 16,
         padding: 24,
         alignItems: 'center',
@@ -449,21 +470,21 @@ const styles = StyleSheet.create({
     countNumber: {
         fontSize: 36,
         fontWeight: 'bold',
-        color: '#00BCD4',
+        color: c.cyan,
     },
     countLabel: {
         fontSize: 12,
-        color: '#888',
+        color: c.textMuted,
         marginTop: 4,
     },
     startButton: {
-        backgroundColor: '#00BCD4',
+        backgroundColor: c.cyan,
         paddingHorizontal: 40,
         paddingVertical: 16,
         borderRadius: 24,
     },
     startButtonText: {
-        color: '#fff',
+        color: c.textPrimary,
         fontSize: 18,
         fontWeight: 'bold',
     },
@@ -476,28 +497,28 @@ const styles = StyleSheet.create({
     },
     headerTitle: {
         fontSize: 14,
-        color: '#00BCD4',
+        color: c.cyan,
         fontWeight: '600',
     },
     typeBadge: {
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
         paddingHorizontal: 10,
         paddingVertical: 4,
         borderRadius: 8,
     },
     typeBadgeText: {
-        color: '#888',
+        color: c.textMuted,
         fontSize: 12,
     },
     progressBar: {
         height: 4,
-        backgroundColor: '#333',
+        backgroundColor: c.border,
         borderRadius: 2,
         marginBottom: 24,
     },
     progressFill: {
         height: '100%',
-        backgroundColor: '#00BCD4',
+        backgroundColor: c.cyan,
         borderRadius: 2,
     },
     // Reviewing
@@ -507,7 +528,7 @@ const styles = StyleSheet.create({
         paddingBottom: 40,
     },
     reviewCard: {
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
         borderRadius: 24,
         padding: 40,
         minHeight: 260,
@@ -525,37 +546,37 @@ const styles = StyleSheet.create({
     answerDivider: {
         width: '80%',
         height: 1,
-        backgroundColor: '#333',
+        backgroundColor: c.border,
         marginVertical: 20,
     },
     cardFront: {
         fontSize: 32,
         fontWeight: 'bold',
-        color: '#fff',
+        color: c.textPrimary,
         textAlign: 'center',
         marginBottom: 8,
     },
     cardFrontSub: {
         fontSize: 16,
-        color: '#888',
+        color: c.textMuted,
         textAlign: 'center',
         lineHeight: 24,
     },
     tapHint: {
-        color: '#555',
+        color: c.textDim,
         fontSize: 13,
         marginTop: 24,
     },
     cardBack: {
         fontSize: 20,
-        color: '#00BCD4',
+        color: c.cyan,
         textAlign: 'center',
         lineHeight: 30,
         marginBottom: 8,
     },
     cardBackSub: {
         fontSize: 14,
-        color: '#888',
+        color: c.textMuted,
         textAlign: 'center',
     },
     ratingRow: {
@@ -569,27 +590,27 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     rateAgain: {
-        backgroundColor: 'rgba(244, 67, 54, 0.2)',
+        backgroundColor: c.errorAlpha20,
         borderWidth: 1,
-        borderColor: '#F44336',
+        borderColor: c.error,
     },
     rateGood: {
-        backgroundColor: 'rgba(76, 175, 80, 0.2)',
+        backgroundColor: c.successAlpha20,
         borderWidth: 1,
-        borderColor: '#4CAF50',
+        borderColor: c.success,
     },
     rateEasy: {
-        backgroundColor: 'rgba(0, 188, 212, 0.2)',
+        backgroundColor: c.cyanAlpha20,
         borderWidth: 1,
-        borderColor: '#00BCD4',
+        borderColor: c.cyan,
     },
     rateButtonText: {
-        color: '#fff',
+        color: c.textPrimary,
         fontSize: 16,
         fontWeight: '600',
     },
     rateButtonSub: {
-        color: '#888',
+        color: c.textMuted,
         fontSize: 11,
         marginTop: 2,
     },
@@ -606,18 +627,18 @@ const styles = StyleSheet.create({
     doneTitle: {
         fontSize: 24,
         fontWeight: 'bold',
-        color: '#fff',
+        color: c.textPrimary,
         marginBottom: 8,
     },
     doneTotal: {
         fontSize: 16,
-        color: '#888',
+        color: c.textMuted,
         marginBottom: 32,
     },
     doneStats: {
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
         borderRadius: 16,
         padding: 24,
         width: '100%',
@@ -633,22 +654,22 @@ const styles = StyleSheet.create({
     },
     doneStatLabel: {
         fontSize: 12,
-        color: '#888',
+        color: c.textMuted,
         marginTop: 4,
     },
     doneStatDivider: {
         width: 1,
         height: 40,
-        backgroundColor: '#333',
+        backgroundColor: c.border,
     },
     finishButton: {
-        backgroundColor: '#00BCD4',
+        backgroundColor: c.cyan,
         paddingHorizontal: 48,
         paddingVertical: 16,
         borderRadius: 24,
     },
     finishButtonText: {
-        color: '#fff',
+        color: c.textPrimary,
         fontSize: 18,
         fontWeight: 'bold',
     },

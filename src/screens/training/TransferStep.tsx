@@ -1,12 +1,14 @@
 // src/screens/training/TransferStep.tsx
 // Step 2: Transfer Practice (举一反三)
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Animated, ScrollView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import type { Drill, GrammarPoint } from '../../schemas/content';
 import { speak } from '../../utils/tts';
+import { useTheme } from '../../theme';
+import type { ColorTokens } from '../../theme';
 
 interface Props {
     drill: Drill;
@@ -28,6 +30,8 @@ export default function TransferStep({
     stepProgress,
 }: Props) {
     const insets = useSafeAreaInsets();
+    const { colors } = useTheme();
+    const styles = useMemo(() => createStyles(colors), [colors]);
     const [selectedId, setSelectedId] = useState<string | null>(null);
     const [isReviewing, setIsReviewing] = useState(false);
     const startTimeRef = useRef(Date.now());
@@ -129,7 +133,7 @@ export default function TransferStep({
                                         speak(option.text);
                                     }}
                                 >
-                                    <Ionicons name="volume-high" size={18} color="#FFB800" />
+                                    <Ionicons name="volume-high" size={18} color={colors.warningLight} />
                                 </TouchableOpacity>
                             )}
                         </TouchableOpacity>
@@ -189,7 +193,7 @@ export default function TransferStep({
     );
 }
 
-const styles = StyleSheet.create({
+const createStyles = (c: ColorTokens) => StyleSheet.create({
     container: {
         flex: 1,
     },
@@ -207,22 +211,22 @@ const styles = StyleSheet.create({
     },
     stepLabel: {
         fontSize: 14,
-        color: '#FFB800',
+        color: c.warningLight,
         fontWeight: '600',
     },
     stepProgress: {
         fontSize: 12,
-        color: '#888',
+        color: c.textMuted,
     },
     progressBar: {
         height: 4,
-        backgroundColor: '#333',
+        backgroundColor: c.border,
         borderRadius: 2,
         marginBottom: 20,
     },
     progressFill: {
         height: '100%',
-        backgroundColor: '#FFB800',
+        backgroundColor: c.warningLight,
         borderRadius: 2,
     },
     contextCard: {
@@ -231,25 +235,25 @@ const styles = StyleSheet.create({
         padding: 16,
         marginBottom: 20,
         borderLeftWidth: 4,
-        borderLeftColor: '#FFB800',
+        borderLeftColor: c.warningLight,
     },
     contextLabel: {
         fontSize: 11,
-        color: '#888',
+        color: c.textMuted,
         marginBottom: 4,
     },
     contextGrammar: {
         fontSize: 16,
-        color: '#FFB800',
+        color: c.warningLight,
         fontWeight: '600',
         marginBottom: 4,
     },
     contextRule: {
         fontSize: 13,
-        color: '#aaa',
+        color: c.textSecondary,
     },
     questionCard: {
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
         borderRadius: 16,
         padding: 24,
         marginBottom: 24,
@@ -260,19 +264,19 @@ const styles = StyleSheet.create({
         position: 'absolute' as const,
         top: 8,
         right: 8,
-        backgroundColor: '#00BCD4',
+        backgroundColor: c.cyan,
         paddingHorizontal: 8,
         paddingVertical: 2,
         borderRadius: 8,
     },
     aiBadgeText: {
-        color: '#fff',
+        color: c.textPrimary,
         fontSize: 10,
         fontWeight: 'bold' as const,
     },
     questionStem: {
         fontSize: 18,
-        color: '#fff',
+        color: c.textPrimary,
         lineHeight: 28,
         textAlign: 'center',
     },
@@ -282,7 +286,7 @@ const styles = StyleSheet.create({
     option: {
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
         borderRadius: 12,
         padding: 16,
         borderWidth: 2,
@@ -291,38 +295,38 @@ const styles = StyleSheet.create({
     optionSelected: {
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
         borderRadius: 12,
         padding: 16,
         borderWidth: 2,
-        borderColor: '#FFB800',
+        borderColor: c.warningLight,
     },
     optionCorrect: {
-        borderColor: '#4CAF50',
-        backgroundColor: 'rgba(76, 175, 80, 0.1)',
+        borderColor: c.success,
+        backgroundColor: c.successAlpha10,
     },
     optionWrong: {
-        borderColor: '#F44336',
-        backgroundColor: 'rgba(244, 67, 54, 0.1)',
+        borderColor: c.error,
+        backgroundColor: c.errorAlpha10,
     },
     optionIdBadge: {
         width: 28,
         height: 28,
         borderRadius: 14,
-        backgroundColor: '#333',
+        backgroundColor: c.border,
         justifyContent: 'center',
         alignItems: 'center',
         marginRight: 12,
     },
     optionId: {
-        color: '#fff',
+        color: c.textPrimary,
         fontWeight: 'bold',
         fontSize: 12,
     },
     optionText: {
         flex: 1,
         fontSize: 15,
-        color: '#fff',
+        color: c.textPrimary,
     },
     optionSpeakerButton: {
         marginLeft: 8,
@@ -333,13 +337,13 @@ const styles = StyleSheet.create({
     // Modal styles
     modalOverlay: {
         flex: 1,
-        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+        backgroundColor: c.bgOverlay,
         justifyContent: 'center',
         alignItems: 'center',
         padding: 20,
     },
     modalContent: {
-        backgroundColor: '#1A1A2E',
+        backgroundColor: c.bgCard,
         borderRadius: 24,
         padding: 32,
         alignItems: 'center',
@@ -348,11 +352,11 @@ const styles = StyleSheet.create({
     },
     modalCorrect: {
         borderWidth: 2,
-        borderColor: '#4CAF50',
+        borderColor: c.success,
     },
     modalWrong: {
         borderWidth: 2,
-        borderColor: '#FFB800',
+        borderColor: c.warningLight,
     },
     feedbackEmoji: {
         fontSize: 48,
@@ -361,18 +365,18 @@ const styles = StyleSheet.create({
     feedbackTitle: {
         fontSize: 24,
         fontWeight: 'bold',
-        color: '#fff',
+        color: c.textPrimary,
         marginBottom: 12,
     },
     explanationText: {
         fontSize: 16,
-        color: '#aaa',
+        color: c.textSecondary,
         textAlign: 'center',
         lineHeight: 24,
         marginBottom: 24,
     },
     continueButton: {
-        backgroundColor: '#FFB800',
+        backgroundColor: c.warningLight,
         paddingHorizontal: 40,
         paddingVertical: 14,
         borderRadius: 24,
@@ -383,7 +387,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     dismissHint: {
-        color: '#666',
+        color: c.textSubtle,
         fontSize: 12,
         marginTop: 16,
     },
@@ -402,19 +406,19 @@ const styles = StyleSheet.create({
     },
     showResultButton: {
         flex: 1,
-        backgroundColor: '#333',
+        backgroundColor: c.border,
         paddingVertical: 16,
         borderRadius: 16,
         alignItems: 'center',
     },
     showResultButtonText: {
-        color: '#fff',
+        color: c.textPrimary,
         fontSize: 16,
         fontWeight: '600',
     },
     bottomContinueButton: {
         flex: 1,
-        backgroundColor: '#FFB800',
+        backgroundColor: c.warningLight,
         paddingVertical: 16,
         borderRadius: 16,
         alignItems: 'center',

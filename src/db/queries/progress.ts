@@ -2,6 +2,7 @@
 // User progress and state query functions
 
 import { getDatabase, DbUserProgress, DbUserGrammarState } from '../database';
+import { MASTERY_THRESHOLD } from '../../engine/constants';
 
 // ============ User Progress ============
 
@@ -24,6 +25,7 @@ export async function getUserProgress(): Promise<DbUserProgress> {
             currentLevel: 1,
             streakDays: 0,
             lastActiveDate: null,
+            maxStreakDays: 0,
         };
     }
 
@@ -246,7 +248,7 @@ export async function getMasteryOverview(): Promise<MasteryOverview> {
 
     const grammarTotal = grammarRows.length;
     const grammarSum = grammarRows.reduce((s, r) => s + r.mastery, 0);
-    const grammarMastered = grammarRows.filter(r => r.mastery >= 80).length;
+    const grammarMastered = grammarRows.filter(r => r.mastery >= MASTERY_THRESHOLD).length;
 
     const vocabTotal = vocabRows.length;
     const vocabSum = vocabRows.reduce((s, r) => s + r.strength, 0);

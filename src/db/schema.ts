@@ -149,6 +149,14 @@ export const CREATE_USER_NOTES_TABLE = `
   );
 `;
 
+export const CREATE_USER_ACHIEVEMENTS_TABLE = `
+  CREATE TABLE IF NOT EXISTS user_achievements (
+    achievementId TEXT PRIMARY KEY,
+    category TEXT NOT NULL,
+    unlockedAt INTEGER NOT NULL
+  );
+`;
+
 // All table creation statements in order
 export const ALL_CREATE_STATEMENTS = [
   CREATE_META_TABLE,
@@ -163,4 +171,5 @@ export const ALL_CREATE_STATEMENTS = [
   CREATE_SESSIONS_TABLE,
   CREATE_LLM_CACHE_TABLE,
   CREATE_USER_NOTES_TABLE,
+  CREATE_USER_ACHIEVEMENTS_TABLE,
 ];
