@@ -64,10 +64,10 @@ export function calculateGrammarUpdates(
 
     for (const answer of answers) {
         if (answer.isCorrect) {
-            masteryDelta += 3; // +3 for correct
+            masteryDelta += 10; // +10 for correct
             streak++;
         } else {
-            masteryDelta -= 2; // -2 for wrong
+            masteryDelta -= 4; // -4 for wrong
             wrongCount++;
             streak = 0;
         }
@@ -155,7 +155,7 @@ export function scoreSentenceSubmission(
     return {
         hitRate,
         passed,
-        grammarBonus: passed ? 1 : 0,
+        grammarBonus: passed ? 3 : 0,
         reviewPenalty: !passed,
     };
 }

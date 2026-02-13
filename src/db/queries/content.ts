@@ -135,6 +135,15 @@ export async function getAllVocab(): Promise<Vocab[]> {
     return rows.map(parseVocabRow);
 }
 
+export async function getRandomFunVocab(level: number, count: number): Promise<Vocab[]> {
+    const db = getDatabase();
+    const rows = await db.getAllAsync<any>(
+        `SELECT * FROM vocab WHERE tagsJson LIKE '%"fun"%' AND level BETWEEN ? AND ? ORDER BY RANDOM() LIMIT ?`,
+        [Math.max(1, level - 1), level + 1, count]
+    );
+    return rows.map(parseVocabRow);
+}
+
 function parseVocabRow(row: any): Vocab {
     return {
         vocabId: row.vocabId,

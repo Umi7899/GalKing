@@ -1,10 +1,11 @@
 // src/engine/planGenerator.ts
 // Daily Session Plan Generator (Section 5 Algorithm)
 
-import { getLesson, getGrammarPoint, getVocabPack, getSentencesByGrammar, getSentencesByLesson } from '../db/queries/content';
+import { getLesson, getGrammarPoint, getVocabPack, getSentencesByGrammar, getSentencesByLesson, getRandomFunVocab } from '../db/queries/content';
 import { getUserProgress, getGrammarState, getGrammarStatesForReview, getVocabForReview } from '../db/queries/progress';
 import { getCompletedDrillIds } from '../db/queries/sessions';
 import { generateDrills, checkLLMAvailable, type GenerateDrillsInput } from '../llm/client';
+import { MASTERY_THRESHOLD } from './constants';
 import type { StepStateJson, Step1State, Step2State, Step3State, Step4State } from '../schemas/session';
 import type { GrammarPoint, Drill } from '../schemas/content';
 
@@ -81,12 +82,12 @@ async function findCurrentGrammar(
         };
     }
 
-    // Find first grammar with mastery < 80
+    // Find first grammar with mastery < MASTERY_THRESHOLD
     for (let i = currentGrammarIndex; i < lesson.grammarIds.length; i++) {
         const grammarId = lesson.grammarIds[i];
         const state = await getGrammarState(grammarId);
 
-        if (!state || state.mastery < 80) {
+        if (!state || state.mastery < MASTERY_THRESHOLD) {
             return { grammarId, lessonId: currentLessonId, grammarIndex: i };
         }
     }
@@ -206,8 +207,21 @@ async function generateStep2(grammarId: number): Promise<Step2State> {
 // ============ Step 3: Vocab Combo ============
 
 async function generateStep3(lessonId: number, level: number): Promise<Step3State> {
-    const lesson = await getLesson(lessonId);
-    if (!lesson || lesson.vocabPackIds.length === 0) {
+    // Collect vocab from current lesson + previous lesson
+    const lessonIds = [lessonId - 1, lessonId].filter(id => id > 0);
+    const allVocabIds: number[] = [];
+    let primaryPackId = 0;
+
+    for (const lid of lessonIds) {
+        const les = await getLesson(lid);
+        if (!les || les.vocabPackIds.length === 0) continue;
+        const pack = await getVocabPack(les.vocabPackIds[0]);
+        if (!pack) continue;
+        if (lid === lessonId) primaryPackId = pack.packId;
+        allVocabIds.push(...pack.vocabIds);
+    }
+
+    if (allVocabIds.length === 0) {
         // Fallback
         return {
             packId: 501,
@@ -219,41 +233,34 @@ async function generateStep3(lessonId: number, level: number): Promise<Step3Stat
         };
     }
 
-    const packId = lesson.vocabPackIds[0];
-    const pack = await getVocabPack(packId);
+    const uniqueIds = [...new Set(allVocabIds)];
 
-    if (!pack) {
-        return {
-            packId,
-            items: [],
-            currentIndex: 0,
-            correct: 0,
-            wrong: 0,
-            avgRtMs: 0,
-        };
-    }
-
-    // Sample up to 12 items, prioritize overdue > due > new
+    // Prioritize: overdue > due > new
     const today = Date.now();
     const vocabReviews = await getVocabForReview(today, 8);
     const reviewIds = new Set(vocabReviews.map(v => v.vocabId));
 
-    // Overdue items (more than 3 days past due) get highest priority
     const overdueThreshold = today - 3 * 24 * 60 * 60 * 1000;
     const overdueIds = new Set(
         vocabReviews.filter(v => v.nextReviewAt != null && v.nextReviewAt < overdueThreshold).map(v => v.vocabId)
     );
 
     const prioritized = [
-        ...pack.vocabIds.filter(id => overdueIds.has(id)),
-        ...pack.vocabIds.filter(id => reviewIds.has(id) && !overdueIds.has(id)),
-        ...pack.vocabIds.filter(id => !reviewIds.has(id)),
+        ...uniqueIds.filter(id => overdueIds.has(id)),
+        ...uniqueIds.filter(id => reviewIds.has(id) && !overdueIds.has(id)),
+        ...uniqueIds.filter(id => !reviewIds.has(id)),
     ];
 
-    const items = prioritized.slice(0, 12);
+    const lessonItems = prioritized.slice(0, 12);
+
+    // Add 3-5 fun vocab items
+    const funVocabs = await getRandomFunVocab(level, 5);
+    const lessonItemSet = new Set(lessonItems);
+    const funIds = funVocabs.map(v => v.vocabId).filter(id => !lessonItemSet.has(id));
+    const items = [...lessonItems, ...funIds.slice(0, Math.min(5, 15 - lessonItems.length))];
 
     return {
-        packId,
+        packId: primaryPackId || lessonIds[lessonIds.length - 1],
         items,
         currentIndex: 0,
         correct: 0,

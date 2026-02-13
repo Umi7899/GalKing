@@ -14,6 +14,9 @@ import { getLesson, getGrammarPointsForLesson } from '../db/queries/content';
 import { getRecentSessions, parseResult } from '../db/queries/sessions';
 import type { ResultJson } from '../schemas/session';
 import type { GrammarScoreUpdate, VocabScoreUpdate } from './scorer';
+import { checkAndUnlockAchievements, type UnlockResult } from './achievementChecker';
+import type { AchievementDef } from './achievements';
+import { MASTERY_THRESHOLD } from './constants';
 
 // ============ Apply Session Results ============
 
@@ -21,7 +24,7 @@ export async function applySessionResults(
     result: ResultJson,
     grammarUpdates: Map<number, GrammarScoreUpdate>,
     vocabUpdates: Map<number, VocabScoreUpdate>
-): Promise<void> {
+): Promise<{ newAchievements: AchievementDef[] }> {
     const now = Date.now();
     const today = new Date().toISOString().split('T')[0];
 
@@ -96,6 +99,11 @@ export async function applySessionResults(
 
     // 4. Check for lesson/grammar progression
     await checkAndAdvanceProgress();
+
+    // 5. Check for achievements
+    const { newlyUnlocked } = await checkAndUnlockAchievements();
+
+    return { newAchievements: newlyUnlocked };
 }
 
 // ============ Progression Logic ============
@@ -119,8 +127,22 @@ export async function checkAndAdvanceProgress(): Promise<{
         const currentGrammarId = lesson.grammarIds[progress.currentGrammarIndex];
         const grammarState = await getGrammarState(currentGrammarId);
 
-        // Unlock next grammar if mastery >= 80 or 2 consecutive days with >= 85% accuracy
-        if (grammarState && grammarState.mastery >= 80) {
+        // Unlock next grammar if mastery >= MASTERY_THRESHOLD
+        if (grammarState && grammarState.mastery >= MASTERY_THRESHOLD) {
+            // Schedule the just-mastered grammar for review in 1 day
+            // This ensures it appears in the review queue promptly
+            const tomorrow = Date.now() + 1 * 24 * 60 * 60 * 1000;
+            if (!grammarState.nextReviewAt || grammarState.nextReviewAt > tomorrow) {
+                await upsertGrammarState({
+                    grammarId: currentGrammarId,
+                    mastery: grammarState.mastery,
+                    lastSeenAt: grammarState.lastSeenAt ?? Date.now(),
+                    nextReviewAt: tomorrow,
+                    wrongCount7d: grammarState.wrongCount7d ?? 0,
+                    correctStreak: grammarState.correctStreak ?? 0,
+                });
+            }
+
             const nextIndex = progress.currentGrammarIndex + 1;
 
             if (nextIndex < lesson.grammarIds.length) {
@@ -154,10 +176,10 @@ async function checkLessonComplete(lessonId: number): Promise<boolean> {
     const lesson = await getLesson(lessonId);
     if (!lesson) return false;
 
-    // Check all grammar mastery >= 80
+    // Check all grammar mastery >= MASTERY_THRESHOLD
     for (const grammarId of lesson.grammarIds) {
         const state = await getGrammarState(grammarId);
-        if (!state || state.mastery < 80) {
+        if (!state || state.mastery < MASTERY_THRESHOLD) {
             return false;
         }
     }
@@ -173,7 +195,7 @@ async function checkLessonComplete(lessonId: number): Promise<boolean> {
         return sum + (result?.vocab.accuracy ?? 0);
     }, 0) / lessonSessions.length;
 
-    if (avgVocabAccuracy < 0.85) return false;
+    if (avgVocabAccuracy < 0.70) return false;
 
     // Check sentence pass rate >= 70
     const avgSentencePassRate = lessonSessions.reduce((sum, s) => {
@@ -182,7 +204,7 @@ async function checkLessonComplete(lessonId: number): Promise<boolean> {
         return sum + (result.sentence.pass / result.sentence.total);
     }, 0) / lessonSessions.length;
 
-    return avgSentencePassRate >= 0.70;
+    return avgSentencePassRate >= 0.50;
 }
 
 // ============ Manual Progression ============
@@ -193,11 +215,11 @@ export async function jumpToLesson(lessonId: number): Promise<boolean> {
         return false;
     }
 
-    // Find first grammar with mastery < 80
+    // Find first grammar with mastery < MASTERY_THRESHOLD
     let startIndex = 0;
     for (let i = 0; i < lesson.grammarIds.length; i++) {
         const state = await getGrammarState(lesson.grammarIds[i]);
-        if (!state || state.mastery < 80) {
+        if (!state || state.mastery < MASTERY_THRESHOLD) {
             startIndex = i;
             break;
         }
@@ -230,7 +252,7 @@ export async function getLessonProgress(lessonId: number): Promise<{
         const state = await getGrammarState(grammarId);
         const mastery = state?.mastery ?? 0;
         totalMastery += mastery;
-        if (mastery >= 80) masteredCount++;
+        if (mastery >= MASTERY_THRESHOLD) masteredCount++;
     }
 
     return {
